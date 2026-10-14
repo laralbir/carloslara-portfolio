@@ -5,16 +5,15 @@
   "description": "Personal portfolio website of Carlos Lara Albir, built with SDD methodology and deployed on Cloudflare.",
   "type": "module",
   "scripts": {
-    "dev": "wrangler pages dev ./public",
-    "build": "echo 'Run stack build step defined during SDD plan'",
-    "preview": "wrangler pages dev ./dist",
-    "deploy": "wrangler pages deploy ./dist"
+    "dev": "wrangler dev",
+    "build": "echo 'Assets ready in public/'",
+    "preview": "wrangler dev",
+    "deploy": "wrangler deploy"
   },
   "devDependencies": {
-    "wrangler": "^3.109.2"
+    "wrangler": "^4.151.0"
   },
   "engines": {
     "node": ">=20.0.0"
   }
 }
-
