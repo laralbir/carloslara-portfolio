@@ -104,8 +104,10 @@ La web debe transmitir inequívocamente la identidad de un ingeniero backend sé
 
 ### 4.3. El Factor Diferencial: Desarrollo Agéntico con IA
 - Cómo Carlos aplica **Spec-Driven Development (SDD)**: Trazabilidad completa Requisito → Plan → Tarea → Código.
-- **Model Context Protocol (MCP):** Servidor propio de diagnóstico (Next.js + Hexagonal) que cruza MongoDB y SQL Server.
-- **Claude Code & Antigravity:** Automatización con guardarraíles, TDD, análisis estático y hooks de calidad.
+- **Model Context Protocol (MCP):** Servidor propio de diagnóstico (Next.js + Hexagonal) que cruza MongoDB y SQL Server en lenguaje natural.
+- **QA Autónomo & Testing (TDD con IA):** Redacción guiada por IA de suites completas de tests unitarios, de integración y fuzzing de casos límite antes de validar código; hooks con Opengrep para asegurar 0 reverts.
+- **Observabilidad y Monitorización Proactiva:** Telemetría en Grafana, análisis automatizado de gigabytes de logs en clústeres distribuidos y detección predictiva de anomalías antes de impacto a usuario.
+- **Claude Code & Antigravity:** Automatización con guardarraíles, ejecución en terminal y zero secrets.
 - **Estimación Ágil Asistida:** Calibración en Story Points y métricas cruzadas Jira-GitHub.
 
 ### 4.4. Proyectos y Casos de Estudio Destacados

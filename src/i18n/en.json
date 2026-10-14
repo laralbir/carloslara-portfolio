@@ -73,7 +73,11 @@
     "claudeTitle": "Claude Code & Antigravity in the terminal",
     "claudeDesc": "Real pair programming: specialized subagents, strict security guardrails (read-only queries in prod, zero secrets in context), and automated TDD right from the console.",
     "estimationTitle": "Estimates without crystal balls",
-    "estimationDesc": "Custom Story Points estimation skill calibrated against team historical data, syncing Jira and GitHub cycle time telemetry to keep delivery predictable."
+    "estimationDesc": "Custom Story Points estimation skill calibrated against team historical data, syncing Jira and GitHub cycle time telemetry to keep delivery predictable.",
+    "qaTitle": "AI-Driven TDD & Autonomous QA",
+    "qaDesc": "AI drafts full unit, integration, and edge-case suites (fuzzing) before any implementation logic is validated. Quality hooks and static analysis with Opengrep secure zero production reverts.",
+    "observabilityTitle": "Proactive Observability & Telemetry",
+    "observabilityDesc": "Real-time Grafana telemetry tracking cycle times and production throughput. AI agents digest gigabytes of distributed logs on demand to spot and resolve anomalies before users notice."
   },
   "projects": {
     "title": "Cool stuff I've built",

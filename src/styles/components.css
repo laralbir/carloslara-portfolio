@@ -453,6 +453,12 @@
   }
 }
 
+@media (min-width: 1100px) {
+  .ai-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 .ai-card {
   padding: 2.25rem 2rem;
   display: flex;

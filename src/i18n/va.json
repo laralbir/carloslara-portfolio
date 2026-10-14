@@ -73,7 +73,11 @@
     "claudeTitle": "Claude Code & Antigravity a la terminal",
     "claudeDesc": "Pair programming de veritat: subagents especialitzats, controls estrictes de seguretat (només lectura en producció, zero secrets en context) i TDD automatitzat des de la consola.",
     "estimationTitle": "Estimacions sense boles de cristall",
-    "estimationDesc": "Skill d'estimació en Story Points calibrat amb l'històric real de l'equip, creuant Jira i mètriques de cicle en GitHub per a no enxampar-nos els dits amb les dates."
+    "estimationDesc": "Skill d'estimació en Story Points calibrat amb l'històric real de l'equip, creuant Jira i mètriques de cicle en GitHub per a no enxampar-nos els dits amb les dates.",
+    "qaTitle": "QA Autònom & TDD amb IA",
+    "qaDesc": "La IA escriu primer la bateria completa de tests unitaris, d'integració i casos límit (fuzzing) abans de validar una sola línia de lògica. Controls estrictes de qualitat i anàlisi estàtica amb Opengrep per a garantir 0 reverts en producció.",
+    "observabilityTitle": "Observabilitat i Monitoratge Proactiu",
+    "observabilityDesc": "Panells en Grafana monitorant temps de cicle i throughput en temps real. Agents d'IA sintetitzen gigues de logs distribuïts a l'instant per a detectar i atallar anomalies abans que impacten als usuaris."
   },
   "projects": {
     "title": "Coses interessants que he muntat",
