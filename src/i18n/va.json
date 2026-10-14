@@ -179,7 +179,7 @@
       "company": "Avantio",
       "period": "2018 – Actualitat",
       "points": [
-        "Referent tècnic de Connectivitat: assegurant que el PMS parle en perfecte temps real i amb màxima fiabilitat amb els gegants del sector (Booking.com, Airbnb, Vrbo, Expedia).",
+        "Referent tècnic de Connectivitat: domini dels principals portals de lloguer vacacional en sincronització en temps real amb el PMS en el següent orde: Booking.com, Airbnb, VRBO, Expedia, Homes & Villas by Marriott, Feratel i Google.",
         "Referent en Arquitectura Distribuïda i Event-Driven: disseny i desacoblament de microserveis amb AWS SQS, SNS i EventBridge, garantint tolerància a fallades, idempotència, cues de descart (DLQ) i zero pèrdua d'esdeveniments sota pics extrems de trànsit.",
         "Vaig construir de dalt a baix el backend de la plataforma interna d'operacions (OPS) que gasten a diari 27+ companys de suport i connectivitat.",
         "Ownership total d'èpiques sense intermediaris: aterrisse la idea amb Producte, dissenye l'arquitectura, estime, programe i m'encarregue que rode en producció.",

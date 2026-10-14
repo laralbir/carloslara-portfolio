@@ -127,7 +127,7 @@ Sustituyendo métricas aisladas de una empresa por 4 pilares universales de maes
   3. **Ámbar Kodi Launcher (`laralbir/ambar-kodi-launcher`):** Launcher táctil panorámico (1920x720) para estación HiFi integrando Kodi (JSON-RPC) y Spotify en Python/Flask/pywebview con estética retro VFD.
 
 ### 4.5. Trayectoria Profesional
-- **Avantio (2018 – Actualidad):** Senior Backend Developer & Connectivity Tech Reference (Referente técnico en Arquitectura Distribuida y Event-Driven con AWS SQS/SNS, modernización de monolitos hacia microservicios en TypeScript/Node.js, plataforma OPS, adopción pionera de IA/SDD y automatización de imputación de horas con Claude + Jira + Calendar + GitHub).
+- **Avantio (2018 – Actualidad):** Senior Backend Developer & Connectivity Tech Reference (Dominio de los principales portales de alquiler vacacional: **Booking.com, Airbnb, VRBO, Expedia, Homes & Villas by Marriott, Feratel y Google**; referente técnico en Arquitectura Distribuida y Event-Driven con AWS SQS/SNS, microservicios en TypeScript/Node.js, plataforma OPS, adopción pionera de IA/SDD e imputación de horas con Claude + Jira + Calendar + GitHub).
 - **Orca Sistemas (2016 – 2018):** Analista Programador Backend & Business Intelligence (POSCRM, génesis en BI, optimización analítica de datos e impulso para la operativa e IA).
 - **Blue Solutions (2015 – 2016):** Fundador & Ingeniero Full-Stack (Desarrollo integral de software PLM para fabricante de tapicerías automoción proveedor de Ford en Almussafes; gestión 360° y arquitectura cliente-servidor).
 - **Binn (2014 – 2015):** Analista Backend y Cloud AWS.

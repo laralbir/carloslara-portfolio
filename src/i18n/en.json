@@ -179,7 +179,7 @@
       "company": "Avantio",
       "period": "2018 – Present",
       "points": [
-        "Technical reference for Connectivity: ensuring seamless, rock-solid real-time sync between the PMS and global industry leaders (Booking.com, Airbnb, Vrbo, Expedia).",
+        "Technical reference for Connectivity: deep domain and real-time PMS synchronization across the industry's leading holiday rental portals in order of expertise: Booking.com, Airbnb, VRBO, Expedia, Homes & Villas by Marriott, Feratel, and Google.",
         "Lead for Distributed & Event-Driven Architecture: designed decoupled asynchronous workflows using AWS SQS, SNS, and EventBridge, ensuring fault tolerance, strict idempotency, DLQs, and zero message loss under extreme traffic spikes.",
         "Built the entire backend for the internal Operations (OPS) platform used daily by 27+ teammates in support and account management.",
         "Full epic ownership without hand-holding: scoping with Product, designing the architecture, estimating, coding, and verifying in production.",

@@ -421,19 +421,19 @@
                 <!-- Panel 3: Production MCP Server -->
                 <div class="terminal-panel" id="panel-mcp" role="tabpanel" aria-labelledby="tab-mcp" hidden>
                   <div class="terminal-prompt-line">carlos@workstation:~/mcp$ cat src/servers/diagnostic-mcp.ts</div>
-                  <pre><code><span class="tok-cm">// Production Diagnostic MCP Server (Hexagonal Architecture)</span>
+                  <pre><code><span class="tok-cm">// Reference Architecture: Hexagonal Diagnostic MCP Server</span>
 <span class="tok-kw">import</span> { McpServer } <span class="tok-kw">from</span> <span class="tok-str">'@modelcontextprotocol/sdk/server/mcp.js'</span>;
 <span class="tok-kw">import</span> { z } <span class="tok-kw">from</span> <span class="tok-str">'zod'</span>;
-<span class="tok-kw">import</span> { ReservationQueryPort } <span class="tok-kw">from</span> <span class="tok-str">'./ports/reservation-query.port'</span>;
+<span class="tok-kw">import</span> { AuditQueryPort } <span class="tok-kw">from</span> <span class="tok-str">'./ports/audit-query.port'</span>;
 
-<span class="tok-kw">const</span> server = <span class="tok-kw">new</span> <span class="tok-fn">McpServer</span>({ name: <span class="tok-str">'avantio-prod-diagnostics'</span>, version: <span class="tok-str">'2.4.0'</span> });
+<span class="tok-kw">const</span> server = <span class="tok-kw">new</span> <span class="tok-fn">McpServer</span>({ name: <span class="tok-str">'telemetry-audit-bridge'</span>, version: <span class="tok-str">'1.0.0'</span> });
 
-<span class="tok-cm">// Diagnostic Tool: Inspect booking timeline across MongoDB &amp; SQL Server</span>
+<span class="tok-cm">// Diagnostic Tool: Inspect transaction timeline across MongoDB &amp; SQL Server</span>
 server.<span class="tok-fn">tool</span>(
-  <span class="tok-str">'investigate_booking_anomaly'</span>,
-  { bookingId: z.<span class="tok-fn">string</span>(), otaProvider: z.<span class="tok-fn">enum</span>([<span class="tok-str">'booking'</span>, <span class="tok-str">'airbnb'</span>, <span class="tok-str">'expedia'</span>]) },
-  <span class="tok-kw">async</span> ({ bookingId, otaProvider }) =&gt; {
-    <span class="tok-kw">const</span> timeline = <span class="tok-kw">await</span> ReservationQueryPort.<span class="tok-fn">reconstructAuditTrail</span>(bookingId, otaProvider);
+  <span class="tok-str">'investigate_transaction_anomaly'</span>,
+  { transactionId: z.<span class="tok-fn">string</span>(), provider: z.<span class="tok-fn">enum</span>([<span class="tok-str">'booking'</span>, <span class="tok-str">'airbnb'</span>, <span class="tok-str">'expedia'</span>]) },
+  <span class="tok-kw">async</span> ({ transactionId, provider }) =&gt; {
+    <span class="tok-kw">const</span> timeline = <span class="tok-kw">await</span> AuditQueryPort.<span class="tok-fn">reconstructAuditTrail</span>(transactionId, provider);
     <span class="tok-kw">return</span> {
       content: [{ type: <span class="tok-str">'text'</span>, text: JSON.<span class="tok-fn">stringify</span>(timeline, <span class="tok-kw">null</span>, <span class="tok-num">2</span>) }]
     };
@@ -621,7 +621,7 @@ server.<span class="tok-fn">tool</span>(
                   </div>
                 </div>
                 <ul class="timeline-points">
-                  <li class="timeline-point" data-i18n="experience.avantio.points.0">Technical reference for Connectivity: ensuring seamless, rock-solid real-time sync between the PMS and global industry leaders (Booking.com, Airbnb, Vrbo, Expedia).</li>
+                  <li class="timeline-point" data-i18n="experience.avantio.points.0">Technical reference for Connectivity: deep domain and real-time PMS synchronization across the industry's leading holiday rental portals in order of expertise: Booking.com, Airbnb, VRBO, Expedia, Homes & Villas by Marriott, Feratel, and Google.</li>
                   <li class="timeline-point" data-i18n="experience.avantio.points.1">Lead for Distributed & Event-Driven Architecture: designed decoupled asynchronous workflows using AWS SQS, SNS, and EventBridge, ensuring fault tolerance, strict idempotency, DLQs, and zero message loss under extreme traffic spikes.</li>
                   <li class="timeline-point" data-i18n="experience.avantio.points.2">Built the entire backend for the internal Operations (OPS) platform used daily by 27+ teammates in support and account management.</li>
                   <li class="timeline-point" data-i18n="experience.avantio.points.3">Full epic ownership without hand-holding: scoping with Product, designing the architecture, estimating, coding, and verifying in production.</li>
