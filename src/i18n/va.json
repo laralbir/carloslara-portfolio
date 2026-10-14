@@ -19,13 +19,8 @@
     "contrastActive": "Mode alt contrast activat"
   },
   "terminal": {
-    "title": "Terminal d'Enginyeria & Codi Real",
-    "subtitle": "Sense captures estàtiques ni simulacions: codi real de l'stack, pipelines de missatgeria i automatitzacions agèntiques.",
-    "tabTimeTracker": "time-tracker.sh",
-    "tabAws": "aws-sns-sqs.ts",
-    "tabMcp": "diagnostic-mcp.ts",
-    "copyBtn": "Copiar codi",
-    "copied": "Copiat!"
+    "title": "Consola de Desenvolupament & Telemetria Agèntica",
+    "subtitle": "Un element visual de com operen els agents d'IA i l'arquitectura d'esdeveniments en el meu dia a dia."
   },
   "hero": {
     "badge": "Buscant el meu pròxim gran repte · Senior / Staff / Tech Lead",

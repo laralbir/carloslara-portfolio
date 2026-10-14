@@ -330,116 +330,36 @@
             </div>
           </div>
 
-          <!-- Interactive Developer Stack & Real Code Terminal -->
+          <!-- Decorative Developer Console & Figurative Agentic Telemetry -->
           <div class="terminal-section">
             <div class="section-header" style="text-align: left; margin-bottom: 1.5rem;">
-              <span class="section-tag" data-i18n="terminal.title">Engineering Terminal & Real Stack Code</span>
-              <p class="section-subtitle" style="margin: 0.35rem 0 0 0;" data-i18n="terminal.subtitle">No mock screenshots or static fluff: real stack architecture snippets, messaging pipelines, and agentic workflows.</p>
+              <span class="section-tag" data-i18n="terminal.title">Developer Console &amp; Agentic Telemetry</span>
+              <p class="section-subtitle" style="margin: 0.35rem 0 0 0;" data-i18n="terminal.subtitle">A visual glimpse into how AI agents and event-driven architecture orchestrate my daily engineering workflow.</p>
             </div>
 
-            <div class="terminal-window" role="region" aria-label="Interactive Code Terminal">
-              <div class="terminal-header">
-                <div class="terminal-controls" aria-hidden="true">
-                  <span class="terminal-dot dot-red"></span>
-                  <span class="terminal-dot dot-yellow"></span>
-                  <span class="terminal-dot dot-green"></span>
+            <div class="terminal-decorative-card" role="region" aria-label="Consola de desarrollo simulada (decorativo)">
+              <div class="terminal-window-bar">
+                <div class="terminal-dots" aria-hidden="true">
+                  <span class="dot dot-red"></span>
+                  <span class="dot dot-yellow"></span>
+                  <span class="dot dot-green"></span>
                 </div>
-
-                <div class="terminal-tabs" role="tablist" aria-label="Terminal Code Tabs">
-                  <button class="terminal-tab active" role="tab" id="tab-tracker" aria-selected="true" aria-controls="panel-tracker" data-target="panel-tracker">
-                    <span aria-hidden="true">⚡</span> <span data-i18n="terminal.tabTimeTracker">time-tracker.sh</span>
-                  </button>
-                  <button class="terminal-tab" role="tab" id="tab-aws" aria-selected="false" aria-controls="panel-aws" data-target="panel-aws" tabindex="-1">
-                    <span aria-hidden="true">📨</span> <span data-i18n="terminal.tabAws">aws-sns-sqs.ts</span>
-                  </button>
-                  <button class="terminal-tab" role="tab" id="tab-mcp" aria-selected="false" aria-controls="panel-mcp" data-target="panel-mcp" tabindex="-1">
-                    <span aria-hidden="true">🔌</span> <span data-i18n="terminal.tabMcp">diagnostic-mcp.ts</span>
-                  </button>
-                </div>
-
-                <div class="terminal-actions">
-                  <button class="terminal-copy-btn" aria-label="Copy active code snippet" data-copied-text="Copied!" data-i18n="terminal.copyBtn">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                    <span>Copy code</span>
-                  </button>
-                </div>
+                <div class="terminal-window-title">claude-agent @ workstation: ~ (zsh)</div>
+                <div class="terminal-status-chip">ACTIVE</div>
               </div>
+              <div class="terminal-window-body">
+                <div class="cli-line"><span class="cli-prompt">carlos@edge:~$</span> <span class="cli-cmd">claude-agent --sdd --profile=senior-lead</span></div>
+                <div class="cli-output"><span class="cli-dim">┌────────────────────────────────────────────────────────┐</span>
+<span class="cli-dim">│</span> <span class="cli-cyan">CARLOS LARA ALBIR</span> · <span class="cli-gold">Senior Backend &amp; Agentic AI Stack</span>     <span class="cli-dim">│</span>
+<span class="cli-dim">│</span> EDA: AWS SNS / SQS · Latency: &lt;15ms · Parity: Real-time  <span class="cli-dim">│</span>
+<span class="cli-dim">└────────────────────────────────────────────────────────┘</span>
 
-              <div class="terminal-body">
-                <!-- Panel 1: Claude Time Tracker Script -->
-                <div class="terminal-panel active" id="panel-tracker" role="tabpanel" aria-labelledby="tab-tracker">
-                  <div class="terminal-prompt-line">carlos@workstation:~/scripts$ ./claude-time-tracker.sh --reconcile --date=today</div>
-                  <pre><code><span class="tok-cm">#!/usr/bin/env bash</span>
-<span class="tok-cm"># Claude Code Agentic Time-Tracker Hook</span>
-<span class="tok-cm"># Correlates Jira sprint tickets, Google Calendar events, and GitHub commits/PRs</span>
+<span class="cli-green">✔</span> <span class="cli-label">Time-Tracker:</span> Correlated Jira sprint, GCalendar &amp; GitHub commits <span class="cli-badge-ok">[AUTO-LOGGED]</span>
+<span class="cli-green">✔</span> <span class="cli-label">Event Stream:</span> SNS Fan-out ──► SQS FIFO queues ──► Workers     <span class="cli-badge-ok">[IDEMPOTENT]</span>
+<span class="cli-green">✔</span> <span class="cli-label">Diagnostics:</span>  MCP Server active · Read-only audit bridge      <span class="cli-badge-ok">[CONNECTED]</span>
+<span class="cli-green">✔</span> <span class="cli-label">Spec-Driven:</span>  Analysis ──► Plan ──► Task ──► Zero Reverts     <span class="cli-badge-ok">[VERIFIED]</span>
 
-<span class="tok-kw">claude</span> --prompt <span class="tok-str">"Reconcile daily engineering activity:
-  1. Query active sprint tickets via Jira REST API (status: In Progress, Review)
-  2. Parse meeting duration via Google Calendar API (filter out declined/personal)
-  3. Correlate git log commits & merged PRs for local and preview branches
-  4. Distribute 8.0 billable hours and register auto-imputations into Tempo Timesheets"</span> \
-  --output json | jq <span class="tok-str">'.entries[] | {issue: .key, hours: .timeSpent, notes: .summary}'</span>
-
-<span class="tok-cm"># Execution Output:</span>
-<span class="tok-ok">[SUCCESS]</span> <span class="tok-num">4.5h</span> -&gt; <span class="tok-var">PRO-2114</span> (OTA Realtime Parity Sync / AWS SQS Fanout DLQ)
-<span class="tok-ok">[SUCCESS]</span> <span class="tok-num">2.0h</span> -&gt; <span class="tok-var">PRO-2120</span> (Architecture Review &amp; Spec-Driven Verification)
-<span class="tok-ok">[SUCCESS]</span> <span class="tok-num">1.5h</span> -&gt; <span class="tok-str">Daily Standup &amp; Cross-team Sync (Google Calendar)</span>
-<span class="tok-cm"># Total: 8.0h registered in Jira Tempo · 0 manual input needed.</span> <span class="terminal-cursor"></span></code></pre>
-                </div>
-
-                <!-- Panel 2: AWS SNS / SQS Fan-Out Pipeline -->
-                <div class="terminal-panel" id="panel-aws" role="tabpanel" aria-labelledby="tab-aws" hidden>
-                  <div class="terminal-prompt-line">carlos@workstation:~/backend$ cat src/messaging/inventory-fanout.ts</div>
-                  <pre><code><span class="tok-cm">// AWS SNS Fan-out &amp; SQS Idempotent Consumer Pipeline</span>
-<span class="tok-kw">import</span> { SNSClient, PublishCommand } <span class="tok-kw">from</span> <span class="tok-str">'@aws-sdk/client-sns'</span>;
-<span class="tok-kw">import</span> { SQSHandler, SQSEvent } <span class="tok-kw">from</span> <span class="tok-str">'aws-lambda'</span>;
-<span class="tok-kw">import</span> { IdempotencyStore } <span class="tok-kw">from</span> <span class="tok-str">'./infrastructure/idempotency'</span>;
-
-<span class="tok-kw">export const</span> <span class="tok-fn">publishInventoryDelta</span> = <span class="tok-kw">async</span> (payload: <span class="tok-type">InventoryUpdate</span>): <span class="tok-type">Promise&lt;void&gt;</span> =&gt; {
-  <span class="tok-kw">const</span> sns = <span class="tok-kw">new</span> <span class="tok-fn">SNSClient</span>({ region: <span class="tok-str">'eu-west-1'</span> });
-  <span class="tok-kw">await</span> sns.<span class="tok-fn">send</span>(<span class="tok-kw">new</span> <span class="tok-fn">PublishCommand</span>({
-    TopicArn: process.env.INVENTORY_FANOUT_TOPIC_ARN,
-    Message: JSON.<span class="tok-fn">stringify</span>(payload),
-    MessageAttributes: {
-      provider: { DataType: <span class="tok-str">'String'</span>, StringValue: payload.providerId },
-      traceId: { DataType: <span class="tok-str">'String'</span>, StringValue: payload.traceId }
-    }
-  }));
-};
-
-<span class="tok-kw">export const</span> <span class="tok-fn">handleSqsMessage</span>: <span class="tok-type">SQSHandler</span> = <span class="tok-kw">async</span> (event: <span class="tok-type">SQSEvent</span>) =&gt; {
-  <span class="tok-kw">for</span> (<span class="tok-kw">const</span> record <span class="tok-kw">of</span> event.Records) {
-    <span class="tok-kw">const</span> { messageId, body } = record;
-    <span class="tok-kw">if</span> (<span class="tok-kw">await</span> IdempotencyStore.<span class="tok-fn">hasProcessed</span>(messageId)) <span class="tok-kw">continue</span>;
-    
-    <span class="tok-kw">await</span> <span class="tok-fn">processOtaSync</span>(JSON.<span class="tok-fn">parse</span>(body));
-    <span class="tok-kw">await</span> IdempotencyStore.<span class="tok-fn">markCompleted</span>(messageId, { ttl: <span class="tok-num">86400</span> });
-  }
-};</code></pre>
-                </div>
-
-                <!-- Panel 3: Production MCP Server -->
-                <div class="terminal-panel" id="panel-mcp" role="tabpanel" aria-labelledby="tab-mcp" hidden>
-                  <div class="terminal-prompt-line">carlos@workstation:~/mcp$ cat src/servers/diagnostic-mcp.ts</div>
-                  <pre><code><span class="tok-cm">// Reference Architecture: Hexagonal Diagnostic MCP Server</span>
-<span class="tok-kw">import</span> { McpServer } <span class="tok-kw">from</span> <span class="tok-str">'@modelcontextprotocol/sdk/server/mcp.js'</span>;
-<span class="tok-kw">import</span> { z } <span class="tok-kw">from</span> <span class="tok-str">'zod'</span>;
-<span class="tok-kw">import</span> { AuditQueryPort } <span class="tok-kw">from</span> <span class="tok-str">'./ports/audit-query.port'</span>;
-
-<span class="tok-kw">const</span> server = <span class="tok-kw">new</span> <span class="tok-fn">McpServer</span>({ name: <span class="tok-str">'telemetry-audit-bridge'</span>, version: <span class="tok-str">'1.0.0'</span> });
-
-<span class="tok-cm">// Diagnostic Tool: Inspect transaction timeline across MongoDB &amp; SQL Server</span>
-server.<span class="tok-fn">tool</span>(
-  <span class="tok-str">'investigate_transaction_anomaly'</span>,
-  { transactionId: z.<span class="tok-fn">string</span>(), provider: z.<span class="tok-fn">enum</span>([<span class="tok-str">'booking'</span>, <span class="tok-str">'airbnb'</span>, <span class="tok-str">'expedia'</span>]) },
-  <span class="tok-kw">async</span> ({ transactionId, provider }) =&gt; {
-    <span class="tok-kw">const</span> timeline = <span class="tok-kw">await</span> AuditQueryPort.<span class="tok-fn">reconstructAuditTrail</span>(transactionId, provider);
-    <span class="tok-kw">return</span> {
-      content: [{ type: <span class="tok-str">'text'</span>, text: JSON.<span class="tok-fn">stringify</span>(timeline, <span class="tok-kw">null</span>, <span class="tok-num">2</span>) }]
-    };
-  }
-);</code></pre>
-                </div>
+<span class="cli-prompt">carlos@edge:~$</span> <span class="cli-cursor" aria-hidden="true">█</span></div>
               </div>
             </div>
           </div>

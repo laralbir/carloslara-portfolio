@@ -19,13 +19,8 @@
     "contrastActive": "High contrast mode enabled"
   },
   "terminal": {
-    "title": "Engineering Terminal & Real Stack Code",
-    "subtitle": "No mock screenshots or static fluff: real stack architecture snippets, messaging pipelines, and agentic workflows.",
-    "tabTimeTracker": "time-tracker.sh",
-    "tabAws": "aws-sns-sqs.ts",
-    "tabMcp": "diagnostic-mcp.ts",
-    "copyBtn": "Copy code",
-    "copied": "Copied!"
+    "title": "Developer Console & Agentic Telemetry",
+    "subtitle": "A visual glimpse into how AI agents and event-driven architecture orchestrate my daily engineering workflow."
   },
   "hero": {
     "badge": "Looking for my next big challenge · Senior / Staff / Tech Lead",

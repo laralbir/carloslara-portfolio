@@ -102,14 +102,11 @@ Sustituyendo métricas aisladas de una empresa por 4 pilares universales de maes
 3. **Ingeniería Agéntica & Tooling con IA (Referente & Early Adopter):** Claude Code en terminal, servidores MCP de diagnóstico en producción, Spec-Driven Development (SDD) y suites de TDD automatizado con 0 defectos.
 4. **Modelado de Datos, Rendimiento & BI (Avanzado & Analítico · +15 años):** Indexación y agregaciones complejas en MongoDB y SQL Server, erradicación de escaneos masivos en gigabytes de datos, y visión analítica desde POSCRM y BI.
 
-### 4.3. El Factor Diferencial: Desarrollo Agéntico con IA & Terminal de Ingeniería
+### 4.3. El Factor Diferencial: Desarrollo Agéntico con IA & Telemetría en Terminal
 - Cómo Carlos aplica **Spec-Driven Development (SDD)**: Trazabilidad completa Requisito → Plan → Tarea → Código.
 - **Model Context Protocol (MCP):** Servidor propio de diagnóstico (Next.js + Hexagonal) que cruza MongoDB y SQL Server en lenguaje natural.
-- **Automatización de Imputación de Tiempos con Claude:** Script y hook con Claude que concilia tickets activos de Jira, eventos y reuniones de Google Calendar y commits/PRs de GitHub para imputar horas diarias automáticamente en Tempo Timesheets sin fricción manual.
-- **Terminal de Ingeniería & Código Real del Stack:** Renderizado interactivo en la web de una ventana de terminal con pestañas ejecutables:
-  1. `time-tracker.sh`: Script de Claude correlacionando Jira + Google Calendar + GitHub commits/PRs.
-  2. `aws-sns-sqs.ts`: Arquitectura EDA con fan-out SNS, consumidor SQS idempotente y colas DLQ.
-  3. `diagnostic-mcp.ts`: Servidor MCP hexagonal con herramientas de diagnóstico sobre MongoDB y SQL Server.
+- **Automatización de Imputación de Tiempos con Claude:** Automatización con Claude que concilia tickets activos de Jira, eventos y reuniones de Google Calendar y commits/PRs de GitHub para imputar horas diarias automáticamente en Tempo Timesheets sin fricción manual.
+- **Consola de Desarrollo & Telemetría Agéntica (Widget Decorativo):** Elemento visual con estética de terminal CLI que renderiza telemetría figurativa de la arquitectura y el stack agéntico (prompt `carlos@edge:~$`, verificación de pipelines SNS/SQS, bridge MCP, auto-logging de tiempos y SDD zero reverts) sin exponer código propietario.
 - **QA Autónomo & Testing (TDD con IA):** Redacción guiada por IA de suites completas de tests unitarios, de integración y fuzzing de casos límite antes de validar código; hooks con Opengrep para asegurar 0 reverts.
 - **Observabilidad y Monitorización Proactiva:** Telemetría en Grafana, análisis automatizado de gigabytes de logs en clústeres distribuidos y detección predictiva de anomalías antes de impacto a usuario.
 - **Claude Code & Antigravity:** Automatización con guardarraíles, ejecución en terminal y zero secrets.

@@ -19,13 +19,8 @@
     "contrastActive": "Modo alto contraste activado"
   },
   "terminal": {
-    "title": "Terminal de Ingeniería & Código Real",
-    "subtitle": "Sin capturas estáticas ni simulaciones: código real del stack, pipelines de mensajería y automatizaciones agénticas.",
-    "tabTimeTracker": "time-tracker.sh",
-    "tabAws": "aws-sns-sqs.ts",
-    "tabMcp": "diagnostic-mcp.ts",
-    "copyBtn": "Copiar código",
-    "copied": "¡Copiado!"
+    "title": "Consola de Desarrollo & Telemetría Agéntica",
+    "subtitle": "Un elemento visual de cómo operan los agentes de IA y la arquitectura de eventos en mi día a día."
   },
   "hero": {
     "badge": "Buscando mi próximo gran reto · Senior / Staff / Tech Lead",

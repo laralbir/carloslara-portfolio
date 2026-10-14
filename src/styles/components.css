@@ -922,7 +922,7 @@ footer {
   margin-top: 3.5rem;
 }
 
-.terminal-window {
+.terminal-decorative-card {
   background: #0d1117;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
@@ -931,24 +931,22 @@ footer {
   font-family: var(--font-mono);
 }
 
-.terminal-header {
+.terminal-window-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.65rem 1rem;
+  padding: 0.65rem 1.25rem;
   background: #161b22;
   border-bottom: 1px solid #30363d;
-  flex-wrap: wrap;
-  gap: 0.5rem;
 }
 
-.terminal-controls {
+.terminal-dots {
   display: flex;
   align-items: center;
   gap: 0.45rem;
 }
 
-.terminal-dot {
+.dot {
   width: 0.75rem;
   height: 0.75rem;
   border-radius: 50%;
@@ -959,108 +957,89 @@ footer {
 .dot-yellow { background: #ffbd2e; }
 .dot-green { background: #27c93f; }
 
-.terminal-tabs {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-  overflow-x: auto;
-}
-
-.terminal-tab {
-  background: transparent;
-  border: 1px solid transparent;
+.terminal-window-title {
   color: #8b949e;
-  font-family: var(--font-mono);
   font-size: 0.8125rem;
-  padding: 0.35rem 0.85rem;
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  transition: all var(--transition-fast);
+  font-weight: 500;
+  letter-spacing: 0.02em;
 }
 
-.terminal-tab:hover {
-  color: #c9d1d9;
-  background: rgba(255, 255, 255, 0.05);
+.terminal-status-chip {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  background: rgba(39, 201, 63, 0.15);
+  color: #3fb950;
+  border: 1px solid rgba(39, 201, 63, 0.3);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
-.terminal-tab.active {
-  color: #58a6ff;
+.terminal-window-body {
+  padding: 1.5rem 1.75rem;
   background: #0d1117;
-  border-color: #30363d;
+  overflow-x: auto;
+  line-height: 1.65;
+  font-size: 0.9375rem;
+}
+
+.cli-line {
+  margin-bottom: 0.75rem;
+  font-size: 0.9375rem;
+}
+
+.cli-prompt {
+  color: #58a6ff;
+  font-weight: 700;
+}
+
+.cli-cmd {
+  color: #f0883e;
   font-weight: 600;
 }
 
-.terminal-actions {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.terminal-copy-btn {
-  background: #21262d;
-  border: 1px solid #30363d;
-  color: #c9d1d9;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  padding: 0.3rem 0.75rem;
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  transition: all var(--transition-fast);
-}
-
-.terminal-copy-btn:hover {
-  background: #30363d;
-  color: #ffffff;
-}
-
-.terminal-copy-btn.copied {
-  background: rgba(35, 134, 54, 0.2);
-  border-color: #3fb950;
-  color: #3fb950;
-}
-
-.terminal-body {
-  padding: 1.25rem 1.5rem;
-  background: #0d1117;
-  overflow-x: auto;
-  max-height: 480px;
-}
-
-.terminal-panel {
-  display: none;
-}
-
-.terminal-panel.active {
-  display: block;
-}
-
-.terminal-panel pre {
+.cli-output {
   margin: 0;
-  font-family: var(--font-mono);
-  font-size: 0.875rem;
-  line-height: 1.65;
-  color: #e6edf3;
+  font-family: inherit;
+  color: #c9d1d9;
+  white-space: pre;
   tab-size: 2;
 }
 
-.terminal-prompt-line {
-  color: #7ee787;
-  margin-bottom: 0.5rem;
+.cli-dim {
+  color: #484f58;
+}
+
+.cli-cyan {
+  color: #58a6ff;
+  font-weight: 700;
+}
+
+.cli-gold {
+  color: #e3b341;
   font-weight: 600;
 }
 
-.terminal-cursor {
+.cli-green {
+  color: #3fb950;
+  font-weight: 700;
+}
+
+.cli-label {
+  color: #f0f6fc;
+  font-weight: 600;
+}
+
+.cli-badge-ok {
+  color: #3fb950;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.cli-cursor {
   display: inline-block;
-  width: 0.55em;
-  height: 1.15em;
-  background: #58a6ff;
-  vertical-align: text-bottom;
+  color: #58a6ff;
   animation: cursor-blink 1s step-start infinite;
 }
 
@@ -1069,15 +1048,15 @@ footer {
   50% { opacity: 0; }
 }
 
-/* Syntax highlighting tokens */
-.tok-kw { color: #ff7b72; font-weight: 600; }
-.tok-fn { color: #d2a8ff; }
-.tok-str { color: #a5d6ff; }
-.tok-cm { color: #8b949e; font-style: italic; }
-.tok-num { color: #79c0ff; }
-.tok-var { color: #ffa657; }
-.tok-type { color: #7ee787; }
-.tok-ok { color: #3fb950; font-weight: 700; }
+@media (max-width: 640px) {
+  .terminal-window-body {
+    padding: 1rem;
+    font-size: 0.75rem;
+  }
+  .cli-line {
+    font-size: 0.75rem;
+  }
+}
 
 /* --------------------------------------------------------------------------
    OFF-TOPIC / AFICIONES SECTION
@@ -1338,7 +1317,8 @@ footer {
   .vu-bar,
   .moto-road-line,
   .moto-silhouette,
-  .terminal-cursor {
+  .terminal-cursor,
+  .cli-cursor {
     animation: none !important;
   }
 }
