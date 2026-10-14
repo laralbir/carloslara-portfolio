@@ -1,0 +1,19 @@
+{
+  "name": "carloslara-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Personal portfolio website of Carlos Lara Albir, built with SDD methodology and deployed on Cloudflare.",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler pages dev ./public",
+    "build": "echo 'Run stack build step defined during SDD plan'",
+    "preview": "wrangler pages dev ./dist",
+    "deploy": "wrangler pages deploy ./dist"
+  },
+  "devDependencies": {
+    "wrangler": "^3.109.2"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

@@ -1,0 +1,5 @@
+# Cloudflare Pages Redirects configuration
+# Syntax: /source /target [status]
+
+# Example: redirect old domain or canonical aliases
+# /cv /resume.pdf 302
