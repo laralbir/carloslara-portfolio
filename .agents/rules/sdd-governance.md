@@ -14,9 +14,9 @@ Estas reglas son de obligado cumplimiento para cualquier agente o desarrollador 
 3. **Criterios de Verificación (DoD):**
    - Ninguna tarea se da por concluida si no pasa el build sin errores y no se verifica en el entorno local de Cloudflare Pages.
 
-4. **Consentimiento Explícito para Git (Commit & Push):**
-   - Queda terminantemente PROHIBIDO ejecutar `git commit` o `git push` sin la instrucción o consentimiento explícito y previo de Carlos Lara Albir.
-   - El agente debe preparar los cambios, verificar su corrección y solicitar aprobación antes de registrar cualquier commit o enviar al repositorio remoto.
+4. **Control de Versiones y Consentimiento Git:**
+   - **Rama `preview`:** El agente cuenta con autorización explícita de Carlos Lara Albir para realizar `git commit` y `git push` automáticamente tras verificar que la compilación y los cambios son correctos.
+   - **Rama `main`:** Queda terminantemente PROHIBIDO realizar `git commit`, `merge` o `git push` sin la instrucción o consentimiento explícito y previo de Carlos Lara Albir.
 
 5. **Estrategia de Ramas (Preview First):**
    - Todo el trabajo de desarrollo activo se realiza en la rama `preview` hasta disponer de una versión funcional validada.

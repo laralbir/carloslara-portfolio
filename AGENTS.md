@@ -67,9 +67,9 @@ Al comenzar cualquier sesión de trabajo, el agente debe:
 
 ## 5. Control de Versiones y Consentimiento Git (Regla Estricta)
 
-1. **Consentimiento Previo Obligatorio:**
-   - **PROHIBIDO** ejecutar `git commit` o `git push` sin la instrucción o consentimiento explícito y previo de Carlos Lara Albir.
-   - El agente debe preparar los archivos, verificar su integridad y preguntar/notificar al usuario antes de registrar commits o empujar a remoto.
+1. **Políticas de Consentimiento Git:**
+   - **Rama `preview`:** El agente cuenta con autorización explícita para ejecutar `git commit` y `git push` de forma autónoma cada vez que verifique la compilación y pruebas de sus tareas, manteniendo la previsualización actualizada en Cloudflare.
+   - **Rama `main`:** Queda **estrictamente PROHIBIDO** realizar `git commit`, `git merge` o `git push` sin la instrucción o consentimiento explícito y previo de Carlos Lara Albir.
 2. **Estrategia de Ramas (Preview First):**
    - Hasta disponer de una versión 100% funcional y aprobada, todo el desarrollo se realiza en la rama **`preview`**.
    - La rama `main` queda reservada para versiones estables y definitivas.
