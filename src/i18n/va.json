@@ -5,121 +5,121 @@
     "aiSdd": "IA & SDD",
     "projects": "Projectes",
     "experience": "Trajectòria",
-    "skills": "Habilitats",
-    "education": "Formació",
+    "skills": "Stack",
+    "education": "Background",
     "contact": "Contacte",
     "themeLight": "Clar",
     "themeDark": "Fosc",
     "themeSystem": "Sistema"
   },
   "hero": {
-    "badge": "Obert a nous reptes · Senior / Staff / Tech Lead",
+    "badge": "Buscant el meu pròxim gran repte · Senior / Staff / Tech Lead",
     "titlePrefix": "Carlos Lara Albir",
     "titleHighlight": "Senior Backend Engineer",
-    "titleSuffix": "& Desenvolupador amb IA",
-    "subtitle": "Més de 20 anys construint sistemes distribuïts d'alta disponibilitat i missió crítica (Node.js, TypeScript, Event-Driven, sincronització OTA en temps real, PCI-DSS) accelerat per desenvolupament agèntic amb IA (Claude Code, servidors MCP propis i Spec-Driven Development).",
-    "ctaProjects": "Veure Projectes i Mètriques",
-    "ctaContact": "Contactar",
-    "ctaCv": "Descarregar CV"
+    "titleSuffix": "& Desenvolupador Augmentat amb IA",
+    "subtitle": "Porte més de 20 anys dissenyant sistemes distribuïts que no cauen quan hi ha trànsit de veritat (Node.js, TypeScript, esdeveniments, sincronització OTA al mil·lisegon). Hui multiplique eixa experiència amb IA agèntica: Claude Code en la terminal, servidors MCP propis i zero codi a l'atzar.",
+    "ctaProjects": "Fes-li una ullada als projectes",
+    "ctaContact": "Fem un café?",
+    "ctaCv": "Veure Perfil / CV ↗"
   },
   "aiCallout": {
     "tag": "100% IA Agèntica & SDD",
-    "message": "Aquest web no s'ha escrit a mà línia a línia: ha sigut concebut, especificat i programat al 100% mitjançant agents d'IA (Claude Code + Antigravity) sota la metodologia Spec-Driven Development (SDD).",
-    "action": "Auditar Specs i Commits en GitHub ➔",
-    "modalTitle": "Com s'ha construït aquest web amb IA & SDD",
-    "modalDesc": "Sota Spec-Driven Development, el codi és el resultat final verificat d'especificacions rigoroses, mai el punt de partida. Cada funcionalitat compta amb traçabilitat directa des dels requisits, l'arquitectura i el desglossament de tasques fins a les proves d'acceptació.",
-    "modalStep1": "01. Anàlisi: Elicitació de perfil, KPIs quantificables, diferencials i especificacions funcionals.",
-    "modalStep2": "02. Pla: Arquitectura tècnica, i18n, sistema de temes sense dependències de runtime i estratègia Cloudflare Edge.",
-    "modalStep3": "03. Task: Desglossament en tasques atòmiques amb Criteris d'Acceptació (AC) i Definició d'Acabat (DoD).",
-    "modalStep4": "04. Implement: Execució precisa, validació amb tests, 100/100 en Lighthouse i desplegament continu.",
-    "modalLink": "Veure directori d'especificacions en GitHub"
+    "message": "Aquest web no el vaig picar a mà línia a línia: el vaig modelar, especificar i programar amb agents autònoms (Claude Code + Antigravity) seguint Spec-Driven Development estricte. Zero al·lucinacions, 100% codi verificat.",
+    "action": "Festeja les specs i commits en GitHub ➔",
+    "modalTitle": "Com s'ha parit aquest web amb IA & SDD",
+    "modalDesc": "En Spec-Driven Development (SDD), el codi no és on comença el treball: és el resultat final de pensar i especificar molt bé el problema. Res de 'prova açò a vore si compila'; ací cada commit respon a una tasca atòmica amb criteris d'acceptació clars.",
+    "modalStep1": "01. Anàlisi: Qui soc, números reals sense fum, què busque i especificacions clares.",
+    "modalStep2": "02. Pla: Arquitectura tècnica, i18n, estils sense llibreries feixugues i desplegament a l'Edge de Cloudflare.",
+    "modalStep3": "03. Task: Desglossament en tasques menudes amb Definition of Done (DoD) estricte.",
+    "modalStep4": "04. Implement: Codi net, tests automàtics, 100/100 en Lighthouse i push continu.",
+    "modalLink": "Veure les carpetes d'especificacions en GitHub ➔"
   },
   "metrics": {
-    "title": "Entrega i Qualitat Demostrada",
-    "subtitle": "Mètriques auditades de panells de Grafana i dades reals de la plataforma d'operacions (2026)",
+    "title": "Nombres reals (sense trampa ni cartó)",
+    "subtitle": "Dades tretes directament dels nostres panells de Grafana i producció (2026). Les mètriques parlen soles:",
     "prs": {
       "value": "341",
-      "label": "PRs Foses (Merged)",
-      "detail": "0 PRs revertides · Sols 1,2% hotfixes (feb–set 2026)"
+      "label": "PRs a producció",
+      "detail": "0 reverts · Sols 1,2% hotfixes. Desplegar un divendres sense suar fred."
     },
     "reviews": {
       "value": "313",
-      "label": "Revisions de Codi",
-      "detail": "1r o 2n de l'equip en tots els mesos amb rànquing"
+      "label": "Code reviews a fons",
+      "detail": "#1 o #2 de l'equip tots els mesos desbloquejant a companys."
     },
     "migration": {
       "value": "211",
-      "label": "Empreses Migrades",
-      "detail": "Expedia Channel PRO en 11 dies amb 0 errors"
+      "label": "Empreses migrades",
+      "detail": "Expedia Channel PRO en 11 dies amb 0 errors i zero downtime."
     },
     "users": {
       "value": "27+",
-      "label": "Usuaris d'Eines OPS",
-      "detail": "Eines internes construïdes de punta a punta (1.388+ accions de tercers)"
+      "label": "Usuaris en eines OPS",
+      "detail": "Construïdes de punta a punta perquè suport i comptes visquen més tranquils."
     },
     "mcp": {
       "value": "25+",
-      "label": "Eines MCP Pròpies",
-      "detail": "Diagnòstics reduïts de 60 minuts a segons en llenguatge natural"
+      "label": "Eines MCP a mida",
+      "detail": "D'investigar incidències durant 1 hora a resoldre-les en 30 segons a la terminal."
     }
   },
   "ai": {
-    "title": "Desenvolupament Agèntic amb IA",
-    "subtitle": "Com la intel·ligència artificial multiplica la capacitat d'entrega i el rigor tècnic",
+    "title": "Desenvolupament Agèntic: La meua forma de treballar",
+    "subtitle": "No gaste la IA per a endevinar codi; la gaste com un equip d'enginyers hiper-especialitzats treballant amb especificacions quirúrgiques.",
     "sddTitle": "Spec-Driven Development (SDD)",
-    "sddDesc": "Cicle estricte en 4 fases (Anàlisi → Pla → Tasques → Codi) automatitzat amb skills propis integrats amb Jira i el codi real dels repositoris, amb traçabilitat requisit-tasca-prova.",
-    "mcpTitle": "Servidor MCP de Diagnòstic en Producció",
-    "mcpDesc": "Servidor Model Context Protocol propi amb Next.js i arquitectura hexagonal amb 25+ eines de només lectura sobre MongoDB i SQL Server per a diagnosticar reserves i pagaments en llenguatge natural.",
-    "claudeTitle": "Fluxos de Treball amb Claude Code i Antigravity",
-    "claudeDesc": "Desenvolupament en parella amb subagents, hooks de control de qualitat, rails de seguretat (consultes de només lectura en producció, zero secrets exposats) i TDD automatitzat.",
-    "estimationTitle": "Estimació Àgil Sistematitzada",
-    "estimationDesc": "Skill d'estimació en Story Points calibrat amb els criteris del departament, monitoritzat mitjançant panell de mètriques d'entrega creuant Jira i GitHub."
+    "sddDesc": "Pensar abans de picar. Un cicle en 4 fases (Anàlisi → Pla → Tasques → Codi) amb skills automatitzats integrats amb Jira i el repositori. Si no està en la spec i en els tests, no puja a producció.",
+    "mcpTitle": "Servidor MCP de Diagnòstic en Viu",
+    "mcpDesc": "Vaig crear un servidor Model Context Protocol propi amb arquitectura hexagonal en Next.js. Compta amb 25+ eines de només lectura connectades a MongoDB i SQL Server. Investigar incidències rares de reserves o pagaments ara és preguntar-li a la IA en llenguatge natural.",
+    "claudeTitle": "Claude Code & Antigravity a la terminal",
+    "claudeDesc": "Pair programming de veritat: subagents especialitzats, controls estrictes de seguretat (només lectura en producció, zero secrets en context) i TDD automatitzat des de la consola.",
+    "estimationTitle": "Estimacions sense boles de cristall",
+    "estimationDesc": "Skill d'estimació en Story Points calibrat amb l'històric real de l'equip, creuant Jira i mètriques de cicle en GitHub per a no enxampar-nos els dits amb les dates."
   },
   "projects": {
-    "title": "Projectes i Casos d'Estudi Destacats",
-    "subtitle": "Arquitectures crítiques, migracions massives i sistemes d'alta concurrència",
+    "title": "Coses interessants que he muntat",
+    "subtitle": "Projectes d'impacte real: problemes grossos resolts amb arquitectura neta i codi robust.",
     "case1": {
       "title": "Servidor MCP de Diagnòstic Operatiu",
       "tag": "IA & Developer Tooling",
-      "problem": "Investigar anomalies de reserves i pagaments en 6 portals requeria creuar logs massius de diversos GB en múltiples bases de dades, consumint de 15 a 60 minuts per cas.",
-      "solution": "Disseny i desenvolupament d'un servidor MCP amb arquitectura hexagonal en Next.js amb eines de només lectura que reconstrueixen la cronologia en llenguatge natural.",
-      "impact": "Reducció del temps mitjà de diagnòstic de 60 minuts a menys de 30 segons."
+      "problem": "Investigar què havia passat amb una reserva entre 6 portals implicava bussejar a mà en gigues de logs i diverses bases de dades. Entre 15 i 60 minuts perduts per cas.",
+      "solution": "Vaig dissenyar un servidor MCP en Next.js amb arquitectura hexagonal i accés de només lectura, capaç de reconstruir tota la cronologia en segons responent en llenguatge natural.",
+      "impact": "De 60 minuts de frustració a resoldre diagnòstics complexos en menys de 30 segons."
     },
     "case2": {
-      "title": "Eina de Migració Massiva Expedia Channel PRO",
-      "tag": "Tooling d'Operacions Internes",
-      "problem": "Migració obligatòria de comptes de lloguer vacacional des de l'API legacy d'Expedia al nou canal sense talls de disponibilitat ni incidències en reserves actives.",
-      "solution": "Orquestrador de migració per lots amb monitorització en temps real, punts de control, marxa arrere automatitzada (rollback) i informes d'auditoria en Excel.",
-      "impact": "211 empreses migrades amb èxit en sols 11 dies (1.664 accions) amb 0 errors registrats."
+      "title": "Migració Massiva a Expedia Channel PRO",
+      "tag": "Eines d'Operacions",
+      "problem": "Calia migrar centenars de comptes de lloguer vacacional de l'API vella d'Expedia a la nova sense tallar el servei ni posar en risc reserves actives.",
+      "solution": "Vaig muntar un orquestrador per lots amb monitoratge en temps real, punts de control, marxa arrere automàtica (rollback) i informes d'auditoria.",
+      "impact": "211 empreses migrades en només 11 dies (1.664 operacions) amb 0 errors."
     },
     "case3": {
-      "title": "Motor de Sincronització d'Inventari OTA en Temps Real",
+      "title": "Motor de Sincronització OTA en Temps Real",
       "tag": "Event-Driven & Microserveis",
-      "problem": "Evitar overbooking i desajustos tarifaris en milions de transaccions diàries amb Booking.com, Airbnb, Expedia i Vrbo.",
-      "solution": "Desacoblament de la connectivitat en una arquitectura orientada a esdeveniments en TypeScript/Node.js amb cues AWS SQS i algorismes de paritat d'inventari d'acord amb PCI-DSS.",
-      "impact": "Reducció dràstica de sobrevendes i estabilitat total en les integracions amb socis globals."
+      "problem": "Evitar overbookings i desajustos de preus amb milions de transaccions diàries repartides entre Booking, Airbnb, Expedia i Vrbo.",
+      "solution": "Vaig desacoblar la connectivitat en microserveis orientats a esdeveniments (Node.js/TypeScript amb cues AWS SQS) i algoritmes de paritat segons PCI-DSS.",
+      "impact": "Sobre-vendes pràcticament a zero i una estabilitat a prova de bombes."
     },
     "case4": {
       "title": "Ingesta Big Data d'Alta Concurrència per a E-Commerce",
       "tag": "Big Data & Streaming",
-      "problem": "Integració massiva de fluxos heterogenis de transaccions, clickstream, catàleg d'inventari i dades de màrqueting a gran escala.",
-      "solution": "Arquitectura híbrida d'ingesta en temps real (streaming) i lots (batch) amb Apache Kafka com a backbone de missatgeria i emmagatzematge en Cloud Data Lake.",
-      "impact": "Ingesta en subsegons amb capacitat analítica unificada i alta disponibilitat."
+      "problem": "Engolir i processar a temps fluxos massius d'esdeveniments: compres, clickstream, inventari i dades de màrqueting a gran escala.",
+      "solution": "Arquitectura híbrida de streaming i lots amb Apache Kafka al cor del sistema i emmagatzematge en Data Lake cloud.",
+      "impact": "Ingesta en mil·lisegons amb capacitat per a analitzar-ho tot quasi a l'instant."
     }
   },
   "experience": {
-    "title": "Trajectòria Professional",
-    "subtitle": "Més de dues dècades de lideratge backend i enginyeria de programari a escala",
+    "title": "La meua Trajectòria (i unes quantes batalles)",
+    "subtitle": "Més de 20 anys a la trinxera del backend: des de bare-metal i SQL fins a microserveis orientats a esdeveniments i IA.",
     "avantio": {
       "role": "Senior Backend Developer & Referent Tècnic de Connectivitat",
       "company": "Avantio",
       "period": "2018 – Actualitat",
       "points": [
-        "Responsable tècnic de l'equip de Connectivity, garantint la fiabilitat de sincronització entre el PMS i els principals canals globals (Booking.com, Airbnb, Vrbo, Expedia).",
-        "Disseny i implementació de microserveis orientats a esdeveniments en Node.js/TypeScript per a modernitzar processos heretats en PHP, millorant mantenibilitat i escalabilitat.",
-        "Desenvolupament de punta a punta del backend de la plataforma interna d'operacions (OPS) utilitzada per 27+ persones de suport, comptes i connectivitat.",
-        "Ownership integral d'èpiques sense Project Manager: especificació amb Producte, arquitectura tècnica, estimació en Story Points, desplegament i verificació postdesplegament.",
-        "Pioner en l'adopció de desenvolupament assistit per IA amb Claude Code, servidors MCP de diagnòstic i metodologia Spec-Driven Development."
+        "Lidere tècnicament la connectivitat, assegurant que el PMS parle en perfecte temps real amb els gegants del sector (Booking.com, Airbnb, Vrbo, Expedia).",
+        "Vaig transformar sistemes heretats en PHP en microserveis orientats a esdeveniments en TypeScript/Node.js, guanyant en velocitat, escalabilitat i salut mental de l'equip.",
+        "Vaig construir de dalt a baix el backend de la plataforma interna d'operacions (OPS) que gasten a diari 27+ companys de suport i connectivitat.",
+        "Ownership total d'èpiques sense intermediaris: aterrisse la idea amb Producte, dissenye l'arquitectura, estime, programe i m'encarregue que rode en producció.",
+        "Vaig introduir i liderar l'adopció de desenvolupament amb IA en l'equip: Claude Code en consola, servidors MCP i metodologia SDD."
       ]
     },
     "orca": {
@@ -127,8 +127,8 @@
       "company": "Orca Sistemas y Programación S.L.",
       "period": "2016 – 2018",
       "points": [
-        "Desenvolupament del nucli de la plataforma POSCRM amb PHP i bases de dades relacionals.",
-        "Disseny de procediments emmagatzemats i optimització avançada de consultes SQL per a facturació massiva."
+        "Desenvolupament del cor de la plataforma POSCRM amb PHP i bases de dades relacionals.",
+        "Optimització de consultes SQL complexes i procediments emmagatzemats per a facturació massiva que abans s'eternitzava."
       ]
     },
     "blue": {
@@ -136,7 +136,7 @@
       "company": "Blue Solutions",
       "period": "2015 – 2016",
       "points": [
-        "Direcció tècnica i desenvolupament de solucions client-servidor a mida per a clients corporatius."
+        "Vaig fundar i dirigir l'empresa, desenvolupant solucions client-servidor a mida per a clients corporatius i gestionant projectes d'inici a fi."
       ]
     },
     "binn": {
@@ -144,7 +144,7 @@
       "company": "Binn",
       "period": "2014 – 2015",
       "points": [
-        "Disseny d'arquitectures API per a aplicacions mòbils i administració d'infraestructura cloud en AWS."
+        "Disseny d'APIs REST per a aplicacions mòbils i administració d'infraestructura al núvol amb AWS."
       ]
     },
     "fbcv": {
@@ -152,7 +152,7 @@
       "company": "Federació de Bàsquet de la C. Valenciana",
       "period": "2010 – 2014",
       "points": [
-        "Desenvolupament i manteniment de sistemes de gestió interna: llicències, competicions i actes digitals."
+        "Modernització i desenvolupament de sistemes de gestió esportiva: llicències, lligues i actes digitals per a milers de jugadors."
       ]
     },
     "serolo": {
@@ -160,55 +160,54 @@
       "company": "Servicios Taurinos Serolo S.L.",
       "period": "2006 – 2009",
       "points": [
-        "Sistemes de venda en línia d'entrades i control d'accessos en temps real sobre Microsoft SQL Server."
+        "Venda online d'entrades i control de torns d'accés en temps real sobre SQL Server amb pics salvatges de concurrència."
       ]
     }
   },
   "skills": {
-    "title": "Competències Tècniques",
-    "subtitle": "Stack especialitzat en fiabilitat, alt rendiment i automatització amb IA",
-    "catAi": "Desenvolupament amb IA & Tooling",
-    "catLang": "Llenguatges Core & Runtimes",
-    "catData": "Bases de Dades & Emmagatzematge",
+    "title": "La meua Caixa d'Eines",
+    "subtitle": "Les tecnologies amb què lluite a diari i on més valor aporte",
+    "catAi": "Desenvolupament Augmentat amb IA",
+    "catLang": "Llenguatges & Runtimes Core",
+    "catData": "Bases de Dades & Memòria Cau",
     "catArch": "Arquitectura & Patrons",
-    "catCloud": "Cloud, Missatgeria & DevOps"
+    "catCloud": "Cloud, Esdeveniments & DevOps"
   },
   "education": {
-    "title": "Formació i Lideratge",
-    "subtitle": "Especialització contínua i disciplina d'alt rendiment",
+    "title": "Background & Disciplina",
+    "subtitle": "Curiositat tècnica constant i disciplina d'alt rendiment",
     "aiDegree": {
-      "title": "Especialització en Intel·ligència Artificial i Big Data (CFGS)",
+      "title": "Especialització en IA i Big Data (CFGS)",
       "institution": "En curs (2026)",
-      "desc": "Formació avançada en models de machine learning, deep learning, pipelines de streaming massiu i arquitectures neuronals."
+      "desc": "Aprofundint en models de machine learning, deep learning, pipelines de streaming massiu i arquitectures neuronals."
     },
     "csDegree": {
       "title": "Enginyeria Informàtica",
       "institution": "Universitat Politècnica de València (UPV)",
-      "desc": "+80% de crèdits superats amb enfocament en Enginyeria del Programari i Sistemes Distribuïts."
+      "desc": "+80% dels crèdits superats, amb focus en Enginyeria del Software i Sistemes Distribuïts."
     },
     "daiDegree": {
-      "title": "Tècnic Superior en Desenvolupament d'Aplicacions Informàtiques (CFGS DAI)",
+      "title": "Desenvolupament d'Aplicacions Informàtiques (CFGS DAI)",
       "institution": "Titulació Oficial",
-      "desc": "Bases sòlides d'arquitectura de programari, bases de dades i desenvolupament de sistemes."
+      "desc": "Les bases clàssiques que mai passen de moda: algorismes, bases de dades i arquitectura de sistemes."
     },
     "archery": {
-      "title": "Lideratge Esportiu: Entrenador i Jutge Nacional de Tir amb Arc",
-      "institution": "Certificat pel Consell Superior d'Esports (CSD)",
-      "desc": "Equip dirigit a Campió Universitari d'Espanya. Fomenta el focus mil·limètric, l'autoregulació sota pressió i la meticulositat tècnica."
+      "title": "Tir amb Arc: Entrenador i Jutge Nacional",
+      "institution": "Consell Superior d'Esports (CSD)",
+      "desc": "Vaig portar el meu equip a proclamar-se Campió Universitari d'Espanya. D'ací ve el meu focus mil·limètric, la calma sota pressió i el perfeccionisme tècnic."
     }
   },
   "contact": {
-    "title": "Contacte Directe",
-    "subtitle": "Disponible per a posicions Senior, Staff o Tech Lead",
-    "copyEmail": "Copiar Email",
-    "emailCopied": "¡Email copiat al porta-retalls!",
+    "title": "Ens coneixem?",
+    "subtitle": "Sempre obert a xarrar sobre reptes tècnics interessants, sistemes d'alta concurrència o posicions Senior / Staff / Tech Lead.",
+    "copyEmail": "Copiar email",
+    "emailCopied": "Email copiat! Escriu-me quan vulgues.",
     "downloadCv": "Descarregar CV (PDF)",
-    "location": "Torrent, València, Espanya (Disponible Remot i Híbrid)"
+    "location": "Torrent, València, Espanya (o en qualsevol racó del món en remot)"
   },
   "footer": {
     "rights": "Tots els drets reservats.",
-    "builtWith": "Concebut i desenvolupat al 100% amb IA i Spec-Driven Development.",
-    "edgePowered": "Allotjat en la xarxa global Edge de Cloudflare."
+    "builtWith": "Dissenyat i desenvolupat al 100% amb IA agèntica i Spec-Driven Development.",
+    "edgePowered": "Volant sobre la xarxa Edge global de Cloudflare."
   }
 }
-

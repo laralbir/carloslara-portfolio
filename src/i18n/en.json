@@ -5,154 +5,154 @@
     "aiSdd": "AI & SDD",
     "projects": "Projects",
     "experience": "Experience",
-    "skills": "Skills",
-    "education": "Education",
+    "skills": "Stack",
+    "education": "Background",
     "contact": "Contact",
     "themeLight": "Light",
     "themeDark": "Dark",
     "themeSystem": "System"
   },
   "hero": {
-    "badge": "Open to new challenges · Senior / Staff / Tech Lead",
+    "badge": "Looking for my next big challenge · Senior / Staff / Tech Lead",
     "titlePrefix": "Carlos Lara Albir",
     "titleHighlight": "Senior Backend Engineer",
     "titleSuffix": "& AI-Augmented Developer",
-    "subtitle": "Over 20 years building high-availability, mission-critical distributed systems (Node.js, TypeScript, Event-Driven, real-time OTA synchronization, PCI-DSS) accelerated by agentic AI workflows (Claude Code, custom MCP servers, Spec-Driven Development).",
-    "ctaProjects": "Explore Projects & Metrics",
-    "ctaContact": "Get in Touch",
-    "ctaCv": "Download CV"
+    "subtitle": "Over 20 years building rock-solid distributed systems that don't flinch under heavy load (Node.js, TypeScript, event-driven, sub-second OTA sync). Today, I supercharge that deep backend expertise with agentic AI: Claude Code in the terminal, custom MCP servers, and zero guesswork.",
+    "ctaProjects": "Check out my work & numbers",
+    "ctaContact": "Let's chat",
+    "ctaCv": "View LinkedIn / CV ↗"
   },
   "aiCallout": {
     "tag": "100% Agentic AI & SDD",
-    "message": "This web wasn't handwritten line by line: it was architected, specified, and coded 100% by AI agents (Claude Code + Antigravity) under rigorous Spec-Driven Development (SDD).",
-    "action": "Audit Specs & Commits on GitHub ➔",
+    "message": "This site wasn't handcrafted line by line: I architected, specified, and coded it with autonomous AI agents (Claude Code + Antigravity) under strict Spec-Driven Development. Zero hallucinations, 100% verified code.",
+    "action": "Inspect the specs & git log on GitHub ➔",
     "modalTitle": "How this website was built with AI & SDD",
-    "modalDesc": "Under Spec-Driven Development, code is the verified final output of structured specifications, never the starting point. Every feature maps directly to requirements, architectural design, atomic task work packages, and verified acceptance criteria.",
-    "modalStep1": "01. Analysis: Profile, quantitative KPIs, core differentiators, and functional specs.",
-    "modalStep2": "02. Plan: Technical architecture, i18n, zero-runtime CSS theme system, and Cloudflare Edge strategy.",
+    "modalDesc": "Under Spec-Driven Development (SDD), code isn't where work begins: it's the verified final output of crystal-clear thinking and specs. No 'let's try this and see if it compiles'—every single commit maps to an atomic task with clear acceptance criteria.",
+    "modalStep1": "01. Analysis: Who I am, real numbers (no fluff), target goals, and functional specs.",
+    "modalStep2": "02. Plan: Technical architecture, i18n, zero-runtime CSS theme system, and Cloudflare Edge deployment.",
     "modalStep3": "03. Task: Atomic task breakdown with strict Definition of Done (DoD).",
-    "modalStep4": "04. Implement: Precision execution, test verification, Lighthouse 100/100, and deployment.",
-    "modalLink": "View specs directory on GitHub"
+    "modalStep4": "04. Implement: Clean code, automated tests, 100/100 Lighthouse score, and continuous push.",
+    "modalLink": "View specs directory on GitHub ➔"
   },
   "metrics": {
-    "title": "Proven Delivery & Quality",
-    "subtitle": "Audited metrics from 2026 Grafana management reports and internal operations data",
+    "title": "Real numbers (no smoke, no mirrors)",
+    "subtitle": "Audited data pulled straight from our Grafana dashboards and live production systems (2026):",
     "prs": {
       "value": "341",
-      "label": "Merged PRs",
-      "detail": "0 reverted PRs · Only 1.2% hotfixes (Feb–Sep 2026)"
+      "label": "Production PRs merged",
+      "detail": "0 reverts · Only 1.2% hotfixes. Deploying on a Friday without cold sweats."
     },
     "reviews": {
       "value": "313",
-      "label": "Code Reviews Given",
-      "detail": "#1 or #2 in team rankings every single month"
+      "label": "Deep code reviews",
+      "detail": "Ranked #1 or #2 on the team every single month, unblocking teammates."
     },
     "migration": {
       "value": "211",
-      "label": "Companies Migrated",
-      "detail": "Expedia Channel PRO in 11 days with 0 registered errors"
+      "label": "Companies migrated",
+      "detail": "Expedia Channel PRO in 11 days with 0 glitches and zero downtime."
     },
     "users": {
       "value": "27+",
-      "label": "Ops Platform Users",
-      "detail": "Internal tools built end-to-end (1,388+ non-self operations)"
+      "label": "Daily Ops tool users",
+      "detail": "Built end-to-end so support and account managers can breathe easier."
     },
     "mcp": {
       "value": "25+",
-      "label": "Custom MCP Tools",
-      "detail": "Reduced incident diagnostic time from 60 min to seconds"
+      "label": "Custom MCP tools",
+      "detail": "Turned 1-hour incident investigations into 30-second queries in plain language."
     }
   },
   "ai": {
-    "title": "AI-Augmented Engineering",
-    "subtitle": "How agentic AI multiplies output, code quality, and engineering velocity",
+    "title": "How I work with AI (it's not just autocomplete)",
+    "subtitle": "I don't use AI to guess code; I treat it as a team of hyper-specialized engineers operating under surgical specs.",
     "sddTitle": "Spec-Driven Development (SDD)",
-    "sddDesc": "Rigorous four-phase lifecycle (Analysis → Plan → Task → Implement) automated via custom skills reading Jira epics and actual codebase to guarantee 100% traceability from requirement to verified code.",
-    "mcpTitle": "Production MCP Diagnostic Server",
-    "mcpDesc": "Engineered an in-house Model Context Protocol server using Next.js and hexagonal architecture with 25+ read-only tools on MongoDB and SQL Server, enabling natural language investigation of complex reservation lifecycles.",
-    "claudeTitle": "Claude Code & Antigravity Workflows",
-    "claudeDesc": "Advanced pair programming with subagents, quality hooks, strict security guardrails (read-only production queries, zero exposed secrets), and automated test-driven development.",
-    "estimationTitle": "Systematized Agile Estimation",
-    "estimationDesc": "Custom Story Points estimation skill calibrated to department velocity guidelines, paired with real-time Jira & GitHub cycle time telemetry."
+    "sddDesc": "Think first, code second. A tight 4-phase loop (Analysis → Plan → Task → Code) backed by custom skills integrated with Jira and the repo. If it's not in the spec and covered by tests, it doesn't ship.",
+    "mcpTitle": "Live Production MCP Diagnostic Server",
+    "mcpDesc": "Engineered an in-house Model Context Protocol server using hexagonal architecture in Next.js. Equipped with 25+ read-only tools on MongoDB and SQL Server. Troubleshooting weird reservation or payment bugs is now as simple as asking in plain language.",
+    "claudeTitle": "Claude Code & Antigravity in the terminal",
+    "claudeDesc": "Real pair programming: specialized subagents, strict security guardrails (read-only queries in prod, zero secrets in context), and automated TDD right from the console.",
+    "estimationTitle": "Estimates without crystal balls",
+    "estimationDesc": "Custom Story Points estimation skill calibrated against team historical data, syncing Jira and GitHub cycle time telemetry to keep delivery predictable."
   },
   "projects": {
-    "title": "Featured Projects & Case Studies",
-    "subtitle": "Mission-critical architectures, large-scale migrations, and high-concurrency systems",
+    "title": "Cool stuff I've built",
+    "subtitle": "High-impact projects: gnarly problems solved with clean architecture and resilient code.",
     "case1": {
       "title": "Production MCP Diagnostic Server",
       "tag": "AI & Developer Tooling",
-      "problem": "Debugging multi-channel booking anomalies across 6 OTAs required manual multi-database log queries across gigabytes of data, consuming 15 to 60 minutes per incident.",
-      "solution": "Designed a dedicated Model Context Protocol (MCP) server with hexagonal architecture, granting AI assistants read-only access to MongoDB and SQL Server to reconstruct timelines automatically via natural language.",
-      "impact": "Reduced mean time to investigation from 60 minutes to under 30 seconds."
+      "problem": "Investigating what happened to a booking across 6 OTAs required manual log excavation across gigabytes of data and multiple databases. 15 to 60 minutes wasted per incident.",
+      "solution": "Built a custom MCP server in Next.js with hexagonal architecture and read-only access, reconstructing the entire timeline in seconds from natural language queries.",
+      "impact": "Turned an hour of frustrating log digging into answers in under 30 seconds."
     },
     "case2": {
       "title": "Massive Expedia Channel PRO Migration Tool",
       "tag": "Internal Operations Tooling",
-      "problem": "Mandatory migration of enterprise holiday rental accounts from legacy Expedia API to modern Channel PRO without booking interruption or availability downtime.",
-      "solution": "Architected a batch processing migration orchestrator with progress telemetry, automated verification checkpoints, instant rollback safety, and Excel audit reporting.",
-      "impact": "Successfully migrated 211 companies in 11 days (1,664 actions) with zero recorded errors."
+      "problem": "Mandatory migration of hundreds of holiday rental accounts from Expedia's legacy API to the new channel without downtime or risk to live bookings.",
+      "solution": "Built a batch migration orchestrator with live telemetry, checkpoints, automated rollback safety, and Excel audit reports.",
+      "impact": "Migrated 211 companies in just 11 days (1,664 actions) with zero recorded errors."
     },
     "case3": {
       "title": "Real-time OTA Inventory Synchronization Engine",
       "tag": "Event-Driven & Microservices",
-      "problem": "Preventing overbooking and rate desynchronization across millions of daily transactions with Booking.com, Airbnb, Expedia, and Vrbo.",
-      "solution": "Decoupled connectivity microservices into an event-driven architecture using TypeScript/Node.js, AWS SQS queuing, and real-time inventory parity algorithms compliant with PCI-DSS.",
-      "impact": "Drastic reduction in overbooking occurrences and rock-solid partner API stability."
+      "problem": "Preventing overbooking and rate mismatches across millions of daily transactions with Booking.com, Airbnb, Expedia, and Vrbo.",
+      "solution": "Decoupled connectivity into event-driven microservices (Node.js/TypeScript with AWS SQS queues) and PCI-DSS compliant inventory parity algorithms.",
+      "impact": "Overbookings dropped close to zero with rock-solid partner API stability."
     },
     "case4": {
       "title": "High-Throughput E-Commerce Big Data Ingestion",
       "tag": "Big Data & Streaming",
-      "problem": "Integrating heterogeneous real-time transactional feeds, clickstream data, inventory levels, and marketing telemetry at massive scale.",
-      "solution": "Architected hybrid streaming and batch ingestion topology utilizing Apache Kafka as high-throughput messaging backbone and scalable Cloud Data Lake storage.",
-      "impact": "Sub-second event streaming ingestion with unified analytics readiness."
+      "problem": "Ingesting and processing huge streams of events on the fly: purchases, clickstream, inventory shifts, and marketing data at scale.",
+      "solution": "Hybrid streaming and batch architecture with Apache Kafka at its core and scalable Cloud Data Lake storage.",
+      "impact": "Sub-second event ingestion with instant querying readiness."
     }
   },
   "experience": {
-    "title": "Work Experience",
-    "subtitle": "Over two decades of backend leadership and high-scale software engineering",
+    "title": "Career & Battles",
+    "subtitle": "Over two decades in the backend trenches: from bare-metal servers to event-driven microservices and agentic AI.",
     "avantio": {
       "role": "Senior Backend Developer & Connectivity Tech Reference",
       "company": "Avantio",
       "period": "2018 – Present",
       "points": [
-        "Technical lead in Connectivity team, ensuring synchronization reliability between PMS and major global OTAs (Booking.com, Airbnb, Vrbo, Expedia).",
-        "Designed and implemented Node.js/TypeScript event-driven microservices to modernize legacy PHP systems, improving maintainability and horizontal scalability.",
-        "Built core backend for internal Operations (OPS) panel used by 27+ company staff across support, account management, and connectivity.",
-        "End-to-end epic ownership without dedicated PM: requirements specification with Product, technical architecture, Story Points estimation, deployment orchestration, and verification.",
-        "Pioneered AI-augmented development with Claude Code, custom MCP diagnostic servers, and Spec-Driven Development."
+        "Tech lead for Connectivity, making sure the PMS talks smoothly in real-time with industry giants (Booking.com, Airbnb, Vrbo, Expedia).",
+        "Refactored legacy PHP systems into event-driven microservices in TypeScript/Node.js, boosting speed, scalability, and developer sanity.",
+        "Built the entire backend for the internal Operations (OPS) platform used daily by 27+ teammates in support and account management.",
+        "Full epic ownership without hand-holding: scoping with Product, designing the architecture, estimating, coding, and verifying in production.",
+        "Pioneered and drove team-wide AI adoption: Claude Code in terminal, custom MCP servers, and SDD workflow."
       ]
     },
     "orca": {
-      "role": "Backend Programmer Analyst",
+      "role": "Backend Programmer & Analyst",
       "company": "Orca Sistemas y Programación S.L.",
       "period": "2016 – 2018",
       "points": [
         "Core development of the POSCRM platform using PHP and relational databases.",
-        "Stored procedure design and query optimization for high-volume billing and management."
+        "Tuned complex SQL queries and stored procedures for heavy batch billing that previously took hours."
       ]
     },
     "blue": {
-      "role": "CEO & Backend Programmer Analyst",
+      "role": "CEO & Backend Analyst-Programmer",
       "company": "Blue Solutions",
       "period": "2015 – 2016",
       "points": [
-        "Technical leadership and custom server architecture development for corporate clients."
+        "Founded and ran the tech consultancy, delivering tailored client-server solutions for corporate clients from pitch to production."
       ]
     },
     "binn": {
-      "role": "Backend & Cloud Systems Analyst",
+      "role": "Backend Analyst-Programmer & Cloud Systems",
       "company": "Binn",
       "period": "2014 – 2015",
       "points": [
-        "API architecture design for mobile applications and AWS cloud infrastructure management."
+        "Designed REST APIs for mobile applications and managed cloud infrastructure on AWS."
       ]
     },
     "fbcv": {
       "role": "Programmer & Systems Analyst",
-      "company": "Federación de Baloncesto de la C. Valenciana",
+      "company": "Valencia Basketball Federation (FBCV)",
       "period": "2010 – 2014",
       "points": [
-        "Internal management systems development: competitions, licensing, refereeing, and live results."
+        "Modernized internal sports management software: licenses, league fixtures, and live digital scorecards for thousands of players."
       ]
     },
     "serolo": {
@@ -160,55 +160,54 @@
       "company": "Servicios Taurinos Serolo S.L.",
       "period": "2006 – 2009",
       "points": [
-        "Online ticketing platforms and access control server logic on Microsoft SQL Server."
+        "Online ticket sales systems and real-time electronic turnstile access control on SQL Server during high-concurrency peak surges."
       ]
     }
   },
   "skills": {
-    "title": "Technical Competencies",
-    "subtitle": "Specialized stack focused on performance, resilience, and AI automation",
-    "catAi": "AI & Engineering Automation",
+    "title": "My Tech Toolkit",
+    "subtitle": "The technologies I work with daily and where I deliver maximum value",
+    "catAi": "AI-Augmented Development",
     "catLang": "Core Languages & Runtimes",
-    "catData": "Databases & Storage",
+    "catData": "Databases & Caching",
     "catArch": "Architecture & Patterns",
-    "catCloud": "Cloud, Messaging & DevOps"
+    "catCloud": "Cloud, Events & DevOps"
   },
   "education": {
-    "title": "Education & Leadership",
-    "subtitle": "Continuous academic specialization and high-performance discipline",
+    "title": "Background & Mindset",
+    "subtitle": "Continuous technical curiosity and high-performance discipline",
     "aiDegree": {
       "title": "Specialization in Artificial Intelligence & Big Data (CFGS)",
       "institution": "In progress (2026)",
-      "desc": "Advanced training in machine learning models, deep learning, big data streaming pipelines, and neural network architectures."
+      "desc": "Deepening machine learning models, deep learning, high-throughput streaming pipelines, and neural architectures."
     },
     "csDegree": {
-      "title": "Computer Software Engineering",
-      "institution": "Universitat Politècnica de València (UPV)",
-      "desc": "+80% completed degree credits; specialized focus in Software Engineering and Distributed Systems."
+      "title": "Computer Science Engineering",
+      "institution": "Polytechnic University of Valencia (UPV)",
+      "desc": "+80% completed with specialization in Software Engineering and Distributed Systems."
     },
     "daiDegree": {
-      "title": "Higher Technician in Computer Applications Development (CFGS DAI)",
-      "institution": "Official Higher Technical Degree",
-      "desc": "Software architecture, object-oriented design, database design, and systems engineering."
+      "title": "Higher Technical Degree in Software Application Development (CFGS DAI)",
+      "institution": "Official Degree",
+      "desc": "The timeless foundational blocks: algorithms, database design, and systems architecture."
     },
     "archery": {
-      "title": "Sport Leadership: National Archery Coach & Judge",
-      "institution": "Certified by Higher Sports Council (CSD)",
-      "desc": "Coached team to Spanish University Championship title. Fosters laser focus, emotional self-regulation under pressure, and relentless attention to detail."
+      "title": "Competitive Archery: Coach & National Judge",
+      "institution": "Higher Sports Council (CSD)",
+      "desc": "Coached my university squad to become Spanish National Champions. That's where I forged pinpoint focus, total calm under pressure, and meticulous technical precision."
     }
   },
   "contact": {
-    "title": "Let's Connect",
-    "subtitle": "Available for Senior, Staff, or Tech Lead engineering opportunities",
+    "title": "Let's get in touch",
+    "subtitle": "Always up for discussing challenging engineering problems, high-throughput architectures, or Senior / Staff / Tech Lead roles.",
     "copyEmail": "Copy Email",
-    "emailCopied": "Email copied to clipboard!",
+    "emailCopied": "Email copied! Drop me a line anytime.",
     "downloadCv": "Download CV (PDF)",
-    "location": "Torrent, Valencia, Spain (Available Remote & Hybrid)"
+    "location": "Torrent, Valencia, Spain (or anywhere in the world, remote)"
   },
   "footer": {
     "rights": "All rights reserved.",
-    "builtWith": "Architected & implemented 100% with AI & Spec-Driven Development.",
-    "edgePowered": "Hosted on Cloudflare Edge global network."
+    "builtWith": "Crafted 100% with agentic AI and Spec-Driven Development.",
+    "edgePowered": "Flying on Cloudflare's global Edge network."
   }
 }
-
