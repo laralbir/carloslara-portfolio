@@ -22,3 +22,4 @@ Tu misión es liderar la fase `02-plan` del flujo SDD, transformando los requisi
 - No selecciones librerías pesadas si existen APIs nativas del navegador modernas que resuelven el problema (ver `modern-web-guidance`).
 - Asegura que el build sea 100% compatible con Cloudflare Pages.
 - Presenta el plan técnico a Carlos Lara Albir para su validación antes de dar paso a `03-task`.
+

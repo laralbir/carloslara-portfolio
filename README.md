@@ -95,3 +95,4 @@ npm run deploy
 
 - **Fase Actual:** `01-analisis` (Requisitos y propuesta de valor de Carlos Lara Albir).
 - **Siguiente paso:** Completar la entrevista de análisis o rellenar `specs/01-analisis/SPEC-01-analisis-portfolio.md`.
+

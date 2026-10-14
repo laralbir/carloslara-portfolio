@@ -46,3 +46,4 @@
 - [ ] Información biográfica y profesional completa y validada por Carlos.
 - [ ] Lista definitiva de proyectos y competencias seleccionadas.
 - [ ] Validación formal del documento para pasar a la fase `02-plan`.
+

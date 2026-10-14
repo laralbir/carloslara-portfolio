@@ -42,3 +42,4 @@ Cada tarea debe cumplir con:
 - [ ] **TASK-4.2:** Configurar cabeceras de seguridad y caché en Cloudflare (`_headers`).
 - [ ] **TASK-4.3:** Ejecutar auditoría Lighthouse (Performance, A11y, Best Practices, SEO).
 - [ ] **TASK-4.4:** Verificar comando de despliegue `wrangler pages deploy`.
+

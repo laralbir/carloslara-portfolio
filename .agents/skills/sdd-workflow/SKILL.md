@@ -45,3 +45,4 @@ Esta habilidad permite al agente identificar la fase activa de desarrollo, verif
   2. Implementar componentes en `src/`, funciones en `functions/` y assets en `public/`.
   3. Ejecutar `npm run dev` / `wrangler pages dev` y validar en el navegador.
   4. Actualizar el log de implementación en `specs/04-implement/LOG-01-implementacion.md`.
+

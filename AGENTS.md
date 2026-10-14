@@ -62,3 +62,4 @@ Al comenzar cualquier sesión de trabajo, el agente debe:
 1. Verificar en qué fase del SDD se encuentra el proyecto revisando la carpeta `specs/`.
 2. Asumir el rol correspondiente a esa fase (o consultar al usuario qué fase desea abordar).
 3. Nunca saltarse fases sin confirmación explícita del usuario.
+

@@ -13,3 +13,4 @@ Estas reglas son de obligado cumplimiento para cualquier agente o desarrollador 
 
 3. **Criterios de Verificación (DoD):**
    - Ninguna tarea se da por concluida si no pasa el build sin errores y no se verifica en el entorno local de Cloudflare Pages.
+

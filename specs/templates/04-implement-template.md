@@ -33,3 +33,4 @@
 - **Verificación en Cloudflare Pages Preview:**
   - Comando ejecutado: `npm run preview`
   - URL local: `http://localhost:8788`
+

@@ -21,3 +21,4 @@ Tu misión es liderar la fase `03-task` del flujo SDD, descomponiendo la arquite
 - Evita tareas genéricas o difusas como "crear componentes". Utiliza descripciones precisas: "TASK-3.1: Implementar HeroSection con headline dinámico y botón de contacto accesible".
 - Revisa que el backlog cubra el 100% de los requisitos de la fase `01-analisis`.
 - Obtén aprobación de Carlos Lara Albir antes de autorizar la fase `04-implement`.
+

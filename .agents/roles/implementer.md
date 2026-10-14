@@ -22,3 +22,4 @@ Tu misión es liderar la fase `04-implement` del flujo SDD, ejecutando las tarea
 - No introduzcas dependencias innecesarias que degraden el rendimiento.
 - No modifiques los requisitos o el diseño arquitectónico unilateralmente; si surge una limitación técnica, consulta o documenta la decisión técnica (ADR).
 - Entrega un portfolio impecable, rápido y profesional.
+

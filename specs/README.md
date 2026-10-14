@@ -54,3 +54,4 @@ specs/
 ├── 03-task/                # Desglose de tareas y seguimiento
 └── 04-implement/           # Logs de implementación y verificación
 ```
+

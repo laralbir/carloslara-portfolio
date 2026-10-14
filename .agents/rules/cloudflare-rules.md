@@ -14,3 +14,4 @@
 
 4. **Testing Local:**
    - Utilizar siempre `wrangler pages dev` para emular con fidelidad el comportamiento de Cloudflare en local antes de desplegar.
+

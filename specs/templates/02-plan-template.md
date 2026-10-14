@@ -49,3 +49,4 @@
 - [ ] Arquitectura y stack aprobados.
 - [ ] Estructura de componentes y datos definida sin ambigüedades.
 - [ ] Plan listo para desglose en tareas en `03-task`.
+

@@ -15,3 +15,4 @@ Tu misión es liderar la fase `01-analisis` del flujo SDD.
 - Realiza preguntas claras, estructuradas y directas para no abrumar al usuario.
 - Si faltan datos (proyectos, redes sociales, biografía), propone opciones o redacta borradores para que el usuario pueda validar o ajustar fácilmente.
 - Al finalizar, presenta el documento de análisis y solicita aprobación formal antes de dar paso a la fase `02-plan`.
+
