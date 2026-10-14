@@ -7,17 +7,32 @@
     "experience": "Trajectòria",
     "skills": "Stack",
     "education": "Background",
+    "offtopic": "Aficions",
     "contact": "Contacte",
     "themeLight": "Clar",
     "themeDark": "Fosc",
     "themeSystem": "Sistema"
+  },
+  "a11y": {
+    "skipToContent": "Saltar al contingut principal",
+    "toggleContrast": "Alternar mode alt contrast (Accessibilitat / Daltonisme)",
+    "contrastActive": "Mode alt contrast activat"
+  },
+  "terminal": {
+    "title": "Terminal d'Enginyeria & Codi Real",
+    "subtitle": "Sense captures estàtiques ni simulacions: codi real de l'stack, pipelines de missatgeria i automatitzacions agèntiques.",
+    "tabTimeTracker": "time-tracker.sh",
+    "tabAws": "aws-sns-sqs.ts",
+    "tabMcp": "diagnostic-mcp.ts",
+    "copyBtn": "Copiar codi",
+    "copied": "Copiat!"
   },
   "hero": {
     "badge": "Buscant el meu pròxim gran repte · Senior / Staff / Tech Lead",
     "titlePrefix": "Carlos Lara Albir",
     "titleHighlight": "Senior Backend Engineer",
     "titleSuffix": "& Desenvolupador Augmentat amb IA",
-    "subtitle": "Més de 20 anys dissenyant arquitectures distribuïdes i sistemes d'alta concurrència que no cauen amb trànsit real (Event-Driven amb AWS SQS/SNS, Kafka, microserveis en Node.js/TypeScript i sincronització OTA de missió crítica). Hui multiplique eixa experiència amb enginyeria agèntica i IA: Claude Code a la consola, servidors MCP propis i zero codi a l'atzar.",
+    "subtitle": "Més de 20 anys dissenyant arquitectures distribuïdes i sistemes d'alta concurrència que no cauen amb trànsit real (Event-Driven amb AWS SQS, SNS i EventBridge, microserveis en Node.js/TypeScript i sincronització OTA de missió crítica). Hui multiplique eixa experiència amb enginyeria agèntica i IA: Claude Code a la consola, servidors MCP propis i zero codi a l'atzar.",
     "ctaProjects": "Fes-li una ullada als projectes",
     "ctaContact": "Fem un café?",
     "ctaCv": "Veure Perfil / CV ↗"
@@ -42,9 +57,9 @@
       "level": "Nivell Staff / Lead",
       "years": "+10 anys d'experiència",
       "title": "Arquitectura Distribuïda & Event-Driven",
-      "desc": "Especialista en desacoblament de sistemes d'alta concurrència mitjançant fluxos asíncrons amb AWS SQS, SNS, EventBridge i Kafka. Disseny estricte d'idempotència, cues DLQ i tolerància a fallades per garantir zero pèrdua d'esdeveniments sota pics extrems de trànsit.",
-      "skill1": "AWS SQS & SNS",
-      "skill2": "Apache Kafka",
+      "desc": "Especialista en desacoblament de sistemes d'alta concurrència mitjançant fluxos asíncrons amb AWS SQS, SNS i EventBridge. Disseny estricte d'idempotència, cues DLQ i tolerància a fallades per garantir zero pèrdua d'esdeveniments sota pics extrems de trànsit.",
+      "skill1": "AWS SQS (Cues & DLQs)",
+      "skill2": "AWS SNS (Pub/Sub & Fan-out)",
       "skill3": "Idempotència & DLQs",
       "skill4": "Consistència Eventual",
       "skill5": "Circuit Breaking"
@@ -92,8 +107,8 @@
     "mcpDesc": "Vaig crear un servidor Model Context Protocol propi amb arquitectura hexagonal en Next.js. Compta amb 25+ eines de només lectura connectades a MongoDB i SQL Server. Investigar incidències rares de reserves o pagaments ara és preguntar-li a la IA en llenguatge natural.",
     "claudeTitle": "Claude Code & Antigravity a la terminal",
     "claudeDesc": "Pair programming de veritat: subagents especialitzats, controls estrictes de seguretat (només lectura en producció, zero secrets en context) i TDD automatitzat des de la consola.",
-    "estimationTitle": "Estimacions sense boles de cristall",
-    "estimationDesc": "Skill d'estimació en Story Points calibrat amb l'històric real de l'equip, creuant Jira i mètriques de cicle en GitHub per a no enxampar-nos els dits amb les dates.",
+    "estimationTitle": "Imputació Automàtica & Estimacions amb Claude",
+    "estimationDesc": "Automatització amb Claude que concilia tiquets de Jira, reunions de Google Calendar i commits/PRs de GitHub per a registrar hores exactes sense fricció manual. A més, skill d'Story Points calibrat amb dades històriques de l'equip.",
     "qaTitle": "QA Autònom & TDD amb IA",
     "qaDesc": "La IA escriu primer la bateria completa de tests unitaris, d'integració i casos límit (fuzzing) abans de validar una sola línia de lògica. Controls estrictes de qualitat i anàlisi estàtica amb Opengrep per a garantir 0 reverts en producció.",
     "observabilityTitle": "Observabilitat i Monitoratge Proactiu",
@@ -124,10 +139,10 @@
       "impact": "Sobrevendes pràcticament a zero i una estabilitat a prova de bombes sota pics massius de trànsit."
     },
     "case4": {
-      "title": "Ingesta Big Data d'Alta Concurrència per a E-Commerce",
-      "tag": "Big Data & Streaming",
+      "title": "Ingesta Asíncrona d'Alta Concurrència per a E-Commerce",
+      "tag": "Event-Driven & In-Memory Cache",
       "problem": "Engolir i processar a temps fluxos massius d'esdeveniments: compres, clickstream, inventari i dades de màrqueting a gran escala.",
-      "solution": "Arquitectura híbrida de streaming i lots amb Apache Kafka al cor del sistema i emmagatzematge en Data Lake cloud.",
+      "solution": "Arquitectura desacoblada de missatgeria asíncrona amb AWS SNS (fan-out) i cues SQS, combinada amb capes de memòria cau d'alta velocitat en Redis.",
       "impact": "Ingesta en mil·lisegons amb capacitat per a analitzar-ho tot quasi a l'instant."
     },
     "personalTag": "Side Projects & Open Source",
@@ -168,7 +183,7 @@
         "Referent en Arquitectura Distribuïda i Event-Driven: disseny i desacoblament de microserveis amb AWS SQS, SNS i EventBridge, garantint tolerància a fallades, idempotència, cues de descart (DLQ) i zero pèrdua d'esdeveniments sota pics extrems de trànsit.",
         "Vaig construir de dalt a baix el backend de la plataforma interna d'operacions (OPS) que gasten a diari 27+ companys de suport i connectivitat.",
         "Ownership total d'èpiques sense intermediaris: aterrisse la idea amb Producte, dissenye l'arquitectura, estime, programe i m'encarregue que rode en producció.",
-        "Vaig introduir i liderar l'adopció de desenvolupament amb IA en l'equip: Claude Code a la consola, servidors MCP i metodologia SDD."
+        "Vaig introduir i liderar l'adopció d'enginyeria amb IA en l'equip: Claude Code a la consola, servidors MCP, metodologia SDD i automatitzacions de productivitat (com la imputació diària de temps amb Claude correlacionant Jira, Google Calendar i commits/PRs de GitHub)."
       ]
     },
     "orca": {
@@ -211,7 +226,7 @@
       "company": "Servicios Taurinos Serolo S.L.",
       "period": "2006 – 2009",
       "points": [
-        "Venda online d'entrades i control de torns d'accés en temps real sobre SQL Server amb pics salvatges de concurrència."
+        "Gestió de venda en línia d'entrades i control de torns d'accés en temps real sobre Microsoft SQL Server per a múltiples places de bous emblemàtiques a Espanya: València, El Puerto de Santa María, Albacete, Jaén i Palència, responent amb latències crítiques durant pics massius de venda simultània."
       ]
     }
   },
@@ -246,6 +261,26 @@
       "title": "Tir amb Arc: Entrenador i Jutge Nacional",
       "institution": "Consell Superior d'Esports (CSD)",
       "desc": "Vaig portar el meu equip a proclamar-se Campió Universitari d'Espanya. D'ací ve el meu focus mil·limètric, la calma sota pressió i el perfeccionisme tècnic."
+    }
+  },
+  "offtopic": {
+    "tag": "Fora de la Consola",
+    "title": "Aficions & Passions Personals",
+    "subtitle": "L'enginyeria de precisió també es nodrix de la concentració esportiva, l'acústica d'alta fidelitat i l'esperit explorador en ruta.",
+    "archery": {
+      "title": "Tir amb Arc",
+      "badge": "Precisió Mil·limètrica & Control Mental",
+      "desc": "Esportista en actiu, Entrenador i Jutge Nacional de tir amb arc certificat pel Consejo Superior de Deportes (CSD). Vaig guiar el meu equip al títol de Campió Universitari d'Espanya. Cada tir exigix el mateix que un bon desplegament: respiració, postura mil·limètrica, focus absolut i serenitat total sota màxima pressió."
+    },
+    "hifi": {
+      "title": "HiFi & Audiòfil Multiformat",
+      "badge": "Vinil · Casset · CD · Lossless Stream",
+      "desc": "Amant del so d'alta fidelitat en tots els formats físics i digitals: l'encant analògic i la calidesa del vinil a 33 RPM, la mecànica nostàlgica de les cintes de casset, la fidelitat neta del Compact Disc i l'streaming Hi-Res sense pèrdues (FLAC/DSD). D'eixa devoció acústica va nàixer el meu projecte d'estació tàctil HiFi Ámbar."
+    },
+    "moto": {
+      "title": "Mototurisme & Viatges en Moto",
+      "badge": "Quilòmetres, Ports de Muntanya & Aventura",
+      "desc": "Viatges en moto de mitjana i llarga distància per carretera i muntanya. Traçar corbes amb fluïdesa, planificar itineraris tècnics al detall i mantindre concentració constant durant centenars de quilòmetres. La mateixa resiliència que en producció: anticipació, atenció a l'entorn i gaudi del camí."
     }
   },
   "contact": {

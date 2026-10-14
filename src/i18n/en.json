@@ -7,17 +7,32 @@
     "experience": "Experience",
     "skills": "Stack",
     "education": "Background",
+    "offtopic": "Off-Topic",
     "contact": "Contact",
     "themeLight": "Light",
     "themeDark": "Dark",
     "themeSystem": "System"
+  },
+  "a11y": {
+    "skipToContent": "Skip to main content",
+    "toggleContrast": "Toggle high contrast mode (Accessibility / Daltonism)",
+    "contrastActive": "High contrast mode enabled"
+  },
+  "terminal": {
+    "title": "Engineering Terminal & Real Stack Code",
+    "subtitle": "No mock screenshots or static fluff: real stack architecture snippets, messaging pipelines, and agentic workflows.",
+    "tabTimeTracker": "time-tracker.sh",
+    "tabAws": "aws-sns-sqs.ts",
+    "tabMcp": "diagnostic-mcp.ts",
+    "copyBtn": "Copy code",
+    "copied": "Copied!"
   },
   "hero": {
     "badge": "Looking for my next big challenge · Senior / Staff / Tech Lead",
     "titlePrefix": "Carlos Lara Albir",
     "titleHighlight": "Senior Backend Engineer",
     "titleSuffix": "& AI-Augmented Developer",
-    "subtitle": "Over 20 years designing resilient distributed architectures and high-concurrency systems that withstand real production load (Event-Driven with AWS SQS/SNS, Kafka, Node.js/TypeScript microservices, and mission-critical OTA synchronization). Today I multiply that track record with agentic AI: Claude Code in the terminal, custom MCP servers, and zero guesswork.",
+    "subtitle": "Over 20 years designing resilient distributed architectures and high-concurrency systems that withstand real production load (Event-Driven with AWS SQS, SNS, and EventBridge, Node.js/TypeScript microservices, and mission-critical OTA synchronization). Today I multiply that track record with agentic AI: Claude Code in the terminal, custom MCP servers, and zero guesswork.",
     "ctaProjects": "Check out my work & numbers",
     "ctaContact": "Let's chat",
     "ctaCv": "View LinkedIn / CV ↗"
@@ -42,9 +57,9 @@
       "level": "Staff / Lead Level",
       "years": "+10 years experience",
       "title": "Distributed & Event-Driven Architecture",
-      "desc": "Specialist in decoupling high-concurrency architectures using asynchronous messaging with AWS SQS, SNS, EventBridge, and Kafka. Strict idempotency patterns, DLQ management, and fault tolerance ensuring zero event loss under extreme load spikes.",
-      "skill1": "AWS SQS & SNS",
-      "skill2": "Apache Kafka",
+      "desc": "Specialist in decoupling high-concurrency architectures using asynchronous messaging with AWS SQS, SNS, and EventBridge. Strict idempotency patterns, DLQ management, and fault tolerance ensuring zero event loss under extreme load spikes.",
+      "skill1": "AWS SQS (Queues & DLQs)",
+      "skill2": "AWS SNS (Pub/Sub & Fan-out)",
       "skill3": "Idempotency & DLQs",
       "skill4": "Eventual Consistency",
       "skill5": "Circuit Breaking"
@@ -92,8 +107,8 @@
     "mcpDesc": "Engineered an in-house Model Context Protocol server using hexagonal architecture in Next.js. Equipped with 25+ read-only tools on MongoDB and SQL Server. Troubleshooting weird reservation or payment bugs is now as simple as asking in plain language.",
     "claudeTitle": "Claude Code & Antigravity in the terminal",
     "claudeDesc": "Real pair programming: specialized subagents, strict security guardrails (read-only queries in prod, zero secrets in context), and automated TDD right from the console.",
-    "estimationTitle": "Estimates without crystal balls",
-    "estimationDesc": "Custom Story Points estimation skill calibrated against team historical data, syncing Jira and GitHub cycle time telemetry to keep delivery predictable.",
+    "estimationTitle": "Automated Time Tracking & Calibrated Estimates with Claude",
+    "estimationDesc": "AI workflow with Claude reconciling Jira tickets, Google Calendar meetings, and GitHub commits/PRs to log accurate billable hours without manual drudgery. Complemented by a team-calibrated Story Points estimation skill.",
     "qaTitle": "AI-Driven TDD & Autonomous QA",
     "qaDesc": "AI drafts full unit, integration, and edge-case suites (fuzzing) before any implementation logic is validated. Quality hooks and static analysis with Opengrep secure zero production reverts.",
     "observabilityTitle": "Proactive Observability & Telemetry",
@@ -124,10 +139,10 @@
       "impact": "Overbookings dropped close to zero with rock-solid partner API stability under massive traffic spikes."
     },
     "case4": {
-      "title": "High-Throughput E-Commerce Big Data Ingestion",
-      "tag": "Big Data & Streaming",
+      "title": "High-Throughput Asynchronous E-Commerce Ingestion",
+      "tag": "Event-Driven & In-Memory Cache",
       "problem": "Ingesting and processing huge streams of events on the fly: purchases, clickstream, inventory shifts, and marketing data at scale.",
-      "solution": "Hybrid streaming and batch architecture with Apache Kafka at its core and scalable Cloud Data Lake storage.",
+      "solution": "Decoupled asynchronous messaging topology using AWS SNS (fan-out) and SQS queues, paired with ultra-fast caching layers with Redis.",
       "impact": "Sub-second event ingestion with instant querying readiness."
     },
     "personalTag": "Side Projects & Open Source",
@@ -168,7 +183,7 @@
         "Lead for Distributed & Event-Driven Architecture: designed decoupled asynchronous workflows using AWS SQS, SNS, and EventBridge, ensuring fault tolerance, strict idempotency, DLQs, and zero message loss under extreme traffic spikes.",
         "Built the entire backend for the internal Operations (OPS) platform used daily by 27+ teammates in support and account management.",
         "Full epic ownership without hand-holding: scoping with Product, designing the architecture, estimating, coding, and verifying in production.",
-        "Pioneered and drove team-wide AI adoption: Claude Code in terminal, custom MCP servers, and SDD workflow."
+        "Championed and led AI-augmented engineering adoption across the team: Claude Code in terminal, custom MCP servers, SDD methodology, and productivity automations (including automated daily time-tracking correlating Jira, Google Calendar, and GitHub commits/PRs)."
       ]
     },
     "orca": {
@@ -211,7 +226,7 @@
       "company": "Servicios Taurinos Serolo S.L.",
       "period": "2006 – 2009",
       "points": [
-        "Online ticket sales systems and real-time electronic turnstile access control on SQL Server during high-concurrency peak surges."
+        "Engineered real-time online ticket sales and automated electronic turnstile access control on Microsoft SQL Server across multiple premier bullrings in Spain: Valencia, El Puerto de Santa María, Albacete, Jaén, and Palencia, maintaining sub-second reliability during massive concurrent box-office rushes."
       ]
     }
   },
@@ -246,6 +261,26 @@
       "title": "Competitive Archery: Coach & National Judge",
       "institution": "Higher Sports Council (CSD)",
       "desc": "Coached my university squad to become Spanish National Champions. That's where I forged pinpoint focus, total calm under pressure, and meticulous technical precision."
+    }
+  },
+  "offtopic": {
+    "tag": "Beyond the Console",
+    "title": "Passions & Off-Topic Pursuits",
+    "subtitle": "Precision engineering draws inspiration from sports discipline, acoustic fidelity, and long-distance exploration on two wheels.",
+    "archery": {
+      "title": "Archery",
+      "badge": "Laser Precision & Mental Focus",
+      "desc": "Active competitor, certified National Archery Coach and Judge by the Spanish Sports Council (CSD). Coached my squad to the Spanish University Championship title. Every shot demands what high-concurrency systems require: breathing control, micrometric stance, laser focus, and absolute serenity under peak pressure."
+    },
+    "hifi": {
+      "title": "HiFi & Multi-format Audiophile",
+      "badge": "Vinyl · Cassette · CD · Lossless Stream",
+      "desc": "Audiophile embracing all physical and digital audio formats: the warm, organic analog ritual of 33 RPM vinyl, the nostalgic mechanics of cassette tapes, the crystalline accuracy of Compact Discs, and uncompressed Hi-Res streaming (FLAC/DSD). This acoustic devotion led directly to engineering the Ámbar touchscreen HiFi station."
+    },
+    "moto": {
+      "title": "Motorcycle Touring & Travel",
+      "badge": "Long Distance, Mountain Passes & Freedom",
+      "desc": "Medium and long-distance motorcycle road trips. Carving mountain passes, meticulously planning technical routes, and sustaining deep concentration across hundreds of miles. Built on the same engineering principles: anticipation, environmental awareness, and embracing the journey."
     }
   },
   "contact": {

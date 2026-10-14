@@ -97,6 +97,91 @@
   --canvas-lines: rgba(59, 130, 246, 0.14);
 }
 
+/* High Contrast / Colorblind-friendly Accessibility Mode */
+:root[data-a11y="high-contrast"] {
+  --accent-primary: #ffd700; /* High visibility pure gold/yellow */
+  --accent-secondary: #38bdf8;
+  --accent-gradient: linear-gradient(135deg, #ffd700 0%, #f59e0b 100%);
+  --accent-glow: rgba(255, 215, 0, 0.4);
+  --border-subtle: rgba(255, 255, 255, 0.35);
+  --border-card: rgba(255, 255, 255, 0.45);
+  --border-card-hover: #ffd700;
+  --border-accent: #ffd700;
+  --text-primary: #ffffff;
+  --text-secondary: #f1f5f9;
+  --text-muted: #cbd5e1;
+  --bg-primary: #000000;
+  --bg-secondary: #050811;
+  --bg-surface: #0a101d;
+  --bg-surface-elevated: #111a2e;
+  --bg-card: rgba(10, 16, 29, 0.95);
+  --bg-card-hover: rgba(17, 26, 46, 1);
+  --shadow-sm: 0 0 0 1px #ffffff;
+  --shadow-md: 0 0 0 2px #ffd700;
+}
+
+:root[data-theme="light"][data-a11y="high-contrast"] {
+  --accent-primary: #0044cc;
+  --accent-secondary: #002277;
+  --accent-gradient: linear-gradient(135deg, #002277 0%, #0044cc 100%);
+  --border-subtle: #000000;
+  --border-card: #000000;
+  --border-card-hover: #0044cc;
+  --border-accent: #0044cc;
+  --text-primary: #000000;
+  --text-secondary: #0f172a;
+  --text-muted: #1e293b;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #f1f5f9;
+  --bg-card: #ffffff;
+  --shadow-sm: 0 0 0 1px #000000;
+  --shadow-md: 0 0 0 2px #0044cc;
+}
+
+/* Accessibility skip link */
+.skip-link {
+  position: absolute;
+  top: -999px;
+  left: 1rem;
+  background: var(--accent-primary);
+  color: var(--text-inverse);
+  padding: 0.75rem 1.5rem;
+  z-index: 99999;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: 1rem;
+  outline: 3px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* Screen reader only utility */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Visible focus outline for keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--accent-primary) !important;
+  outline-offset: 2px !important;
+}
+
 /* Respect user's reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
   *,

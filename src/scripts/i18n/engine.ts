@@ -84,6 +84,14 @@ export function applyTranslations(lang = currentLang): void {
     }
   });
 
+  const ariaElements = document.querySelectorAll<HTMLElement>('[data-i18n-aria-label]');
+  ariaElements.forEach((el) => {
+    const key = el.getAttribute('data-i18n-aria-label');
+    if (key) {
+      el.setAttribute('aria-label', t(key, lang));
+    }
+  });
+
   window.dispatchEvent(new CustomEvent('languagechange', { detail: { lang } }));
 }
 

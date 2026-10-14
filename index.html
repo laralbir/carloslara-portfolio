@@ -24,6 +24,11 @@
         var isDark = setting === 'dark' || (setting === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
         document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
         document.documentElement.setAttribute('data-theme-setting', setting);
+
+        var a11y = localStorage.getItem('a11y_contrast');
+        if (a11y === 'high-contrast') {
+          document.documentElement.setAttribute('data-a11y', 'high-contrast');
+        }
         
         var lang = localStorage.getItem('user_lang');
         if (!lang) {
@@ -42,6 +47,9 @@
   </script>
 </head>
 <body>
+  <!-- Accessibility Skip Link -->
+  <a href="#main-content" class="skip-link" data-i18n="a11y.skipToContent">Skip to main content</a>
+
   <!-- Interactive 2D/3D Background Canvas -->
   <canvas id="canvas-background" aria-hidden="true"></canvas>
 
@@ -77,11 +85,18 @@
             <li><a href="#experience" class="nav-link" data-i18n="nav.experience">Experience</a></li>
             <li><a href="#skills" class="nav-link" data-i18n="nav.skills">Skills</a></li>
             <li><a href="#education" class="nav-link" data-i18n="nav.education">Education</a></li>
+            <li><a href="#offtopic" class="nav-link" data-i18n="nav.offtopic">Off-Topic</a></li>
             <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
           </ul>
         </nav>
 
         <div class="nav-controls">
+          <!-- High-Contrast Accessibility Mode Toggle (Daltonism / Low-Vision) -->
+          <button id="a11y-toggle" class="a11y-toggle-btn" aria-label="Toggle High Contrast / Accessibility" data-i18n-aria-label="a11y.toggleContrast" data-i18n-title="a11y.toggleContrast" title="Toggle High Contrast (Daltonism / A11y)" aria-pressed="false">
+            <span aria-hidden="true">👁️‍🗨️</span>
+            <span class="sr-only" data-i18n="a11y.toggleContrast">Toggle High Contrast</span>
+          </button>
+
           <!-- Language Selector -->
           <select id="lang-select" class="control-select" aria-label="Select Language">
             <option value="en">EN</option>
@@ -117,11 +132,12 @@
       <a href="#experience" class="nav-link" data-i18n="nav.experience">Experience</a>
       <a href="#skills" class="nav-link" data-i18n="nav.skills">Skills</a>
       <a href="#education" class="nav-link" data-i18n="nav.education">Education</a>
+      <a href="#offtopic" class="nav-link" data-i18n="nav.offtopic">Off-Topic</a>
       <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
     </div>
 
     <!-- MAIN CONTENT -->
-    <main>
+    <main id="main-content" tabindex="-1">
       <!-- HERO SECTION -->
       <section id="hero" class="hero-section">
         <div class="container">
@@ -139,7 +155,7 @@
               </h1>
 
               <p class="hero-subtitle" data-i18n="hero.subtitle">
-                Over 20 years designing resilient distributed architectures and high-concurrency systems that withstand real production load (Event-Driven with AWS SQS/SNS, Kafka, Node.js/TypeScript microservices, and mission-critical OTA synchronization). Today I multiply that track record with agentic AI: Claude Code in the terminal, custom MCP servers, and zero guesswork.
+                Over 20 years designing resilient distributed architectures and high-concurrency systems that withstand real production load (Event-Driven with AWS SQS, SNS, and EventBridge, Node.js/TypeScript microservices, and mission-critical OTA synchronization). Today I multiply that track record with agentic AI: Claude Code in the terminal, custom MCP servers, and zero guesswork.
               </p>
 
               <div class="hero-actions">
@@ -197,10 +213,10 @@
                 </div>
               </div>
               <h3 class="strength-title" data-i18n="strengths.pillar1.title">Distributed & Event-Driven Architecture</h3>
-              <p class="strength-desc" data-i18n="strengths.pillar1.desc">Specialist in decoupling high-concurrency architectures using asynchronous messaging with AWS SQS, SNS, EventBridge, and Kafka. Strict idempotency patterns, DLQ management, and fault tolerance ensuring zero event loss under extreme load spikes.</p>
+              <p class="strength-desc" data-i18n="strengths.pillar1.desc">Specialist in decoupling high-concurrency architectures using asynchronous messaging with AWS SQS, SNS, and EventBridge. Strict idempotency patterns, DLQ management, and fault tolerance ensuring zero event loss under extreme load spikes.</p>
               <div class="strength-skills-list">
-                <span class="strength-skill-tag" data-i18n="strengths.pillar1.skill1">AWS SQS & SNS</span>
-                <span class="strength-skill-tag" data-i18n="strengths.pillar1.skill2">Apache Kafka</span>
+                <span class="strength-skill-tag" data-i18n="strengths.pillar1.skill1">AWS SQS (Queues & DLQs)</span>
+                <span class="strength-skill-tag" data-i18n="strengths.pillar1.skill2">AWS SNS (Pub/Sub & Fan-out)</span>
                 <span class="strength-skill-tag" data-i18n="strengths.pillar1.skill3">Idempotency & DLQs</span>
                 <span class="strength-skill-tag" data-i18n="strengths.pillar1.skill4">Eventual Consistency</span>
                 <span class="strength-skill-tag" data-i18n="strengths.pillar1.skill5">Circuit Breaking</span>
@@ -299,9 +315,9 @@
             </div>
 
             <div class="glass-card ai-card">
-              <div class="ai-card-icon" aria-hidden="true">📊</div>
-              <h3 class="ai-card-title" data-i18n="ai.estimationTitle">Estimates without crystal balls</h3>
-              <p class="ai-card-desc" data-i18n="ai.estimationDesc">Custom Story Points estimation skill calibrated against team historical data, syncing Jira and GitHub cycle time telemetry to keep delivery predictable.</p>
+              <div class="ai-card-icon" aria-hidden="true">⏱️</div>
+              <h3 class="ai-card-title" data-i18n="ai.estimationTitle">Automated Time Tracking & Calibrated Estimates with Claude</h3>
+              <p class="ai-card-desc" data-i18n="ai.estimationDesc">AI workflow with Claude reconciling Jira tickets, Google Calendar meetings, and GitHub commits/PRs to log accurate billable hours without manual drudgery. Complemented by a team-calibrated Story Points estimation skill.</p>
             </div>
 
             <div class="glass-card ai-card">
@@ -314,6 +330,120 @@
               <div class="ai-card-icon" aria-hidden="true">📈</div>
               <h3 class="ai-card-title" data-i18n="ai.observabilityTitle">Proactive Observability & Telemetry</h3>
               <p class="ai-card-desc" data-i18n="ai.observabilityDesc">Real-time Grafana telemetry tracking cycle times and production throughput. AI agents digest gigabytes of distributed logs on demand to spot and resolve anomalies before users notice.</p>
+            </div>
+          </div>
+
+          <!-- Interactive Developer Stack & Real Code Terminal -->
+          <div class="terminal-section">
+            <div class="section-header" style="text-align: left; margin-bottom: 1.5rem;">
+              <span class="section-tag" data-i18n="terminal.title">Engineering Terminal & Real Stack Code</span>
+              <p class="section-subtitle" style="margin: 0.35rem 0 0 0;" data-i18n="terminal.subtitle">No mock screenshots or static fluff: real stack architecture snippets, messaging pipelines, and agentic workflows.</p>
+            </div>
+
+            <div class="terminal-window" role="region" aria-label="Interactive Code Terminal">
+              <div class="terminal-header">
+                <div class="terminal-controls" aria-hidden="true">
+                  <span class="terminal-dot dot-red"></span>
+                  <span class="terminal-dot dot-yellow"></span>
+                  <span class="terminal-dot dot-green"></span>
+                </div>
+
+                <div class="terminal-tabs" role="tablist" aria-label="Terminal Code Tabs">
+                  <button class="terminal-tab active" role="tab" id="tab-tracker" aria-selected="true" aria-controls="panel-tracker" data-target="panel-tracker">
+                    <span aria-hidden="true">⚡</span> <span data-i18n="terminal.tabTimeTracker">time-tracker.sh</span>
+                  </button>
+                  <button class="terminal-tab" role="tab" id="tab-aws" aria-selected="false" aria-controls="panel-aws" data-target="panel-aws" tabindex="-1">
+                    <span aria-hidden="true">📨</span> <span data-i18n="terminal.tabAws">aws-sns-sqs.ts</span>
+                  </button>
+                  <button class="terminal-tab" role="tab" id="tab-mcp" aria-selected="false" aria-controls="panel-mcp" data-target="panel-mcp" tabindex="-1">
+                    <span aria-hidden="true">🔌</span> <span data-i18n="terminal.tabMcp">diagnostic-mcp.ts</span>
+                  </button>
+                </div>
+
+                <div class="terminal-actions">
+                  <button class="terminal-copy-btn" aria-label="Copy active code snippet" data-copied-text="Copied!" data-i18n="terminal.copyBtn">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    <span>Copy code</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="terminal-body">
+                <!-- Panel 1: Claude Time Tracker Script -->
+                <div class="terminal-panel active" id="panel-tracker" role="tabpanel" aria-labelledby="tab-tracker">
+                  <div class="terminal-prompt-line">carlos@workstation:~/scripts$ ./claude-time-tracker.sh --reconcile --date=today</div>
+                  <pre><code><span class="tok-cm">#!/usr/bin/env bash</span>
+<span class="tok-cm"># Claude Code Agentic Time-Tracker Hook</span>
+<span class="tok-cm"># Correlates Jira sprint tickets, Google Calendar events, and GitHub commits/PRs</span>
+
+<span class="tok-kw">claude</span> --prompt <span class="tok-str">"Reconcile daily engineering activity:
+  1. Query active sprint tickets via Jira REST API (status: In Progress, Review)
+  2. Parse meeting duration via Google Calendar API (filter out declined/personal)
+  3. Correlate git log commits & merged PRs for local and preview branches
+  4. Distribute 8.0 billable hours and register auto-imputations into Tempo Timesheets"</span> \
+  --output json | jq <span class="tok-str">'.entries[] | {issue: .key, hours: .timeSpent, notes: .summary}'</span>
+
+<span class="tok-cm"># Execution Output:</span>
+<span class="tok-ok">[SUCCESS]</span> <span class="tok-num">4.5h</span> -&gt; <span class="tok-var">PRO-2114</span> (OTA Realtime Parity Sync / AWS SQS Fanout DLQ)
+<span class="tok-ok">[SUCCESS]</span> <span class="tok-num">2.0h</span> -&gt; <span class="tok-var">PRO-2120</span> (Architecture Review &amp; Spec-Driven Verification)
+<span class="tok-ok">[SUCCESS]</span> <span class="tok-num">1.5h</span> -&gt; <span class="tok-str">Daily Standup &amp; Cross-team Sync (Google Calendar)</span>
+<span class="tok-cm"># Total: 8.0h registered in Jira Tempo · 0 manual input needed.</span> <span class="terminal-cursor"></span></code></pre>
+                </div>
+
+                <!-- Panel 2: AWS SNS / SQS Fan-Out Pipeline -->
+                <div class="terminal-panel" id="panel-aws" role="tabpanel" aria-labelledby="tab-aws" hidden>
+                  <div class="terminal-prompt-line">carlos@workstation:~/backend$ cat src/messaging/inventory-fanout.ts</div>
+                  <pre><code><span class="tok-cm">// AWS SNS Fan-out &amp; SQS Idempotent Consumer Pipeline</span>
+<span class="tok-kw">import</span> { SNSClient, PublishCommand } <span class="tok-kw">from</span> <span class="tok-str">'@aws-sdk/client-sns'</span>;
+<span class="tok-kw">import</span> { SQSHandler, SQSEvent } <span class="tok-kw">from</span> <span class="tok-str">'aws-lambda'</span>;
+<span class="tok-kw">import</span> { IdempotencyStore } <span class="tok-kw">from</span> <span class="tok-str">'./infrastructure/idempotency'</span>;
+
+<span class="tok-kw">export const</span> <span class="tok-fn">publishInventoryDelta</span> = <span class="tok-kw">async</span> (payload: <span class="tok-type">InventoryUpdate</span>): <span class="tok-type">Promise&lt;void&gt;</span> =&gt; {
+  <span class="tok-kw">const</span> sns = <span class="tok-kw">new</span> <span class="tok-fn">SNSClient</span>({ region: <span class="tok-str">'eu-west-1'</span> });
+  <span class="tok-kw">await</span> sns.<span class="tok-fn">send</span>(<span class="tok-kw">new</span> <span class="tok-fn">PublishCommand</span>({
+    TopicArn: process.env.INVENTORY_FANOUT_TOPIC_ARN,
+    Message: JSON.<span class="tok-fn">stringify</span>(payload),
+    MessageAttributes: {
+      channel: { DataType: <span class="tok-str">'String'</span>, StringValue: payload.channelId },
+      traceId: { DataType: <span class="tok-str">'String'</span>, StringValue: payload.traceId }
+    }
+  }));
+};
+
+<span class="tok-kw">export const</span> <span class="tok-fn">handleSqsMessage</span>: <span class="tok-type">SQSHandler</span> = <span class="tok-kw">async</span> (event: <span class="tok-type">SQSEvent</span>) =&gt; {
+  <span class="tok-kw">for</span> (<span class="tok-kw">const</span> record <span class="tok-kw">of</span> event.Records) {
+    <span class="tok-kw">const</span> { messageId, body } = record;
+    <span class="tok-kw">if</span> (<span class="tok-kw">await</span> IdempotencyStore.<span class="tok-fn">hasProcessed</span>(messageId)) <span class="tok-kw">continue</span>;
+    
+    <span class="tok-kw">await</span> <span class="tok-fn">processOtaSync</span>(JSON.<span class="tok-fn">parse</span>(body));
+    <span class="tok-kw">await</span> IdempotencyStore.<span class="tok-fn">markCompleted</span>(messageId, { ttl: <span class="tok-num">86400</span> });
+  }
+};</code></pre>
+                </div>
+
+                <!-- Panel 3: Production MCP Server -->
+                <div class="terminal-panel" id="panel-mcp" role="tabpanel" aria-labelledby="tab-mcp" hidden>
+                  <div class="terminal-prompt-line">carlos@workstation:~/mcp$ cat src/servers/diagnostic-mcp.ts</div>
+                  <pre><code><span class="tok-cm">// Production Diagnostic MCP Server (Hexagonal Architecture)</span>
+<span class="tok-kw">import</span> { McpServer } <span class="tok-kw">from</span> <span class="tok-str">'@modelcontextprotocol/sdk/server/mcp.js'</span>;
+<span class="tok-kw">import</span> { z } <span class="tok-kw">from</span> <span class="tok-str">'zod'</span>;
+<span class="tok-kw">import</span> { ReservationQueryPort } <span class="tok-kw">from</span> <span class="tok-str">'./ports/reservation-query.port'</span>;
+
+<span class="tok-kw">const</span> server = <span class="tok-kw">new</span> <span class="tok-fn">McpServer</span>({ name: <span class="tok-str">'avantio-prod-diagnostics'</span>, version: <span class="tok-str">'2.4.0'</span> });
+
+<span class="tok-cm">// Diagnostic Tool: Inspect booking timeline across MongoDB &amp; SQL Server</span>
+server.<span class="tok-fn">tool</span>(
+  <span class="tok-str">'investigate_booking_anomaly'</span>,
+  { bookingId: z.<span class="tok-fn">string</span>(), otaChannel: z.<span class="tok-fn">enum</span>([<span class="tok-str">'booking'</span>, <span class="tok-str">'airbnb'</span>, <span class="tok-str">'expedia'</span>]) },
+  <span class="tok-kw">async</span> ({ bookingId, otaChannel }) =&gt; {
+    <span class="tok-kw">const</span> timeline = <span class="tok-kw">await</span> ReservationQueryPort.<span class="tok-fn">reconstructAuditTrail</span>(bookingId, otaChannel);
+    <span class="tok-kw">return</span> {
+      content: [{ type: <span class="tok-str">'text'</span>, text: JSON.<span class="tok-fn">stringify</span>(timeline, <span class="tok-kw">null</span>, <span class="tok-num">2</span>) }]
+    };
+  }
+);</code></pre>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -380,17 +510,17 @@
               </div>
             </div>
 
-            <!-- Project 4: Big Data Ingestion -->
+            <!-- Project 4: High-Throughput Ingestion -->
             <div class="glass-card project-card">
-              <span class="project-tag" data-i18n="projects.case4.tag">Big Data & Streaming</span>
-              <h3 class="project-title" data-i18n="projects.case4.title">High-Throughput E-Commerce Big Data Ingestion</h3>
+              <span class="project-tag" data-i18n="projects.case4.tag">Event-Driven & In-Memory Cache</span>
+              <h3 class="project-title" data-i18n="projects.case4.title">High-Throughput Asynchronous E-Commerce Ingestion</h3>
               <div class="project-block">
                 <span class="project-block-title">Challenge:</span>
                 <p class="project-block-text" data-i18n="projects.case4.problem">Integrating heterogeneous real-time transactional feeds, clickstream data, inventory levels, and marketing telemetry at massive scale.</p>
               </div>
               <div class="project-block">
                 <span class="project-block-title">Solution:</span>
-                <p class="project-block-text" data-i18n="projects.case4.solution">Architected hybrid streaming and batch ingestion topology utilizing Apache Kafka as high-throughput messaging backbone and scalable Cloud Data Lake storage.</p>
+                <p class="project-block-text" data-i18n="projects.case4.solution">Decoupled asynchronous messaging topology using AWS SNS (fan-out) and SQS queues, paired with ultra-fast caching layers with Redis.</p>
               </div>
               <div class="project-impact">
                 <span class="project-impact-text">⚡ Impact: <span data-i18n="projects.case4.impact">Sub-second event streaming ingestion with unified analytics readiness.</span></span>
@@ -498,7 +628,7 @@
                   <li class="timeline-point" data-i18n="experience.avantio.points.1">Lead for Distributed & Event-Driven Architecture: designed decoupled asynchronous workflows using AWS SQS, SNS, and EventBridge, ensuring fault tolerance, strict idempotency, DLQs, and zero message loss under extreme traffic spikes.</li>
                   <li class="timeline-point" data-i18n="experience.avantio.points.2">Built the entire backend for the internal Operations (OPS) platform used daily by 27+ teammates in support and account management.</li>
                   <li class="timeline-point" data-i18n="experience.avantio.points.3">Full epic ownership without hand-holding: scoping with Product, designing the architecture, estimating, coding, and verifying in production.</li>
-                  <li class="timeline-point" data-i18n="experience.avantio.points.4">Pioneered and drove team-wide AI adoption: Claude Code in terminal, custom MCP servers, and SDD workflow.</li>
+                  <li class="timeline-point" data-i18n="experience.avantio.points.4">Championed and led AI-augmented engineering adoption across the team: Claude Code in terminal, custom MCP servers, SDD methodology, and productivity automations (including automated daily time-tracking correlating Jira, Google Calendar, and GitHub commits/PRs).</li>
                 </ul>
               </div>
             </div>
@@ -591,7 +721,7 @@
                   </div>
                 </div>
                 <ul class="timeline-points">
-                  <li class="timeline-point" data-i18n="experience.serolo.points.0">Online ticket sales systems and real-time electronic turnstile access control on SQL Server during high-concurrency peak surges.</li>
+                  <li class="timeline-point" data-i18n="experience.serolo.points.0">Engineered real-time online ticket sales and automated electronic turnstile access control on Microsoft SQL Server across multiple premier bullrings in Spain: Valencia, El Puerto de Santa María, Albacete, Jaén, and Palencia, maintaining sub-second reliability during massive concurrent box-office rushes.</li>
                 </ul>
               </div>
             </div>
@@ -647,7 +777,7 @@
                 <span class="skill-pill">Microsoft SQL Server</span>
                 <span class="skill-pill">MySQL</span>
                 <span class="skill-pill">PostgreSQL</span>
-                <span class="skill-pill">Cloud Data Lake</span>
+                <span class="skill-pill">Redis (In-Memory & Caching)</span>
               </div>
             </div>
 
@@ -674,7 +804,7 @@
               <h3 class="skills-category-title" data-i18n="skills.catCloud">Cloud, Event Messaging & DevOps</h3>
               <div class="skill-pill-list">
                 <span class="skill-pill">AWS (SQS, SNS, EventBridge, EC2, S3, RDS)</span>
-                <span class="skill-pill">Apache Kafka (Event Streaming)</span>
+                <span class="skill-pill">AWS SNS (Fan-out & Pub/Sub)</span>
                 <span class="skill-pill">Cloudflare Pages & Workers</span>
                 <span class="skill-pill">Docker</span>
                 <span class="skill-pill">Linux / Ubuntu / LAMP</span>
@@ -718,6 +848,99 @@
               <h3 class="education-card-title" data-i18n="education.archery.title">Sport Leadership: National Archery Coach & Judge</h3>
               <span class="education-card-inst" data-i18n="education.archery.institution">Certified by Higher Sports Council (CSD)</span>
               <p class="education-card-desc" data-i18n="education.archery.desc">Coached team to Spanish University Championship title. Fosters laser focus, emotional self-regulation under pressure, and relentless attention to detail.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- OFF-TOPIC & PASSIONS SECTION -->
+      <section id="offtopic">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag" data-i18n="offtopic.tag">Beyond the Console</span>
+            <h2 class="section-title" data-i18n="offtopic.title">Passions & Off-Topic Pursuits</h2>
+            <p class="section-subtitle" data-i18n="offtopic.subtitle">Precision engineering draws inspiration from sports discipline, acoustic fidelity, and long-distance exploration on two wheels.</p>
+          </div>
+
+          <div class="offtopic-grid">
+            <!-- Hobby 1: Archery -->
+            <div class="glass-card offtopic-card">
+              <div class="offtopic-visual" aria-hidden="true">
+                <svg class="archery-target-svg" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Concentric target rings -->
+                  <circle cx="80" cy="80" r="70" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+                  <circle cx="80" cy="80" r="56" fill="#1e293b" stroke="#0f172a" stroke-width="2"/>
+                  <circle cx="80" cy="80" r="42" fill="#0284c7" stroke="#0369a1" stroke-width="2"/>
+                  <circle cx="80" cy="80" r="28" fill="#dc2626" stroke="#b91c1c" stroke-width="2"/>
+                  <circle cx="80" cy="80" r="14" fill="#eab308" stroke="#ca8a04" stroke-width="2"/>
+                  <circle cx="80" cy="80" r="6" fill="#fef08a"/>
+                  <!-- Animated Shockwave Rings on Impact -->
+                  <circle class="target-pulse-ring" cx="80" cy="80" r="14" fill="none" stroke="#ffd700" stroke-width="2"/>
+                  <circle class="target-pulse-ring-delayed" cx="80" cy="80" r="14" fill="none" stroke="#ffd700" stroke-width="2"/>
+                  <!-- Center Bullseye Spark -->
+                  <circle class="target-arrow-spark" cx="80" cy="80" r="3.5" fill="#ffffff"/>
+                </svg>
+              </div>
+              <span class="offtopic-badge" data-i18n="offtopic.archery.badge">Laser Precision & Mental Focus</span>
+              <h3 class="offtopic-title" data-i18n="offtopic.archery.title">Archery</h3>
+              <p class="offtopic-desc" data-i18n="offtopic.archery.desc">Active competitor, certified National Archery Coach and Judge by the Spanish Sports Council (CSD). Coached my squad to the Spanish University Championship title. Every shot demands what high-concurrency systems require: breathing control, micrometric stance, laser focus, and absolute serenity under peak pressure.</p>
+            </div>
+
+            <!-- Hobby 2: HiFi Audiophile -->
+            <div class="glass-card offtopic-card">
+              <div class="offtopic-visual" aria-hidden="true">
+                <div class="hifi-scene">
+                  <!-- Spinning Vinyl Record (33 RPM CSS rotation) -->
+                  <div class="vinyl-disc" title="Spinning Vinyl 33⅓ RPM">
+                    <div class="vinyl-label">
+                      <div class="vinyl-hole"></div>
+                    </div>
+                  </div>
+                  <!-- Dynamic Jumping VU-Meter Equalizer -->
+                  <div class="vu-equalizer" title="Dynamic Audio Equalizer">
+                    <div class="vu-bar"></div>
+                    <div class="vu-bar"></div>
+                    <div class="vu-bar"></div>
+                    <div class="vu-bar"></div>
+                    <div class="vu-bar"></div>
+                    <div class="vu-bar"></div>
+                  </div>
+                </div>
+              </div>
+              <span class="offtopic-badge" data-i18n="offtopic.hifi.badge">Vinyl · Cassette · CD · Lossless Stream</span>
+              <h3 class="offtopic-title" data-i18n="offtopic.hifi.title">HiFi & Multi-format Audiophile</h3>
+              <p class="offtopic-desc" data-i18n="offtopic.hifi.desc">Audiophile embracing all physical and digital audio formats: the warm, organic analog ritual of 33 RPM vinyl, the nostalgic mechanics of cassette tapes, the crystalline accuracy of Compact Discs, and uncompressed Hi-Res streaming (FLAC/DSD). This acoustic devotion led directly to engineering the Ámbar touchscreen HiFi station.</p>
+            </div>
+
+            <!-- Hobby 3: Motorcycle Touring -->
+            <div class="glass-card offtopic-card">
+              <div class="offtopic-visual" aria-hidden="true">
+                <div class="moto-scene">
+                  <!-- Alpine Mountain Silhouette -->
+                  <svg width="220" height="70" viewBox="0 0 220 70" fill="none" style="position: absolute; top: 10px; opacity: 0.35;">
+                    <polygon points="10,70 60,25 90,50 140,15 190,60 215,70" fill="#38bdf8"/>
+                    <polygon points="140,15 160,32 170,28" fill="#ffffff" opacity="0.8"/>
+                    <polygon points="60,25 75,38 85,32" fill="#ffffff" opacity="0.8"/>
+                  </svg>
+                  <!-- Moving Perspective Road -->
+                  <div class="moto-road-perspective">
+                    <div class="moto-road-line"></div>
+                  </div>
+                  <!-- Touring Adventure Motorcycle -->
+                  <svg class="moto-silhouette" width="56" height="40" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="14" cy="36" r="9" stroke="#94a3b8" stroke-width="3" fill="#1e293b"/>
+                    <circle cx="50" cy="36" r="9" stroke="#94a3b8" stroke-width="3" fill="#1e293b"/>
+                    <path d="M14 36L26 26H36L44 36H50L45 22L36 18H28L22 26L14 36Z" fill="#38bdf8"/>
+                    <path d="M35 18L39 8H44L41 18H35Z" fill="#bae6fd" opacity="0.85"/>
+                    <circle cx="33" cy="10" r="5" fill="#f8fafc"/>
+                    <path d="M29 16C29 16 33 14 38 18L34 26H28L29 16Z" fill="#cbd5e1"/>
+                    <rect x="10" y="24" width="10" height="9" rx="1.5" fill="#64748b" stroke="#cbd5e1" stroke-width="1"/>
+                  </svg>
+                </div>
+              </div>
+              <span class="offtopic-badge" data-i18n="offtopic.moto.badge">Long Distance, Mountain Passes & Freedom</span>
+              <h3 class="offtopic-title" data-i18n="offtopic.moto.title">Motorcycle Touring & Travel</h3>
+              <p class="offtopic-desc" data-i18n="offtopic.moto.desc">Medium and long-distance motorcycle road trips. Carving mountain passes, meticulously planning technical routes, and sustaining deep concentration across hundreds of miles. Built on the same engineering principles: anticipation, environmental awareness, and embracing the journey.</p>
             </div>
           </div>
         </div>

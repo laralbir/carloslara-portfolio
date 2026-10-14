@@ -14,7 +14,7 @@
 
 ### 1.1. Propósito del Portfolio
 Crear una plataforma web de alto impacto profesional en formato **One Page** orientada a la **búsqueda activa y captación de nuevas oportunidades laborales de nivel Senior / Staff / Tech Lead**, demostrando que Carlos Lara Albir combina:
-1. **Más de 20 años de maestría en arquitectura distribuida y backend:** Sistemas de alta disponibilidad y concurrencia masiva, arquitectura orientada a eventos (Event-Driven: AWS SQS, SNS, EventBridge, Kafka), tolerancia a fallos, consistencia eventual, idempotencia estricta, colas DLQ, sincronización en tiempo real con gigantes globales (Booking.com, Airbnb, Expedia, Vrbo) y seguridad de pagos PCI-DSS.
+1. **Más de 20 años de maestría en arquitectura distribuida y backend:** Sistemas de alta disponibilidad y concurrencia masiva, arquitectura orientada a eventos (Event-Driven: AWS SQS, SNS, EventBridge), tolerancia a fallos, consistencia eventual, idempotencia estricta, colas DLQ, sincronización en tiempo real con gigantes globales (Booking.com, Airbnb, Expedia, Vrbo) y seguridad de pagos PCI-DSS.
 2. **Pionero y referente en desarrollo agéntico asistido por IA (AI-Augmented Engineering):** Adopción avanzada de herramientas punteras como **Claude Code**, **Antigravity**, **Model Context Protocol (MCP)** y **Spec-Driven Development (SDD)**, logrando multiplicar el rendimiento y la calidad con métricas auditadas (341 PRs mergeadas, 0 reverts, 1.2% hotfixes).
 3. **Transparencia técnica total (Meta-Portfolio):** La propia web sirve como prueba viva del dominio de la IA y el SDD, invitando al visitante a auditar las especificaciones y el código fuente en GitHub.
 4. **Ownership técnico de punta a punta:** Capacidad demostrada para asumir épicas complejas en equipos sin Project Manager, desde la especificación con producto hasta la puesta en producción y creación de tooling operativo interno.
@@ -97,14 +97,19 @@ La web debe transmitir inequívocamente la identidad de un ingeniero backend sé
 
 ### 4.2. Pilares Técnicos & Áreas de Fuerza (Core Strengths)
 Sustituyendo métricas aisladas de una empresa por 4 pilares universales de maestría y especialización de alto impacto para reclutadores y CTOs:
-1. **Arquitectura Distribuida & Event-Driven (Nivel Staff / Lead · +10 años):** Desacoplamiento asíncrono con AWS SQS, SNS, EventBridge y Kafka; idempotencia estricta, colas DLQ y tolerancia a fallos bajo concurrencia masiva.
+1. **Arquitectura Distribuida & Event-Driven (Nivel Staff / Lead · +10 años):** Desacoplamiento asíncrono con AWS SQS, SNS y EventBridge; idempotencia estricta, colas DLQ y tolerancia a fallos bajo concurrencia masiva.
 2. **Backend de Misión Crítica & Microservicios (Especialista Senior · +20 años):** Modernización de monolitos a microservicios en TypeScript/Node.js y PHP, arquitectura hexagonal, DDD, sincronización OTA en tiempo real y seguridad PCI-DSS.
 3. **Ingeniería Agéntica & Tooling con IA (Referente & Early Adopter):** Claude Code en terminal, servidores MCP de diagnóstico en producción, Spec-Driven Development (SDD) y suites de TDD automatizado con 0 defectos.
 4. **Modelado de Datos, Rendimiento & BI (Avanzado & Analítico · +15 años):** Indexación y agregaciones complejas en MongoDB y SQL Server, erradicación de escaneos masivos en gigabytes de datos, y visión analítica desde POSCRM y BI.
 
-### 4.3. El Factor Diferencial: Desarrollo Agéntico con IA
+### 4.3. El Factor Diferencial: Desarrollo Agéntico con IA & Terminal de Ingeniería
 - Cómo Carlos aplica **Spec-Driven Development (SDD)**: Trazabilidad completa Requisito → Plan → Tarea → Código.
 - **Model Context Protocol (MCP):** Servidor propio de diagnóstico (Next.js + Hexagonal) que cruza MongoDB y SQL Server en lenguaje natural.
+- **Automatización de Imputación de Tiempos con Claude:** Script y hook con Claude que concilia tickets activos de Jira, eventos y reuniones de Google Calendar y commits/PRs de GitHub para imputar horas diarias automáticamente en Tempo Timesheets sin fricción manual.
+- **Terminal de Ingeniería & Código Real del Stack:** Renderizado interactivo en la web de una ventana de terminal con pestañas ejecutables:
+  1. `time-tracker.sh`: Script de Claude correlacionando Jira + Google Calendar + GitHub commits/PRs.
+  2. `aws-sns-sqs.ts`: Arquitectura EDA con fan-out SNS, consumidor SQS idempotente y colas DLQ.
+  3. `diagnostic-mcp.ts`: Servidor MCP hexagonal con herramientas de diagnóstico sobre MongoDB y SQL Server.
 - **QA Autónomo & Testing (TDD con IA):** Redacción guiada por IA de suites completas de tests unitarios, de integración y fuzzing de casos límite antes de validar código; hooks con Opengrep para asegurar 0 reverts.
 - **Observabilidad y Monitorización Proactiva:** Telemetría en Grafana, análisis automatizado de gigabytes de logs en clústeres distribuidos y detección predictiva de anomalías antes de impacto a usuario.
 - **Claude Code & Antigravity:** Automatización con guardarraíles, ejecución en terminal y zero secrets.
@@ -115,22 +120,22 @@ Sustituyendo métricas aisladas de una empresa por 4 pilares universales de maes
   1. **Servidor MCP de Diagnóstico Operativo:** Reducción de diagnósticos de 60 min a lenguaje natural.
   2. **Herramienta de Migración Masiva Expedia Channel PRO:** 211 empresas en 11 días, rollback y cero downtime.
   3. **Sincronización en Tiempo Real de OTAs (Avantio):** Arquitectura distribuida Event-Driven (EDA), desacoplamiento con colas AWS SQS y fan-out con SNS, idempotencia estricta, prevención de overbooking y cumplimiento PCI-DSS.
-  4. **Arquitectura de Ingesta Big Data para E-commerce:** Streaming con Apache Kafka + Batch + Cloud Data Lake.
+  4. **Ingesta Asíncrona de Alta Concurrencia para E-Commerce:** Arquitectura desacoplada de mensajería con AWS SNS/SQS (fan-out) y caché ultrarrápida con Redis.
 - **Proyectos Personales & Open Source (Orquestados con IA):**
   1. **AgroAI (`laralbir/agroAi`):** App Android nativa (Kotlin) con LLM Google Gemma en local (Edge AI, 100% offline) para gestión agrícola.
   2. **Hyundai / Kia Gen5W Navigation Firmware RE (`laralbir/hyundai-kia-gen5w-navi-firmware`):** Ingeniería inversa de firmware de automoción, análisis de particiones y extracción asistida por Claude (`CLAUDE.md`).
   3. **Ámbar Kodi Launcher (`laralbir/ambar-kodi-launcher`):** Launcher táctil panorámico (1920x720) para estación HiFi integrando Kodi (JSON-RPC) y Spotify en Python/Flask/pywebview con estética retro VFD.
 
 ### 4.5. Trayectoria Profesional
-- **Avantio (2018 – Actualidad):** Senior Backend Developer & Connectivity Tech Reference (Referente técnico en Arquitectura Distribuida y Event-Driven con AWS SQS/SNS, modernización de monolitos hacia microservicios en TypeScript/Node.js, plataforma OPS y adopción pionera de IA/SDD).
+- **Avantio (2018 – Actualidad):** Senior Backend Developer & Connectivity Tech Reference (Referente técnico en Arquitectura Distribuida y Event-Driven con AWS SQS/SNS, modernización de monolitos hacia microservicios en TypeScript/Node.js, plataforma OPS, adopción pionera de IA/SDD y automatización de imputación de horas con Claude + Jira + Calendar + GitHub).
 - **Orca Sistemas (2016 – 2018):** Analista Programador Backend & Business Intelligence (POSCRM, génesis en BI, optimización analítica de datos e impulso para la operativa e IA).
 - **Blue Solutions (2015 – 2016):** Fundador & Ingeniero Full-Stack (Desarrollo integral de software PLM para fabricante de tapicerías automoción proveedor de Ford en Almussafes; gestión 360° y arquitectura cliente-servidor).
 - **Binn (2014 – 2015):** Analista Backend y Cloud AWS.
 - **FBCV (2010 – 2014):** Programador y Analista de Sistemas.
-- **Servicios Taurinos Serolo (2006 – 2009):** Backend y Admin Sistemas.
+- **Servicios Taurinos Serolo (2006 – 2009):** Backend y Admin Sistemas (Venta online de entradas y control de tornos de acceso en tiempo real sobre Microsoft SQL Server para múltiples plazas de toros emblemáticas en España: **Valencia, El Puerto de Santa María, Albacete, Jaén y Palencia**, soportando picos masivos de concurrencia).
 
 ### 4.6. Habilidades Técnicas
-- Agrupadas por: *Desarrollo con IA*, *Lenguajes Core (TypeScript, Node.js, PHP)*, *Bases de Datos (MongoDB, SQL Server, MySQL)*, *Arquitectura Distribuida & Patrones (Event-Driven EDA, AWS SQS/SNS/EventBridge, Idempotencia, DLQs, Consistencia Eventual, Hexagonal/DDD)* y *Cloud, Mensajería & DevOps (AWS, Cloudflare, Kafka, Docker, Actions)*.
+- Agrupadas por: *Desarrollo con IA*, *Lenguajes Core (TypeScript, Node.js, PHP)*, *Bases de Datos (MongoDB, SQL Server, MySQL, Redis)*, *Arquitectura Distribuida & Patrones (Event-Driven EDA, AWS SQS/SNS/EventBridge, Idempotencia, DLQs, Consistencia Eventual, Hexagonal/DDD)* y *Cloud, Mensajería & DevOps (AWS SQS/SNS, Cloudflare, Docker, Actions)*.
 
 ### 4.7. Formación y Liderazgo
 - Especialización en IA y Big Data (CFGS - en curso).
@@ -138,7 +143,18 @@ Sustituyendo métricas aisladas de una empresa por 4 pilares universales de maes
 - Técnico Superior DAI y Técnico Especialista.
 - Liderazgo en Tiro con Arco (Entrenador, Juez y Campeón Universitario).
 
-### 4.8. Contacto y Enlaces
+### 4.8. Sección Off-Topic & Pasiones Personales (Con Animaciones CSS/SVG)
+1. **Tiro con Arco:** Deporte de alta concentración, respiración, postura milimétrica y serenidad bajo presión. Gráfico SVG animado de diana concéntrica con onda de choque pulsante en impacto (`@keyframes target-ring-pulse`).
+2. **HiFi & Audiofilia Multiformato:** Pasión por el sonido en todos los formatos (Vinilo a 33 RPM, cintas de cassette, CD, streaming Hi-Res FLAC/DSD). Disco de vinilo animado giratorio en CSS (`@keyframes spin-vinyl`) + ecualizador gráfico VU-metro con barras dinámicas rebotando.
+3. **Mototurismo & Rutas en Moto:** Viajes de media y larga distancia por carretera y puertos de montaña. Animación CSS de perspectiva de carretera con líneas discontinuas en movimiento continuo y silueta de moto rutera.
+
+### 4.9. Accesibilidad Integral (A11y & Daltonismo)
+- Enlace de salto inicial (*Skip Link*) accesible para lectores de pantalla.
+- Selector de modo de alto contraste (`data-a11y="high-contrast"`) para personas con daltonismo y baja visión (paleta amarillo oro `#ffd700` y azul cian sobre fondo negro profundo).
+- Soporte estricto para `prefers-reduced-motion` desconectando todas las animaciones.
+- Foco visible `:focus-visible` de 3px para navegación completa por teclado.
+
+### 4.10. Contacto y Enlaces
 - Email, LinkedIn, GitHub, Teléfono, descarga de CV.
 
 ---
