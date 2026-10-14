@@ -48,7 +48,7 @@ function printConsoleEasterEgg(): void {
 > [ARCHITECTURE]: High-Availability Backend · Microservices · Event-Driven · High-Throughput OTA Sync
 > [METHODOLOGY]: 100% Spec-Driven Development (SDD) orchestrated with AI (Claude Code + Antigravity)
 > [METRICS 2026]: 341 PRs merged (0 reverts) · 313 code reviews · 211 companies migrated in 11 days
-> [CONNECT]: laralbir@gmail.com | https://linkedin.com/in/carlos-lara-albir`,
+> [CONNECT]: laralbir@gmail.com | https://www.linkedin.com/in/carlos-lara-albir-687277a4`,
     textStyle
   );
   console.log('%c> Inspect the raw SDD specs on GitHub: https://github.com/laralbir/carloslara-portfolio', linkStyle);

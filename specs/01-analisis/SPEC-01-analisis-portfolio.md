@@ -35,7 +35,7 @@ Crear una plataforma web de alto impacto profesional en formato **One Page** ori
 - **Ubicación:** Torrent, Valencia (España)
 - **Email:** laralbir@gmail.com
 - **Teléfono:** (+34) 661 76 22 02
-- **LinkedIn:** [linkedin.com/in/carlos-lara-albir](https://linkedin.com/in/carlos-lara-albir)
+- **LinkedIn:** [linkedin.com/in/carlos-lara-albir-687277a4](https://www.linkedin.com/in/carlos-lara-albir-687277a4)
 - **GitHub:** [github.com/laralbir](https://github.com/laralbir)
 - **Repositorio del Portfolio:** [github.com/laralbir/carloslara-portfolio](https://github.com/laralbir/carloslara-portfolio)
 - **Idiomas Soportados en la Web:** 
