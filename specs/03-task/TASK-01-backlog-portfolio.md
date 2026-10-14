@@ -143,6 +143,13 @@ Cada tarea atómica se considerará completa únicamente cuando:
 - [ ] **TASK-5.9: Pie de Página (`Footer`)**
   - Copyright, enlaces a redes, mención al hosting en Cloudflare Edge y enlace a la auditoría del repositorio.
 
+- [ ] **TASK-5.10: Estética Nerd-Tech, Terminal Telemetry y Console Easter Egg**
+  - Barra de telemetría superior estilo CLI con estado de red en tiempo real.
+  - Tipografía monoespaciada en chips de tecnologías, métricas y prompt markers (`$`).
+  - Script con Easter Egg en `console.log` con ASCII art y mensaje para reclutadores técnicos / CTOs.
+  - Trama sutil de cuadrícula cibernética/blueprint en fondos tecnológicos.
+  - **AC:** Al abrir DevTools (`F12`) se muestra el mensaje técnico; la barra de telemetría y elementos CLI transmiten inequívocamente la estética hacker/ingeniero.
+
 ---
 
 ### WP6: Auditoría de Calidad, Responsive y Despliegue en Cloudflare

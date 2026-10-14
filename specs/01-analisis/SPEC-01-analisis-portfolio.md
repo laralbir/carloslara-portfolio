@@ -80,6 +80,14 @@ Un elemento interactivo de alto impacto visual (banner dinámico / badge expandi
   - *Contadores Numéricos Animados:* Las métricas (341 PRs, 211 empresas, etc.) inician en cero y cuentan rápidamente al entrar en el viewport.
   - *Microinteracciones:* Hover con efecto de elevación 3D (tilt effect sutil) en las tarjetas de proyectos.
 
+### 3.5. Estética "Nerd-Tech" & Detalles de Ingeniería
+La web debe transmitir inequívocamente la identidad de un ingeniero backend sénior y apasionado por la tecnología:
+- **Barra de Telemetría / Terminal Header:** Una mini-barra con estética CLI que muestre el estado del sistema en tiempo real:
+  `[SYS: ONLINE] · [HTTP: 200 OK] · [EDGE: CLOUDFLARE] · [BRANCH: preview] · [LATENCY: <15ms]`.
+- **Tipografía y Acentos Monoespaciados:** Uso estratégico de fuentes monoespaciadas (`ui-monospace`, `JetBrains Mono`) en métricas, insignias de stack, snippets y encabezados de terminal (`~/carlos-portfolio $`).
+- **Malla Cyber/Blueprint:** Trama milimétrica sutil en el fondo de las tarjetas y contenedores tecnológicos.
+- **Easter Egg en Consola de DevTools:** Al abrir la consola del navegador (`F12`), se muestra un mensaje en formato ASCII art con bienvenida técnica para reclutadores y directores de ingeniería, invitándolos a revisar el repo y contactar.
+
 ---
 
 ## 4. Contenido Detallado de Secciones

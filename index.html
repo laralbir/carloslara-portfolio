@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carlos Lara Albir — Senior Backend Engineer & AI-Augmented Developer</title>
+  <meta name="description" content="Senior Backend Engineer with 20+ years building mission-critical distributed systems and real-time OTA synchronization, accelerated by agentic AI (Claude Code, MCP, Antigravity) and Spec-Driven Development (SDD).">
+  
+  <!-- OpenGraph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://carloslara.dev/">
+  <meta property="og:title" content="Carlos Lara Albir — Senior Backend Engineer & AI-Augmented Developer">
+  <meta property="og:description" content="20+ years of high-availability backend engineering combined with agentic AI and Spec-Driven Development. Audited metrics: 341 PRs, 0 reverts, 211 companies migrated in 11 days.">
+  <meta property="og:image" content="https://carloslara.dev/favicon.svg">
+  
+  <meta name="theme-color" content="#090d16">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <!-- Anti-FOUC Theme & Language Flash Prevention Script -->
+  <script>
+    (function() {
+      try {
+        var setting = localStorage.getItem('user_theme') || 'system';
+        var isDark = setting === 'dark' || (setting === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme-setting', setting);
+        
+        var lang = localStorage.getItem('user_lang');
+        if (!lang) {
+          var bl = (navigator.language || navigator.languages?.[0] || '').toLowerCase();
+          if (bl.startsWith('es')) {
+            lang = 'es';
+          } else if (bl.startsWith('ca') || bl.startsWith('va')) {
+            lang = 'va';
+          } else {
+            lang = 'en'; // English default fallback
+          }
+        }
+        document.documentElement.lang = lang === 'va' ? 'ca' : lang;
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <!-- Interactive 2D/3D Background Canvas -->
+  <canvas id="canvas-background" aria-hidden="true"></canvas>
+
+  <div class="site-wrapper">
+    <!-- Navigation Bar with Nerd-Tech Telemetry -->
+    <header class="navbar">
+      <div class="telemetry-ticker">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+          <div style="display: flex; gap: 1.25rem; align-items: center;">
+            <span class="telemetry-item"><span class="telemetry-prompt">carlos@edge:~$</span></span>
+            <span class="telemetry-item"><span class="telemetry-tag">STATUS:</span> <span class="telemetry-ok">200 OK</span></span>
+            <span class="telemetry-item"><span class="telemetry-tag">RUNTIME:</span> CLOUDFLARE_EDGE</span>
+            <span class="telemetry-item"><span class="telemetry-tag">BRANCH:</span> preview*</span>
+          </div>
+          <div style="display: flex; gap: 1.25rem; align-items: center;">
+            <span class="telemetry-item"><span class="telemetry-tag">LATENCY:</span> <span id="telemetry-latency" class="telemetry-ok">12ms</span></span>
+            <span class="telemetry-item"><span class="telemetry-tag">SPEC:</span> SDD_v1.0</span>
+          </div>
+        </div>
+      </div>
+      <div class="container nav-container" style="padding-top: 0.5rem; padding-bottom: 0.5rem;">
+        <a href="#hero" class="nav-brand" aria-label="Carlos Lara Albir Home">
+          <span class="brand-monogram">CLA</span>
+          <span>Carlos Lara Albir</span>
+        </a>
+
+        <nav>
+          <ul class="nav-menu">
+            <li><a href="#hero" class="nav-link active" data-i18n="nav.home">Home</a></li>
+            <li><a href="#metrics" class="nav-link" data-i18n="nav.metrics">Metrics</a></li>
+            <li><a href="#ai-sdd" class="nav-link" data-i18n="nav.aiSdd">AI & SDD</a></li>
+            <li><a href="#projects" class="nav-link" data-i18n="nav.projects">Projects</a></li>
+            <li><a href="#experience" class="nav-link" data-i18n="nav.experience">Experience</a></li>
+            <li><a href="#skills" class="nav-link" data-i18n="nav.skills">Skills</a></li>
+            <li><a href="#education" class="nav-link" data-i18n="nav.education">Education</a></li>
+            <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-controls">
+          <!-- Language Selector -->
+          <select id="lang-select" class="control-select" aria-label="Select Language">
+            <option value="en">EN</option>
+            <option value="es">ES</option>
+            <option value="va">VA</option>
+          </select>
+
+          <!-- Theme Selector -->
+          <select id="theme-select" class="control-select" aria-label="Select Theme">
+            <option value="system" data-i18n="nav.themeSystem">System</option>
+            <option value="dark" data-i18n="nav.themeDark">Dark</option>
+            <option value="light" data-i18n="nav.themeLight">Light</option>
+          </select>
+
+          <!-- Mobile Toggle Button -->
+          <button id="mobile-toggle" class="mobile-toggle" aria-label="Open Navigation Menu" aria-expanded="false">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Nav Drawer -->
+    <div id="mobile-nav" class="mobile-nav" aria-hidden="true">
+      <a href="#hero" class="nav-link" data-i18n="nav.home">Home</a>
+      <a href="#metrics" class="nav-link" data-i18n="nav.metrics">Metrics</a>
+      <a href="#ai-sdd" class="nav-link" data-i18n="nav.aiSdd">AI & SDD</a>
+      <a href="#projects" class="nav-link" data-i18n="nav.projects">Projects</a>
+      <a href="#experience" class="nav-link" data-i18n="nav.experience">Experience</a>
+      <a href="#skills" class="nav-link" data-i18n="nav.skills">Skills</a>
+      <a href="#education" class="nav-link" data-i18n="nav.education">Education</a>
+      <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main>
+      <!-- HERO SECTION -->
+      <section id="hero" class="hero-section">
+        <div class="container">
+          <div class="hero-grid">
+            <div class="hero-content">
+              <div class="hero-badge">
+                <span class="pulse-indicator"></span>
+                <span data-i18n="hero.badge">Open to new challenges · Senior / Staff / Tech Lead</span>
+              </div>
+
+              <h1 class="hero-title">
+                Carlos Lara Albir<br>
+                <span class="gradient-text" data-i18n="hero.titleHighlight">Senior Backend Engineer</span><br>
+                <span data-i18n="hero.titleSuffix">& AI-Augmented Developer</span>
+              </h1>
+
+              <p class="hero-subtitle" data-i18n="hero.subtitle">
+                Over 20 years building high-availability, mission-critical distributed systems (Node.js, TypeScript, Event-Driven, real-time OTA synchronization, PCI-DSS) accelerated by agentic AI workflows (Claude Code, custom MCP servers, Spec-Driven Development).
+              </p>
+
+              <div class="hero-actions">
+                <a href="#projects" class="btn btn-primary" data-i18n="hero.ctaProjects">Explore Projects & Metrics</a>
+                <a href="#contact" class="btn btn-secondary" data-i18n="hero.ctaContact">Get in Touch</a>
+                <a href="https://linkedin.com/in/carlos-lara-albir" target="_blank" rel="noopener noreferrer" class="btn btn-outline" data-i18n="hero.ctaCv">Download CV</a>
+              </div>
+
+              <!-- Meta-Callout "100% IA + SDD" with animated glowing border -->
+              <div class="ai-meta-banner">
+                <div class="ai-meta-info">
+                  <div class="ai-meta-icon" aria-hidden="true">⚡</div>
+                  <div class="ai-meta-text">
+                    <strong data-i18n="aiCallout.tag">100% Agentic AI & SDD</strong>
+                    <span data-i18n="aiCallout.message">This web wasn't handwritten line by line: it was architected, specified, and coded 100% by AI agents (Claude Code + Antigravity) under rigorous Spec-Driven Development (SDD).</span>
+                  </div>
+                </div>
+                <div style="display: flex; gap: 0.5rem; align-items: center; flex-shrink: 0;">
+                  <button class="btn btn-secondary btn-sm open-sdd-modal" style="font-size: 0.75rem;">Info</button>
+                  <a href="https://github.com/laralbir/carloslara-portfolio" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" data-i18n="aiCallout.action" style="font-size: 0.75rem;">Audit Specs on GitHub ➔</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tech Avatar (3D Hologram for Initial Version without Photo) -->
+            <div class="hero-avatar-wrapper">
+              <div class="avatar-ambient-glow"></div>
+              <div class="avatar-canvas-container">
+                <canvas id="tech-avatar-canvas" aria-label="Interactive 3D Holographic Avatar"></canvas>
+                <!-- Image container prepared for future photo swap -->
+                <img src="/assets/carlos-lara.webp" alt="Carlos Lara Albir" class="avatar-photo" loading="lazy">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- METRICS SECTION -->
+      <section id="metrics">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag" data-i18n="nav.metrics">Metrics</span>
+            <h2 class="section-title" data-i18n="metrics.title">Proven Delivery & Quality</h2>
+            <p class="section-subtitle" data-i18n="metrics.subtitle">Audited metrics from 2026 Grafana management reports and internal operations data</p>
+          </div>
+
+          <div class="metrics-grid">
+            <div class="glass-card metric-card">
+              <div class="metric-number counter-value" data-target="341">0</div>
+              <div class="metric-label" data-i18n="metrics.prs.label">Merged PRs</div>
+              <div class="metric-detail" data-i18n="metrics.prs.detail">0 reverted PRs · Only 1.2% hotfixes (Feb–Sep 2026)</div>
+            </div>
+
+            <div class="glass-card metric-card">
+              <div class="metric-number counter-value" data-target="313">0</div>
+              <div class="metric-label" data-i18n="metrics.reviews.label">Code Reviews Given</div>
+              <div class="metric-detail" data-i18n="metrics.reviews.detail">#1 or #2 in team rankings every single month</div>
+            </div>
+
+            <div class="glass-card metric-card">
+              <div class="metric-number counter-value" data-target="211">0</div>
+              <div class="metric-label" data-i18n="metrics.migration.label">Companies Migrated</div>
+              <div class="metric-detail" data-i18n="metrics.migration.detail">Expedia Channel PRO in 11 days with 0 registered errors</div>
+            </div>
+
+            <div class="glass-card metric-card">
+              <div class="metric-number counter-value" data-target="27+">0</div>
+              <div class="metric-label" data-i18n="metrics.users.label">Ops Platform Users</div>
+              <div class="metric-detail" data-i18n="metrics.users.detail">Internal tools built end-to-end (1,388+ non-self operations)</div>
+            </div>
+
+            <div class="glass-card metric-card">
+              <div class="metric-number counter-value" data-target="25+">0</div>
+              <div class="metric-label" data-i18n="metrics.mcp.label">Custom MCP Tools</div>
+              <div class="metric-detail" data-i18n="metrics.mcp.detail">Reduced incident diagnostic time from 60 min to seconds</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- AI & SDD SECTION -->
+      <section id="ai-sdd">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag" data-i18n="nav.aiSdd">AI & SDD</span>
+            <h2 class="section-title" data-i18n="ai.title">AI-Augmented Engineering</h2>
+            <p class="section-subtitle" data-i18n="ai.subtitle">How agentic AI multiplies output, code quality, and engineering velocity</p>
+          </div>
+
+          <div class="ai-cards-grid">
+            <div class="glass-card ai-card">
+              <div class="ai-card-icon" aria-hidden="true">📐</div>
+              <h3 class="ai-card-title" data-i18n="ai.sddTitle">Spec-Driven Development (SDD)</h3>
+              <p class="ai-card-desc" data-i18n="ai.sddDesc">Rigorous four-phase lifecycle (Analysis → Plan → Task → Implement) automated via custom skills reading Jira epics and actual codebase to guarantee 100% traceability from requirement to verified code.</p>
+            </div>
+
+            <div class="glass-card ai-card">
+              <div class="ai-card-icon" aria-hidden="true">🔌</div>
+              <h3 class="ai-card-title" data-i18n="ai.mcpTitle">Production MCP Diagnostic Server</h3>
+              <p class="ai-card-desc" data-i18n="ai.mcpDesc">Engineered an in-house Model Context Protocol server using Next.js and hexagonal architecture with 25+ read-only tools on MongoDB and SQL Server, enabling natural language investigation of complex reservation lifecycles.</p>
+            </div>
+
+            <div class="glass-card ai-card">
+              <div class="ai-card-icon" aria-hidden="true">🤖</div>
+              <h3 class="ai-card-title" data-i18n="ai.claudeTitle">Claude Code & Antigravity Workflows</h3>
+              <p class="ai-card-desc" data-i18n="ai.claudeDesc">Advanced pair programming with subagents, quality hooks, strict security guardrails (read-only production queries, zero exposed secrets), and automated test-driven development.</p>
+            </div>
+
+            <div class="glass-card ai-card">
+              <div class="ai-card-icon" aria-hidden="true">📊</div>
+              <h3 class="ai-card-title" data-i18n="ai.estimationTitle">Systematized Agile Estimation</h3>
+              <p class="ai-card-desc" data-i18n="ai.estimationDesc">Custom Story Points estimation skill calibrated to department velocity guidelines, paired with real-time Jira & GitHub cycle time telemetry.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS SHOWCASE -->
+      <section id="projects">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag" data-i18n="nav.projects">Projects</span>
+            <h2 class="section-title" data-i18n="projects.title">Featured Projects & Case Studies</h2>
+            <p class="section-subtitle" data-i18n="projects.subtitle">Mission-critical architectures, large-scale migrations, and high-concurrency systems</p>
+          </div>
+
+          <div class="projects-grid">
+            <!-- Project 1: MCP Server -->
+            <div class="glass-card project-card">
+              <span class="project-tag" data-i18n="projects.case1.tag">AI & Developer Tooling</span>
+              <h3 class="project-title" data-i18n="projects.case1.title">Production MCP Diagnostic Server</h3>
+              <div class="project-block">
+                <span class="project-block-title">Challenge:</span>
+                <p class="project-block-text" data-i18n="projects.case1.problem">Debugging multi-channel booking anomalies across 6 OTAs required manual multi-database log queries across gigabytes of data, consuming 15 to 60 minutes per incident.</p>
+              </div>
+              <div class="project-block">
+                <span class="project-block-title">Solution:</span>
+                <p class="project-block-text" data-i18n="projects.case1.solution">Designed a dedicated Model Context Protocol (MCP) server with hexagonal architecture, granting AI assistants read-only access to MongoDB and SQL Server to reconstruct timelines automatically via natural language.</p>
+              </div>
+              <div class="project-impact">
+                <span class="project-impact-text">⚡ Impact: <span data-i18n="projects.case1.impact">Reduced mean time to investigation from 60 minutes to under 30 seconds.</span></span>
+              </div>
+            </div>
+
+            <!-- Project 2: Expedia Migration -->
+            <div class="glass-card project-card">
+              <span class="project-tag" data-i18n="projects.case2.tag">Internal Operations Tooling</span>
+              <h3 class="project-title" data-i18n="projects.case2.title">Massive Expedia Channel PRO Migration Tool</h3>
+              <div class="project-block">
+                <span class="project-block-title">Challenge:</span>
+                <p class="project-block-text" data-i18n="projects.case2.problem">Mandatory migration of enterprise holiday rental accounts from legacy Expedia API to modern Channel PRO without booking interruption or availability downtime.</p>
+              </div>
+              <div class="project-block">
+                <span class="project-block-title">Solution:</span>
+                <p class="project-block-text" data-i18n="projects.case2.solution">Architected a batch processing migration orchestrator with progress telemetry, automated verification checkpoints, instant rollback safety, and Excel audit reporting.</p>
+              </div>
+              <div class="project-impact">
+                <span class="project-impact-text">⚡ Impact: <span data-i18n="projects.case2.impact">Successfully migrated 211 companies in 11 days (1,664 actions) with zero recorded errors.</span></span>
+              </div>
+            </div>
+
+            <!-- Project 3: Realtime OTA Sync -->
+            <div class="glass-card project-card">
+              <span class="project-tag" data-i18n="projects.case3.tag">Event-Driven & Microservices</span>
+              <h3 class="project-title" data-i18n="projects.case3.title">Real-time OTA Inventory Synchronization Engine</h3>
+              <div class="project-block">
+                <span class="project-block-title">Challenge:</span>
+                <p class="project-block-text" data-i18n="projects.case3.problem">Preventing overbooking and rate desynchronization across millions of daily transactions with Booking.com, Airbnb, Expedia, and Vrbo.</p>
+              </div>
+              <div class="project-block">
+                <span class="project-block-title">Solution:</span>
+                <p class="project-block-text" data-i18n="projects.case3.solution">Decoupled connectivity microservices into an event-driven architecture using TypeScript/Node.js, AWS SQS queuing, and real-time inventory parity algorithms compliant with PCI-DSS.</p>
+              </div>
+              <div class="project-impact">
+                <span class="project-impact-text">⚡ Impact: <span data-i18n="projects.case3.impact">Drastic reduction in overbooking occurrences and rock-solid partner API stability.</span></span>
+              </div>
+            </div>
+
+            <!-- Project 4: Big Data Ingestion -->
+            <div class="glass-card project-card">
+              <span class="project-tag" data-i18n="projects.case4.tag">Big Data & Streaming</span>
+              <h3 class="project-title" data-i18n="projects.case4.title">High-Throughput E-Commerce Big Data Ingestion</h3>
+              <div class="project-block">
+                <span class="project-block-title">Challenge:</span>
+                <p class="project-block-text" data-i18n="projects.case4.problem">Integrating heterogeneous real-time transactional feeds, clickstream data, inventory levels, and marketing telemetry at massive scale.</p>
+              </div>
+              <div class="project-block">
+                <span class="project-block-title">Solution:</span>
+                <p class="project-block-text" data-i18n="projects.case4.solution">Architected hybrid streaming and batch ingestion topology utilizing Apache Kafka as high-throughput messaging backbone and scalable Cloud Data Lake storage.</p>
+              </div>
+              <div class="project-impact">
+                <span class="project-impact-text">⚡ Impact: <span data-i18n="projects.case4.impact">Sub-second event streaming ingestion with unified analytics readiness.</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE TIMELINE -->
+      <section id="experience">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag" data-i18n="nav.experience">Experience</span>
+            <h2 class="section-title" data-i18n="experience.title">Work Experience</h2>
+            <p class="section-subtitle" data-i18n="experience.subtitle">Over two decades of backend leadership and high-scale software engineering</p>
+          </div>
+
+          <div class="timeline">
+            <!-- Avantio -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="glass-card" style="padding: 1.75rem;">
+                <div class="timeline-header">
+                  <h3 class="timeline-role" data-i18n="experience.avantio.role">Senior Backend Developer & Connectivity Tech Reference</h3>
+                  <div class="timeline-company-period">
+                    <span class="timeline-company">Avantio</span>
+                    <span>·</span>
+                    <span data-i18n="experience.avantio.period">2018 – Present</span>
+                  </div>
+                </div>
+                <ul class="timeline-points">
+                  <li class="timeline-point">Technical lead in Connectivity team, ensuring synchronization reliability between PMS and major global OTAs (Booking.com, Airbnb, Vrbo, Expedia).</li>
+                  <li class="timeline-point">Designed and implemented Node.js/TypeScript event-driven microservices to modernize legacy PHP systems, improving maintainability and horizontal scalability.</li>
+                  <li class="timeline-point">Built core backend for internal Operations (OPS) panel used by 27+ company staff across support, account management, and connectivity.</li>
+                  <li class="timeline-point">End-to-end epic ownership without dedicated PM: requirements specification with Product, technical architecture, Story Points estimation, deployment orchestration, and verification.</li>
+                  <li class="timeline-point">Pioneered AI-augmented development with Claude Code, custom MCP diagnostic servers, and Spec-Driven Development.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Orca Sistemas -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="glass-card" style="padding: 1.75rem;">
+                <div class="timeline-header">
+                  <h3 class="timeline-role" data-i18n="experience.orca.role">Backend Programmer Analyst</h3>
+                  <div class="timeline-company-period">
+                    <span class="timeline-company">Orca Sistemas y Programación S.L.</span>
+                    <span>·</span>
+                    <span>2016 – 2018</span>
+                  </div>
+                </div>
+                <ul class="timeline-points">
+                  <li class="timeline-point">Core development of the POSCRM platform using PHP and relational databases.</li>
+                  <li class="timeline-point">Stored procedure design and query optimization for high-volume billing and management.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Blue Solutions -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="glass-card" style="padding: 1.75rem;">
+                <div class="timeline-header">
+                  <h3 class="timeline-role" data-i18n="experience.blue.role">CEO & Backend Programmer Analyst</h3>
+                  <div class="timeline-company-period">
+                    <span class="timeline-company">Blue Solutions</span>
+                    <span>·</span>
+                    <span>2015 – 2016</span>
+                  </div>
+                </div>
+                <ul class="timeline-points">
+                  <li class="timeline-point">Technical leadership and custom server architecture development for corporate clients.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Binn -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="glass-card" style="padding: 1.75rem;">
+                <div class="timeline-header">
+                  <h3 class="timeline-role" data-i18n="experience.binn.role">Backend & Cloud Systems Analyst</h3>
+                  <div class="timeline-company-period">
+                    <span class="timeline-company">Binn</span>
+                    <span>·</span>
+                    <span>2014 – 2015</span>
+                  </div>
+                </div>
+                <ul class="timeline-points">
+                  <li class="timeline-point">API architecture design for mobile applications and AWS cloud infrastructure management.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- FBCV -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="glass-card" style="padding: 1.75rem;">
+                <div class="timeline-header">
+                  <h3 class="timeline-role" data-i18n="experience.fbcv.role">Programmer & Systems Analyst</h3>
+                  <div class="timeline-company-period">
+                    <span class="timeline-company">Federación de Baloncesto de la C. Valenciana</span>
+                    <span>·</span>
+                    <span>2010 – 2014</span>
+                  </div>
+                </div>
+                <ul class="timeline-points">
+                  <li class="timeline-point">Internal management systems development: competitions, licensing, refereeing, and live results.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Serolo -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="glass-card" style="padding: 1.75rem;">
+                <div class="timeline-header">
+                  <h3 class="timeline-role" data-i18n="experience.serolo.role">Backend Developer & Systems Administrator</h3>
+                  <div class="timeline-company-period">
+                    <span class="timeline-company">Servicios Taurinos Serolo S.L.</span>
+                    <span>·</span>
+                    <span>2006 – 2009</span>
+                  </div>
+                </div>
+                <ul class="timeline-points">
+                  <li class="timeline-point">Online ticketing platforms and access control server logic on Microsoft SQL Server.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS SECTION -->
+      <section id="skills">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag" data-i18n="nav.skills">Skills</span>
+            <h2 class="section-title" data-i18n="skills.title">Technical Competencies</h2>
+            <p class="section-subtitle" data-i18n="skills.subtitle">Specialized stack focused on performance, resilience, and AI automation</p>
+          </div>
+
+          <div class="skills-categories">
+            <!-- AI & Automation -->
+            <div class="glass-card skills-category-card">
+              <h3 class="skills-category-title" data-i18n="skills.catAi">AI & Engineering Automation</h3>
+              <div class="skill-pill-list">
+                <span class="skill-pill">Claude Code</span>
+                <span class="skill-pill">Model Context Protocol (MCP)</span>
+                <span class="skill-pill">Antigravity</span>
+                <span class="skill-pill">Spec-Driven Development (SDD)</span>
+                <span class="skill-pill">Test-Driven Development (TDD)</span>
+                <span class="skill-pill">Jira & Tempo APIs</span>
+                <span class="skill-pill">Opengrep Static Analysis</span>
+              </div>
+            </div>
+
+            <!-- Core Languages -->
+            <div class="glass-card skills-category-card">
+              <h3 class="skills-category-title" data-i18n="skills.catLang">Core Languages & Runtimes</h3>
+              <div class="skill-pill-list">
+                <span class="skill-pill">TypeScript (Expert)</span>
+                <span class="skill-pill">Node.js (Expert)</span>
+                <span class="skill-pill">PHP (Expert)</span>
+                <span class="skill-pill">JavaScript (ESNext)</span>
+                <span class="skill-pill">SQL / Stored Procedures</span>
+                <span class="skill-pill">HTML5 & Modern CSS</span>
+              </div>
+            </div>
+
+            <!-- Databases -->
+            <div class="glass-card skills-category-card">
+              <h3 class="skills-category-title" data-i18n="skills.catData">Databases & Storage</h3>
+              <div class="skill-pill-list">
+                <span class="skill-pill">MongoDB (Optimization & Indexing)</span>
+                <span class="skill-pill">Microsoft SQL Server</span>
+                <span class="skill-pill">MySQL</span>
+                <span class="skill-pill">PostgreSQL</span>
+                <span class="skill-pill">Cloud Data Lake</span>
+              </div>
+            </div>
+
+            <!-- Architecture -->
+            <div class="glass-card skills-category-card">
+              <h3 class="skills-category-title" data-i18n="skills.catArch">Architecture & Patterns</h3>
+              <div class="skill-pill-list">
+                <span class="skill-pill">Event-Driven Architecture</span>
+                <span class="skill-pill">Microservices</span>
+                <span class="skill-pill">Hexagonal Architecture</span>
+                <span class="skill-pill">High-Performance REST/SOAP</span>
+                <span class="skill-pill">Real-time Parity Sync</span>
+                <span class="skill-pill">PCI-DSS Payment Security</span>
+              </div>
+            </div>
+
+            <!-- Cloud & DevOps -->
+            <div class="glass-card skills-category-card" style="grid-column: 1 / -1;">
+              <h3 class="skills-category-title" data-i18n="skills.catCloud">Cloud, Messaging & DevOps</h3>
+              <div class="skill-pill-list">
+                <span class="skill-pill">AWS (EC2, S3, RDS, SQS)</span>
+                <span class="skill-pill">Cloudflare Pages & Workers</span>
+                <span class="skill-pill">Apache Kafka</span>
+                <span class="skill-pill">Docker</span>
+                <span class="skill-pill">Linux / Ubuntu / LAMP</span>
+                <span class="skill-pill">Git / GitHub Actions</span>
+                <span class="skill-pill">Nx / Lerna Monorepo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EDUCATION & LEADERSHIP SECTION -->
+      <section id="education">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag" data-i18n="nav.education">Education</span>
+            <h2 class="section-title" data-i18n="education.title">Education & Leadership</h2>
+            <p class="section-subtitle" data-i18n="education.subtitle">Continuous academic specialization and high-performance discipline</p>
+          </div>
+
+          <div class="education-grid">
+            <div class="glass-card education-card">
+              <h3 class="education-card-title" data-i18n="education.aiDegree.title">Specialization in Artificial Intelligence & Big Data (CFGS)</h3>
+              <span class="education-card-inst" data-i18n="education.aiDegree.institution">In progress (2026)</span>
+              <p class="education-card-desc" data-i18n="education.aiDegree.desc">Advanced training in machine learning models, deep learning, big data streaming pipelines, and neural network architectures.</p>
+            </div>
+
+            <div class="glass-card education-card">
+              <h3 class="education-card-title" data-i18n="education.csDegree.title">Computer Software Engineering</h3>
+              <span class="education-card-inst" data-i18n="education.csDegree.institution">Universitat Politècnica de València (UPV)</span>
+              <p class="education-card-desc" data-i18n="education.csDegree.desc">+80% completed degree credits; specialized focus in Software Engineering and Distributed Systems.</p>
+            </div>
+
+            <div class="glass-card education-card">
+              <h3 class="education-card-title" data-i18n="education.daiDegree.title">Higher Technician in Computer Applications Development (CFGS DAI)</h3>
+              <span class="education-card-inst" data-i18n="education.daiDegree.institution">Official Higher Technical Degree</span>
+              <p class="education-card-desc" data-i18n="education.daiDegree.desc">Software architecture, object-oriented design, database design, and systems engineering.</p>
+            </div>
+
+            <div class="glass-card education-card">
+              <h3 class="education-card-title" data-i18n="education.archery.title">Sport Leadership: National Archery Coach & Judge</h3>
+              <span class="education-card-inst" data-i18n="education.archery.institution">Certified by Higher Sports Council (CSD)</span>
+              <p class="education-card-desc" data-i18n="education.archery.desc">Coached team to Spanish University Championship title. Fosters laser focus, emotional self-regulation under pressure, and relentless attention to detail.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT SECTION -->
+      <section id="contact">
+        <div class="container">
+          <div class="glass-card contact-box">
+            <span class="section-tag" data-i18n="nav.contact">Contact</span>
+            <h2 class="section-title" data-i18n="contact.title">Let's Connect</h2>
+            <p class="section-subtitle" data-i18n="contact.subtitle">Available for Senior, Staff, or Tech Lead engineering opportunities</p>
+
+            <div class="contact-actions">
+              <a href="mailto:laralbir@gmail.com" class="btn btn-primary">laralbir@gmail.com</a>
+              <button id="copy-email-btn" class="btn btn-secondary" data-i18n="contact.copyEmail">Copy Email</button>
+              <a href="https://linkedin.com/in/carlos-lara-albir" target="_blank" rel="noopener noreferrer" class="btn btn-outline">LinkedIn ↗</a>
+              <a href="https://github.com/laralbir" target="_blank" rel="noopener noreferrer" class="btn btn-outline">GitHub ↗</a>
+            </div>
+
+            <p style="font-size: 0.9rem; color: var(--text-muted);" data-i18n="contact.location">
+              Torrent, Valencia, Spain (Available Remote & Hybrid)
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container footer-content">
+        <p>&copy; 2026 Carlos Lara Albir. <span data-i18n="footer.rights">All rights reserved.</span></p>
+        <p data-i18n="footer.builtWith">Architected & implemented 100% with AI & Spec-Driven Development.</p>
+        <p style="font-size: 0.75rem; opacity: 0.8;" data-i18n="footer.edgePowered">Hosted on Cloudflare Edge global network.</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="copy-toast" class="toast" role="alert" aria-live="polite">Email copied to clipboard!</div>
+
+  <!-- SDD Explainer Native Modal -->
+  <dialog id="sdd-modal" class="sdd-modal">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+      <h3 style="font-size: 1.35rem; font-weight: 800;" data-i18n="aiCallout.modalTitle">How this website was built with AI & SDD</h3>
+      <button class="close-sdd-modal btn btn-icon btn-secondary" style="width: 2rem; height: 2rem;">✕</button>
+    </div>
+    <p style="font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem;" data-i18n="aiCallout.modalDesc">
+      Under Spec-Driven Development, code is the verified final output of structured specifications, never the starting point. Every feature maps directly to requirements, architectural design, atomic task work packages, and verified acceptance criteria.
+    </p>
+    <div style="display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 2rem; font-size: 0.875rem;">
+      <div style="padding: 0.75rem 1rem; background: var(--bg-surface); border-radius: var(--radius-md); border-left: 3px solid var(--accent-primary);" data-i18n="aiCallout.modalStep1">01. Analysis: Profile, quantitative KPIs, core differentiators, and functional specs.</div>
+      <div style="padding: 0.75rem 1rem; background: var(--bg-surface); border-radius: var(--radius-md); border-left: 3px solid var(--accent-primary);" data-i18n="aiCallout.modalStep2">02. Plan: Technical architecture, i18n, zero-runtime CSS theme system, and Cloudflare Edge strategy.</div>
+      <div style="padding: 0.75rem 1rem; background: var(--bg-surface); border-radius: var(--radius-md); border-left: 3px solid var(--accent-primary);" data-i18n="aiCallout.modalStep3">03. Task: Atomic task breakdown with strict Definition of Done (DoD).</div>
+      <div style="padding: 0.75rem 1rem; background: var(--bg-surface); border-radius: var(--radius-md); border-left: 3px solid var(--accent-primary);" data-i18n="aiCallout.modalStep4">04. Implement: Precision execution, test verification, Lighthouse 100/100, and deployment.</div>
+    </div>
+    <div style="text-align: right;">
+      <a href="https://github.com/laralbir/carloslara-portfolio/tree/preview/specs" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-i18n="aiCallout.modalLink">View specs directory on GitHub ➔</a>
+    </div>
+  </dialog>
+
+  <!-- Vite Typescript Entrypoint -->
+  <script type="module" src="/src/scripts/main.ts"></script>
+</body>
+</html>
+

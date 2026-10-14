@@ -37,6 +37,12 @@
   3. Los elementos de la UI llevan atributos `data-i18n="clave.subclave"`.
   4. Al cambiar de idioma en el selector, el motor actualiza los nodos en memoria instantáneamente y guarda la preferencia en `localStorage`.
 
+### ADR-04: Estética "Nerd-Tech" & Telemetría en Vivo
+- **Decisión:** Integrar elementos de ingeniería visibles:
+  - Barra de estado / telemetría superior con aspecto de terminal: indicando estado online, código HTTP 200, edge node de Cloudflare y rama activa.
+  - Tipografía monoespaciada en métricas, chips de tecnologías y prefijos de comando (`$`).
+  - Easter egg en `console.log` con arte ASCII de bienvenida para visitantes técnicos (DevTools).
+
 ---
 
 ## 2. Plan para la Versión Inicial Sin Foto (Avatar Técnico 2D/3D)
