@@ -34,11 +34,14 @@
 ## 2. Decisiones Técnicas Implementadas
 1. **Fallback de Idioma por Defecto:** Si el navegador no reporta español (`es`) ni catalán/valenciano (`ca`/`va`), la web carga automáticamente en **Inglés (`en`)**.
 2. **Mapeo del Valenciano:** Se utiliza la clave autonómica `va` mapeada al estándar ISO `ca` / `ca-ES` de navegadores.
-3. **Plan Inicial Sin Foto:** El componente `TechAvatar` dibuja un icosaedro 3D interactivo con rotación vectorial y monograma central `CLA`, encapsulado en `.hero-avatar-wrapper` con clase de soporte para intercambio inmediato cuando Carlos provea la foto.
-4. **Bundle Ultra-ligero:** Todo el código JS compilado pesa solo 13.9 KB gzipped y los estilos 3.9 KB gzipped.
+3. **Tema por Defecto:** Se establece **Oscuro (`dark`)** por defecto si no hay preferencia en `localStorage`, favoreciendo la estética "nerd-tech" y el contraste de terminal.
+4. **Plan Inicial Sin Foto:** El componente `TechAvatar` dibuja un icosaedro 3D interactivo con rotación vectorial y monograma central `CLA`, encapsulado en `.hero-avatar-wrapper` con clase de soporte para intercambio inmediato cuando Carlos provea la foto.
+5. **Bundle Ultra-ligero:** Todo el código JS compilado pesa solo 13.9 KB gzipped y los estilos 3.9 KB gzipped.
+6. **Política Git para Preview:** Autorización explícita otorgada por Carlos para compilar, commitear y hacer push de forma autónoma en la rama `preview`.
 
 ---
 
-## 3. Próximo Paso
-- Solicitar autorización a Carlos Lara Albir para registrar el commit y hacer push a la rama `preview` en GitHub para que Cloudflare Pages despliegue la previsualización en vivo.
+## 3. Estado de Despliegue en Preview
+- Despliegue continuo activado en Cloudflare para la rama `preview`.
+- Commits verificados con build antes de push autónomo.
 

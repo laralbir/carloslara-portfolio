@@ -9,7 +9,7 @@ export function getSavedThemeSetting(): ThemeSetting {
   if (saved === 'light' || saved === 'dark' || saved === 'system') {
     return saved;
   }
-  return 'system'; // Default as requested
+  return 'dark'; // Default: dark theme as requested
 }
 
 export function resolveEffectiveTheme(setting: ThemeSetting): ActiveTheme {

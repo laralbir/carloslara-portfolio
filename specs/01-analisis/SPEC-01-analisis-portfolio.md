@@ -55,7 +55,7 @@ Crear una plataforma web de alto impacto profesional en formato **One Page** ori
   - Enlaces a secciones principales (Inicio, Métricas, IA & SDD, Proyectos, Trayectoria, Skills, Contacto).
   - Indicador de sección activa (*scroll spy*).
   - **Selector de Idioma:** Selector desplegable accesible (Español `ES`, Inglés `EN`, Valenciano `VA`) con cambio dinámico de textos sin recarga y persistencia en almacenamiento local (`localStorage`).
-  - **Selector de Tema:** Alternador de 3 estados: **Claro (Light)**, **Oscuro (Dark)**, **Sistema (System - por defecto)**, con persistencia en `localStorage`.
+  - **Selector de Tema:** Alternador de 3 estados: **Oscuro (Dark - por defecto)**, **Claro (Light)**, **Sistema (System)**, con persistencia en `localStorage`.
 
 ### 3.2. Estrategia Visual: Foto y Plan Inicial Sin Foto
 - **Foto Personal:** La web está preparada para alojar una fotografía profesional de Carlos Lara Albir en el Hero / Sección Sobre Mí tan pronto esté disponible.

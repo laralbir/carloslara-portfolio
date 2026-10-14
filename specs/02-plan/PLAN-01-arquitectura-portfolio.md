@@ -22,8 +22,10 @@
 
 ### ADR-02: Sistema de Temas (Claro / Oscuro / Sistema)
 - **Decisión:** Implementar el selector de tema mediante atributos `data-theme="light|dark"` en el elemento raíz `<html>`, controlando todas las variables de color con CSS Custom Properties.
+- **Tema por defecto:** **Oscuro (`dark`)**, alineado con la estética "nerd-tech" y el contraste de colores de terminal.
 - **Lógica:**
-  - Si el usuario selecciona `system` (por defecto), se suscribe a `window.matchMedia('(prefers-color-scheme: dark)')`.
+  - Si el usuario no tiene preferencia en `localStorage`, se inicializa en `dark`.
+  - Si el usuario selecciona explícitamente `system`, se suscribe a `window.matchMedia('(prefers-color-scheme: dark)')`.
   - Se inyecta un micro-script bloqueante en el `<head>` antes del renderizado visual para leer `localStorage.getItem('user_theme')` y evitar cualquier parpadeo de color (*FOUC - Flash of Unstyled Content*).
 
 ### ADR-03: Sistema de Internacionalización (i18n: ES / EN / VA)
