@@ -116,7 +116,7 @@ La web debe transmitir inequívocamente la identidad de un ingeniero backend sé
 
 ### 4.5. Trayectoria Profesional
 - **Avantio (2018 – Actualidad):** Senior Backend Developer & Connectivity Tech Reference.
-- **Orca Sistemas (2016 – 2018):** Analista Programador Backend (POSCRM, SQL optimizado).
+- **Orca Sistemas (2016 – 2018):** Analista Programador Backend & Business Intelligence (POSCRM, génesis en BI, optimización analítica de datos e impulso para la operativa e IA).
 - **Blue Solutions (2015 – 2016):** Fundador & Ingeniero Full-Stack (Soluciones 360°, desarrollo completo de cliente a servidor y gestión del negocio).
 - **Binn (2014 – 2015):** Analista Backend y Cloud AWS.
 - **FBCV (2010 – 2014):** Programador y Analista de Sistemas.

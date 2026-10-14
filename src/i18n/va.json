@@ -123,12 +123,12 @@
       ]
     },
     "orca": {
-      "role": "Analista Programador Backend",
+      "role": "Analista Programador Backend & Business Intelligence",
       "company": "Orca Sistemas y Programación S.L.",
       "period": "2016 – 2018",
       "points": [
-        "Desenvolupament del cor de la plataforma POSCRM amb PHP i bases de dades relacionals.",
-        "Optimització de consultes SQL complexes i procediments emmagatzemats per a facturació massiva que abans s'eternitzava."
+        "Desenvolupament del nucli de la plataforma POSCRM: el meu punt de partida en Business Intelligence (BI), modelatge analític i transformació de dades en decisions de negoci.",
+        "Optimització de consultes SQL complexes, agregacions massives i stored procedures, assentant els fonaments que hui aplique en anàlisi de dades operatives i diagnòstics amb IA."
       ]
     },
     "blue": {

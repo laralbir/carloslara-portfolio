@@ -123,12 +123,12 @@
       ]
     },
     "orca": {
-      "role": "Backend Programmer & Analyst",
+      "role": "Backend Programmer Analyst & Business Intelligence",
       "company": "Orca Sistemas y Programación S.L.",
       "period": "2016 – 2018",
       "points": [
-        "Core development of the POSCRM platform using PHP and relational databases.",
-        "Tuned complex SQL queries and stored procedures for heavy batch billing that previously took hours."
+        "Core development of the POSCRM platform: my launchpad into Business Intelligence (BI), analytical data modeling, and turning raw data into actionable business insight.",
+        "Engineered complex SQL aggregations, stored procedures, and query tuning—establishing the analytical foundation I leverage today in operational data analytics and AI-driven diagnostics."
       ]
     },
     "blue": {
