@@ -401,7 +401,7 @@
     TopicArn: process.env.INVENTORY_FANOUT_TOPIC_ARN,
     Message: JSON.<span class="tok-fn">stringify</span>(payload),
     MessageAttributes: {
-      channel: { DataType: <span class="tok-str">'String'</span>, StringValue: payload.channelId },
+      provider: { DataType: <span class="tok-str">'String'</span>, StringValue: payload.providerId },
       traceId: { DataType: <span class="tok-str">'String'</span>, StringValue: payload.traceId }
     }
   }));
@@ -431,9 +431,9 @@
 <span class="tok-cm">// Diagnostic Tool: Inspect booking timeline across MongoDB &amp; SQL Server</span>
 server.<span class="tok-fn">tool</span>(
   <span class="tok-str">'investigate_booking_anomaly'</span>,
-  { bookingId: z.<span class="tok-fn">string</span>(), otaChannel: z.<span class="tok-fn">enum</span>([<span class="tok-str">'booking'</span>, <span class="tok-str">'airbnb'</span>, <span class="tok-str">'expedia'</span>]) },
-  <span class="tok-kw">async</span> ({ bookingId, otaChannel }) =&gt; {
-    <span class="tok-kw">const</span> timeline = <span class="tok-kw">await</span> ReservationQueryPort.<span class="tok-fn">reconstructAuditTrail</span>(bookingId, otaChannel);
+  { bookingId: z.<span class="tok-fn">string</span>(), otaProvider: z.<span class="tok-fn">enum</span>([<span class="tok-str">'booking'</span>, <span class="tok-str">'airbnb'</span>, <span class="tok-str">'expedia'</span>]) },
+  <span class="tok-kw">async</span> ({ bookingId, otaProvider }) =&gt; {
+    <span class="tok-kw">const</span> timeline = <span class="tok-kw">await</span> ReservationQueryPort.<span class="tok-fn">reconstructAuditTrail</span>(bookingId, otaProvider);
     <span class="tok-kw">return</span> {
       content: [{ type: <span class="tok-str">'text'</span>, text: JSON.<span class="tok-fn">stringify</span>(timeline, <span class="tok-kw">null</span>, <span class="tok-num">2</span>) }]
     };
