@@ -95,12 +95,12 @@ La web debe transmitir inequívocamente la identidad de un ingeniero backend sé
 ### 4.1. Hero Section
 - Titular, subtitular de impacto, callout de IA + SDD, avatar interactivo 2D/3D (o foto), botones CTA ("Explorar Proyectos", "Contactar", "Descargar CV").
 
-### 4.2. Métricas de Impacto Auditadas (2026)
-- **341 PRs mergeadas** con **0 reverts** y solo 1.2% hotfixes.
-- **313 Revisiones de código** (#1 o #2 del equipo de forma consistente).
-- **211 Empresas migradas en 11 días** (Expedia Channel PRO) con 0 errores.
-- **27 Usuarios activos** en herramientas internas de operaciones (OPS).
-- **25+ Herramientas MCP** en servidor de diagnóstico en lenguaje natural.
+### 4.2. Pilares Técnicos & Áreas de Fuerza (Core Strengths)
+Sustituyendo métricas aisladas de una empresa por 4 pilares universales de maestría y especialización de alto impacto para reclutadores y CTOs:
+1. **Arquitectura Distribuida & Event-Driven (Nivel Staff / Lead · +10 años):** Desacoplamiento asíncrono con AWS SQS, SNS, EventBridge y Kafka; idempotencia estricta, colas DLQ y tolerancia a fallos bajo concurrencia masiva.
+2. **Backend de Misión Crítica & Microservicios (Especialista Senior · +20 años):** Modernización de monolitos a microservicios en TypeScript/Node.js y PHP, arquitectura hexagonal, DDD, sincronización OTA en tiempo real y seguridad PCI-DSS.
+3. **Ingeniería Agéntica & Tooling con IA (Referente & Early Adopter):** Claude Code en terminal, servidores MCP de diagnóstico en producción, Spec-Driven Development (SDD) y suites de TDD automatizado con 0 defectos.
+4. **Modelado de Datos, Rendimiento & BI (Avanzado & Analítico · +15 años):** Indexación y agregaciones complejas en MongoDB y SQL Server, erradicación de escaneos masivos en gigabytes de datos, y visión analítica desde POSCRM y BI.
 
 ### 4.3. El Factor Diferencial: Desarrollo Agéntico con IA
 - Cómo Carlos aplica **Spec-Driven Development (SDD)**: Trazabilidad completa Requisito → Plan → Tarea → Código.

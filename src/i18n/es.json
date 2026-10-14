@@ -1,7 +1,7 @@
 {
   "nav": {
     "home": "Inicio",
-    "metrics": "Métricas",
+    "strengths": "Fortalezas",
     "aiSdd": "IA & SDD",
     "projects": "Proyectos",
     "experience": "Trayectoria",
@@ -34,33 +34,53 @@
     "modalStep4": "04. Implement: Código limpio, tests automáticos, 100/100 en Lighthouse y push continuo.",
     "modalLink": "Ver las carpetas de especificaciones en GitHub ➔"
   },
-  "metrics": {
-    "title": "Números reales (sin trampa ni cartón)",
-    "subtitle": "Datos sacados directamente de nuestros paneles de Grafana y producción (2026). Las métricas hablan solas:",
-    "prs": {
-      "value": "341",
-      "label": "PRs a producción",
-      "detail": "0 reverts · Solo 1,2% hotfixes. Desplegar un viernes sin sudar frío."
+  "strengths": {
+    "tag": "Pilares Técnicos",
+    "title": "Áreas de Fuerza & Especialización",
+    "subtitle": "Lo que de verdad domino tras más de 20 años en la trinchera: arquitecturas que no se caen, código limpio y productividad exponencial con IA.",
+    "pillar1": {
+      "level": "Nivel Staff / Lead",
+      "years": "+10 años de experiencia",
+      "title": "Arquitectura Distribuida & Event-Driven",
+      "desc": "Especialista en desacoplamiento de sistemas de alta concurrencia mediante flujos asíncronos con AWS SQS, SNS, EventBridge y Kafka. Diseño estricto de idempotencia, colas DLQ y tolerancia a fallos para garantizar cero pérdida de eventos bajo picos extremos de tráfico.",
+      "skill1": "AWS SQS & SNS",
+      "skill2": "Apache Kafka",
+      "skill3": "Idempotencia & DLQs",
+      "skill4": "Consistencia Eventual",
+      "skill5": "Circuit Breaking"
     },
-    "reviews": {
-      "value": "313",
-      "label": "Code reviews a fondo",
-      "detail": "#1 o #2 del equipo todos los meses desbloqueando a compañeros."
+    "pillar2": {
+      "level": "Especialista Senior",
+      "years": "+20 años de experiencia",
+      "title": "Backend de Misión Crítica & Microservicios",
+      "desc": "Diseño, escalado y modernización de arquitecturas monolíticas hacia microservicios en TypeScript/Node.js y PHP. Alta disponibilidad, APIs REST/SOAP de alto rendimiento, sincronización en tiempo real con gigantes internacionales (OTAs) y cumplimiento PCI-DSS.",
+      "skill1": "TypeScript & Node.js",
+      "skill2": "PHP Moderno",
+      "skill3": "Arquitectura Hexagonal",
+      "skill4": "Domain-Driven Design",
+      "skill5": "Seguridad PCI-DSS"
     },
-    "migration": {
-      "value": "211",
-      "label": "Empresas migradas",
-      "detail": "Expedia Channel PRO en 11 días con 0 errores y cero downtime."
+    "pillar3": {
+      "level": "Referente & Early Adopter",
+      "years": "Pionero en Desarrollo Agéntico",
+      "title": "Ingeniería Agéntica & Tooling con IA",
+      "desc": "Adopción puntera de Claude Code, Antigravity y servidores propios Model Context Protocol (MCP) para diagnóstico en vivo. Metodología Spec-Driven Development (SDD) rigurosa y TDD guiado por IA: multiplicar la velocidad de entrega manteniendo cero errores en producción.",
+      "skill1": "Claude Code en Consola",
+      "skill2": "Servidores MCP Propios",
+      "skill3": "Spec-Driven Dev (SDD)",
+      "skill4": "TDD & QA con IA",
+      "skill5": "Guardarraíles Opengrep"
     },
-    "users": {
-      "value": "27+",
-      "label": "Usuarios en mis herramientas OPS",
-      "detail": "Construidas de punta a punta para que soporte y cuentas vivan más tranquilos."
-    },
-    "mcp": {
-      "value": "25+",
-      "label": "Herramientas MCP a medida",
-      "detail": "De investigar incidencias durante 1 hora a resolverlas en 30 segundos en la terminal."
+    "pillar4": {
+      "level": "Avanzado & Analítico",
+      "years": "+15 años de experiencia",
+      "title": "Modelado de Datos, Rendimiento & BI",
+      "desc": "Modelado y optimización profunda sobre bases de datos relacionales y NoSQL. Experto en indexación y agregaciones complejas en MongoDB y SQL Server, erradicación de escaneos masivos en gigabytes de datos, y visión analítica forjada desde el desarrollo de POSCRM y Business Intelligence.",
+      "skill1": "MongoDB (Indexing & Aggregations)",
+      "skill2": "Microsoft SQL Server",
+      "skill3": "MySQL & PostgreSQL",
+      "skill4": "Query Optimization",
+      "skill5": "Business Intelligence (BI)"
     }
   },
   "ai": {

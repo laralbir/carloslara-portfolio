@@ -71,7 +71,7 @@
         <nav>
           <ul class="nav-menu">
             <li><a href="#hero" class="nav-link active" data-i18n="nav.home">Home</a></li>
-            <li><a href="#metrics" class="nav-link" data-i18n="nav.metrics">Metrics</a></li>
+            <li><a href="#strengths" class="nav-link" data-i18n="nav.strengths">Strengths</a></li>
             <li><a href="#ai-sdd" class="nav-link" data-i18n="nav.aiSdd">AI & SDD</a></li>
             <li><a href="#projects" class="nav-link" data-i18n="nav.projects">Projects</a></li>
             <li><a href="#experience" class="nav-link" data-i18n="nav.experience">Experience</a></li>
@@ -111,7 +111,7 @@
     <!-- Mobile Nav Drawer -->
     <div id="mobile-nav" class="mobile-nav" aria-hidden="true">
       <a href="#hero" class="nav-link" data-i18n="nav.home">Home</a>
-      <a href="#metrics" class="nav-link" data-i18n="nav.metrics">Metrics</a>
+      <a href="#strengths" class="nav-link" data-i18n="nav.strengths">Strengths</a>
       <a href="#ai-sdd" class="nav-link" data-i18n="nav.aiSdd">AI & SDD</a>
       <a href="#projects" class="nav-link" data-i18n="nav.projects">Projects</a>
       <a href="#experience" class="nav-link" data-i18n="nav.experience">Experience</a>
@@ -177,44 +177,94 @@
         </div>
       </section>
 
-      <!-- METRICS SECTION -->
-      <section id="metrics">
+      <!-- CORE STRENGTHS / TECHNICAL PILLARS SECTION -->
+      <section id="strengths">
         <div class="container">
           <div class="section-header">
-            <span class="section-tag" data-i18n="nav.metrics">Metrics</span>
-            <h2 class="section-title" data-i18n="metrics.title">Real numbers (no smoke, no mirrors)</h2>
-            <p class="section-subtitle" data-i18n="metrics.subtitle">Audited data pulled straight from our Grafana dashboards and live production systems (2026):</p>
+            <span class="section-tag" data-i18n="strengths.tag">Technical Pillars</span>
+            <h2 class="section-title" data-i18n="strengths.title">Core Strengths & Specialization</h2>
+            <p class="section-subtitle" data-i18n="strengths.subtitle">What I truly excel at after 20+ years in the backend trenches: resilient distributed systems, clean architecture, and exponential speed with AI.</p>
           </div>
 
-          <div class="metrics-grid">
-            <div class="glass-card metric-card">
-              <div class="metric-number counter-value" data-target="341">0</div>
-              <div class="metric-label" data-i18n="metrics.prs.label">Production PRs merged</div>
-              <div class="metric-detail" data-i18n="metrics.prs.detail">0 reverts · Only 1.2% hotfixes. Deploying on a Friday without cold sweats.</div>
+          <div class="strengths-grid">
+            <!-- Pillar 1: Distributed Architecture -->
+            <div class="glass-card strength-card">
+              <div class="strength-header">
+                <div class="strength-icon-box" aria-hidden="true">⚡</div>
+                <div class="strength-badges">
+                  <span class="strength-badge-level" data-i18n="strengths.pillar1.level">Staff / Lead Level</span>
+                  <span class="strength-badge-years" data-i18n="strengths.pillar1.years">+10 years experience</span>
+                </div>
+              </div>
+              <h3 class="strength-title" data-i18n="strengths.pillar1.title">Distributed & Event-Driven Architecture</h3>
+              <p class="strength-desc" data-i18n="strengths.pillar1.desc">Specialist in decoupling high-concurrency architectures using asynchronous messaging with AWS SQS, SNS, EventBridge, and Kafka. Strict idempotency patterns, DLQ management, and fault tolerance ensuring zero event loss under extreme load spikes.</p>
+              <div class="strength-skills-list">
+                <span class="strength-skill-tag" data-i18n="strengths.pillar1.skill1">AWS SQS & SNS</span>
+                <span class="strength-skill-tag" data-i18n="strengths.pillar1.skill2">Apache Kafka</span>
+                <span class="strength-skill-tag" data-i18n="strengths.pillar1.skill3">Idempotency & DLQs</span>
+                <span class="strength-skill-tag" data-i18n="strengths.pillar1.skill4">Eventual Consistency</span>
+                <span class="strength-skill-tag" data-i18n="strengths.pillar1.skill5">Circuit Breaking</span>
+              </div>
             </div>
 
-            <div class="glass-card metric-card">
-              <div class="metric-number counter-value" data-target="313">0</div>
-              <div class="metric-label" data-i18n="metrics.reviews.label">Deep code reviews</div>
-              <div class="metric-detail" data-i18n="metrics.reviews.detail">Ranked #1 or #2 on the team every single month, unblocking teammates.</div>
+            <!-- Pillar 2: Mission-Critical Backend -->
+            <div class="glass-card strength-card">
+              <div class="strength-header">
+                <div class="strength-icon-box" aria-hidden="true">⚙️</div>
+                <div class="strength-badges">
+                  <span class="strength-badge-level" data-i18n="strengths.pillar2.level">Senior Specialist</span>
+                  <span class="strength-badge-years" data-i18n="strengths.pillar2.years">+20 years experience</span>
+                </div>
+              </div>
+              <h3 class="strength-title" data-i18n="strengths.pillar2.title">Mission-Critical Backend & Microservices</h3>
+              <p class="strength-desc" data-i18n="strengths.pillar2.desc">Designing, scaling, and modernizing legacy monolithic codebases into high-throughput microservices using TypeScript/Node.js and PHP. High-availability systems, real-time bi-directional synchronization with global travel leaders (OTAs), and PCI-DSS compliance.</p>
+              <div class="strength-skills-list">
+                <span class="strength-skill-tag" data-i18n="strengths.pillar2.skill1">TypeScript & Node.js</span>
+                <span class="strength-skill-tag" data-i18n="strengths.pillar2.skill2">Modern PHP</span>
+                <span class="strength-skill-tag" data-i18n="strengths.pillar2.skill3">Hexagonal Architecture</span>
+                <span class="strength-skill-tag" data-i18n="strengths.pillar2.skill4">Domain-Driven Design</span>
+                <span class="strength-skill-tag" data-i18n="strengths.pillar2.skill5">PCI-DSS Security</span>
+              </div>
             </div>
 
-            <div class="glass-card metric-card">
-              <div class="metric-number counter-value" data-target="211">0</div>
-              <div class="metric-label" data-i18n="metrics.migration.label">Companies migrated</div>
-              <div class="metric-detail" data-i18n="metrics.migration.detail">Expedia Channel PRO in 11 days with 0 glitches and zero downtime.</div>
+            <!-- Pillar 3: Agentic AI Engineering -->
+            <div class="glass-card strength-card">
+              <div class="strength-header">
+                <div class="strength-icon-box" aria-hidden="true">🤖</div>
+                <div class="strength-badges">
+                  <span class="strength-badge-level" data-i18n="strengths.pillar3.level">Tech Reference & Pioneer</span>
+                  <span class="strength-badge-years" data-i18n="strengths.pillar3.years">Agentic Engineering Pioneer</span>
+                </div>
+              </div>
+              <h3 class="strength-title" data-i18n="strengths.pillar3.title">Agentic AI Engineering & Tooling</h3>
+              <p class="strength-desc" data-i18n="strengths.pillar3.desc">Pioneering adoption of Claude Code, Antigravity, and custom Model Context Protocol (MCP) diagnostic servers. Strict Spec-Driven Development (SDD) and AI-augmented TDD: exponentially accelerating feature delivery while maintaining zero production reverts.</p>
+              <div class="strength-skills-list">
+                <span class="strength-skill-tag" data-i18n="strengths.pillar3.skill1">Terminal Claude Code</span>
+                <span class="strength-skill-tag" data-i18n="strengths.pillar3.skill2">Custom MCP Servers</span>
+                <span class="strength-skill-tag" data-i18n="strengths.pillar3.skill3">Spec-Driven Dev (SDD)</span>
+                <span class="strength-skill-tag" data-i18n="strengths.pillar3.skill4">AI-Driven TDD & QA</span>
+                <span class="strength-skill-tag" data-i18n="strengths.pillar3.skill5">Opengrep Guardrails</span>
+              </div>
             </div>
 
-            <div class="glass-card metric-card">
-              <div class="metric-number counter-value" data-target="27+">0</div>
-              <div class="metric-label" data-i18n="metrics.users.label">Daily Ops tool users</div>
-              <div class="metric-detail" data-i18n="metrics.users.detail">Built end-to-end so support and account managers can breathe easier.</div>
-            </div>
-
-            <div class="glass-card metric-card">
-              <div class="metric-number counter-value" data-target="25+">0</div>
-              <div class="metric-label" data-i18n="metrics.mcp.label">Custom MCP tools</div>
-              <div class="metric-detail" data-i18n="metrics.mcp.detail">Turned 1-hour incident investigations into 30-second queries in plain language.</div>
+            <!-- Pillar 4: Data Modeling, Performance & BI -->
+            <div class="glass-card strength-card">
+              <div class="strength-header">
+                <div class="strength-icon-box" aria-hidden="true">📊</div>
+                <div class="strength-badges">
+                  <span class="strength-badge-level" data-i18n="strengths.pillar4.level">Advanced & Analytical</span>
+                  <span class="strength-badge-years" data-i18n="strengths.pillar4.years">+15 years experience</span>
+                </div>
+              </div>
+              <h3 class="strength-title" data-i18n="strengths.pillar4.title">Data Modeling, Performance & BI</h3>
+              <p class="strength-desc" data-i18n="strengths.pillar4.desc">Deep data architecture across relational and NoSQL engines. Expert query tuning, index optimization, and aggregation pipelines on MongoDB and SQL Server, eliminating multi-gigabyte table scans, paired with Business Intelligence foundation from POSCRM.</p>
+              <div class="strength-skills-list">
+                <span class="strength-skill-tag" data-i18n="strengths.pillar4.skill1">MongoDB (Indexing & Aggregations)</span>
+                <span class="strength-skill-tag" data-i18n="strengths.pillar4.skill2">Microsoft SQL Server</span>
+                <span class="strength-skill-tag" data-i18n="strengths.pillar4.skill3">MySQL & PostgreSQL</span>
+                <span class="strength-skill-tag" data-i18n="strengths.pillar4.skill4">Query Optimization</span>
+                <span class="strength-skill-tag" data-i18n="strengths.pillar4.skill5">Business Intelligence (BI)</span>
+              </div>
             </div>
           </div>
         </div>

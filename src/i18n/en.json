@@ -1,7 +1,7 @@
 {
   "nav": {
     "home": "Home",
-    "metrics": "Metrics",
+    "strengths": "Strengths",
     "aiSdd": "AI & SDD",
     "projects": "Projects",
     "experience": "Experience",
@@ -34,33 +34,53 @@
     "modalStep4": "04. Implement: Clean code, automated tests, 100/100 Lighthouse score, and continuous push.",
     "modalLink": "View specs directory on GitHub ➔"
   },
-  "metrics": {
-    "title": "Real numbers (no smoke, no mirrors)",
-    "subtitle": "Audited data pulled straight from our Grafana dashboards and live production systems (2026):",
-    "prs": {
-      "value": "341",
-      "label": "Production PRs merged",
-      "detail": "0 reverts · Only 1.2% hotfixes. Deploying on a Friday without cold sweats."
+  "strengths": {
+    "tag": "Technical Pillars",
+    "title": "Core Strengths & Specialization",
+    "subtitle": "What I truly excel at after 20+ years in the backend trenches: resilient distributed systems, clean architecture, and exponential speed with AI.",
+    "pillar1": {
+      "level": "Staff / Lead Level",
+      "years": "+10 years experience",
+      "title": "Distributed & Event-Driven Architecture",
+      "desc": "Specialist in decoupling high-concurrency architectures using asynchronous messaging with AWS SQS, SNS, EventBridge, and Kafka. Strict idempotency patterns, DLQ management, and fault tolerance ensuring zero event loss under extreme load spikes.",
+      "skill1": "AWS SQS & SNS",
+      "skill2": "Apache Kafka",
+      "skill3": "Idempotency & DLQs",
+      "skill4": "Eventual Consistency",
+      "skill5": "Circuit Breaking"
     },
-    "reviews": {
-      "value": "313",
-      "label": "Deep code reviews",
-      "detail": "Ranked #1 or #2 on the team every single month, unblocking teammates."
+    "pillar2": {
+      "level": "Senior Specialist",
+      "years": "+20 years experience",
+      "title": "Mission-Critical Backend & Microservices",
+      "desc": "Designing, scaling, and modernizing legacy monolithic codebases into high-throughput microservices using TypeScript/Node.js and PHP. High-availability systems, real-time bi-directional synchronization with global travel leaders (OTAs), and PCI-DSS compliance.",
+      "skill1": "TypeScript & Node.js",
+      "skill2": "Modern PHP",
+      "skill3": "Hexagonal Architecture",
+      "skill4": "Domain-Driven Design",
+      "skill5": "PCI-DSS Security"
     },
-    "migration": {
-      "value": "211",
-      "label": "Companies migrated",
-      "detail": "Expedia Channel PRO in 11 days with 0 glitches and zero downtime."
+    "pillar3": {
+      "level": "Tech Reference & Pioneer",
+      "years": "Agentic Engineering Pioneer",
+      "title": "Agentic AI Engineering & Tooling",
+      "desc": "Pioneering adoption of Claude Code, Antigravity, and custom Model Context Protocol (MCP) diagnostic servers. Strict Spec-Driven Development (SDD) and AI-augmented TDD: exponentially accelerating feature delivery while maintaining zero production reverts.",
+      "skill1": "Terminal Claude Code",
+      "skill2": "Custom MCP Servers",
+      "skill3": "Spec-Driven Dev (SDD)",
+      "skill4": "AI-Driven TDD & QA",
+      "skill5": "Opengrep Guardrails"
     },
-    "users": {
-      "value": "27+",
-      "label": "Daily Ops tool users",
-      "detail": "Built end-to-end so support and account managers can breathe easier."
-    },
-    "mcp": {
-      "value": "25+",
-      "label": "Custom MCP tools",
-      "detail": "Turned 1-hour incident investigations into 30-second queries in plain language."
+    "pillar4": {
+      "level": "Advanced & Analytical",
+      "years": "+15 years experience",
+      "title": "Data Modeling, Performance & BI",
+      "desc": "Deep data architecture across relational and NoSQL engines. Expert query tuning, index optimization, and aggregation pipelines on MongoDB and SQL Server, eliminating multi-gigabyte table scans, paired with Business Intelligence foundation from POSCRM.",
+      "skill1": "MongoDB (Indexing & Aggregations)",
+      "skill2": "Microsoft SQL Server",
+      "skill3": "MySQL & PostgreSQL",
+      "skill4": "Query Optimization",
+      "skill5": "Business Intelligence (BI)"
     }
   },
   "ai": {

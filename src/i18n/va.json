@@ -1,7 +1,7 @@
 {
   "nav": {
     "home": "Inici",
-    "metrics": "Mètriques",
+    "strengths": "Fortaleses",
     "aiSdd": "IA & SDD",
     "projects": "Projectes",
     "experience": "Trajectòria",
@@ -34,33 +34,53 @@
     "modalStep4": "04. Implement: Codi net, tests automàtics, 100/100 en Lighthouse i push continu.",
     "modalLink": "Veure les carpetes d'especificacions en GitHub ➔"
   },
-  "metrics": {
-    "title": "Nombres reals (sense trampa ni cartó)",
-    "subtitle": "Dades tretes directament dels nostres panells de Grafana i producció (2026). Les mètriques parlen soles:",
-    "prs": {
-      "value": "341",
-      "label": "PRs a producció",
-      "detail": "0 reverts · Sols 1,2% hotfixes. Desplegar un divendres sense suar fred."
+  "strengths": {
+    "tag": "Pilars Tècnics",
+    "title": "Àrees de Força & Especialització",
+    "subtitle": "El que de veritat domine després de més de 20 anys a la trinchera: arquitectures que no cauen, codi net i productivitat exponencial amb IA.",
+    "pillar1": {
+      "level": "Nivell Staff / Lead",
+      "years": "+10 anys d'experiència",
+      "title": "Arquitectura Distribuïda & Event-Driven",
+      "desc": "Especialista en desacoblament de sistemes d'alta concurrència mitjançant fluxos asíncrons amb AWS SQS, SNS, EventBridge i Kafka. Disseny estricte d'idempotència, cues DLQ i tolerància a fallades per garantir zero pèrdua d'esdeveniments sota pics extrems de trànsit.",
+      "skill1": "AWS SQS & SNS",
+      "skill2": "Apache Kafka",
+      "skill3": "Idempotència & DLQs",
+      "skill4": "Consistència Eventual",
+      "skill5": "Circuit Breaking"
     },
-    "reviews": {
-      "value": "313",
-      "label": "Code reviews a fons",
-      "detail": "#1 o #2 de l'equip tots els mesos desbloquejant a companys."
+    "pillar2": {
+      "level": "Especialista Sènior",
+      "years": "+20 anys d'experiència",
+      "title": "Backend de Missió Crítica & Microserveis",
+      "desc": "Disseny, escalat i modernització d'arquitectures monolítiques cap a microserveis en TypeScript/Node.js i PHP. Alta disponibilitat, APIs REST/SOAP d'alt rendiment, sincronització en temps real amb gegants internacionals (OTAs) i compliment PCI-DSS.",
+      "skill1": "TypeScript & Node.js",
+      "skill2": "PHP Modern",
+      "skill3": "Arquitectura Hexagonal",
+      "skill4": "Domain-Driven Design",
+      "skill5": "Seguretat PCI-DSS"
     },
-    "migration": {
-      "value": "211",
-      "label": "Empreses migrades",
-      "detail": "Expedia Channel PRO en 11 dies amb 0 errors i zero downtime."
+    "pillar3": {
+      "level": "Referent & Early Adopter",
+      "years": "Pioner en Desenvolupament Agèntic",
+      "title": "Enginyeria Agèntica & Eines amb IA",
+      "desc": "Adopció capdavantera de Claude Code, Antigravity i servidors propis Model Context Protocol (MCP) per a diagnòstics en viu. Metodologia Spec-Driven Development (SDD) rigorosa i TDD guiat per IA: multiplicar la velocitat d'entrega mantenint zero errors en producció.",
+      "skill1": "Claude Code a la Consola",
+      "skill2": "Servidors MCP Propis",
+      "skill3": "Spec-Driven Dev (SDD)",
+      "skill4": "TDD & QA amb IA",
+      "skill5": "Guardarraïls Opengrep"
     },
-    "users": {
-      "value": "27+",
-      "label": "Usuaris en eines OPS",
-      "detail": "Construïdes de punta a punta perquè suport i comptes visquen més tranquils."
-    },
-    "mcp": {
-      "value": "25+",
-      "label": "Eines MCP a mida",
-      "detail": "D'investigar incidències durant 1 hora a resoldre-les en 30 segons a la terminal."
+    "pillar4": {
+      "level": "Avançat & Analític",
+      "years": "+15 anys d'experiència",
+      "title": "Modelatge de Dades, Rendiment & BI",
+      "desc": "Modelatge i optimització profunda sobre bases de dades relacionals i NoSQL. Expert en indexació i agregacions complexes en MongoDB i SQL Server, erradicació d'escanejos massius en gigabytes de dades, i visió analítica forjada des del desenvolupament de POSCRM i BI.",
+      "skill1": "MongoDB (Indexing & Aggregations)",
+      "skill2": "Microsoft SQL Server",
+      "skill3": "MySQL & PostgreSQL",
+      "skill4": "Query Optimization",
+      "skill5": "Business Intelligence (BI)"
     }
   },
   "ai": {
