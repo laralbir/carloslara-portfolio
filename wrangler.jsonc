@@ -6,6 +6,7 @@
     "nodejs_compat"
   ],
   "preview_urls": true,
+  "previews": {},
   "assets": {
     "directory": "./dist"
   }
