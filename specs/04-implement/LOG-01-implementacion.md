@@ -38,6 +38,7 @@
 4. **Plan Inicial Sin Foto:** El componente `TechAvatar` dibuja un icosaedro 3D interactivo con rotación vectorial y monograma central `CLA`, encapsulado en `.hero-avatar-wrapper` con clase de soporte para intercambio inmediato cuando Carlos provea la foto.
 5. **Bundle Ultra-ligero:** Todo el código JS compilado pesa solo 13.9 KB gzipped y los estilos 3.9 KB gzipped.
 6. **Política Git para Preview:** Autorización explícita otorgada por Carlos para compilar, commitear y hacer push de forma autónoma en la rama `preview`.
+7. **Tono y Copy Informal:** Adaptación de todos los diccionarios (`es.json`, `en.json`, `va.json`) e `index.html` hacia un tono más cercano, auténtico y distendido ("nerd-tech" humano, sin clichés corporativos ni lenguaje encorsetado), manteniendo intacto el rigor técnico y la solidez de las métricas.
 
 ---
 
