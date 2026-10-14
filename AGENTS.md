@@ -63,3 +63,14 @@ Al comenzar cualquier sesión de trabajo, el agente debe:
 2. Asumir el rol correspondiente a esa fase (o consultar al usuario qué fase desea abordar).
 3. Nunca saltarse fases sin confirmación explícita del usuario.
 
+---
+
+## 5. Control de Versiones y Consentimiento Git (Regla Estricta)
+
+1. **Consentimiento Previo Obligatorio:**
+   - **PROHIBIDO** ejecutar `git commit` o `git push` sin la instrucción o consentimiento explícito y previo de Carlos Lara Albir.
+   - El agente debe preparar los archivos, verificar su integridad y preguntar/notificar al usuario antes de registrar commits o empujar a remoto.
+2. **Estrategia de Ramas (Preview First):**
+   - Hasta disponer de una versión 100% funcional y aprobada, todo el desarrollo se realiza en la rama **`preview`**.
+   - La rama `main` queda reservada para versiones estables y definitivas.
+
