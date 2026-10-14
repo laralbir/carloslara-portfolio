@@ -105,6 +105,7 @@
   transition: color var(--transition-fast);
   position: relative;
   padding: 0.25rem 0;
+  white-space: nowrap;
 }
 
 .nav-link:hover,
