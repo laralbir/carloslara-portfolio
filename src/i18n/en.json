@@ -17,7 +17,7 @@
     "titlePrefix": "Carlos Lara Albir",
     "titleHighlight": "Senior Backend Engineer",
     "titleSuffix": "& AI-Augmented Developer",
-    "subtitle": "Over 20 years building rock-solid distributed systems that don't flinch under heavy load (Node.js, TypeScript, event-driven, sub-second OTA sync). Today, I supercharge that deep backend expertise with agentic AI: Claude Code in the terminal, custom MCP servers, and zero guesswork.",
+    "subtitle": "Over 20 years designing resilient distributed architectures and high-concurrency systems that withstand real production load (Event-Driven with AWS SQS/SNS, Kafka, Node.js/TypeScript microservices, and mission-critical OTA synchronization). Today I multiply that track record with agentic AI: Claude Code in the terminal, custom MCP servers, and zero guesswork.",
     "ctaProjects": "Check out my work & numbers",
     "ctaContact": "Let's chat",
     "ctaCv": "View LinkedIn / CV ↗"
@@ -98,10 +98,10 @@
     },
     "case3": {
       "title": "Real-time OTA Inventory Synchronization Engine",
-      "tag": "Event-Driven & Microservices",
+      "tag": "Event-Driven & Distributed Architecture",
       "problem": "Preventing overbooking and rate mismatches across millions of daily transactions with Booking.com, Airbnb, Expedia, and Vrbo.",
-      "solution": "Decoupled connectivity into event-driven microservices (Node.js/TypeScript with AWS SQS queues) and PCI-DSS compliant inventory parity algorithms.",
-      "impact": "Overbookings dropped close to zero with rock-solid partner API stability."
+      "solution": "Architected a highly resilient event-driven distributed system (EDA): TypeScript/Node.js microservices, asynchronous decoupling with AWS SQS queues and fan-out via SNS, strict idempotency handling, DLQ management, and PCI-DSS compliance.",
+      "impact": "Overbookings dropped close to zero with rock-solid partner API stability under massive traffic spikes."
     },
     "case4": {
       "title": "High-Throughput E-Commerce Big Data Ingestion",
@@ -145,7 +145,7 @@
       "period": "2018 – Present",
       "points": [
         "Technical reference for Connectivity: ensuring seamless, rock-solid real-time sync between the PMS and global industry leaders (Booking.com, Airbnb, Vrbo, Expedia).",
-        "Refactored legacy PHP systems into event-driven microservices in TypeScript/Node.js, boosting speed, scalability, and developer sanity.",
+        "Lead for Distributed & Event-Driven Architecture: designed decoupled asynchronous workflows using AWS SQS, SNS, and EventBridge, ensuring fault tolerance, strict idempotency, DLQs, and zero message loss under extreme traffic spikes.",
         "Built the entire backend for the internal Operations (OPS) platform used daily by 27+ teammates in support and account management.",
         "Full epic ownership without hand-holding: scoping with Product, designing the architecture, estimating, coding, and verifying in production.",
         "Pioneered and drove team-wide AI adoption: Claude Code in terminal, custom MCP servers, and SDD workflow."
@@ -201,8 +201,8 @@
     "catAi": "AI-Augmented Development",
     "catLang": "Core Languages & Runtimes",
     "catData": "Databases & Caching",
-    "catArch": "Architecture & Patterns",
-    "catCloud": "Cloud, Events & DevOps"
+    "catArch": "Distributed Architecture & Patterns",
+    "catCloud": "Cloud, Event Messaging (SQS/SNS) & DevOps"
   },
   "education": {
     "title": "Background & Mindset",

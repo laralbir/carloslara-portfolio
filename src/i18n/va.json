@@ -17,7 +17,7 @@
     "titlePrefix": "Carlos Lara Albir",
     "titleHighlight": "Senior Backend Engineer",
     "titleSuffix": "& Desenvolupador Augmentat amb IA",
-    "subtitle": "Porte més de 20 anys dissenyant sistemes distribuïts que no cauen quan hi ha trànsit de veritat (Node.js, TypeScript, esdeveniments, sincronització OTA al mil·lisegon). Hui multiplique eixa experiència amb IA agèntica: Claude Code en la terminal, servidors MCP propis i zero codi a l'atzar.",
+    "subtitle": "Més de 20 anys dissenyant arquitectures distribuïdes i sistemes d'alta concurrència que no cauen amb trànsit real (Event-Driven amb AWS SQS/SNS, Kafka, microserveis en Node.js/TypeScript i sincronització OTA de missió crítica). Hui multiplique eixa experiència amb enginyeria agèntica i IA: Claude Code a la consola, servidors MCP propis i zero codi a l'atzar.",
     "ctaProjects": "Fes-li una ullada als projectes",
     "ctaContact": "Fem un café?",
     "ctaCv": "Veure Perfil / CV ↗"
@@ -98,10 +98,10 @@
     },
     "case3": {
       "title": "Motor de Sincronització OTA en Temps Real",
-      "tag": "Event-Driven & Microserveis",
+      "tag": "Event-Driven & Arquitectura Distribuïda",
       "problem": "Evitar overbookings i desajustos de preus amb milions de transaccions diàries repartides entre Booking, Airbnb, Expedia i Vrbo.",
-      "solution": "Vaig desacoblar la connectivitat en microserveis orientats a esdeveniments (Node.js/TypeScript amb cues AWS SQS) i algoritmes de paritat segons PCI-DSS.",
-      "impact": "Sobre-vendes pràcticament a zero i una estabilitat a prova de bombes."
+      "solution": "Vaig dissenyar una arquitectura distribuïda orientada a esdeveniments (EDA) d'alta resiliència: microserveis en TypeScript/Node.js desacoblats amb cues AWS SQS i fan-out amb SNS, control estricte d'idempotència, gestió de DLQ i compliment PCI-DSS.",
+      "impact": "Sobrevendes pràcticament a zero i una estabilitat a prova de bombes sota pics massius de trànsit."
     },
     "case4": {
       "title": "Ingesta Big Data d'Alta Concurrència per a E-Commerce",
@@ -145,10 +145,10 @@
       "period": "2018 – Actualitat",
       "points": [
         "Referent tècnic de Connectivitat: assegurant que el PMS parle en perfecte temps real i amb màxima fiabilitat amb els gegants del sector (Booking.com, Airbnb, Vrbo, Expedia).",
-        "Vaig transformar sistemes heretats en PHP en microserveis orientats a esdeveniments en TypeScript/Node.js, guanyant en velocitat, escalabilitat i salut mental de l'equip.",
+        "Referent en Arquitectura Distribuïda i Event-Driven: disseny i desacoblament de microserveis amb AWS SQS, SNS i EventBridge, garantint tolerància a fallades, idempotència, cues de descart (DLQ) i zero pèrdua d'esdeveniments sota pics extrems de trànsit.",
         "Vaig construir de dalt a baix el backend de la plataforma interna d'operacions (OPS) que gasten a diari 27+ companys de suport i connectivitat.",
         "Ownership total d'èpiques sense intermediaris: aterrisse la idea amb Producte, dissenye l'arquitectura, estime, programe i m'encarregue que rode en producció.",
-        "Vaig introduir i liderar l'adopció de desenvolupament amb IA en l'equip: Claude Code en consola, servidors MCP i metodologia SDD."
+        "Vaig introduir i liderar l'adopció de desenvolupament amb IA en l'equip: Claude Code a la consola, servidors MCP i metodologia SDD."
       ]
     },
     "orca": {
@@ -201,8 +201,8 @@
     "catAi": "Desenvolupament Augmentat amb IA",
     "catLang": "Llenguatges & Runtimes Core",
     "catData": "Bases de Dades & Memòria Cau",
-    "catArch": "Arquitectura & Patrons",
-    "catCloud": "Cloud, Esdeveniments & DevOps"
+    "catArch": "Arquitectura Distribuïda & Patrons",
+    "catCloud": "Cloud, Esdeveniments (SQS/SNS) & DevOps"
   },
   "education": {
     "title": "Background & Disciplina",

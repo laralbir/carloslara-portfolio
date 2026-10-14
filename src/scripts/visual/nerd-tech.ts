@@ -45,7 +45,7 @@ function printConsoleEasterEgg(): void {
   console.log(`%c${asciiArt}`, bannerStyle);
   console.log(
     `%c> [SYS_INIT]: Welcome fellow engineer / recruiter to Carlos Lara Albir's portfolio!
-> [ARCHITECTURE]: High-Availability Backend · Microservices · Event-Driven · High-Throughput OTA Sync
+> [ARCHITECTURE]: Distributed Systems · Event-Driven Architecture (AWS SQS/SNS, Kafka) · High-Throughput Microservices · Real-time OTA Sync
 > [METHODOLOGY]: 100% Spec-Driven Development (SDD) orchestrated with AI (Claude Code + Antigravity)
 > [METRICS 2026]: 341 PRs merged (0 reverts) · 313 code reviews · 211 companies migrated in 11 days
 > [CONNECT]: laralbir@gmail.com | https://www.linkedin.com/in/carlos-lara-albir-687277a4`,

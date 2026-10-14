@@ -14,7 +14,7 @@
 
 ### 1.1. Propósito del Portfolio
 Crear una plataforma web de alto impacto profesional en formato **One Page** orientada a la **búsqueda activa y captación de nuevas oportunidades laborales de nivel Senior / Staff / Tech Lead**, demostrando que Carlos Lara Albir combina:
-1. **Más de 20 años de solidez en ingeniería backend:** Sistemas distribuidos de misión crítica, alta disponibilidad, sincronización en tiempo real con gigantes globales (Booking.com, Airbnb, Expedia, Vrbo), seguridad de pagos PCI-DSS y arquitectura orientada a eventos.
+1. **Más de 20 años de maestría en arquitectura distribuida y backend:** Sistemas de alta disponibilidad y concurrencia masiva, arquitectura orientada a eventos (Event-Driven: AWS SQS, SNS, EventBridge, Kafka), tolerancia a fallos, consistencia eventual, idempotencia estricta, colas DLQ, sincronización en tiempo real con gigantes globales (Booking.com, Airbnb, Expedia, Vrbo) y seguridad de pagos PCI-DSS.
 2. **Pionero y referente en desarrollo agéntico asistido por IA (AI-Augmented Engineering):** Adopción avanzada de herramientas punteras como **Claude Code**, **Antigravity**, **Model Context Protocol (MCP)** y **Spec-Driven Development (SDD)**, logrando multiplicar el rendimiento y la calidad con métricas auditadas (341 PRs mergeadas, 0 reverts, 1.2% hotfixes).
 3. **Transparencia técnica total (Meta-Portfolio):** La propia web sirve como prueba viva del dominio de la IA y el SDD, invitando al visitante a auditar las especificaciones y el código fuente en GitHub.
 4. **Ownership técnico de punta a punta:** Capacidad demostrada para asumir épicas complejas en equipos sin Project Manager, desde la especificación con producto hasta la puesta en producción y creación de tooling operativo interno.
@@ -114,7 +114,7 @@ La web debe transmitir inequívocamente la identidad de un ingeniero backend sé
 - **Casos de Estudio Empresariales:**
   1. **Servidor MCP de Diagnóstico Operativo:** Reducción de diagnósticos de 60 min a lenguaje natural.
   2. **Herramienta de Migración Masiva Expedia Channel PRO:** 211 empresas en 11 días, rollback y cero downtime.
-  3. **Sincronización en Tiempo Real de OTAs (Avantio):** Arquitectura Event-Driven, colas SQS, prevención de overbooking y cumplimiento PCI-DSS.
+  3. **Sincronización en Tiempo Real de OTAs (Avantio):** Arquitectura distribuida Event-Driven (EDA), desacoplamiento con colas AWS SQS y fan-out con SNS, idempotencia estricta, prevención de overbooking y cumplimiento PCI-DSS.
   4. **Arquitectura de Ingesta Big Data para E-commerce:** Streaming con Apache Kafka + Batch + Cloud Data Lake.
 - **Proyectos Personales & Open Source (Orquestados con IA):**
   1. **AgroAI (`laralbir/agroAi`):** App Android nativa (Kotlin) con LLM Google Gemma en local (Edge AI, 100% offline) para gestión agrícola.
@@ -122,7 +122,7 @@ La web debe transmitir inequívocamente la identidad de un ingeniero backend sé
   3. **Ámbar Kodi Launcher (`laralbir/ambar-kodi-launcher`):** Launcher táctil panorámico (1920x720) para estación HiFi integrando Kodi (JSON-RPC) y Spotify en Python/Flask/pywebview con estética retro VFD.
 
 ### 4.5. Trayectoria Profesional
-- **Avantio (2018 – Actualidad):** Senior Backend Developer & Connectivity Tech Reference.
+- **Avantio (2018 – Actualidad):** Senior Backend Developer & Connectivity Tech Reference (Referente técnico en Arquitectura Distribuida y Event-Driven con AWS SQS/SNS, modernización de monolitos hacia microservicios en TypeScript/Node.js, plataforma OPS y adopción pionera de IA/SDD).
 - **Orca Sistemas (2016 – 2018):** Analista Programador Backend & Business Intelligence (POSCRM, génesis en BI, optimización analítica de datos e impulso para la operativa e IA).
 - **Blue Solutions (2015 – 2016):** Fundador & Ingeniero Full-Stack (Desarrollo integral de software PLM para fabricante de tapicerías automoción proveedor de Ford en Almussafes; gestión 360° y arquitectura cliente-servidor).
 - **Binn (2014 – 2015):** Analista Backend y Cloud AWS.
@@ -130,7 +130,7 @@ La web debe transmitir inequívocamente la identidad de un ingeniero backend sé
 - **Servicios Taurinos Serolo (2006 – 2009):** Backend y Admin Sistemas.
 
 ### 4.6. Habilidades Técnicas
-- Agrupadas por: *Desarrollo con IA*, *Lenguajes Core (TypeScript, Node.js, PHP)*, *Bases de Datos (MongoDB, SQL Server, MySQL)*, *Arquitectura (Event-Driven, Microservicios, Hexagonal)* y *Cloud/DevOps (AWS, Cloudflare, Kafka, Docker)*.
+- Agrupadas por: *Desarrollo con IA*, *Lenguajes Core (TypeScript, Node.js, PHP)*, *Bases de Datos (MongoDB, SQL Server, MySQL)*, *Arquitectura Distribuida & Patrones (Event-Driven EDA, AWS SQS/SNS/EventBridge, Idempotencia, DLQs, Consistencia Eventual, Hexagonal/DDD)* y *Cloud, Mensajería & DevOps (AWS, Cloudflare, Kafka, Docker, Actions)*.
 
 ### 4.7. Formación y Liderazgo
 - Especialización en IA y Big Data (CFGS - en curso).
