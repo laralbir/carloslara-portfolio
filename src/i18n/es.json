@@ -120,7 +120,7 @@
     "case1": {
       "title": "Servidor MCP de Diagnóstico Operativo",
       "tag": "IA & Developer Tooling",
-      "problem": "Investigar qué había pasado con una reserva entre 6 portales implicaba bucear a mano en gigas de logs y varias bases de datos. Entre 15 y 60 minutos perdidos por caso.",
+      "problem": "Investigar qué había pasado con una reserva entre diferentes OTAs implicaba bucear a mano en gigas de logs y varias bases de datos. Entre 15 y 60 minutos perdidos por caso.",
       "solution": "Diseñé un servidor MCP en Next.js con arquitectura hexagonal y acceso de solo lectura, capaz de reconstruir toda la cronología en segundos respondiendo en lenguaje natural.",
       "impact": "De 60 minutos de frustración a resolver diagnósticos complejos en menos de 30 segundos."
     },
