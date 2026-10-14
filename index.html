@@ -160,21 +160,6 @@
                 <a href="#contact" class="btn btn-secondary" data-i18n="hero.ctaContact">Let's chat</a>
                 <a href="https://www.linkedin.com/in/carlos-lara-albir-687277a4" target="_blank" rel="noopener noreferrer" class="btn btn-outline" data-i18n="hero.ctaCv">View LinkedIn / CV ↗</a>
               </div>
-
-              <!-- Meta-Callout "100% IA + SDD" with animated glowing border -->
-              <div class="ai-meta-banner">
-                <div class="ai-meta-info">
-                  <div class="ai-meta-icon" aria-hidden="true">⚡</div>
-                  <div class="ai-meta-text">
-                    <strong data-i18n="aiCallout.tag">100% Agentic AI & SDD</strong>
-                    <span data-i18n="aiCallout.message">This site wasn't handcrafted line by line: I architected, specified, and coded it with autonomous AI agents (Claude Code + Antigravity) under strict Spec-Driven Development. Zero hallucinations, 100% verified code.</span>
-                  </div>
-                </div>
-                <div style="display: flex; gap: 0.5rem; align-items: center; flex-shrink: 0;">
-                  <button class="btn btn-secondary btn-sm open-sdd-modal" style="font-size: 0.75rem;">Info</button>
-                  <a href="https://github.com/laralbir/carloslara-portfolio" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" data-i18n="aiCallout.action" style="font-size: 0.75rem;">Inspect the specs & git log on GitHub ➔</a>
-                </div>
-              </div>
             </div>
 
             <!-- Tech Avatar (3D Hologram for Initial Version without Photo) -->
@@ -185,6 +170,39 @@
                 <!-- Image container prepared for future photo swap -->
                 <img src="/assets/carlos-lara.webp" alt="Carlos Lara Albir" class="avatar-photo" loading="lazy">
               </div>
+            </div>
+          </div>
+
+          <!-- Meta-Callout "100% IA + SDD" Full-Width Banner with Rich Tech Grace -->
+          <div class="ai-meta-banner" role="region" aria-label="Aviso metodológico Spec-Driven Development e Inteligencia Artificial">
+            <div class="ai-meta-main">
+              <div class="ai-meta-icon-box" aria-hidden="true">
+                <span class="ai-meta-icon">⚡</span>
+                <span class="ai-meta-glow-ring"></span>
+              </div>
+              <div class="ai-meta-content">
+                <div class="ai-meta-header">
+                  <div class="ai-meta-tag">
+                    <span class="pulse-indicator"></span>
+                    <strong data-i18n="aiCallout.tag">100% Agentic AI &amp; SDD</strong>
+                  </div>
+                  <span class="ai-meta-chip chip-zero" data-i18n="aiCallout.badgeZero">0 Hallucinations</span>
+                  <span class="ai-meta-chip chip-verified" data-i18n="aiCallout.badgeVerified">100% Verified</span>
+                  <span class="ai-meta-chip chip-edge">Cloudflare Edge ⚡</span>
+                </div>
+                <p class="ai-meta-desc" data-i18n="aiCallout.message">
+                  This site wasn't handcrafted line by line: I architected, specified, and coded it with autonomous AI agents (Claude Code + Antigravity) under strict Spec-Driven Development. Zero hallucinations, 100% verified code.
+                </p>
+              </div>
+            </div>
+            <div class="ai-meta-actions">
+              <button class="btn btn-secondary open-sdd-modal" aria-haspopup="dialog" aria-expanded="false">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                <span data-i18n="aiCallout.infoBtn">How it was built (SDD)</span>
+              </button>
+              <a href="https://github.com/laralbir/carloslara-portfolio" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-i18n="aiCallout.action">
+                Inspect the specs &amp; git log on GitHub ➔
+              </a>
             </div>
           </div>
         </div>
@@ -218,6 +236,18 @@
                 <span class="strength-skill-tag" data-i18n="strengths.pillar1.skill4">Eventual Consistency</span>
                 <span class="strength-skill-tag" data-i18n="strengths.pillar1.skill5">Circuit Breaking</span>
               </div>
+              <div class="strength-micro-visual" aria-hidden="true">
+                <div class="event-stream-track">
+                  <span class="stream-node">Event</span>
+                  <span class="stream-arrow">──►</span>
+                  <span class="stream-node">SNS</span>
+                  <span class="stream-arrow">──►</span>
+                  <span class="stream-node">SQS FIFO</span>
+                  <span class="stream-arrow">──►</span>
+                  <span class="stream-node">Workers</span>
+                  <span class="stream-pulse-dot"></span>
+                </div>
+              </div>
             </div>
 
             <!-- Pillar 2: Mission-Critical Backend -->
@@ -237,6 +267,14 @@
                 <span class="strength-skill-tag" data-i18n="strengths.pillar2.skill3">Hexagonal Architecture</span>
                 <span class="strength-skill-tag" data-i18n="strengths.pillar2.skill4">Domain-Driven Design</span>
                 <span class="strength-skill-tag" data-i18n="strengths.pillar2.skill5">PCI-DSS Security</span>
+              </div>
+              <div class="strength-micro-visual" aria-hidden="true">
+                <div class="heartbeat-monitor">
+                  <svg class="ecg-wave-svg" viewBox="0 0 160 30" fill="none">
+                    <path class="ecg-line" d="M0,15 L35,15 L45,4 L55,26 L65,10 L75,20 L85,15 L160,15" stroke="var(--accent-primary)" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                  <span class="uptime-badge">● 99.99% UPTIME</span>
+                </div>
               </div>
             </div>
 
@@ -258,6 +296,13 @@
                 <span class="strength-skill-tag" data-i18n="strengths.pillar3.skill4">AI-Driven TDD & QA</span>
                 <span class="strength-skill-tag" data-i18n="strengths.pillar3.skill5">Opengrep Guardrails</span>
               </div>
+              <div class="strength-micro-visual" aria-hidden="true">
+                <div class="agent-prompt-badge">
+                  <span class="prompt-icon">🤖</span>
+                  <span class="prompt-cmd">claude-agent --sdd-mode</span>
+                  <span class="prompt-tag">0 REVERTS ✓</span>
+                </div>
+              </div>
             </div>
 
             <!-- Pillar 4: Data Modeling, Performance & BI -->
@@ -277,6 +322,12 @@
                 <span class="strength-skill-tag" data-i18n="strengths.pillar4.skill3">MySQL & PostgreSQL</span>
                 <span class="strength-skill-tag" data-i18n="strengths.pillar4.skill4">Query Optimization</span>
                 <span class="strength-skill-tag" data-i18n="strengths.pillar4.skill5">Business Intelligence (BI)</span>
+              </div>
+              <div class="strength-micro-visual" aria-hidden="true">
+                <div class="db-index-seeker">
+                  <div class="seeker-bar"><div class="seeker-fill" style="width: 96%;"></div></div>
+                  <span class="seeker-stat">Index Seek: &lt;2ms (0 Scans)</span>
+                </div>
               </div>
             </div>
           </div>
@@ -330,36 +381,74 @@
             </div>
           </div>
 
-          <!-- Decorative Developer Console & Figurative Agentic Telemetry -->
-          <div class="terminal-section">
-            <div class="section-header" style="text-align: left; margin-bottom: 1.5rem;">
-              <span class="section-tag" data-i18n="terminal.title">Developer Console &amp; Agentic Telemetry</span>
-              <p class="section-subtitle" style="margin: 0.35rem 0 0 0;" data-i18n="terminal.subtitle">A visual glimpse into how AI agents and event-driven architecture orchestrate my daily engineering workflow.</p>
+          <!-- Spec-Driven Development Interactive Visual Pipeline -->
+          <div class="sdd-pipeline-container" role="region" aria-label="Pipeline interactivo de Spec-Driven Development">
+            <div class="sdd-pipeline-header">
+              <div class="sdd-header-left">
+                <span class="section-tag" data-i18n="ai.pipelineTag">Metodología en Acción</span>
+                <h3 class="sdd-pipeline-title" data-i18n="ai.pipelineTitle">El Pipeline SDD: De la Especificación a Producción sin Reverts</h3>
+              </div>
+              <button class="btn btn-secondary btn-sm open-sdd-modal" aria-haspopup="dialog" style="align-self: flex-start;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                <span data-i18n="ai.pipelineModalBtn">Ver detalles de los 4 Gates</span>
+              </button>
             </div>
 
-            <div class="terminal-decorative-card" role="region" aria-label="Consola de desarrollo simulada (decorativo)">
-              <div class="terminal-window-bar">
-                <div class="terminal-dots" aria-hidden="true">
-                  <span class="dot dot-red"></span>
-                  <span class="dot dot-yellow"></span>
-                  <span class="dot dot-green"></span>
+            <div class="sdd-pipeline-grid">
+              <!-- Step 1 -->
+              <div class="glass-card sdd-pipeline-card">
+                <div class="sdd-card-top">
+                  <span class="sdd-step-num">01</span>
+                  <span class="sdd-status-chip">Gate 1 ✓</span>
                 </div>
-                <div class="terminal-window-title">claude-agent @ workstation: ~ (zsh)</div>
-                <div class="terminal-status-chip">ACTIVE</div>
+                <div class="sdd-step-icon" aria-hidden="true">📋</div>
+                <h4 class="sdd-step-title" data-i18n="aiCallout.modalStep1">01. Análisis &amp; Specs</h4>
+                <p class="sdd-step-desc">Elicitación rigurosa, métricas cuantificables sin humo y cero suposiciones antes de tocar una sola línea.</p>
+                <div class="sdd-step-footer">
+                  <span class="sdd-gate-badge">SPEC-01 Verificado</span>
+                </div>
               </div>
-              <div class="terminal-window-body">
-                <div class="cli-line"><span class="cli-prompt">carlos@edge:~$</span> <span class="cli-cmd">claude-agent --sdd --profile=senior-lead</span></div>
-                <div class="cli-output"><span class="cli-dim">┌────────────────────────────────────────────────────────┐</span>
-<span class="cli-dim">│</span> <span class="cli-cyan">CARLOS LARA ALBIR</span> · <span class="cli-gold">Senior Backend &amp; Agentic AI Stack</span>     <span class="cli-dim">│</span>
-<span class="cli-dim">│</span> EDA: AWS SNS / SQS · Latency: &lt;15ms · Parity: Real-time  <span class="cli-dim">│</span>
-<span class="cli-dim">└────────────────────────────────────────────────────────┘</span>
 
-<span class="cli-green">✔</span> <span class="cli-label">Time-Tracker:</span> Correlated Jira sprint, GCalendar &amp; GitHub commits <span class="cli-badge-ok">[AUTO-LOGGED]</span>
-<span class="cli-green">✔</span> <span class="cli-label">Event Stream:</span> SNS Fan-out ──► SQS FIFO queues ──► Workers     <span class="cli-badge-ok">[IDEMPOTENT]</span>
-<span class="cli-green">✔</span> <span class="cli-label">Diagnostics:</span>  MCP Server active · Read-only audit bridge      <span class="cli-badge-ok">[CONNECTED]</span>
-<span class="cli-green">✔</span> <span class="cli-label">Spec-Driven:</span>  Analysis ──► Plan ──► Task ──► Zero Reverts     <span class="cli-badge-ok">[VERIFIED]</span>
+              <!-- Step 2 -->
+              <div class="glass-card sdd-pipeline-card">
+                <div class="sdd-card-top">
+                  <span class="sdd-step-num">02</span>
+                  <span class="sdd-status-chip">Gate 2 ✓</span>
+                </div>
+                <div class="sdd-step-icon" aria-hidden="true">🏛️</div>
+                <h4 class="sdd-step-title" data-i18n="aiCallout.modalStep2">02. Arquitectura &amp; Plan</h4>
+                <p class="sdd-step-desc">ADRs documentados, diseño Event-Driven con AWS SQS/SNS, contratos de API e idempotencia probada.</p>
+                <div class="sdd-step-footer">
+                  <span class="sdd-gate-badge">PLAN-01 Aprobado</span>
+                </div>
+              </div>
 
-<span class="cli-prompt">carlos@edge:~$</span> <span class="cli-cursor" aria-hidden="true">█</span></div>
+              <!-- Step 3 -->
+              <div class="glass-card sdd-pipeline-card">
+                <div class="sdd-card-top">
+                  <span class="sdd-step-num">03</span>
+                  <span class="sdd-status-chip">Gate 3 ✓</span>
+                </div>
+                <div class="sdd-step-icon" aria-hidden="true">🎯</div>
+                <h4 class="sdd-step-title" data-i18n="aiCallout.modalStep3">03. Despiece Atómico</h4>
+                <p class="sdd-step-desc">Descomposición en tareas pequeñas e independientes con Definition of Done (DoD) estricto y tests previstos.</p>
+                <div class="sdd-step-footer">
+                  <span class="sdd-gate-badge">TASK-01 Validado</span>
+                </div>
+              </div>
+
+              <!-- Step 4 -->
+              <div class="glass-card sdd-pipeline-card highlight-step">
+                <div class="sdd-card-top">
+                  <span class="sdd-step-num">04</span>
+                  <span class="sdd-status-chip chip-live">Gate 4 · Prod ⚡</span>
+                </div>
+                <div class="sdd-step-icon" aria-hidden="true">🚀</div>
+                <h4 class="sdd-step-title" data-i18n="aiCallout.modalStep4">04. Implement &amp; Verify</h4>
+                <p class="sdd-step-desc">TDD con IA, tests automáticos, análisis estático Opengrep, 0 reverts y build inmutable en Cloudflare.</p>
+                <div class="sdd-step-footer">
+                  <span class="sdd-gate-badge badge-prod">100% Producción</span>
+                </div>
               </div>
             </div>
           </div>
@@ -540,6 +629,21 @@
                     <span data-i18n="experience.avantio.period">2018 – Present</span>
                   </div>
                 </div>
+
+                <!-- Vacation Rental Portals Domain Matrix -->
+                <div class="ota-brand-matrix" aria-label="Portales de alquiler vacacional dominados en Avantio">
+                  <span class="ota-matrix-label" data-i18n="experience.avantio.otaTitle">Dominio Técnico &amp; Sincronización en Tiempo Real:</span>
+                  <div class="ota-brand-list">
+                    <span class="ota-pill ota-booking" title="Booking.com"><span class="ota-dot"></span>Booking.com</span>
+                    <span class="ota-pill ota-airbnb" title="Airbnb"><span class="ota-dot"></span>Airbnb</span>
+                    <span class="ota-pill ota-vrbo" title="VRBO"><span class="ota-dot"></span>VRBO</span>
+                    <span class="ota-pill ota-expedia" title="Expedia"><span class="ota-dot"></span>Expedia</span>
+                    <span class="ota-pill ota-marriott" title="Homes &amp; Villas by Marriott"><span class="ota-dot"></span>Homes &amp; Villas by Marriott</span>
+                    <span class="ota-pill ota-feratel" title="Feratel"><span class="ota-dot"></span>Feratel</span>
+                    <span class="ota-pill ota-google" title="Google"><span class="ota-dot"></span>Google</span>
+                  </div>
+                </div>
+
                 <ul class="timeline-points">
                   <li class="timeline-point" data-i18n="experience.avantio.points.0">Technical reference for Connectivity: deep domain and real-time PMS synchronization across the industry's leading holiday rental portals in order of expertise: Booking.com, Airbnb, VRBO, Expedia, Homes & Villas by Marriott, Feratel, and Google.</li>
                   <li class="timeline-point" data-i18n="experience.avantio.points.1">Lead for Distributed & Event-Driven Architecture: designed decoupled asynchronous workflows using AWS SQS, SNS, and EventBridge, ensuring fault tolerance, strict idempotency, DLQs, and zero message loss under extreme traffic spikes.</li>
@@ -655,9 +759,19 @@
             <p class="section-subtitle" data-i18n="skills.subtitle">Specialized stack focused on performance, resilience, and AI automation</p>
           </div>
 
+          <!-- Interactive Skills Category Filters -->
+          <div class="skills-filter-bar" role="tablist" aria-label="Filtrar competencias técnicas">
+            <button class="skills-filter-btn active" role="tab" aria-selected="true" data-filter="all">Todas las Áreas</button>
+            <button class="skills-filter-btn" role="tab" aria-selected="false" data-filter="ai">🤖 IA &amp; SDD</button>
+            <button class="skills-filter-btn" role="tab" aria-selected="false" data-filter="lang">⚡ Lenguajes</button>
+            <button class="skills-filter-btn" role="tab" aria-selected="false" data-filter="data">📊 Datos &amp; DB</button>
+            <button class="skills-filter-btn" role="tab" aria-selected="false" data-filter="arch">🏛️ Arquitectura</button>
+            <button class="skills-filter-btn" role="tab" aria-selected="false" data-filter="cloud">☁️ Cloud &amp; DevOps</button>
+          </div>
+
           <div class="skills-categories">
             <!-- AI & Automation -->
-            <div class="glass-card skills-category-card">
+            <div class="glass-card skills-category-card" data-category="ai">
               <h3 class="skills-category-title" data-i18n="skills.catAi">AI & Engineering Automation</h3>
               <div class="skill-pill-list">
                 <span class="skill-pill">Claude Code</span>
@@ -674,7 +788,7 @@
             </div>
 
             <!-- Core Languages -->
-            <div class="glass-card skills-category-card">
+            <div class="glass-card skills-category-card" data-category="lang">
               <h3 class="skills-category-title" data-i18n="skills.catLang">Core Languages & Runtimes</h3>
               <div class="skill-pill-list">
                 <span class="skill-pill">TypeScript (Expert)</span>
@@ -687,7 +801,7 @@
             </div>
 
             <!-- Databases -->
-            <div class="glass-card skills-category-card">
+            <div class="glass-card skills-category-card" data-category="data">
               <h3 class="skills-category-title" data-i18n="skills.catData">Databases & Storage</h3>
               <div class="skill-pill-list">
                 <span class="skill-pill">MongoDB (Optimization & Indexing)</span>
@@ -699,7 +813,7 @@
             </div>
 
             <!-- Architecture -->
-            <div class="glass-card skills-category-card">
+            <div class="glass-card skills-category-card" data-category="arch">
               <h3 class="skills-category-title" data-i18n="skills.catArch">Distributed Architecture & Patterns</h3>
               <div class="skill-pill-list">
                 <span class="skill-pill">Event-Driven Architecture (EDA)</span>
@@ -717,7 +831,7 @@
             </div>
 
             <!-- Cloud & DevOps -->
-            <div class="glass-card skills-category-card" style="grid-column: 1 / -1;">
+            <div class="glass-card skills-category-card" data-category="cloud" style="grid-column: 1 / -1;">
               <h3 class="skills-category-title" data-i18n="skills.catCloud">Cloud, Event Messaging & DevOps</h3>
               <div class="skill-pill-list">
                 <span class="skill-pill">AWS (SQS, SNS, EventBridge, EC2, S3, RDS)</span>
@@ -765,6 +879,10 @@
               <h3 class="education-card-title" data-i18n="education.archery.title">Sport Leadership: National Archery Coach & Judge</h3>
               <span class="education-card-inst" data-i18n="education.archery.institution">Certified by Higher Sports Council (CSD)</span>
               <p class="education-card-desc" data-i18n="education.archery.desc">Coached team to Spanish University Championship title. Fosters laser focus, emotional self-regulation under pressure, and relentless attention to detail.</p>
+              <div class="education-micro-tag">
+                <span class="champ-badge">🏆 Campeones Universitarios de España</span>
+                <span class="precision-badge">🎯 Láser Focus &amp; Calma bajo Presión</span>
+              </div>
             </div>
           </div>
         </div>
@@ -870,6 +988,12 @@
             <span class="section-tag" data-i18n="nav.contact">Contact</span>
             <h2 class="section-title" data-i18n="contact.title">Let's get in touch</h2>
             <p class="section-subtitle" data-i18n="contact.subtitle">Always up for discussing challenging engineering problems, high-throughput architectures, or Senior / Staff / Tech Lead roles.</p>
+
+            <!-- Live Availability Uplink Indicator -->
+            <div class="contact-status-beacon" aria-label="Disponibilidad profesional actual">
+              <span class="beacon-pulse"></span>
+              <span class="beacon-text" data-i18n="contact.statusActive">Uplink Activo · Abierto a retos Senior, Staff o Tech Lead</span>
+            </div>
 
             <div class="contact-actions">
               <a href="mailto:laralbir@gmail.com" class="btn btn-primary">laralbir@gmail.com</a>

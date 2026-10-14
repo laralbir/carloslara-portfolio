@@ -18,10 +18,6 @@
     "toggleContrast": "Alternar mode alt contrast (Accessibilitat / Daltonisme)",
     "contrastActive": "Mode alt contrast activat"
   },
-  "terminal": {
-    "title": "Consola de Desenvolupament & Telemetria Agèntica",
-    "subtitle": "Un element visual de com operen els agents d'IA i l'arquitectura d'esdeveniments en el meu dia a dia."
-  },
   "hero": {
     "badge": "Buscant el meu pròxim gran repte · Senior / Staff / Tech Lead",
     "titlePrefix": "Carlos Lara Albir",
@@ -34,7 +30,10 @@
   },
   "aiCallout": {
     "tag": "100% IA Agèntica & SDD",
+    "badgeZero": "0 Al·lucinacions",
+    "badgeVerified": "100% Verificat",
     "message": "Aquest web no el vaig picar a mà línia a línia: el vaig modelar, especificar i programar amb agents autònoms (Claude Code + Antigravity) seguint Spec-Driven Development estricte. Zero al·lucinacions, 100% codi verificat.",
+    "infoBtn": "Com es va fer (SDD)",
     "action": "Festeja les specs i commits en GitHub ➔",
     "modalTitle": "Com s'ha parit aquest web amb IA & SDD",
     "modalDesc": "En Spec-Driven Development (SDD), el codi no és on comença el treball: és el resultat final de pensar i especificar molt bé el problema. Res de 'prova açò a vore si compila'; ací cada commit respon a una tasca atòmica amb criteris d'acceptació clars.",
@@ -96,6 +95,9 @@
   "ai": {
     "title": "Desenvolupament Agèntic: La meua forma de treballar",
     "subtitle": "No gaste la IA per a endevinar codi; la gaste com un equip d'enginyers hiper-especialitzats treballant amb especificacions quirúrgiques.",
+    "pipelineTag": "Metodologia en Acció",
+    "pipelineTitle": "El Pipeline SDD: De l'Especificació a Producció sense Reverts",
+    "pipelineModalBtn": "Veure detalls dels 4 Gates",
     "sddTitle": "Spec-Driven Development (SDD)",
     "sddDesc": "Pensar abans de picar. Un cicle en 4 fases (Anàlisi → Pla → Tasques → Codi) amb skills automatitzats integrats amb Jira i el repositori. Si no està en la spec i en els tests, no puja a producció.",
     "mcpTitle": "Servidor MCP de Diagnòstic en Viu",
@@ -173,6 +175,7 @@
       "role": "Senior Backend Developer & Referent Tècnic de Connectivitat",
       "company": "Avantio",
       "period": "2018 – Actualitat",
+      "otaTitle": "Domini Tècnic & Sincronització en Temps Real:",
       "points": [
         "Referent tècnic de Connectivitat: domini dels principals portals de lloguer vacacional en sincronització en temps real amb el PMS en el següent orde: Booking.com, Airbnb, VRBO, Expedia, Homes & Villas by Marriott, Feratel i Google.",
         "Referent en Arquitectura Distribuïda i Event-Driven: disseny i desacoblament de microserveis amb AWS SQS, SNS i EventBridge, garantint tolerància a fallades, idempotència, cues de descart (DLQ) i zero pèrdua d'esdeveniments sota pics extrems de trànsit.",
@@ -281,6 +284,7 @@
   "contact": {
     "title": "Ens coneixem?",
     "subtitle": "Sempre obert a xarrar sobre reptes tècnics interessants, sistemes d'alta concurrència o posicions Senior / Staff / Tech Lead.",
+    "statusActive": "Uplink Actiu · Obert a reptes Senior, Staff o Tech Lead",
     "copyEmail": "Copiar email",
     "emailCopied": "Email copiat! Escriu-me quan vulgues.",
     "downloadCv": "Descarregar CV (PDF)",

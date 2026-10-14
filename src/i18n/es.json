@@ -18,10 +18,6 @@
     "toggleContrast": "Alternar modo alto contraste (Accesibilidad / Daltonismo)",
     "contrastActive": "Modo alto contraste activado"
   },
-  "terminal": {
-    "title": "Consola de Desarrollo & Telemetría Agéntica",
-    "subtitle": "Un elemento visual de cómo operan los agentes de IA y la arquitectura de eventos en mi día a día."
-  },
   "hero": {
     "badge": "Buscando mi próximo gran reto · Senior / Staff / Tech Lead",
     "titlePrefix": "Carlos Lara Albir",
@@ -34,7 +30,10 @@
   },
   "aiCallout": {
     "tag": "100% IA Agéntica & SDD",
+    "badgeZero": "0 Alucinaciones",
+    "badgeVerified": "100% Verificado",
     "message": "Esta web no la piqué a mano línea a línea: la modelé, especifiqué y programé con agentes autónomos (Claude Code + Antigravity) siguiendo Spec-Driven Development estricto. Cero alucinaciones, 100% código verificado.",
+    "infoBtn": "Cómo se hizo (SDD)",
     "action": "Cotillea las specs y commits en GitHub ➔",
     "modalTitle": "Cómo se parió esta web con IA & SDD",
     "modalDesc": "En Spec-Driven Development (SDD), el código no es donde empieza el trabajo: es el resultado final de pensar y especificar muy bien el problema. Nada de 'pruébate esto a ver si compila'; aquí cada commit responde a una tarea atómica con criterios de aceptación claros.",
@@ -96,6 +95,9 @@
   "ai": {
     "title": "Desarrollo Agéntico: Mi forma de trabajar",
     "subtitle": "No uso la IA para que me adivine código; la uso como un escuadrón de ingenieros trabajando con especificaciones quirúrgicas.",
+    "pipelineTag": "Metodología en Acción",
+    "pipelineTitle": "El Pipeline SDD: De la Especificación a Producción sin Reverts",
+    "pipelineModalBtn": "Ver detalles de los 4 Gates",
     "sddTitle": "Spec-Driven Development (SDD)",
     "sddDesc": "Pensar antes de picar. Un ciclo en 4 fases (Análisis → Plan → Tareas → Código) con skills automatizados integrados con Jira y el repo. Si no está en la spec y en los tests, no sube a producción.",
     "mcpTitle": "Servidor MCP de Diagnóstico en Vivo",
@@ -173,6 +175,7 @@
       "role": "Senior Backend Developer & Referente Técnico de Conectividad",
       "company": "Avantio",
       "period": "2018 – Actualidad",
+      "otaTitle": "Dominio Técnico & Sincronización en Tiempo Real:",
       "points": [
         "Referente técnico de Conectividad: dominio de los principales portales de alquiler vacacional en sincronización en tiempo real con el PMS en el siguiente orden: Booking.com, Airbnb, VRBO, Expedia, Homes & Villas by Marriott, Feratel y Google.",
         "Referente en Arquitectura Distribuida y Event-Driven: diseño y desacoplamiento de microservicios con AWS SQS, SNS y EventBridge, garantizando tolerancia a fallos, idempotencia, colas de descarte (DLQ) y cero pérdida de eventos bajo picos extremos de tráfico.",
@@ -281,6 +284,7 @@
   "contact": {
     "title": "¿Nos conocemos?",
     "subtitle": "Siempre abierto a charlar sobre retos técnicos interesantes, sistemas de alto rendimiento o posiciones Senior / Staff / Tech Lead.",
+    "statusActive": "Uplink Activo · Abierto a retos Senior, Staff o Tech Lead",
     "copyEmail": "Copiar email",
     "emailCopied": "¡Email copiado! Escríbeme cuando quieras.",
     "downloadCv": "Descargar CV (PDF)",

@@ -18,10 +18,6 @@
     "toggleContrast": "Toggle high contrast mode (Accessibility / Daltonism)",
     "contrastActive": "High contrast mode enabled"
   },
-  "terminal": {
-    "title": "Developer Console & Agentic Telemetry",
-    "subtitle": "A visual glimpse into how AI agents and event-driven architecture orchestrate my daily engineering workflow."
-  },
   "hero": {
     "badge": "Looking for my next big challenge · Senior / Staff / Tech Lead",
     "titlePrefix": "Carlos Lara Albir",
@@ -34,7 +30,10 @@
   },
   "aiCallout": {
     "tag": "100% Agentic AI & SDD",
+    "badgeZero": "0 Hallucinations",
+    "badgeVerified": "100% Verified",
     "message": "This site wasn't handcrafted line by line: I architected, specified, and coded it with autonomous AI agents (Claude Code + Antigravity) under strict Spec-Driven Development. Zero hallucinations, 100% verified code.",
+    "infoBtn": "How it was built (SDD)",
     "action": "Inspect the specs & git log on GitHub ➔",
     "modalTitle": "How this website was built with AI & SDD",
     "modalDesc": "Under Spec-Driven Development (SDD), code isn't where work begins: it's the verified final output of crystal-clear thinking and specs. No 'let's try this and see if it compiles'—every single commit maps to an atomic task with clear acceptance criteria.",
@@ -96,6 +95,9 @@
   "ai": {
     "title": "How I work with AI (it's not just autocomplete)",
     "subtitle": "I don't use AI to guess code; I treat it as a team of hyper-specialized engineers operating under surgical specs.",
+    "pipelineTag": "Methodology in Action",
+    "pipelineTitle": "The SDD Pipeline: From Specification to Production with Zero Reverts",
+    "pipelineModalBtn": "Explore the 4 Phase Gates",
     "sddTitle": "Spec-Driven Development (SDD)",
     "sddDesc": "Think first, code second. A tight 4-phase loop (Analysis → Plan → Task → Code) backed by custom skills integrated with Jira and the repo. If it's not in the spec and covered by tests, it doesn't ship.",
     "mcpTitle": "Live Production MCP Diagnostic Server",
@@ -173,6 +175,7 @@
       "role": "Senior Backend Developer & Connectivity Tech Reference",
       "company": "Avantio",
       "period": "2018 – Present",
+      "otaTitle": "Technical Mastery & Real-time Synchronization:",
       "points": [
         "Technical reference for Connectivity: deep domain and real-time PMS synchronization across the industry's leading holiday rental portals in order of expertise: Booking.com, Airbnb, VRBO, Expedia, Homes & Villas by Marriott, Feratel, and Google.",
         "Lead for Distributed & Event-Driven Architecture: designed decoupled asynchronous workflows using AWS SQS, SNS, and EventBridge, ensuring fault tolerance, strict idempotency, DLQs, and zero message loss under extreme traffic spikes.",
@@ -281,6 +284,7 @@
   "contact": {
     "title": "Let's get in touch",
     "subtitle": "Always up for discussing challenging engineering problems, high-throughput architectures, or Senior / Staff / Tech Lead roles.",
+    "statusActive": "Uplink Active · Open to Senior, Staff, or Tech Lead roles",
     "copyEmail": "Copy Email",
     "emailCopied": "Email copied! Drop me a line anytime.",
     "downloadCv": "Download CV (PDF)",

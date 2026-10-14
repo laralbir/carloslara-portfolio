@@ -10,7 +10,6 @@ import { initCounterAnimator } from './visual/counter-animator';
 import { initNavbar } from './components/navbar';
 import { initSddModal } from './components/sdd-modal';
 import { initNerdTech } from './visual/nerd-tech';
-import { initTerminal } from './components/terminal';
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Initialize Theme
@@ -35,8 +34,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 7. Initialize Nerd-Tech Features & Console Easter Egg
   initNerdTech();
-
-  // 8. Initialize Engineering Terminal Stack
-  initTerminal();
 });
 

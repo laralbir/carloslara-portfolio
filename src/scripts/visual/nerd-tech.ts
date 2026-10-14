@@ -1,14 +1,21 @@
 /**
  * Nerd-Tech & Engineering Interactive Elements
- * Includes DevTools console ASCII art easter egg and latency telemetry.
+ * Includes DevTools console ASCII art easter egg, latency telemetry,
+ * interactive skills filtering, and delightful micro-interactions.
  */
 
 export function initNerdTech(): void {
   // 1. DevTools Console ASCII Art Easter Egg
   printConsoleEasterEgg();
 
-  // 2. Real-time latency measurement in the terminal telemetry bar
+  // 2. Real-time latency measurement in the telemetry bar
   initLatencyTelemetry();
+
+  // 3. Interactive Skills Filter Bar
+  initSkillsFilter();
+
+  // 4. Interactive Hobby Elements ("Gracia y Fantasía")
+  initInteractiveHobbies();
 }
 
 function printConsoleEasterEgg(): void {
@@ -58,7 +65,6 @@ function initLatencyTelemetry(): void {
   const latencyEl = document.getElementById('telemetry-latency');
   if (!latencyEl) return;
 
-  // Measure initial fetch / load latency via Navigation Timing API
   window.addEventListener('load', () => {
     try {
       const perfEntries = performance.getEntriesByType('navigation');
@@ -71,5 +77,86 @@ function initLatencyTelemetry(): void {
       latencyEl.textContent = '12ms';
     }
   });
+}
+
+function initSkillsFilter(): void {
+  const filterBtns = document.querySelectorAll<HTMLButtonElement>('.skills-filter-btn');
+  const skillCards = document.querySelectorAll<HTMLElement>('.skills-category-card');
+
+  if (!filterBtns.length || !skillCards.length) return;
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach((b) => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+
+      const filter = btn.dataset.filter || 'all';
+
+      skillCards.forEach((card) => {
+        const cat = card.dataset.category;
+        if (filter === 'all' || cat === filter) {
+          card.classList.remove('fade-out');
+        } else {
+          card.classList.add('fade-out');
+        }
+      });
+    });
+  });
+}
+
+function initInteractiveHobbies(): void {
+  // 1. Archery Target Click
+  const targetSvg = document.querySelector<SVGElement>('.archery-target-svg');
+  if (targetSvg) {
+    targetSvg.style.cursor = 'crosshair';
+    targetSvg.addEventListener('click', (e) => {
+      const parent = targetSvg.closest('.offtopic-visual');
+      if (!parent) return;
+
+      const existingFloat = parent.querySelector('.target-hit-popup');
+      if (existingFloat) existingFloat.remove();
+
+      const floatEl = document.createElement('div');
+      floatEl.className = 'target-hit-popup';
+      floatEl.textContent = '🎯 10! ¡Pleno en el centro!';
+      floatEl.style.cssText = `
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #eab308;
+        color: #000;
+        font-weight: 800;
+        font-size: 0.75rem;
+        padding: 0.25rem 0.6rem;
+        border-radius: 9999px;
+        box-shadow: 0 0 15px rgba(234, 179, 8, 0.8);
+        pointer-events: none;
+        z-index: 10;
+        animation: float-hit 1.5s ease-out forwards;
+      `;
+      parent.appendChild(floatEl);
+
+      setTimeout(() => floatEl.remove(), 1500);
+    });
+  }
+
+  // 2. Vinyl Record Toggle Click
+  const vinylDisc = document.querySelector<HTMLElement>('.vinyl-disc');
+  const vuEqualizer = document.querySelector<HTMLElement>('.vu-equalizer');
+  if (vinylDisc) {
+    vinylDisc.style.cursor = 'pointer';
+    vinylDisc.addEventListener('click', () => {
+      vinylDisc.classList.toggle('vinyl-paused');
+      const isPaused = vinylDisc.classList.contains('vinyl-paused');
+      if (vuEqualizer) {
+        vuEqualizer.style.opacity = isPaused ? '0.2' : '1';
+      }
+    });
+  }
 }
 
