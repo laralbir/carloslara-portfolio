@@ -11,10 +11,13 @@ export function initNerdTech(): void {
   // 2. Real-time latency measurement in the telemetry bar
   initLatencyTelemetry();
 
-  // 3. Interactive Skills Filter Bar
+  // 3. Dynamic branch detection in telemetry bar
+  initBranchTelemetry();
+
+  // 4. Interactive Skills Filter Bar
   initSkillsFilter();
 
-  // 4. Interactive Hobby Elements ("Gracia y Fantasía")
+  // 5. Interactive Hobby Elements ("Gracia y Fantasía")
   initInteractiveHobbies();
 }
 
@@ -77,6 +80,18 @@ function initLatencyTelemetry(): void {
       latencyEl.textContent = '12ms';
     }
   });
+}
+
+function initBranchTelemetry(): void {
+  const branchEl = document.getElementById('telemetry-branch');
+  if (!branchEl) return;
+
+  const hostname = window.location.hostname;
+  if (hostname.includes('preview')) {
+    branchEl.textContent = 'preview';
+  } else {
+    branchEl.textContent = 'main';
+  }
 }
 
 function initSkillsFilter(): void {
