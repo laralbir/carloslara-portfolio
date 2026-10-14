@@ -105,6 +105,31 @@
       "problem": "Engolir i processar a temps fluxos massius d'esdeveniments: compres, clickstream, inventari i dades de màrqueting a gran escala.",
       "solution": "Arquitectura híbrida de streaming i lots amb Apache Kafka al cor del sistema i emmagatzematge en Data Lake cloud.",
       "impact": "Ingesta en mil·lisegons amb capacitat per a analitzar-ho tot quasi a l'instant."
+    },
+    "personalTag": "Side Projects & Open Source",
+    "personalTitle": "Projectes Personals Orquestrats amb IA",
+    "personalSubtitle": "Hardware, sistemes encastats, Edge AI local i aplicacions natives accelerades amb agents d'IA autònoms (Claude, Gemma i prompts especialitzats).",
+    "repoBtn": "Veure en GitHub ↗",
+    "personal1": {
+      "title": "AgroAI — Gestió Agrícola amb IA On-Device",
+      "tag": "Edge AI & Android Natiu",
+      "problem": "Portar la IA generativa al camp agrícola on la cobertura mòbil és nul·la o inestable, sense dependre de servidors externs ni comprometre la privacitat.",
+      "solution": "App nativa Android en Kotlin que executa en local el model Google Gemma (Edge AI), planificant tractaments, regs i salut de plantacions 100% offline.",
+      "impact": "IA generativa a la butxaca de l'agricultor sense subscripcions al núvol ni necessitat d'internet."
+    },
+    "personal2": {
+      "title": "Hyundai / Kia Gen5W — Enginyeria Inversa de Firmware",
+      "tag": "Reverse Engineering & Embedded Linux",
+      "problem": "Investigar l'ecosistema de programari tancat de les unitats de navegació/multimèdia Gen5W (SoC 'mango', variants europees de Hyundai i Kia).",
+      "solution": "Enginyeria inversa d'imatges de firmware massives amb assistència d'agents d'IA: anàlisi de particions squashfs/ext4, identificació de magic bytes, descompressió i documentació guiada amb CLAUDE.md.",
+      "impact": "Mapeig exhaustiu de l'estructura del firmware i eines d'extracció binària automatitzades amb IA."
+    },
+    "personal3": {
+      "title": "Àmbar — Launcher Tàctil per a Estació HiFi",
+      "tag": "IoT & HiFi Multimèdia",
+      "problem": "Controlar reproducció d'àudio d'alta fidelitat (FLAC, MP3, streaming) en una pantalla tàctil panoràmica secundària (1920x720) sense fricció d'interfície d'escriptori.",
+      "solution": "Kiosk app en Python/Flask integrada amb Kodi (JSON-RPC) i Spotify (local SMTC + Web API) amb interfície retro VFD/àmbar empaquetada nativament amb pywebview.",
+      "impact": "Experiència HiFi vintage amb telemetria en temps real, VU-metre digital i control dual sense dependre de la pantalla principal."
     }
   },
   "experience": {

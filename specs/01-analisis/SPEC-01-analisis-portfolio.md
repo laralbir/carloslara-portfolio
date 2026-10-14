@@ -109,10 +109,15 @@ La web debe transmitir inequívocamente la identidad de un ingeniero backend sé
 - **Estimación Ágil Asistida:** Calibración en Story Points y métricas cruzadas Jira-GitHub.
 
 ### 4.4. Proyectos y Casos de Estudio Destacados
-1. **Servidor MCP de Diagnóstico Operativo:** Reducción de diagnósticos de 60 min a lenguaje natural.
-2. **Herramienta de Migración Masiva Expedia Channel PRO:** 211 empresas en 11 días, rollback y cero downtime.
-3. **Sincronización en Tiempo Real de OTAs (Avantio):** Arquitectura Event-Driven, colas SQS, prevención de overbooking y cumplimiento PCI-DSS.
-4. **Arquitectura de Ingesta Big Data para E-commerce:** Streaming con Apache Kafka + Batch + Cloud Data Lake.
+- **Casos de Estudio Empresariales:**
+  1. **Servidor MCP de Diagnóstico Operativo:** Reducción de diagnósticos de 60 min a lenguaje natural.
+  2. **Herramienta de Migración Masiva Expedia Channel PRO:** 211 empresas en 11 días, rollback y cero downtime.
+  3. **Sincronización en Tiempo Real de OTAs (Avantio):** Arquitectura Event-Driven, colas SQS, prevención de overbooking y cumplimiento PCI-DSS.
+  4. **Arquitectura de Ingesta Big Data para E-commerce:** Streaming con Apache Kafka + Batch + Cloud Data Lake.
+- **Proyectos Personales & Open Source (Orquestados con IA):**
+  1. **AgroAI (`laralbir/agroAi`):** App Android nativa (Kotlin) con LLM Google Gemma en local (Edge AI, 100% offline) para gestión agrícola.
+  2. **Hyundai / Kia Gen5W Navigation Firmware RE (`laralbir/hyundai-kia-gen5w-navi-firmware`):** Ingeniería inversa de firmware de automoción, análisis de particiones y extracción asistida por Claude (`CLAUDE.md`).
+  3. **Ámbar Kodi Launcher (`laralbir/ambar-kodi-launcher`):** Launcher táctil panorámico (1920x720) para estación HiFi integrando Kodi (JSON-RPC) y Spotify en Python/Flask/pywebview con estética retro VFD.
 
 ### 4.5. Trayectoria Profesional
 - **Avantio (2018 – Actualidad):** Senior Backend Developer & Connectivity Tech Reference.

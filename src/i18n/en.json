@@ -105,6 +105,31 @@
       "problem": "Ingesting and processing huge streams of events on the fly: purchases, clickstream, inventory shifts, and marketing data at scale.",
       "solution": "Hybrid streaming and batch architecture with Apache Kafka at its core and scalable Cloud Data Lake storage.",
       "impact": "Sub-second event ingestion with instant querying readiness."
+    },
+    "personalTag": "Side Projects & Open Source",
+    "personalTitle": "Personal Projects Orchestrated with AI",
+    "personalSubtitle": "Hardware, embedded systems, local Edge AI, and native applications supercharged by autonomous AI agents (Claude, Gemma, and tailored prompts).",
+    "repoBtn": "View on GitHub ↗",
+    "personal1": {
+      "title": "AgroAI — On-Device AI Agricultural Assistant",
+      "tag": "Edge AI & Native Android",
+      "problem": "Delivering generative AI directly into the agricultural field where mobile signal is scarce or zero, with complete privacy and zero cloud dependencies.",
+      "solution": "Native Android app in Kotlin running Google's Gemma LLM locally on-device (Edge AI) to plan treatments, irrigation, and crop health 100% offline.",
+      "impact": "Autonomous generative AI in the farmer's pocket without cloud subscriptions or cellular connection."
+    },
+    "personal2": {
+      "title": "Hyundai / Kia Gen5W — Navigation Firmware RE",
+      "tag": "Reverse Engineering & Embedded Linux",
+      "problem": "Investigating closed proprietary software in Hyundai/Kia Gen5W automotive navigation head units (SoC 'mango', European variant).",
+      "solution": "Reverse engineering multi-gigabyte firmware images orchestrated with AI assistants: squashfs/ext4 partition breakdown, magic bytes identification, unpacking scripts, and architectural docs with CLAUDE.md.",
+      "impact": "Comprehensive firmware architecture mapping and automated binary extraction tooling powered by AI."
+    },
+    "personal3": {
+      "title": "Ámbar — Touchscreen HiFi Media Launcher",
+      "tag": "IoT & HiFi Multimedia",
+      "problem": "Controlling audiophile playback (FLAC, MP3, streaming) on an ultra-wide secondary touchscreen (1920x720) without desktop UI friction.",
+      "solution": "Python/Flask kiosk app integrating Kodi (JSON-RPC) and Spotify (local SMTC + Web API) wrapped in a vintage VFD/amber UI with pywebview.",
+      "impact": "Dedicated vintage HiFi experience featuring real-time playback telemetry, digital VU meter, and dual-source control."
     }
   },
   "experience": {

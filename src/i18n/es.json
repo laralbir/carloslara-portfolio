@@ -105,6 +105,31 @@
       "problem": "Tragar y procesar a tiempo flujos masivos de eventos: compras, clickstream, inventario y datos de marketing a gran escala.",
       "solution": "Arquitectura híbrida de streaming y lotes con Apache Kafka en el corazón del sistema y almacenamiento en Data Lake cloud.",
       "impact": "Ingesta en milisegundos con capacidad para analizarlo todo casi al instante."
+    },
+    "personalTag": "Side Projects & Open Source",
+    "personalTitle": "Proyectos Personales Orquestados con IA",
+    "personalSubtitle": "Hardware, sistemas embebidos, Edge AI local y aplicaciones nativas creadas y aceleradas con agentes de IA autónomos (Claude, Gemma y prompts especializados).",
+    "repoBtn": "Ver en GitHub ↗",
+    "personal1": {
+      "title": "AgroAI — Gestión Agrícola con IA On-Device",
+      "tag": "Edge AI & Android Nativo",
+      "problem": "Llevar la IA generativa al campo agrícola donde la cobertura móvil es nula o inestable, sin depender de servidores externos ni comprometer la privacidad.",
+      "solution": "App nativa Android en Kotlin que ejecuta en local el modelo Google Gemma (Edge AI), planificando tratamientos, riegos y salud de plantaciones 100% offline.",
+      "impact": "IA generativa en el bolsillo del agricultor sin suscripciones en la nube ni necesidad de internet."
+    },
+    "personal2": {
+      "title": "Hyundai / Kia Gen5W — Ingeniería Inversa de Firmware",
+      "tag": "Reverse Engineering & Embedded Linux",
+      "problem": "Investigar el ecosistema de software cerrado de las unidades de navegación/multimedia Gen5W (SoC 'mango', variantes europeas de Hyundai y Kia).",
+      "solution": "Ingeniería inversa de imágenes de firmware masivas con asistencia de agentes de IA: análisis de particiones squashfs/ext4, identificación de magic bytes, descompresión y documentación guiada con CLAUDE.md.",
+      "impact": "Mapeo exhaustivo de la estructura del firmware y herramientas de extracción binaria automatizadas con IA."
+    },
+    "personal3": {
+      "title": "Ámbar — Launcher Táctil para Estación HiFi",
+      "tag": "IoT & HiFi Multimedia",
+      "problem": "Controlar reproducción de audio de alta fidelidad (FLAC, MP3, streaming) en una pantalla táctil panorámica secundaria (1920x720) sin fricción de interfaz de escritorio.",
+      "solution": "Kiosk app en Python/Flask integrada con Kodi (JSON-RPC) y Spotify (local SMTC + Web API) con interfaz retro VFD/ámbar empaquetada nativamente con pywebview.",
+      "impact": "Experiencia HiFi vintage con telemetría en tiempo real, VU-metro digital y control dual sin depender de la pantalla principal."
     }
   },
   "experience": {

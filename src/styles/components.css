@@ -499,6 +499,36 @@
   }
 }
 
+.personal-projects-section {
+  margin-top: 4rem;
+  padding-top: 2.5rem;
+  border-top: 1px dashed var(--border-subtle);
+}
+
+.personal-projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+}
+
+@media (min-width: 992px) {
+  .personal-projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.personal-project-card {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+}
+
+.personal-project-card .project-title {
+  font-size: 1.25rem;
+}
+
 .project-card {
   padding: 2.25rem;
   display: flex;
