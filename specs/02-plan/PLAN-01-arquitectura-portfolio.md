@@ -28,10 +28,14 @@
 
 ### ADR-03: Sistema de Internacionalización (i18n: ES / EN / VA)
 - **Decisión:** Dicionarios JSON estructurados (`es.json`, `en.json`, `va.json`) con micro-motor de traducción en TypeScript sin recarga de página.
-- **Lógica:**
-  - Los elementos de la UI llevan atributos `data-i18n="clave.subclave"`.
-  - Al cambiar de idioma en el selector, el motor actualiza los nodos en memoria instantáneamente y guarda la preferencia en `localStorage.getItem('user_lang')`.
-  - Fallback automático al idioma del navegador (`navigator.language`).
+- **Lógica de Resolución de Idioma:**
+  1. `localStorage.getItem('user_lang')` (si el usuario ya eligió idioma previamente).
+  2. Detección automática vía `navigator.language`:
+     - Si empieza por `es` -> `es` (Español).
+     - Si empieza por `ca` o `va` -> `va` (Valenciano, mapeado al estándar ISO `ca` de navegadores).
+     - En cualquier otro caso (o si no se detecta) -> **`en` (Inglés, idioma por defecto)**.
+  3. Los elementos de la UI llevan atributos `data-i18n="clave.subclave"`.
+  4. Al cambiar de idioma en el selector, el motor actualiza los nodos en memoria instantáneamente y guarda la preferencia en `localStorage`.
 
 ---
 

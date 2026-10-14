@@ -39,9 +39,10 @@ Crear una plataforma web de alto impacto profesional en formato **One Page** ori
 - **GitHub:** [github.com/laralbir](https://github.com/laralbir)
 - **Repositorio del Portfolio:** [github.com/laralbir/carloslara-portfolio](https://github.com/laralbir/carloslara-portfolio)
 - **Idiomas Soportados en la Web:** 
-  - Español (`es`) — Nativo
-  - Inglés (`en`) — Técnico profesional
-  - Valenciano (`va` / `ca`) — Autonómico
+  - **Inglés (`en`) — Idioma por defecto** (si no se detecta preferencia del navegador o proviene de otra región).
+  - **Español (`es`)** — Nativo.
+  - **Valenciano (`va` / `ca`)** — Autonómico (técnicamente mapeado a códigos ISO `ca`, `ca-ES`, `ca-valencia` para detección de navegador).
+- **Regla de Detección:** Si el navegador no reporta `es` ni `ca`/`va`, la web cargará automáticamente en **Inglés (`en`)**.
 - **Disciplina & Liderazgo Extracurricular:** Entrenador y Juez Nacional de Tiro con Arco (certificado CSD); equipo dirigido a Campeón Universitario de España (enfoque, precisión, resiliencia y liderazgo bajo presión).
 
 ---
