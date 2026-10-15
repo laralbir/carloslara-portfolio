@@ -122,18 +122,28 @@
       "impact": "De 60 minuts de frustració a resoldre diagnòstics complexos en menys de 30 segons."
     },
     "case2": {
-      "title": "Migració Massiva a Expedia Channel PRO",
-      "tag": "Eines d'Operacions",
-      "problem": "Calia migrar centenars de comptes de lloguer vacacional de l'API vella d'Expedia a la nova sense tallar el servei ni posar en risc reserves actives.",
-      "solution": "Vaig muntar un orquestrador per lots amb monitoratge en temps real, punts de control, marxa arrere automàtica (rollback) i informes d'auditoria.",
-      "impact": "211 empreses migrades en només 11 dies (1.664 operacions) amb 0 errors."
+      "title": "Conciliador de Disponibilitat i Reserves",
+      "tag": "Eines d'Operacions & Diagnòstic",
+      "problem": "Detectar desajustos entre les temporades de disponibilitat i les reserves reals d'un allotjament requeria creuar dades a mà, provocant lentitud i freqüents errors de diagnòstic.",
+      "solution": "Vaig crear una eina interna que creua temporades i reserves en un timeline gràfic interactiu, detecta incoherències i genera una proposta automàtica de reparació.",
+      "impact": "Eliminació d'errors de diagnòstic humà i dràstic estalvi de temps operatiu en visualitzar qualsevol conflicte de calendari d'una ullada.",
+      "tvpTitle": "VISTA DE TIMELINE & DIAGNÒSTIC",
+      "tvpStatus": "⚡ Conflicte Detectat",
+      "tvpSeasons": "Temporades",
+      "tvpHighSeason": "T. Alta",
+      "tvpGap": "⚠️ Buit",
+      "tvpMidSeason": "T. Mitjana",
+      "tvpBookings": "Reserves",
+      "tvpBookingOk": "Reserva #1402",
+      "tvpBookingWarn": "Reserva #1589 ⚠️",
+      "tvpProposal": "💡 Proposta de fix: Estendre T. Alta per cobrir Reserva #1589 i sincronitzar"
     },
     "case3": {
       "title": "Motor de Sincronització OTA en Temps Real",
       "tag": "Event-Driven & Arquitectura Distribuïda",
       "problem": "Evitar overbookings i desajustos de preus amb milions de transaccions diàries repartides entre Booking, Airbnb, Expedia i Vrbo.",
       "solution": "Vaig dissenyar una arquitectura distribuïda orientada a esdeveniments (EDA) d'alta resiliència: microserveis en TypeScript/Node.js desacoblats amb cues AWS SQS i fan-out amb SNS, control estricte d'idempotència, gestió de DLQ i compliment PCI-DSS.",
-      "impact": "Sobrevendes pràcticament a zero i una estabilitat a prova de bombes sota pics massius de trànsit."
+      "impact": "Overbookings pràcticament a zero i una estabilitat a prova de bombes sota pics massius de trànsit."
     },
     "case4": {
       "title": "Ingesta Asíncrona d'Alta Concurrència per a E-Commerce",

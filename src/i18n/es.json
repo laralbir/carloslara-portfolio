@@ -122,18 +122,28 @@
       "impact": "De 60 minutos de frustración a resolver diagnósticos complejos en menos de 30 segundos."
     },
     "case2": {
-      "title": "Migración Masiva a Expedia Channel PRO",
-      "tag": "Herramientas de Operaciones",
-      "problem": "Había que migrar cientos de cuentas de alquiler vacacional de la API vieja de Expedia a la nueva sin cortar servicio ni poner en riesgo reservas activas.",
-      "solution": "Monté un orquestador por lotes con monitorización en tiempo real, puntos de control, marcha atrás automática (rollback) e informes de auditoría.",
-      "impact": "211 empresas migradas en solo 11 días (1.664 operaciones) con 0 fallos."
+      "title": "Conciliador de Disponibilidad y Reservas",
+      "tag": "Herramientas de Operaciones & Diagnóstico",
+      "problem": "Cuando surgían incoherencias de calendario, contrastar las temporadas de un alojamiento con sus reservas obligaba a cruzar fechas y restricciones a mano, un proceso lento y expuesto a diagnósticos erróneos.",
+      "solution": "Creé una herramienta interna que cruza temporadas y reservas en un timeline gráfico interactivo, detecta incoherencias y genera una propuesta automática de reparación.",
+      "impact": "Eliminación de fallos de diagnóstico humano y drástico ahorro de tiempo operativo al visualizar cualquier conflicto de calendario de un vistazo.",
+      "tvpTitle": "VISTA DE TIMELINE & DIAGNÓSTICO",
+      "tvpStatus": "⚡ Conflicto Detectado",
+      "tvpSeasons": "Temporadas",
+      "tvpHighSeason": "T. Alta",
+      "tvpGap": "⚠️ Hueco",
+      "tvpMidSeason": "T. Media",
+      "tvpBookings": "Reservas",
+      "tvpBookingOk": "Reserva #1402",
+      "tvpBookingWarn": "Reserva #1589 ⚠️",
+      "tvpProposal": "💡 Propuesta de fix: Extender T. Alta para cubrir Reserva #1589 y sincronizar"
     },
     "case3": {
       "title": "Motor de Sincronización OTA en Tiempo Real",
       "tag": "Event-Driven & Arquitectura Distribuida",
       "problem": "Evitar overbookings y desajustes de precios con millones de transacciones diarias repartidas entre Booking, Airbnb, Expedia y Vrbo.",
       "solution": "Diseñé una arquitectura distribuida orientada a eventos (EDA) de alta resiliencia: microservicios en TypeScript/Node.js desacoplados con colas AWS SQS y fan-out con SNS, control estricto de idempotencia, gestión de DLQs y cumplimiento PCI-DSS.",
-      "impact": "Sobreventas prácticamente a cero y una estabilidad a prueba de bombas bajo picos masivos de tráfico."
+      "impact": "Overbookings prácticamente a cero y una estabilidad a prueba de bombas bajo picos masivos de tráfico."
     },
     "case4": {
       "title": "Ingesta Asíncrona de Alta Concurrencia para E-Commerce",

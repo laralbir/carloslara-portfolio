@@ -122,11 +122,21 @@
       "impact": "Turned an hour of frustrating log digging into answers in under 30 seconds."
     },
     "case2": {
-      "title": "Massive Expedia Channel PRO Migration Tool",
-      "tag": "Internal Operations Tooling",
-      "problem": "Mandatory migration of hundreds of holiday rental accounts from Expedia's legacy API to the new channel without downtime or risk to live bookings.",
-      "solution": "Built a batch migration orchestrator with live telemetry, checkpoints, automated rollback safety, and Excel audit reports.",
-      "impact": "Migrated 211 companies in just 11 days (1,664 actions) with zero recorded errors."
+      "title": "Availability Period Fixer",
+      "tag": "Internal Operations & Diagnostic Tooling",
+      "problem": "Detecting discrepancies between configured availability seasons and actual property bookings required manual data cross-referencing, causing slow investigations and diagnostic errors.",
+      "solution": "Built an internal tool that visualizes availability seasons and live bookings on an interactive graphic timeline, detects inconsistencies, and generates an automated repair proposal.",
+      "impact": "Eliminated diagnostic errors and drastically reduced operational investigation time by making calendar conflicts immediately visible and actionable.",
+      "tvpTitle": "TIMELINE DIAGNOSTIC VIEW",
+      "tvpStatus": "⚡ Conflict Detected",
+      "tvpSeasons": "Seasons",
+      "tvpHighSeason": "High Season",
+      "tvpGap": "⚠️ Gap",
+      "tvpMidSeason": "Mid Season",
+      "tvpBookings": "Bookings",
+      "tvpBookingOk": "Booking #1402",
+      "tvpBookingWarn": "Booking #1589 ⚠️",
+      "tvpProposal": "💡 Fix proposal: Extend High Season to cover Booking #1589 & sync rules"
     },
     "case3": {
       "title": "Real-time OTA Inventory Synchronization Engine",

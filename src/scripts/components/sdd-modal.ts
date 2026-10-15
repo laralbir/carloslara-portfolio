@@ -39,7 +39,7 @@ export function initSddModal(): void {
 
   if (copyEmailBtn && toast) {
     copyEmailBtn.addEventListener('click', async () => {
-      const email = 'laralbir@gmail.com';
+      const email = 'info@carloslara.dev';
       try {
         await navigator.clipboard.writeText(email);
         toast.textContent = t('contact.emailCopied');

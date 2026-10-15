@@ -33,7 +33,7 @@ Crear una plataforma web de alto impacto profesional en formato **One Page** ori
 
 - **Nombre:** Carlos Lara Albir
 - **Ubicación:** Torrent, Valencia (España)
-- **Email:** laralbir@gmail.com
+- **Email:** info@carloslara.dev
 - **Teléfono:** (+34) 661 76 22 02
 - **LinkedIn:** [linkedin.com/in/carlos-lara-albir-687277a4](https://www.linkedin.com/in/carlos-lara-albir-687277a4)
 - **GitHub:** [github.com/laralbir](https://github.com/laralbir)
@@ -115,7 +115,7 @@ Sustituyendo métricas aisladas de una empresa por 4 pilares universales de maes
 ### 4.4. Proyectos y Casos de Estudio Destacados
 - **Casos de Estudio Empresariales:**
   1. **Servidor MCP de Diagnóstico Operativo:** Reducción de diagnósticos de 60 min a lenguaje natural.
-  2. **Herramienta de Migración Masiva Expedia Channel PRO:** 211 empresas en 11 días, rollback y cero downtime.
+  2. **Fixeador de periodos (Diagnóstico y reparación de periodos de disponibilidad):** Calendario visual interactivo, detección de solapamientos y resolución granular de conflictos.
   3. **Sincronización en Tiempo Real de OTAs (Avantio):** Arquitectura distribuida Event-Driven (EDA), desacoplamiento con colas AWS SQS y fan-out con SNS, idempotencia estricta, prevención de overbooking y cumplimiento PCI-DSS.
   4. **Ingesta Asíncrona de Alta Concurrencia para E-Commerce:** Arquitectura desacoplada de mensajería con AWS SNS/SQS (fan-out) y caché ultrarrápida con Redis.
 - **Proyectos Personales & Open Source (Orquestados con IA):**

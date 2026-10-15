@@ -125,7 +125,7 @@ Cada tarea atómica se considerará completa únicamente cuando:
   - **AC:** Contenido técnico claro con diagramas visuales en CSS.
 
 - [ ] **TASK-5.6: Showcase de Casos de Estudio (`ProjectsShowcase`)**
-  - Tarjetas de los 4 proyectos destacados (MCP, Expedia Channel PRO, Conectividad OTAs en Tiempo Real, Ingesta Big Data).
+  - Tarjetas de los 4 proyectos destacados (MCP, Fixeador de periodos, Conectividad OTAs en Tiempo Real, Ingesta Big Data).
   - Estructura *Problema → Solución Técnica → Impacto en Negocio*.
   - Filtro por categoría tecnológica.
   - **AC:** Visualización limpia y tipada con etiquetas de stack.

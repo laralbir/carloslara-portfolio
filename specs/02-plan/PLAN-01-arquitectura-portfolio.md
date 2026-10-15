@@ -126,7 +126,7 @@ src/
 | `#hero` | **HeroSection** | Titular, subtítulo, Banner IA/SDD, `TechAvatar` (versión inicial sin foto), CTAs principales. |
 | `#strengths` | **StrengthsGrid** | 4 Pilares Técnicos (Arquitectura Distribuida & EDA, Backend de Misión Crítica, IA Agéntica & SDD, Datos/BI). |
 | `#ai-sdd` | **AiEngineeringSection** | El factor diferencial: Claude Code, Antigravity, MCP Server, Spec-Driven Development y guardarraíles. |
-| `#projects` | **ProjectsShowcase** | 4 Casos de estudio (MCP Diagnóstico, Migración Expedia, Conectividad OTAs, Big Data E-commerce) con filtros interactivos. |
+| `#projects` | **ProjectsShowcase** | 4 Casos de estudio (MCP Diagnóstico, Fixeador de periodos, Conectividad OTAs, Big Data E-commerce) con filtros interactivos. |
 | `#experience`| **ExperienceTimeline** | Línea temporal interactiva (Avantio 2018-hoy, Orca, Blue Solutions, Binn, FBCV, Serolo). |
 | `#skills` | **SkillsMatrix** | Grid de competencias técnicas clasificadas por área técnica con buscador/filtro. |
 | `#education` | **EducationSection** | Especialización IA/Big Data, Ingeniería Informática UPV, DAI y liderazgo en Tiro con Arco. |
