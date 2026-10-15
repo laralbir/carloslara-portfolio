@@ -1866,3 +1866,19 @@ footer {
   }
 }
 
+/* Button Social & GitHub Icons */
+.btn-github-icon,
+.btn-social-icon {
+  width: 1.125rem;
+  height: 1.125rem;
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.btn-sm .btn-github-icon,
+.btn-sm .btn-social-icon {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
