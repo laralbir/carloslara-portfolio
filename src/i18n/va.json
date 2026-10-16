@@ -26,7 +26,8 @@
     "subtitle": "Més de 20 anys dissenyant arquitectures distribuïdes i sistemes d'alta concurrència que no cauen amb trànsit real (Event-Driven amb AWS SQS, SNS i EventBridge, microserveis en Node.js/TypeScript i sincronització OTA de missió crítica). Hui multiplique eixa experiència amb enginyeria agèntica i IA: Claude Code a la consola, servidors MCP propis i zero codi a l'atzar.",
     "ctaProjects": "Fes-li una ullada als projectes",
     "ctaContact": "Fem un café?",
-    "ctaCv": "Veure Perfil / CV ↗"
+    "ctaCv": "Veure Perfil / CV ↗",
+    "statusBadge": "Disponible per a rols Senior / Staff"
   },
   "aiCallout": {
     "tag": "100% IA Agèntica & SDD",

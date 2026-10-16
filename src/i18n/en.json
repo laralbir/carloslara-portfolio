@@ -26,7 +26,8 @@
     "subtitle": "Over 20 years designing resilient distributed architectures and high-concurrency systems that withstand real production load (Event-Driven with AWS SQS, SNS, and EventBridge, Node.js/TypeScript microservices, and mission-critical OTA synchronization). Today I multiply that track record with agentic AI: Claude Code in the terminal, custom MCP servers, and zero guesswork.",
     "ctaProjects": "Check out my work & numbers",
     "ctaContact": "Let's chat",
-    "ctaCv": "View LinkedIn / CV ↗"
+    "ctaCv": "View LinkedIn / CV ↗",
+    "statusBadge": "Available for Senior / Staff roles"
   },
   "aiCallout": {
     "tag": "100% Agentic AI & SDD",

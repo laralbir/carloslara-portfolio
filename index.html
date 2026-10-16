@@ -11,7 +11,11 @@
   <meta property="og:url" content="https://carloslara.dev/">
   <meta property="og:title" content="Carlos Lara Albir — Senior Backend Engineer & AI-Augmented Developer">
   <meta property="og:description" content="20+ years of high-availability backend engineering combined with agentic AI and Spec-Driven Development. Audited metrics: 341 PRs, 0 reverts, 211 companies migrated in 11 days.">
-  <meta property="og:image" content="https://carloslara.dev/favicon.svg">
+  <meta property="og:image" content="https://carloslara.dev/assets/carlos-lara.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Carlos Lara Albir — Senior Backend Engineer & AI-Augmented Developer">
+  <meta name="twitter:description" content="20+ years of high-availability backend engineering combined with agentic AI and Spec-Driven Development.">
+  <meta name="twitter:image" content="https://carloslara.dev/assets/carlos-lara.jpg">
   
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -164,13 +168,20 @@
               </div>
             </div>
 
-            <!-- Tech Avatar (3D Hologram for Initial Version without Photo) -->
-            <div class="hero-avatar-wrapper">
-              <div class="avatar-ambient-glow"></div>
+            <!-- Profile Photo & Tech Card -->
+            <div class="hero-avatar-wrapper has-photo">
+              <div class="avatar-ambient-glow" aria-hidden="true"></div>
               <div class="avatar-canvas-container">
-                <canvas id="tech-avatar-canvas" aria-label="Interactive 3D Holographic Avatar"></canvas>
-                <!-- Image container prepared for future photo swap -->
-                <img src="/assets/carlos-lara.webp" alt="Carlos Lara Albir" class="avatar-photo" loading="lazy">
+                <picture>
+                  <source srcset="/assets/carlos-lara.webp" type="image/webp">
+                  <img src="/assets/carlos-lara.jpg" alt="Carlos Lara Albir - Senior Backend Engineer & Desarrollador Aumentado con IA" class="avatar-photo" width="380" height="475" fetchpriority="high">
+                </picture>
+                
+                <!-- Floating status pill: Available for Senior / Staff -->
+                <div class="avatar-floating-badge" aria-label="Disponibilidad profesional">
+                  <span class="avatar-status-pulse"></span>
+                  <span class="avatar-status-label" data-i18n="hero.statusBadge">Available for Senior / Staff roles</span>
+                </div>
               </div>
             </div>
           </div>
