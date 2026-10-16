@@ -307,12 +307,22 @@ dialog.sdd-modal {
   border-radius: var(--radius-xl);
   background: var(--bg-surface);
   color: var(--text-primary);
-  max-width: 640px;
+  max-width: 680px;
   width: calc(100% - 2rem);
+  max-height: 88vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   padding: 2.25rem;
   box-shadow: var(--shadow-lg), var(--shadow-glow);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
+}
+
+@media (max-width: 640px) {
+  dialog.sdd-modal {
+    padding: 1.5rem;
+    max-height: 92vh;
+  }
 }
 
 dialog.sdd-modal::backdrop {

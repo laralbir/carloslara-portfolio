@@ -406,7 +406,7 @@
                   <span class="sdd-status-chip">Gate 1 ✓</span>
                 </div>
                 <div class="sdd-step-icon" aria-hidden="true">📋</div>
-                <h4 class="sdd-step-title" data-i18n="aiCallout.modalStep1">01. Análisis &amp; Specs</h4>
+                <h4 class="sdd-step-title" data-i18n="aiCallout.step1Title">01. Análisis &amp; Specs</h4>
                 <p class="sdd-step-desc">Elicitación rigurosa, métricas cuantificables sin humo y cero suposiciones antes de tocar una sola línea.</p>
                 <div class="sdd-step-footer">
                   <span class="sdd-gate-badge">SPEC-01 Verificado</span>
@@ -420,7 +420,7 @@
                   <span class="sdd-status-chip">Gate 2 ✓</span>
                 </div>
                 <div class="sdd-step-icon" aria-hidden="true">🏛️</div>
-                <h4 class="sdd-step-title" data-i18n="aiCallout.modalStep2">02. Arquitectura &amp; Plan</h4>
+                <h4 class="sdd-step-title" data-i18n="aiCallout.step2Title">02. Arquitectura &amp; Plan</h4>
                 <p class="sdd-step-desc">ADRs documentados, diseño Event-Driven con AWS SQS/SNS, contratos de API e idempotencia probada.</p>
                 <div class="sdd-step-footer">
                   <span class="sdd-gate-badge">PLAN-01 Aprobado</span>
@@ -434,7 +434,7 @@
                   <span class="sdd-status-chip">Gate 3 ✓</span>
                 </div>
                 <div class="sdd-step-icon" aria-hidden="true">🎯</div>
-                <h4 class="sdd-step-title" data-i18n="aiCallout.modalStep3">03. Despiece Atómico</h4>
+                <h4 class="sdd-step-title" data-i18n="aiCallout.step3Title">03. Despiece Atómico</h4>
                 <p class="sdd-step-desc">Descomposición en tareas pequeñas e independientes con Definition of Done (DoD) estricto y tests previstos.</p>
                 <div class="sdd-step-footer">
                   <span class="sdd-gate-badge">TASK-01 Validado</span>
@@ -448,7 +448,7 @@
                   <span class="sdd-status-chip chip-live">Gate 4 · Prod ⚡</span>
                 </div>
                 <div class="sdd-step-icon" aria-hidden="true">🚀</div>
-                <h4 class="sdd-step-title" data-i18n="aiCallout.modalStep4">04. Implement &amp; Verify</h4>
+                <h4 class="sdd-step-title" data-i18n="aiCallout.step4Title">04. Implement &amp; Verify</h4>
                 <p class="sdd-step-desc">TDD con IA, tests automáticos, análisis estático Opengrep, 0 reverts y build inmutable en Cloudflare.</p>
                 <div class="sdd-step-footer">
                   <span class="sdd-gate-badge badge-prod">100% Producción</span>
@@ -1078,11 +1078,114 @@
     <p style="font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem;" data-i18n="aiCallout.modalDesc">
       Under Spec-Driven Development (SDD), code isn't where work begins: it's the verified final output of crystal-clear thinking and specs. No 'let's try this and see if it compiles'—every single commit maps to an atomic task with clear acceptance criteria.
     </p>
-    <div style="display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 2rem; font-size: 0.875rem;">
-      <div style="padding: 0.75rem 1rem; background: var(--bg-surface); border-radius: var(--radius-md); border-left: 3px solid var(--accent-primary);" data-i18n="aiCallout.modalStep1">01. Analysis: Who I am, real numbers (no fluff), target goals, and functional specs.</div>
-      <div style="padding: 0.75rem 1rem; background: var(--bg-surface); border-radius: var(--radius-md); border-left: 3px solid var(--accent-primary);" data-i18n="aiCallout.modalStep2">02. Plan: Technical architecture, i18n, zero-runtime CSS theme system, and Cloudflare Edge deployment.</div>
-      <div style="padding: 0.75rem 1rem; background: var(--bg-surface); border-radius: var(--radius-md); border-left: 3px solid var(--accent-primary);" data-i18n="aiCallout.modalStep3">03. Task: Atomic task breakdown with strict Definition of Done (DoD).</div>
-      <div style="padding: 0.75rem 1rem; background: var(--bg-surface); border-radius: var(--radius-md); border-left: 3px solid var(--accent-primary);" data-i18n="aiCallout.modalStep4">04. Implement: Clean code, automated tests, 100/100 Lighthouse score, and continuous push.</div>
+    <!-- Creative SDD Pipeline Stepper Flow -->
+    <div class="sdd-timeline-stepper">
+      <!-- Step 1: Analysis -->
+      <div class="sdd-stepper-item">
+        <div class="sdd-stepper-track">
+          <div class="sdd-stepper-node">01</div>
+          <div class="sdd-stepper-line"></div>
+        </div>
+        <div class="sdd-stepper-content">
+          <div class="sdd-stepper-header">
+            <div class="sdd-stepper-title-group">
+              <span class="sdd-stepper-phase" data-i18n="aiCallout.step1Phase">FASE 01</span>
+              <h4 class="sdd-stepper-title" data-i18n="aiCallout.step1Title">Análisis &amp; Requisitos</h4>
+            </div>
+            <div class="sdd-stepper-chips">
+              <span class="sdd-role-badge">@analyst</span>
+              <span class="sdd-gate-chip gate-passed">Gate 1 ✓</span>
+            </div>
+          </div>
+          <p class="sdd-stepper-text" data-i18n="aiCallout.step1Desc">
+            Quién soy, métricas reales sin humo, catálogo de capacidades y especificaciones claras antes de escribir código.
+          </p>
+          <div class="sdd-stepper-footer">
+            <span class="sdd-artifact-badge">📄 SPEC-01-analisis.md</span>
+            <span class="sdd-meta-badge">0 Suposiciones</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: Plan -->
+      <div class="sdd-stepper-item">
+        <div class="sdd-stepper-track">
+          <div class="sdd-stepper-node">02</div>
+          <div class="sdd-stepper-line"></div>
+        </div>
+        <div class="sdd-stepper-content">
+          <div class="sdd-stepper-header">
+            <div class="sdd-stepper-title-group">
+              <span class="sdd-stepper-phase" data-i18n="aiCallout.step2Phase">FASE 02</span>
+              <h4 class="sdd-stepper-title" data-i18n="aiCallout.step2Title">Arquitectura &amp; Plan</h4>
+            </div>
+            <div class="sdd-stepper-chips">
+              <span class="sdd-role-badge">@planner</span>
+              <span class="sdd-gate-chip gate-passed">Gate 2 ✓</span>
+            </div>
+          </div>
+          <p class="sdd-stepper-text" data-i18n="aiCallout.step2Desc">
+            ADRs técnicos, arquitectura desacoplada, i18n reactivo, cero CSS runtime y despliegue en el Edge de Cloudflare.
+          </p>
+          <div class="sdd-stepper-footer">
+            <span class="sdd-artifact-badge">📐 PLAN-01-arquitectura.md</span>
+            <span class="sdd-meta-badge">Edge-First</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3: Task -->
+      <div class="sdd-stepper-item">
+        <div class="sdd-stepper-track">
+          <div class="sdd-stepper-node">03</div>
+          <div class="sdd-stepper-line"></div>
+        </div>
+        <div class="sdd-stepper-content">
+          <div class="sdd-stepper-header">
+            <div class="sdd-stepper-title-group">
+              <span class="sdd-stepper-phase" data-i18n="aiCallout.step3Phase">FASE 03</span>
+              <h4 class="sdd-stepper-title" data-i18n="aiCallout.step3Title">Despiece en Tareas</h4>
+            </div>
+            <div class="sdd-stepper-chips">
+              <span class="sdd-role-badge">@tasker</span>
+              <span class="sdd-gate-chip gate-passed">Gate 3 ✓</span>
+            </div>
+          </div>
+          <p class="sdd-stepper-text" data-i18n="aiCallout.step3Desc">
+            Descomposición quirúrgica en tareas pequeñas e independientes con Criterios de Aceptación (AC) y DoD estricto.
+          </p>
+          <div class="sdd-stepper-footer">
+            <span class="sdd-artifact-badge">📋 TASK-01-backlog.md</span>
+            <span class="sdd-meta-badge">DoD Estricto</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4: Implement -->
+      <div class="sdd-stepper-item">
+        <div class="sdd-stepper-track">
+          <div class="sdd-stepper-node is-active">04</div>
+        </div>
+        <div class="sdd-stepper-content is-highlighted">
+          <div class="sdd-stepper-header">
+            <div class="sdd-stepper-title-group">
+              <span class="sdd-stepper-phase" data-i18n="aiCallout.step4Phase">FASE 04</span>
+              <h4 class="sdd-stepper-title" data-i18n="aiCallout.step4Title">Implement &amp; Deploy</h4>
+            </div>
+            <div class="sdd-stepper-chips">
+              <span class="sdd-role-badge">@implementer</span>
+              <span class="sdd-gate-chip gate-live">Gate 4 · Prod ⚡</span>
+            </div>
+          </div>
+          <p class="sdd-stepper-text" data-i18n="aiCallout.step4Desc">
+            TDD asistido por IA, batería de tests unitarios, análisis Opengrep, 100/100 Lighthouse y despliegue continuo en el Edge.
+          </p>
+          <div class="sdd-stepper-footer">
+            <span class="sdd-artifact-badge">🚀 Cloudflare Pages</span>
+            <span class="sdd-meta-badge">0 Reverts</span>
+          </div>
+        </div>
+      </div>
     </div>
     <div style="text-align: right;">
       <a href="https://github.com/laralbir/carloslara-portfolio/tree/main/specs" target="_blank" rel="noopener noreferrer" class="btn btn-primary">

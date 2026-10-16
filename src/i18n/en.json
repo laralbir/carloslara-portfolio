@@ -41,6 +41,18 @@
     "modalStep2": "02. Plan: Technical architecture, i18n, zero-runtime CSS theme system, and Cloudflare Edge deployment.",
     "modalStep3": "03. Task: Atomic task breakdown with strict Definition of Done (DoD).",
     "modalStep4": "04. Implement: Clean code, automated tests, 100/100 Lighthouse score, and continuous push.",
+    "step1Phase": "PHASE 01",
+    "step1Title": "Analysis & Requirements",
+    "step1Desc": "Who I am, audited metrics with zero fluff, skills catalog, and crystal-clear specs before touching a single line of code.",
+    "step2Phase": "PHASE 02",
+    "step2Title": "Technical Architecture & Plan",
+    "step2Desc": "Documented ADRs, decoupled architecture, reactive i18n, zero-runtime CSS, and Edge deployment on Cloudflare Pages.",
+    "step3Phase": "PHASE 03",
+    "step3Title": "Atomic Task Breakdown",
+    "step3Desc": "Surgical breakdown into isolated work packages with strict Acceptance Criteria (AC) and Definition of Done (DoD).",
+    "step4Phase": "PHASE 04",
+    "step4Title": "Implementation & Production",
+    "step4Desc": "AI-assisted TDD, full unit test suite, Opengrep static analysis, 100/100 Lighthouse, and immutable edge deployment with 0 reverts.",
     "modalLink": "View specs directory on GitHub ➔"
   },
   "strengths": {

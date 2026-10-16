@@ -41,6 +41,18 @@
     "modalStep2": "02. Plan: Arquitectura técnica, i18n, estilos sin librerías pesadas y despliegue en el Edge de Cloudflare.",
     "modalStep3": "03. Task: Despiece en tareas pequeñas con Definition of Done (DoD) estricto.",
     "modalStep4": "04. Implement: Código limpio, tests automáticos, 100/100 en Lighthouse y push continuo.",
+    "step1Phase": "FASE 01",
+    "step1Title": "Análisis & Requisitos",
+    "step1Desc": "Quién soy, métricas reales sin humo, catálogo de capacidades y especificaciones claras antes de escribir código.",
+    "step2Phase": "FASE 02",
+    "step2Title": "Arquitectura & Plan",
+    "step2Desc": "ADRs técnicos, arquitectura desacoplada, i18n reactivo, cero CSS runtime y despliegue en el Edge de Cloudflare.",
+    "step3Phase": "FASE 03",
+    "step3Title": "Despiece en Tareas",
+    "step3Desc": "Descomposición quirúrgica en tareas pequeñas e independientes con Criterios de Aceptación (AC) y DoD estricto.",
+    "step4Phase": "FASE 04",
+    "step4Title": "Implement & Deploy",
+    "step4Desc": "TDD asistido por IA, batería de tests unitarios, análisis Opengrep, 100/100 Lighthouse y despliegue continuo en el Edge.",
     "modalLink": "Ver las carpetas de especificaciones en GitHub ➔"
   },
   "strengths": {

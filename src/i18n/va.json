@@ -41,6 +41,18 @@
     "modalStep2": "02. Pla: Arquitectura tècnica, i18n, estils sense llibreries feixugues i desplegament a l'Edge de Cloudflare.",
     "modalStep3": "03. Task: Desglossament en tasques menudes amb Definition of Done (DoD) estricte.",
     "modalStep4": "04. Implement: Codi net, tests automàtics, 100/100 en Lighthouse i push continu.",
+    "step1Phase": "FASE 01",
+    "step1Title": "Anàlisi & Requisits",
+    "step1Desc": "Qui soc, mètriques reals sense fum, catàleg de capacitats i especificacions clares abans d'escriure codi.",
+    "step2Phase": "FASE 02",
+    "step2Title": "Arquitectura & Pla",
+    "step2Desc": "ADRs tècnics, arquitectura desacoblada, i18n reactiu, zero CSS runtime i desplegament a l'Edge de Cloudflare.",
+    "step3Phase": "FASE 03",
+    "step3Title": "Desglossament en Tasques",
+    "step3Desc": "Descomposició quirúrgica en tasques menudes i independents amb Criteris d'Acceptació (AC) i DoD estricte.",
+    "step4Phase": "FASE 04",
+    "step4Title": "Implementació & Deploy",
+    "step4Desc": "TDD assistit per IA, bateria de tests unitaris, anàlisi Opengrep, 100/100 Lighthouse i desplegament continu a l'Edge.",
     "modalLink": "Veure les carpetes d'especificacions en GitHub ➔"
   },
   "strengths": {
