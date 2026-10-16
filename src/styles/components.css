@@ -18,12 +18,42 @@
   color: var(--text-muted);
   width: 100%;
   overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+}
+
+.telemetry-ticker::-webkit-scrollbar {
+  display: none;
+}
+
+.telemetry-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.telemetry-group {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .telemetry-hide-mobile {
+    display: none;
+  }
+  .telemetry-group {
+    gap: 0.75rem;
+  }
 }
 
 .telemetry-item {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
+  white-space: nowrap;
 }
 
 .telemetry-prompt {
@@ -69,6 +99,33 @@
   font-size: 1.15rem;
   color: var(--text-primary);
   text-decoration: none;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.brand-name {
+  display: inline-block;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 768px) {
+  .brand-name,
+  .nav-brand span:not(.brand-monogram) {
+    display: none !important;
+  }
+  .nav-brand {
+    gap: 0;
+  }
+  .nav-controls {
+    gap: 0.45rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .nav-controls {
+    gap: 0.35rem;
+  }
 }
 
 .brand-monogram {
@@ -569,6 +626,30 @@
   gap: 0.75rem;
   flex-shrink: 0;
   flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  .ai-meta-banner {
+    padding: 1.35rem 1.15rem;
+  }
+
+  .ai-meta-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 0.65rem;
+  }
+
+  .ai-meta-actions .btn {
+    width: 100%;
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    line-height: 1.35;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -1555,6 +1636,12 @@ footer {
   box-shadow: var(--shadow-md);
   position: relative;
   overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .sdd-pipeline-container {
+    display: none !important;
+  }
 }
 
 .sdd-pipeline-header {

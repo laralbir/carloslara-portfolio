@@ -31,6 +31,8 @@
 | **TASK-7.1** | Switch de Accesibilidad Visual (A11y) | ✅ Completado | `index.html`, `src/styles/components.css`, `src/scripts/theme-switcher.ts` | Interruptor Radix accesible (`role="switch"`, `aria-checked`, icono SVG, `Space`/`Enter`) |
 | **TASK-7.2** | Bugfix de aislamiento de interruptores | ✅ Completado | `src/styles/components.css` | Aislamiento estricto de `#theme-toggle` para evitar activación involuntaria del switch de a11y al cambiar a tema oscuro |
 | **TASK-8.1** | Suite de Pruebas Automatizadas y Mandato TDD | ✅ Completado | `package.json`, `vite.config.ts`, `tests/*.test.ts` | Vitest + happy-dom (`npm test`), 7/7 tests pasando en <350ms, especificaciones SDD actualizadas |
+| **TASK-9.1** | Optimización Navbar y Pipeline SDD en Móvil | ✅ Completado | `index.html`, `src/styles/components.css` | Ocultación de texto de marca en <768px (solo monograma `CLA`), ocultación del box interactivo SDD en mobile |
+| **TASK-9.2** | Eliminación de scroll horizontal y corte de botones | ✅ Completado | `src/styles/main.css`, `src/styles/components.css` | Viewport containment estricto en `html` y `body`, supresión de `100vw`, botones de banner en columna adaptable |
 
 ---
 
