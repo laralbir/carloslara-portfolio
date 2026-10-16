@@ -130,8 +130,41 @@ export function initTechAvatar(): () => void {
       });
     }
 
+    // Faces for the icosahedron (triangles)
+    const faces: [number, number, number][] = [
+      [0, 11, 5], [0, 5, 1], [0, 1, 7], [0, 7, 10], [0, 10, 11],
+      [1, 5, 9], [5, 11, 4], [11, 10, 2], [10, 7, 6], [7, 1, 8],
+      [3, 9, 4], [3, 4, 2], [3, 2, 6], [3, 6, 8], [3, 8, 9],
+      [4, 9, 5], [2, 4, 11], [6, 2, 10], [8, 6, 7], [9, 8, 1]
+    ];
+
+    // Draw translucent facet fills sorted by depth
+    const faceDepths = faces.map(face => {
+      const zAvg = (projected[face[0]].z + projected[face[1]].z + projected[face[2]].z) / 3;
+      return { face, zAvg };
+    });
+    faceDepths.sort((a, b) => a.zAvg - b.zAvg);
+
+    for (const item of faceDepths) {
+      const f = item.face;
+      const p1 = projected[f[0]];
+      const p2 = projected[f[1]];
+      const p3 = projected[f[2]];
+
+      ctx.beginPath();
+      ctx.moveTo(p1.x, p1.y);
+      ctx.lineTo(p2.x, p2.y);
+      ctx.lineTo(p3.x, p3.y);
+      ctx.closePath();
+
+      // Normal brightness based on average z
+      const alpha = Math.max(0.03, Math.min(0.18, 0.08 + item.zAvg * 0.06));
+      ctx.fillStyle = isDark ? `rgba(99, 102, 241, ${alpha})` : `rgba(37, 99, 235, ${alpha * 0.7})`;
+      ctx.fill();
+    }
+
     // Draw connecting wireframe edges
-    ctx.lineWidth = 1.5 * dpr;
+    ctx.lineWidth = 1.25 * dpr;
     for (const [startIndex, endIndex] of edges) {
       const p1 = projected[startIndex];
       const p2 = projected[endIndex];
@@ -143,11 +176,26 @@ export function initTechAvatar(): () => void {
       ctx.stroke();
     }
 
+    // Outer subtle orbital ring
+    ctx.save();
+    ctx.beginPath();
+    ctx.ellipse(cx, cy, scale * 1.55, scale * 0.55, angleY * 0.5, 0, Math.PI * 2);
+    ctx.strokeStyle = isDark ? 'rgba(99, 102, 241, 0.25)' : 'rgba(37, 99, 235, 0.2)';
+    ctx.lineWidth = 1 * dpr;
+    ctx.setLineDash([4 * dpr, 6 * dpr]);
+    ctx.stroke();
+    ctx.restore();
+
     // Draw vertex glowing dots
     for (const p of projected) {
       ctx.beginPath();
       ctx.arc(p.x, p.y, 2.5 * dpr, 0, Math.PI * 2);
       ctx.fillStyle = primaryColor;
+      ctx.fill();
+      // Glow halo
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 5 * dpr, 0, Math.PI * 2);
+      ctx.fillStyle = isDark ? 'rgba(99, 102, 241, 0.15)' : 'rgba(37, 99, 235, 0.1)';
       ctx.fill();
     }
 
@@ -158,18 +206,18 @@ export function initTechAvatar(): () => void {
     // Central circular ambient shadow & glass backdrop
     ctx.beginPath();
     ctx.arc(cx, cy, badgeRadius, 0, Math.PI * 2);
-    ctx.fillStyle = isDark ? 'rgba(15, 23, 42, 0.88)' : 'rgba(255, 255, 255, 0.9)';
+    ctx.fillStyle = isDark ? 'rgba(7, 8, 12, 0.92)' : 'rgba(255, 255, 255, 0.95)';
     ctx.fill();
-    ctx.strokeStyle = primaryColor;
-    ctx.lineWidth = 2 * dpr;
+    ctx.strokeStyle = isDark ? 'rgba(99, 102, 241, 0.6)' : 'rgba(37, 99, 235, 0.5)';
+    ctx.lineWidth = 1.5 * dpr;
     ctx.stroke();
 
     // Text monogram
-    ctx.font = `bold ${Math.round(26 * dpr)}px system-ui, -apple-system, sans-serif`;
+    ctx.font = `800 ${Math.round(24 * dpr)}px 'Plus Jakarta Sans', system-ui, sans-serif`;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillStyle = isDark ? '#ffffff' : '#0f172a';
-    ctx.fillText('CLA', cx, cy);
+    ctx.fillStyle = isDark ? '#ffffff' : '#07080c';
+    ctx.fillText('CLA', cx, cy + 1);
 
     ctx.restore();
 

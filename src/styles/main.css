@@ -30,6 +30,19 @@ body {
   transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1200px;
+  height: 600px;
+  background: radial-gradient(ellipse 60% 100% at 50% -20%, rgba(99, 102, 241, 0.16), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
 /* Background canvas fixed under all content */
 #canvas-background {
   position: fixed;
@@ -201,20 +214,22 @@ a:hover {
   border-radius: var(--radius-md);
 }
 
-/* Glass Card */
+/* Glass Card - Bento Obsidian Style */
 .glass-card {
   background: var(--bg-card);
   border: 1px solid var(--border-card);
   border-radius: var(--radius-lg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   transition: all var(--transition-normal);
-  box-shadow: var(--shadow-sm);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), var(--shadow-sm);
+  position: relative;
 }
 
 .glass-card:hover {
   border-color: var(--border-card-hover);
-  box-shadow: var(--shadow-md);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), var(--shadow-md), 0 0 25px var(--accent-glow);
+  transform: translateY(-2px);
 }
 
 /* Pulse indicator dot */
