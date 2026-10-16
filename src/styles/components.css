@@ -43,34 +43,22 @@
 
 .navbar {
   position: fixed;
-  top: 0.75rem;
+  top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  background: transparent;
-  pointer-events: none;
+  background: var(--nav-backdrop);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-card);
   transition: all var(--transition-fast);
-}
-
-@media (min-width: 768px) {
-  .navbar {
-    top: 1.25rem;
-  }
 }
 
 .navbar .nav-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 3.75rem;
-  background: var(--nav-backdrop);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--border-card);
-  border-radius: var(--radius-xl);
-  padding: 0 1.25rem;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.04), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
-  pointer-events: auto;
+  height: 3.5rem;
 }
 
 .nav-brand {
