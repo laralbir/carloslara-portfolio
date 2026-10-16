@@ -1,13 +1,17 @@
 /**
- * Holographic 3D Interactive Tech Avatar
- * Renders a rotating 3D geometric wireframe core with monogram 'CLA'
- * Designed for the initial version without photo.
+ * Atmospheric Kinetic 3D Avatar
+ * Living particle nebula with organic breathing oscillations,
+ * kinetic constellations, and frosted monogram glass core.
  */
 
-interface Point3D {
-  x: number;
-  y: number;
-  z: number;
+interface Particle3D {
+  baseX: number;
+  baseY: number;
+  baseZ: number;
+  speed: number;
+  phase: number;
+  size: number;
+  hue: number;
 }
 
 export function initTechAvatar(): () => void {
@@ -30,40 +34,32 @@ export function initTechAvatar(): () => void {
   resize();
   window.addEventListener('resize', resize, { passive: true });
 
-  // 3D Icosahedron / Octahedron Geometry Vertices
-  const phi = (1 + Math.sqrt(5)) / 2;
-  const rawVertices: Point3D[] = [
-    { x: -1, y: phi, z: 0 },
-    { x: 1, y: phi, z: 0 },
-    { x: -1, y: -phi, z: 0 },
-    { x: 1, y: -phi, z: 0 },
-    { x: 0, y: -1, z: phi },
-    { x: 0, y: 1, z: phi },
-    { x: 0, y: -1, z: -phi },
-    { x: 0, y: 1, z: -phi },
-    { x: phi, y: 0, z: -1 },
-    { x: phi, y: 0, z: 1 },
-    { x: -phi, y: 0, z: -1 },
-    { x: -phi, y: 0, z: 1 },
-  ];
-
-  // Edges connecting vertices
-  const edges: [number, number][] = [
-    [0, 11], [0, 5], [0, 1], [0, 7], [0, 10],
-    [1, 5], [1, 9], [1, 8], [1, 7],
-    [2, 11], [2, 4], [2, 3], [2, 6], [2, 10],
-    [3, 4], [3, 9], [3, 8], [3, 6],
-    [4, 11], [4, 5], [4, 9],
-    [5, 9], [6, 10], [6, 7], [6, 8],
-    [7, 8], [8, 9], [10, 11],
-  ];
+  // Generate 120 spherical / orbital nebula particles
+  const particleCount = 120;
+  const particles: Particle3D[] = [];
+  for (let i = 0; i < particleCount; i++) {
+    const theta = Math.acos(2 * Math.random() - 1);
+    const phi = Math.random() * Math.PI * 2;
+    // Vary radius between 0.75 and 1.35
+    const r = 0.75 + Math.random() * 0.6;
+    particles.push({
+      baseX: r * Math.sin(theta) * Math.cos(phi),
+      baseY: r * Math.sin(theta) * Math.sin(phi),
+      baseZ: r * Math.cos(theta),
+      speed: 0.8 + Math.random() * 1.2,
+      phase: Math.random() * Math.PI * 2,
+      size: 1.5 + Math.random() * 2,
+      hue: Math.random() > 0.45 ? 270 : 190, // Violet or Cyan
+    });
+  }
 
   let angleX = 0.2;
   let angleY = 0.4;
   let targetRotX = 0;
   let targetRotY = 0;
+  let time = 0;
 
-  // Track mouse over canvas container for interactive 3D tilt
+  // Track mouse over canvas container for interactive tilt
   const container = canvas.closest('.hero-avatar-wrapper');
   if (container) {
     container.addEventListener('mousemove', (e: Event) => {
@@ -71,8 +67,8 @@ export function initTechAvatar(): () => void {
       const rect = container.getBoundingClientRect();
       const nx = (mouseEvent.clientX - rect.left) / rect.width - 0.5;
       const ny = (mouseEvent.clientY - rect.top) / rect.height - 0.5;
-      targetRotY = nx * 1.5;
-      targetRotX = -ny * 1.5;
+      targetRotY = nx * 1.6;
+      targetRotX = -ny * 1.6;
     });
 
     container.addEventListener('mouseleave', () => {
@@ -88,31 +84,36 @@ export function initTechAvatar(): () => void {
     const height = canvas.height;
     ctx.clearRect(0, 0, width, height);
 
-    const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
-    const primaryColor = isDark ? '#3b82f6' : '#2563eb';
-    const edgeColor = isDark ? 'rgba(96, 165, 250, 0.4)' : 'rgba(37, 99, 235, 0.35)';
+    time += 0.015;
 
-    // Smooth rotation towards target + continuous idle rotation
-    angleX += 0.006 + (targetRotX - angleX) * 0.03;
-    angleY += 0.01 + (targetRotY - angleY) * 0.03;
+    // Smooth rotation towards mouse target + continuous slow drift
+    angleX += 0.005 + (targetRotX - angleX) * 0.03;
+    angleY += 0.008 + (targetRotY - angleY) * 0.03;
 
     const cx = width / 2;
     const cy = height / 2;
-    const scale = Math.min(width, height) * 0.26;
-
-    // Rotate and project vertices to 2D
-    const projected: { x: number; y: number; z: number }[] = [];
+    const scale = Math.min(width, height) * 0.28;
 
     const cosX = Math.cos(angleX);
     const sinX = Math.sin(angleX);
     const cosY = Math.cos(angleY);
     const sinY = Math.sin(angleY);
 
-    for (const v of rawVertices) {
+    const projected: { x: number; y: number; z: number; size: number; hue: number; alpha: number }[] = [];
+
+    // Calculate dynamic 3D positions with breathing harmonic wave
+    for (const p of particles) {
+      const wave = Math.sin(time * p.speed + p.phase) * 0.12;
+      const currentRadiusScale = 1 + wave;
+
+      const px = p.baseX * currentRadiusScale;
+      const py = p.baseY * currentRadiusScale;
+      const pz = p.baseZ * currentRadiusScale;
+
       // Rotation Y
-      const x1 = v.x * cosY + v.z * sinY;
-      const y1 = v.y;
-      const z1 = -v.x * sinY + v.z * cosY;
+      const x1 = px * cosY + pz * sinY;
+      const y1 = py;
+      const z1 = -px * sinY + pz * cosY;
 
       // Rotation X
       const x2 = x1;
@@ -120,56 +121,98 @@ export function initTechAvatar(): () => void {
       const z2 = y1 * sinX + z1 * cosX;
 
       // Perspective projection
-      const distance = 3.5;
-      const fov = 1 / (distance - z2 * 0.3);
+      const distance = 3.2;
+      const fov = 1 / (distance - z2 * 0.35);
 
       projected.push({
         x: cx + x2 * scale * fov,
         y: cy + y2 * scale * fov,
         z: z2,
+        size: p.size * fov * dpr,
+        hue: p.hue,
+        alpha: Math.max(0.2, Math.min(0.9, (z2 + 1.5) / 3)),
       });
     }
 
-    // Draw connecting wireframe edges
-    ctx.lineWidth = 1.5 * dpr;
-    for (const [startIndex, endIndex] of edges) {
-      const p1 = projected[startIndex];
-      const p2 = projected[endIndex];
+    // Sort particles by depth for painter's algorithm
+    projected.sort((a, b) => a.z - b.z);
 
-      ctx.beginPath();
-      ctx.moveTo(p1.x, p1.y);
-      ctx.lineTo(p2.x, p2.y);
-      ctx.strokeStyle = edgeColor;
-      ctx.stroke();
+    // Draw kinetic constellation connections between close neighbor particles
+    const maxDist = 55 * dpr;
+    const maxDistSq = maxDist * maxDist;
+
+    ctx.lineWidth = 0.8 * dpr;
+    for (let i = 0; i < projected.length; i++) {
+      const p1 = projected[i];
+      for (let j = i + 1; j < projected.length; j++) {
+        const p2 = projected[j];
+        const dx = p1.x - p2.x;
+        const dy = p1.y - p2.y;
+        const distSq = dx * dx + dy * dy;
+
+        if (distSq < maxDistSq) {
+          const proximity = 1 - Math.sqrt(distSq) / maxDist;
+          const lineAlpha = proximity * 0.25 * ((p1.alpha + p2.alpha) / 2);
+
+          ctx.beginPath();
+          ctx.moveTo(p1.x, p1.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.strokeStyle = `rgba(168, 85, 247, ${lineAlpha})`;
+          ctx.stroke();
+        }
+      }
     }
 
-    // Draw vertex glowing dots
+    // Draw particles
     for (const p of projected) {
+      // Glow halo
       ctx.beginPath();
-      ctx.arc(p.x, p.y, 2.5 * dpr, 0, Math.PI * 2);
-      ctx.fillStyle = primaryColor;
+      ctx.arc(p.x, p.y, p.size * 2.2, 0, Math.PI * 2);
+      ctx.fillStyle = p.hue === 270 
+        ? `rgba(139, 92, 246, ${p.alpha * 0.25})`
+        : `rgba(6, 182, 212, ${p.alpha * 0.25})`;
+      ctx.fill();
+
+      // Sharp core
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = p.hue === 270
+        ? `rgba(216, 180, 254, ${p.alpha})`
+        : `rgba(165, 243, 252, ${p.alpha})`;
       ctx.fill();
     }
 
-    // Central Monogram Badge 'CLA'
+    // Central Frosted Glass Core with Monogram 'CLA'
     ctx.save();
-    const badgeRadius = Math.min(width, height) * 0.17;
+    const badgeRadius = Math.min(width, height) * 0.175;
 
-    // Central circular ambient shadow & glass backdrop
+    // Diffused radiant glow
+    const radialGrad = ctx.createRadialGradient(cx, cy, badgeRadius * 0.2, cx, cy, badgeRadius * 1.6);
+    radialGrad.addColorStop(0, 'rgba(139, 92, 246, 0.35)');
+    radialGrad.addColorStop(0.5, 'rgba(6, 182, 212, 0.15)');
+    radialGrad.addColorStop(1, 'transparent');
+    ctx.fillStyle = radialGrad;
+    ctx.beginPath();
+    ctx.arc(cx, cy, badgeRadius * 1.6, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Central frosted circle
     ctx.beginPath();
     ctx.arc(cx, cy, badgeRadius, 0, Math.PI * 2);
-    ctx.fillStyle = isDark ? 'rgba(15, 23, 42, 0.88)' : 'rgba(255, 255, 255, 0.9)';
+    ctx.fillStyle = 'rgba(14, 21, 51, 0.88)';
     ctx.fill();
-    ctx.strokeStyle = primaryColor;
-    ctx.lineWidth = 2 * dpr;
+
+    // Subtle iridescent ring
+    ctx.strokeStyle = 'rgba(168, 85, 247, 0.65)';
+    ctx.lineWidth = 1.5 * dpr;
     ctx.stroke();
 
-    // Text monogram
-    ctx.font = `bold ${Math.round(26 * dpr)}px system-ui, -apple-system, sans-serif`;
+    // Typography Monogram
+    ctx.font = `800 ${Math.round(26 * dpr)}px 'Outfit', system-ui, sans-serif`;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillStyle = isDark ? '#ffffff' : '#0f172a';
-    ctx.fillText('CLA', cx, cy);
+    ctx.fillStyle = '#ffffff';
+    ctx.fillText('CLA', cx, cy + 1);
 
     ctx.restore();
 
@@ -183,4 +226,3 @@ export function initTechAvatar(): () => void {
     window.removeEventListener('resize', resize);
   };
 }
-
