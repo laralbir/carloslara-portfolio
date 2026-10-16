@@ -1,20 +1,9 @@
-import { applyTheme, getCurrentThemeSetting, ThemeSetting } from '../theme-switcher';
 import { setLanguage, getCurrentLanguage, Language } from '../i18n/engine';
 
 export function initNavbar(): void {
-  const themeSelect = document.getElementById('theme-select') as HTMLSelectElement | null;
   const langSelect = document.getElementById('lang-select') as HTMLSelectElement | null;
   const mobileToggle = document.getElementById('mobile-toggle') as HTMLButtonElement | null;
   const mobileNav = document.getElementById('mobile-nav') as HTMLElement | null;
-
-  // Set initial dropdown values
-  if (themeSelect) {
-    themeSelect.value = getCurrentThemeSetting();
-    themeSelect.addEventListener('change', (e) => {
-      const val = (e.target as HTMLSelectElement).value as ThemeSetting;
-      applyTheme(val);
-    });
-  }
 
   if (langSelect) {
     langSelect.value = getCurrentLanguage();

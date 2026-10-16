@@ -11,7 +11,8 @@
     "contact": "Contacte",
     "themeLight": "Clar",
     "themeDark": "Fosc",
-    "themeSystem": "Sistema"
+    "themeSystem": "Sistema",
+    "themeToggle": "Alternar entre tema clar i fosc"
   },
   "a11y": {
     "skipToContent": "Saltar al contingut principal",

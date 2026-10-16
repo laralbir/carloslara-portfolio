@@ -11,7 +11,8 @@
     "contact": "Contacto",
     "themeLight": "Claro",
     "themeDark": "Oscuro",
-    "themeSystem": "Sistema"
+    "themeSystem": "Sistema",
+    "themeToggle": "Alternar entre tema claro y oscuro"
   },
   "a11y": {
     "skipToContent": "Saltar al contenido principal",

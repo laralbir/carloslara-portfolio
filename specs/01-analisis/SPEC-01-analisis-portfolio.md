@@ -55,10 +55,10 @@ Crear una plataforma web de alto impacto profesional en formato **One Page** ori
   - Enlaces a secciones principales (Inicio, Métricas, IA & SDD, Proyectos, Trayectoria, Skills, Contacto).
   - Indicador de sección activa (*scroll spy*).
   - **Selector de Idioma:** Selector desplegable accesible (Español `ES`, Inglés `EN`, Valenciano `VA`) con cambio dinámico de textos sin recarga y persistencia en almacenamiento local (`localStorage`).
-  - **Selector de Tema:** Alternador binario accesible: **Claro (Light - predeterminado por defecto)** y **Oscuro (Dark)**, con persistencia en `localStorage`. Se elimina el modo 'Sistema' del desplegable para garantizar una experiencia visual clara y uniforme desde la primera carga.
+  - **Selector de Tema:** Switch toggle interactivo y accesible (WAI-ARIA role="switch"): **Claro (Light - predeterminado por defecto)** y **Oscuro (Dark)**, con persistencia en `localStorage`. Diseñado como un interruptor deslizable fluido con iconos de sol/luna y microanimaciones elásticas sin modo sistema.
 
-### 3.2. Estrategia Visual: Foto y Plan Inicial Sin Foto
-- **Foto Personal:** La web está preparada para alojar una fotografía profesional de Carlos Lara Albir en el Hero / Sección Sobre Mí tan pronto esté disponible.
+### 3.2. Estrategia Visual: Foto de Perfil y Marca Personal
+- **Foto Personal:** Integrada oficialmente en el Hero con la fotografía profesional proporcionada por Carlos Lara Albir en formato WebP optimizado de alta fidelidad, enmarcada en una tarjeta de ingeniería con aura difusa y distintivo flotante de disponibilidad Senior / Staff.
 - **Plan Inicial Sin Foto (Placeholder Técnico de Alta Calidad):**
   - Mientras no se adjunte la foto definitiva, se implementará un **Avatar / Emblema Interactivo 2D/3D**:
     - Un núcleo geométrico o monograma de ingeniería `CLA` renderizado en Canvas / SVG interactivo con gradientes reactivos, efectos de brillo y partículas orbitales sutiles que reaccionan al movimiento del cursor.

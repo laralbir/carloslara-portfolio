@@ -17,6 +17,12 @@ export function resolveEffectiveTheme(setting: ThemeSetting): ActiveTheme {
 
 let currentSetting: ThemeSetting = getSavedThemeSetting();
 
+export function toggleTheme(): ThemeSetting {
+  const next: ThemeSetting = currentSetting === 'dark' ? 'light' : 'dark';
+  applyTheme(next);
+  return next;
+}
+
 export function applyTheme(setting: ThemeSetting): void {
   currentSetting = setting;
   localStorage.setItem(STORAGE_KEY, setting);
@@ -24,6 +30,17 @@ export function applyTheme(setting: ThemeSetting): void {
   const effectiveTheme = resolveEffectiveTheme(setting);
   document.documentElement.setAttribute('data-theme', effectiveTheme);
   document.documentElement.setAttribute('data-theme-setting', setting);
+
+  const isDark = effectiveTheme === 'dark';
+  const themeToggle = document.getElementById('theme-toggle');
+  if (themeToggle) {
+    themeToggle.setAttribute('aria-checked', String(isDark));
+    if (isDark) {
+      themeToggle.classList.add('dark');
+    } else {
+      themeToggle.classList.remove('dark');
+    }
+  }
 
   window.dispatchEvent(
     new CustomEvent('themechange', {
@@ -88,6 +105,20 @@ export function initA11yContrast(): void {
 export function initThemeSwitcher(): void {
   // Apply saved or default (light) theme initially
   applyTheme(currentSetting);
+
+  // Wire up theme toggle switch
+  const themeToggle = document.getElementById('theme-toggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      toggleTheme();
+    });
+    themeToggle.addEventListener('keydown', (e) => {
+      if (e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        toggleTheme();
+      }
+    });
+  }
 
   // Initialize accessibility high contrast mode
   initA11yContrast();
