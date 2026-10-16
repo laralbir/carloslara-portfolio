@@ -31,16 +31,16 @@ body {
   transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
-/* Cruip Simple Ambient Gradient Illumination */
+/* Radix UI Ambient Prismatic Illumination */
 body::before {
   content: '';
   position: fixed;
-  top: -120px;
+  top: -140px;
   left: 50%;
   transform: translateX(-50%);
-  width: 900px;
-  height: 520px;
-  background: radial-gradient(ellipse 60% 80% at 50% 0%, rgba(37, 99, 235, 0.12), transparent 70%);
+  width: 1000px;
+  height: 560px;
+  background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(0, 187, 167, 0.16), transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -48,12 +48,12 @@ body::before {
 body::after {
   content: '';
   position: fixed;
-  top: 300px;
-  right: -100px;
-  width: 480px;
-  height: 480px;
+  top: 260px;
+  right: -80px;
+  width: 500px;
+  height: 500px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, transparent 70%);
   filter: blur(80px);
   pointer-events: none;
   z-index: 0;
@@ -68,7 +68,7 @@ body::after {
   height: 100vh;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.45;
+  opacity: 0.8;
 }
 
 .site-wrapper {
@@ -182,41 +182,42 @@ a:hover {
 }
 
 .btn-primary {
-  background: linear-gradient(to top, #2563eb, #3b82f6);
+  background: linear-gradient(135deg, #00bba7 0%, #06b6d4 100%);
   color: #ffffff;
   font-weight: 500;
   border-radius: var(--radius-md);
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(37, 99, 235, 0.8);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(0, 187, 167, 0.9);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(to top, #1d4ed8, #2563eb);
+  background: linear-gradient(135deg, #00c9b4 0%, #00bba7 100%);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+  box-shadow: 0 4px 16px rgba(0, 187, 167, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.25);
   color: #ffffff;
 }
 
 .btn-secondary {
-  background: #ffffff;
-  border-color: #e5e7eb;
-  color: #1f2937;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  color: var(--text-primary);
   font-weight: 500;
   border-radius: var(--radius-md);
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .btn-secondary:hover {
-  background: #f9fafb;
-  border-color: #d1d5db;
+  background: var(--bg-surface-elevated);
+  border-color: var(--border-card-hover);
   transform: translateY(-1px);
-  color: #111827;
+  color: var(--text-primary);
 }
 
 .btn-outline {
   background: transparent;
   border-color: var(--border-accent);
   color: var(--text-primary);
+  border-radius: var(--radius-md);
 }
 
 .btn-outline:hover {
@@ -237,18 +238,18 @@ a:hover {
   border-radius: var(--radius-md);
 }
 
-/* Glass Card - Cruip Simple Clean Card */
+/* Glass Card - Radix UI High-Craft Card */
 .glass-card {
   background: var(--bg-card);
   border: 1px solid var(--border-card);
   border-radius: var(--radius-lg);
   transition: all var(--transition-normal);
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 2px 8px -2px rgba(0, 0, 0, 0.3);
 }
 
 .glass-card:hover {
   border-color: var(--border-card-hover);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.06), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 16px 36px -4px rgba(0, 0, 0, 0.5), 0 0 24px rgba(0, 187, 167, 0.15);
   transform: translateY(-2px);
 }
 
@@ -306,12 +307,22 @@ dialog.sdd-modal {
   border-radius: var(--radius-xl);
   background: var(--bg-surface);
   color: var(--text-primary);
-  max-width: 640px;
+  max-width: 680px;
   width: calc(100% - 2rem);
+  max-height: 88vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   padding: 2.25rem;
   box-shadow: var(--shadow-lg), var(--shadow-glow);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
+}
+
+@media (max-width: 640px) {
+  dialog.sdd-modal {
+    padding: 1.5rem;
+    max-height: 92vh;
+  }
 }
 
 dialog.sdd-modal::backdrop {

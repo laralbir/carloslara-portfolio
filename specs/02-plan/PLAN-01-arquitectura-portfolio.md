@@ -20,13 +20,13 @@
   2. **Control total de animaciones 2D/3D:** La manipulación directa del DOM y del Canvas API mediante TypeScript permite renderizar partículas e interactividad a 60 FPS sin sobrecargar el hilo principal.
   3. **Compatibilidad nativa con Cloudflare Pages:** Despliegue estático directo sin necesidad de adaptadores complejos ni dependencias de servidor.
 
-### ADR-02: Sistema de Temas (Claro / Oscuro / Sistema)
+### ADR-02: Sistema de Temas (Claro [Predeterminado] / Oscuro)
 - **Decisión:** Implementar el selector de tema mediante atributos `data-theme="light|dark"` en el elemento raíz `<html>`, controlando todas las variables de color con CSS Custom Properties.
-- **Tema por defecto:** **Oscuro (`dark`)**, alineado con la estética "nerd-tech" y el contraste de colores de terminal.
+- **Tema por defecto:** **Claro (`light`)**, proporcionando una lectura nítida, limpia y accesible desde la primera visita.
 - **Lógica:**
-  - Si el usuario no tiene preferencia en `localStorage`, se inicializa en `dark`.
-  - Si el usuario selecciona explícitamente `system`, se suscribe a `window.matchMedia('(prefers-color-scheme: dark)')`.
-  - Se inyecta un micro-script bloqueante en el `<head>` antes del renderizado visual para leer `localStorage.getItem('user_theme')` y evitar cualquier parpadeo de color (*FOUC - Flash of Unstyled Content*).
+  - Se elimina la opción 'Sistema' del desplegable para ofrecer una selección binaria simple y directa (Claro / Oscuro).
+  - Si el usuario no tiene preferencia en `localStorage`, se inicializa en `light`.
+  - Se inyecta un micro-script bloqueante en el `<head>` antes del renderizado visual para leer `localStorage.getItem('user_theme')` y aplicar `light` o `dark` de forma síncrona, evitando cualquier parpadeo de color (*FOUC - Flash of Unstyled Content*).
 
 ### ADR-03: Sistema de Internacionalización (i18n: ES / EN / VA)
 - **Decisión:** Dicionarios JSON estructurados (`es.json`, `en.json`, `va.json`) con micro-motor de traducción en TypeScript sin recarga de página.
@@ -44,6 +44,16 @@
   - Barra de estado / telemetría superior con aspecto de terminal: indicando estado online, código HTTP 200, edge node de Cloudflare y rama activa.
   - Tipografía monoespaciada en métricas, chips de tecnologías y prefijos de comando (`$`).
   - Easter egg en `console.log` con arte ASCII de bienvenida para visitantes técnicos (DevTools).
+
+### ADR-05: Estrategia de Testing Automatizado y Mandato TDD (Test-Driven Development)
+- **Decisión:** Adoptar **Vitest** como test runner nativo integrado con Vite, empleando **happy-dom** para la simulación ligera y ultrarrápida del entorno de navegador/DOM.
+- **Mandato TDD:**
+  1. Todo desarrollo de módulos TypeScript, lógica de temas, motores de internacionalización o manipulación de estado se rige por el ciclo estricto **Red -> Green -> Refactor**:
+     - **Red:** Se define la especificación en `tests/<modulo>.test.ts` comprobando que falle antes de programar la solución.
+     - **Green:** Se implementa el código productivo necesario en `src/` para superar el test.
+     - **Refactor:** Se optimiza la implementación manteniendo la suite de pruebas completa en verde.
+  2. **Scripts de Ejecución:** `npm test` (`vitest run`) y `npm run test:watch` (`vitest`).
+  3. **Criterio de Calidad en CI/CD:** La suite debe ejecutarse en <1 segundo y alcanzar el 100% de éxito como precondición obligatoria para cualquier commit o despliegue.
 
 ---
 
@@ -97,11 +107,11 @@ src/
 ├── index.html                   # Documento principal semántico One-Page
 ├── styles/
 │   ├── main.css                 # Reset, tipografía y layout general
-│   ├── themes.css               # Variables CSS para Light, Dark y System
+│   ├── themes.css               # Variables CSS para Light (Default) y Dark
 │   └── components.css           # Estilos modulares de componentes
 ├── scripts/
 │   ├── main.ts                  # Punto de entrada de la aplicación
-│   ├── theme-switcher.ts        # Lógica de Claro/Oscuro/Sistema + LocalStorage
+│   ├── theme-switcher.ts        # Lógica de Claro/Oscuro + LocalStorage (Claro por defecto)
 │   ├── i18n/
 │   │   ├── engine.ts            # Motor reactivo de traducción
 │   │   ├── es.json              # Textos en Español

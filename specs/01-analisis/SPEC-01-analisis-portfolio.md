@@ -54,11 +54,12 @@ Crear una plataforma web de alto impacto profesional en formato **One Page** ori
 - **Barra de Navegación Flotante / Sticky (Glassmorphism):**
   - Enlaces a secciones principales (Inicio, Métricas, IA & SDD, Proyectos, Trayectoria, Skills, Contacto).
   - Indicador de sección activa (*scroll spy*).
-  - **Selector de Idioma:** Selector desplegable accesible (Español `ES`, Inglés `EN`, Valenciano `VA`) con cambio dinámico de textos sin recarga y persistencia en almacenamiento local (`localStorage`).
-  - **Selector de Tema:** Alternador de 3 estados: **Oscuro (Dark - por defecto)**, **Claro (Light)**, **Sistema (System)**, con persistencia en `localStorage`.
+  - **Selector de Idioma:** Segmented Control (Toggle Group) accesible de 3 posiciones (`[ ES | EN | VA ]`) con pastilla deslizante activa, cambio dinámico instantáneo a 1 clic sin recarga y persistencia en almacenamiento local (`localStorage`).
+  - **Selector de Accesibilidad Visual:** Switch toggle deslizable accesible (WAI-ARIA `role="switch"`) con icono de visión e indicador de modo alto contraste para daltonismo y baja visión.
+  - **Selector de Tema:** Switch toggle interactivo y accesible (WAI-ARIA `role="switch"`): **Claro (Light - predeterminado por defecto)** y **Oscuro (Dark)**, con persistencia en `localStorage`. Interruptor deslizable fluido con iconos de sol/luna y microanimaciones sin modo sistema.
 
-### 3.2. Estrategia Visual: Foto y Plan Inicial Sin Foto
-- **Foto Personal:** La web está preparada para alojar una fotografía profesional de Carlos Lara Albir en el Hero / Sección Sobre Mí tan pronto esté disponible.
+### 3.2. Estrategia Visual: Foto de Perfil y Marca Personal
+- **Foto Personal:** Integrada oficialmente en el Hero con la fotografía profesional proporcionada por Carlos Lara Albir en formato WebP optimizado de alta fidelidad, enmarcada en una tarjeta de ingeniería con aura difusa y distintivo flotante de disponibilidad Senior / Staff.
 - **Plan Inicial Sin Foto (Placeholder Técnico de Alta Calidad):**
   - Mientras no se adjunte la foto definitiva, se implementará un **Avatar / Emblema Interactivo 2D/3D**:
     - Un núcleo geométrico o monograma de ingeniería `CLA` renderizado en Canvas / SVG interactivo con gradientes reactivos, efectos de brillo y partículas orbitales sutiles que reaccionan al movimiento del cursor.
@@ -163,6 +164,7 @@ Sustituyendo métricas aisladas de una empresa por 4 pilares universales de maes
 3. **Rendimiento:** Core Web Vitals en verde (LCP < 1.5s, CLS < 0.05, INP < 100ms) a pesar de los efectos 2D/3D.
 4. **Accesibilidad:** WCAG 2.1 AA (contraste para modo oscuro y claro, navegación por teclado, soporte de lectores de pantalla).
 5. **Persistencia de Preferencias:** Almacenamiento local para idioma y tema seleccionado.
+6. **Metodología de Calidad de Software (SDD + TDD Mandatario):** Todo desarrollo técnico debe estar guiado por pruebas bajo el paradigma TDD (Test-Driven Development). Ningún módulo de scripting o componente funcional se considera válido sin tests unitarios y de integración automatizados con Vitest (`tests/*.test.ts`), validados en el ciclo Red -> Green -> Refactor.
 
 ---
 

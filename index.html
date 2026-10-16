@@ -11,20 +11,24 @@
   <meta property="og:url" content="https://carloslara.dev/">
   <meta property="og:title" content="Carlos Lara Albir — Senior Backend Engineer & AI-Augmented Developer">
   <meta property="og:description" content="20+ years of high-availability backend engineering combined with agentic AI and Spec-Driven Development. Audited metrics: 341 PRs, 0 reverts, 211 companies migrated in 11 days.">
-  <meta property="og:image" content="https://carloslara.dev/favicon.svg">
+  <meta property="og:image" content="https://carloslara.dev/assets/carlos-lara.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Carlos Lara Albir — Senior Backend Engineer & AI-Augmented Developer">
+  <meta name="twitter:description" content="20+ years of high-availability backend engineering combined with agentic AI and Spec-Driven Development.">
+  <meta name="twitter:image" content="https://carloslara.dev/assets/carlos-lara.jpg">
   
-  <meta name="theme-color" content="#f9fafb">
+  <meta name="theme-color" content="#ffffff">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- Anti-FOUC Theme & Language Flash Prevention Script -->
   <script>
     (function() {
       try {
         var setting = localStorage.getItem('user_theme') || 'light';
-        var isDark = setting === 'dark' || (setting === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        var isDark = setting === 'dark';
         document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
         document.documentElement.setAttribute('data-theme-setting', setting);
 
@@ -91,25 +95,54 @@
         </nav>
 
         <div class="nav-controls">
-          <!-- High-Contrast Accessibility Mode Toggle (Daltonism / Low-Vision) -->
-          <button id="a11y-toggle" class="a11y-toggle-btn" aria-label="Toggle High Contrast / Accessibility" data-i18n-aria-label="a11y.toggleContrast" data-i18n-title="a11y.toggleContrast" title="Toggle High Contrast (Daltonism / A11y)" aria-pressed="false">
-            <span aria-hidden="true">👁️‍🗨️</span>
-            <span class="sr-only" data-i18n="a11y.toggleContrast">Toggle High Contrast</span>
+          <!-- High-Contrast Accessibility Mode Switch (Daltonism / Low-Vision) -->
+          <button id="a11y-toggle" role="switch" aria-checked="false" class="theme-switch a11y-switch" aria-label="Alternar modo alto contraste (accesibilidad visual / daltonismo)" data-i18n-aria-label="a11y.toggleContrast" data-i18n-title="a11y.toggleContrast" title="Modo alto contraste (Accesibilidad / Daltonismo)">
+            <span class="theme-switch-track">
+              <span class="theme-switch-thumb">
+                <svg class="thumb-icon a11y-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              </span>
+            </span>
+            <span class="sr-only" data-i18n="a11y.toggleContrast">Alternar modo alto contraste</span>
           </button>
 
-          <!-- Language Selector -->
-          <select id="lang-select" class="control-select" aria-label="Select Language">
-            <option value="en">EN</option>
-            <option value="es">ES</option>
-            <option value="va">VA</option>
-          </select>
+          <!-- Language Segmented Switch (ES | EN | VA) -->
+          <div id="lang-control" class="lang-segmented-control" role="radiogroup" aria-label="Seleccionar idioma / Select language">
+            <button type="button" role="radio" aria-checked="false" data-lang="es" class="lang-segment-btn" aria-label="Español (ES)">
+              <span>ES</span>
+            </button>
+            <button type="button" role="radio" aria-checked="false" data-lang="en" class="lang-segment-btn" aria-label="English (EN)">
+              <span>EN</span>
+            </button>
+            <button type="button" role="radio" aria-checked="false" data-lang="va" class="lang-segment-btn" aria-label="Valencià (VA)">
+              <span>VA</span>
+            </button>
+          </div>
 
-          <!-- Theme Selector -->
-          <select id="theme-select" class="control-select" aria-label="Select Theme">
-            <option value="dark" data-i18n="nav.themeDark">Dark</option>
-            <option value="light" data-i18n="nav.themeLight">Light</option>
-            <option value="system" data-i18n="nav.themeSystem">System</option>
-          </select>
+          <!-- Theme Switch Toggle (Light / Dark) -->
+          <button id="theme-toggle" role="switch" aria-checked="false" class="theme-switch" aria-label="Alternar entre tema claro y oscuro" data-i18n-aria-label="nav.themeToggle" title="Alternar tema (Claro / Oscuro)">
+            <span class="theme-switch-track">
+              <span class="theme-switch-thumb">
+                <svg class="thumb-icon sun-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="5"></circle>
+                  <line x1="12" y1="1" x2="12" y2="3"></line>
+                  <line x1="12" y1="21" x2="12" y2="23"></line>
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                  <line x1="1" y1="12" x2="3" y2="12"></line>
+                  <line x1="21" y1="12" x2="23" y2="12"></line>
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="thumb-icon moon-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+              </span>
+            </span>
+            <span class="sr-only" data-i18n="nav.themeToggle">Alternar entre tema claro y oscuro</span>
+          </button>
 
           <!-- Mobile Toggle Button -->
           <button id="mobile-toggle" class="mobile-toggle" aria-label="Open Navigation Menu" aria-expanded="false">
@@ -165,13 +198,20 @@
               </div>
             </div>
 
-            <!-- Tech Avatar (3D Hologram for Initial Version without Photo) -->
-            <div class="hero-avatar-wrapper">
-              <div class="avatar-ambient-glow"></div>
+            <!-- Profile Photo & Tech Card -->
+            <div class="hero-avatar-wrapper has-photo">
+              <div class="avatar-ambient-glow" aria-hidden="true"></div>
               <div class="avatar-canvas-container">
-                <canvas id="tech-avatar-canvas" aria-label="Interactive 3D Holographic Avatar"></canvas>
-                <!-- Image container prepared for future photo swap -->
-                <img src="/assets/carlos-lara.webp" alt="Carlos Lara Albir" class="avatar-photo" loading="lazy">
+                <picture>
+                  <source srcset="/assets/carlos-lara.webp" type="image/webp">
+                  <img src="/assets/carlos-lara.jpg" alt="Carlos Lara Albir - Senior Backend Engineer & Desarrollador Aumentado con IA" class="avatar-photo" width="380" height="475" fetchpriority="high">
+                </picture>
+                
+                <!-- Floating status pill: Available for Senior / Staff -->
+                <div class="avatar-floating-badge" aria-label="Disponibilidad profesional">
+                  <span class="avatar-status-pulse"></span>
+                  <span class="avatar-status-label" data-i18n="hero.statusBadge">Available for Senior / Staff roles</span>
+                </div>
               </div>
             </div>
           </div>
@@ -406,7 +446,7 @@
                   <span class="sdd-status-chip">Gate 1 ✓</span>
                 </div>
                 <div class="sdd-step-icon" aria-hidden="true">📋</div>
-                <h4 class="sdd-step-title" data-i18n="aiCallout.modalStep1">01. Análisis &amp; Specs</h4>
+                <h4 class="sdd-step-title" data-i18n="aiCallout.step1Title">01. Análisis &amp; Specs</h4>
                 <p class="sdd-step-desc">Elicitación rigurosa, métricas cuantificables sin humo y cero suposiciones antes de tocar una sola línea.</p>
                 <div class="sdd-step-footer">
                   <span class="sdd-gate-badge">SPEC-01 Verificado</span>
@@ -420,7 +460,7 @@
                   <span class="sdd-status-chip">Gate 2 ✓</span>
                 </div>
                 <div class="sdd-step-icon" aria-hidden="true">🏛️</div>
-                <h4 class="sdd-step-title" data-i18n="aiCallout.modalStep2">02. Arquitectura &amp; Plan</h4>
+                <h4 class="sdd-step-title" data-i18n="aiCallout.step2Title">02. Arquitectura &amp; Plan</h4>
                 <p class="sdd-step-desc">ADRs documentados, diseño Event-Driven con AWS SQS/SNS, contratos de API e idempotencia probada.</p>
                 <div class="sdd-step-footer">
                   <span class="sdd-gate-badge">PLAN-01 Aprobado</span>
@@ -434,7 +474,7 @@
                   <span class="sdd-status-chip">Gate 3 ✓</span>
                 </div>
                 <div class="sdd-step-icon" aria-hidden="true">🎯</div>
-                <h4 class="sdd-step-title" data-i18n="aiCallout.modalStep3">03. Despiece Atómico</h4>
+                <h4 class="sdd-step-title" data-i18n="aiCallout.step3Title">03. Despiece Atómico</h4>
                 <p class="sdd-step-desc">Descomposición en tareas pequeñas e independientes con Definition of Done (DoD) estricto y tests previstos.</p>
                 <div class="sdd-step-footer">
                   <span class="sdd-gate-badge">TASK-01 Validado</span>
@@ -448,7 +488,7 @@
                   <span class="sdd-status-chip chip-live">Gate 4 · Prod ⚡</span>
                 </div>
                 <div class="sdd-step-icon" aria-hidden="true">🚀</div>
-                <h4 class="sdd-step-title" data-i18n="aiCallout.modalStep4">04. Implement &amp; Verify</h4>
+                <h4 class="sdd-step-title" data-i18n="aiCallout.step4Title">04. Implement &amp; Verify</h4>
                 <p class="sdd-step-desc">TDD con IA, tests automáticos, análisis estático Opengrep, 0 reverts y build inmutable en Cloudflare.</p>
                 <div class="sdd-step-footer">
                   <span class="sdd-gate-badge badge-prod">100% Producción</span>
@@ -920,8 +960,8 @@
               <span class="education-card-inst" data-i18n="education.archery.institution">Certified by Higher Sports Council (CSD)</span>
               <p class="education-card-desc" data-i18n="education.archery.desc">Coached team to Spanish University Championship title. Fosters laser focus, emotional self-regulation under pressure, and relentless attention to detail.</p>
               <div class="education-micro-tag">
-                <span class="champ-badge">🏆 Campeones Universitarios de España</span>
-                <span class="precision-badge">🎯 Láser Focus &amp; Calma bajo Presión</span>
+                <span class="champ-badge" data-i18n="education.archery.champBadge">🏆 Campeones Universitarios de España</span>
+                <span class="precision-badge" data-i18n="education.archery.focusBadge">🎯 Láser Focus &amp; Calma bajo Presión</span>
               </div>
             </div>
           </div>
@@ -1078,11 +1118,114 @@
     <p style="font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem;" data-i18n="aiCallout.modalDesc">
       Under Spec-Driven Development (SDD), code isn't where work begins: it's the verified final output of crystal-clear thinking and specs. No 'let's try this and see if it compiles'—every single commit maps to an atomic task with clear acceptance criteria.
     </p>
-    <div style="display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 2rem; font-size: 0.875rem;">
-      <div style="padding: 0.75rem 1rem; background: var(--bg-surface); border-radius: var(--radius-md); border-left: 3px solid var(--accent-primary);" data-i18n="aiCallout.modalStep1">01. Analysis: Who I am, real numbers (no fluff), target goals, and functional specs.</div>
-      <div style="padding: 0.75rem 1rem; background: var(--bg-surface); border-radius: var(--radius-md); border-left: 3px solid var(--accent-primary);" data-i18n="aiCallout.modalStep2">02. Plan: Technical architecture, i18n, zero-runtime CSS theme system, and Cloudflare Edge deployment.</div>
-      <div style="padding: 0.75rem 1rem; background: var(--bg-surface); border-radius: var(--radius-md); border-left: 3px solid var(--accent-primary);" data-i18n="aiCallout.modalStep3">03. Task: Atomic task breakdown with strict Definition of Done (DoD).</div>
-      <div style="padding: 0.75rem 1rem; background: var(--bg-surface); border-radius: var(--radius-md); border-left: 3px solid var(--accent-primary);" data-i18n="aiCallout.modalStep4">04. Implement: Clean code, automated tests, 100/100 Lighthouse score, and continuous push.</div>
+    <!-- Creative SDD Pipeline Stepper Flow -->
+    <div class="sdd-timeline-stepper">
+      <!-- Step 1: Analysis -->
+      <div class="sdd-stepper-item">
+        <div class="sdd-stepper-track">
+          <div class="sdd-stepper-node">01</div>
+          <div class="sdd-stepper-line"></div>
+        </div>
+        <div class="sdd-stepper-content">
+          <div class="sdd-stepper-header">
+            <div class="sdd-stepper-title-group">
+              <span class="sdd-stepper-phase" data-i18n="aiCallout.step1Phase">FASE 01</span>
+              <h4 class="sdd-stepper-title" data-i18n="aiCallout.step1Title">Análisis &amp; Requisitos</h4>
+            </div>
+            <div class="sdd-stepper-chips">
+              <span class="sdd-role-badge">@analyst</span>
+              <span class="sdd-gate-chip gate-passed">Gate 1 ✓</span>
+            </div>
+          </div>
+          <p class="sdd-stepper-text" data-i18n="aiCallout.step1Desc">
+            Quién soy, métricas reales sin humo, catálogo de capacidades y especificaciones claras antes de escribir código.
+          </p>
+          <div class="sdd-stepper-footer">
+            <span class="sdd-artifact-badge">📄 SPEC-01-analisis.md</span>
+            <span class="sdd-meta-badge">0 Suposiciones</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: Plan -->
+      <div class="sdd-stepper-item">
+        <div class="sdd-stepper-track">
+          <div class="sdd-stepper-node">02</div>
+          <div class="sdd-stepper-line"></div>
+        </div>
+        <div class="sdd-stepper-content">
+          <div class="sdd-stepper-header">
+            <div class="sdd-stepper-title-group">
+              <span class="sdd-stepper-phase" data-i18n="aiCallout.step2Phase">FASE 02</span>
+              <h4 class="sdd-stepper-title" data-i18n="aiCallout.step2Title">Arquitectura &amp; Plan</h4>
+            </div>
+            <div class="sdd-stepper-chips">
+              <span class="sdd-role-badge">@planner</span>
+              <span class="sdd-gate-chip gate-passed">Gate 2 ✓</span>
+            </div>
+          </div>
+          <p class="sdd-stepper-text" data-i18n="aiCallout.step2Desc">
+            ADRs técnicos, arquitectura desacoplada, i18n reactivo, cero CSS runtime y despliegue en el Edge de Cloudflare.
+          </p>
+          <div class="sdd-stepper-footer">
+            <span class="sdd-artifact-badge">📐 PLAN-01-arquitectura.md</span>
+            <span class="sdd-meta-badge">Edge-First</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3: Task -->
+      <div class="sdd-stepper-item">
+        <div class="sdd-stepper-track">
+          <div class="sdd-stepper-node">03</div>
+          <div class="sdd-stepper-line"></div>
+        </div>
+        <div class="sdd-stepper-content">
+          <div class="sdd-stepper-header">
+            <div class="sdd-stepper-title-group">
+              <span class="sdd-stepper-phase" data-i18n="aiCallout.step3Phase">FASE 03</span>
+              <h4 class="sdd-stepper-title" data-i18n="aiCallout.step3Title">Despiece en Tareas</h4>
+            </div>
+            <div class="sdd-stepper-chips">
+              <span class="sdd-role-badge">@tasker</span>
+              <span class="sdd-gate-chip gate-passed">Gate 3 ✓</span>
+            </div>
+          </div>
+          <p class="sdd-stepper-text" data-i18n="aiCallout.step3Desc">
+            Descomposición quirúrgica en tareas pequeñas e independientes con Criterios de Aceptación (AC) y DoD estricto.
+          </p>
+          <div class="sdd-stepper-footer">
+            <span class="sdd-artifact-badge">📋 TASK-01-backlog.md</span>
+            <span class="sdd-meta-badge">DoD Estricto</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4: Implement -->
+      <div class="sdd-stepper-item">
+        <div class="sdd-stepper-track">
+          <div class="sdd-stepper-node is-active">04</div>
+        </div>
+        <div class="sdd-stepper-content is-highlighted">
+          <div class="sdd-stepper-header">
+            <div class="sdd-stepper-title-group">
+              <span class="sdd-stepper-phase" data-i18n="aiCallout.step4Phase">FASE 04</span>
+              <h4 class="sdd-stepper-title" data-i18n="aiCallout.step4Title">Implement &amp; Deploy</h4>
+            </div>
+            <div class="sdd-stepper-chips">
+              <span class="sdd-role-badge">@implementer</span>
+              <span class="sdd-gate-chip gate-live">Gate 4 · Prod ⚡</span>
+            </div>
+          </div>
+          <p class="sdd-stepper-text" data-i18n="aiCallout.step4Desc">
+            TDD asistido por IA, batería de tests unitarios, análisis Opengrep, 100/100 Lighthouse y despliegue continuo en el Edge.
+          </p>
+          <div class="sdd-stepper-footer">
+            <span class="sdd-artifact-badge">🚀 Cloudflare Pages</span>
+            <span class="sdd-meta-badge">0 Reverts</span>
+          </div>
+        </div>
+      </div>
     </div>
     <div style="text-align: right;">
       <a href="https://github.com/laralbir/carloslara-portfolio/tree/main/specs" target="_blank" rel="noopener noreferrer" class="btn btn-primary">

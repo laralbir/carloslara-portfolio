@@ -17,8 +17,8 @@
 | :--- | :--- | :--- | :--- | :--- |
 | **TASK-1.1** | Setup Vite + TypeScript en `package.json` | ✅ Completado | `package.json`, `tsconfig.json`, `vite.config.ts` | Build en 107ms a `./dist` (< 27KB gzipped) |
 | **TASK-1.2** | Configuración Cloudflare (`wrangler.jsonc`) | ✅ Completado | `wrangler.jsonc`, `public/` | Salida a `./dist` verificada con `wrangler deploy --dry-run` |
-| **TASK-2.1** | Tokens CSS y Temas (Claro/Oscuro/Sistema) | ✅ Completado | `src/styles/themes.css` | Variables reactivas por tema (`data-theme`) |
-| **TASK-2.2** | Módulo `theme-switcher.ts` | ✅ Completado | `src/scripts/theme-switcher.ts` | Anti-FOUC en `<head>` + `localStorage` |
+| **TASK-2.1** | Tokens CSS y Temas (Claro [Default] / Oscuro) | ✅ Completado | `src/styles/themes.css` | Variables reactivas por tema (`data-theme`), Claro por defecto |
+| **TASK-2.2** | Módulo `theme-switcher.ts` | ✅ Completado | `src/scripts/theme-switcher.ts` | Alternancia binaria Claro/Oscuro sin Sistema + `localStorage` |
 | **TASK-2.3** | Esqueleto semántico One-Page | ✅ Completado | `index.html` | Estructura semántica completa HTML5 |
 | **TASK-3.1** | Diccionarios i18n (EN, ES, VA) | ✅ Completado | `src/i18n/*.json` | Textos completos en los 3 idiomas |
 | **TASK-3.2** | Motor reactivo `engine.ts` | ✅ Completado | `src/scripts/i18n/engine.ts` | Fallback EN por defecto y mapeo ISO `ca` |
@@ -28,21 +28,24 @@
 | **TASK-4.3** | Scroll reveals y contadores animados | ✅ Completado | `src/scripts/visual/counter-animator.ts` | Conteo dinámico con `IntersectionObserver` |
 | **TASK-5.1-5.9**| Secciones de contenido y Meta-Callout | ✅ Completado | `src/scripts/components/*`, `index.html`| Hero, Métricas, AI, Proyectos, Timeline, Skills, Educación, Contacto y Modal SDD |
 | **TASK-6.1-6.3**| Build de producción y prueba Cloudflare | ✅ Completado | `./dist`, `wrangler.jsonc` | Build exitoso, 0 dependencias pesadas |
+| **TASK-7.1** | Switch de Accesibilidad Visual (A11y) | ✅ Completado | `index.html`, `src/styles/components.css`, `src/scripts/theme-switcher.ts` | Interruptor Radix accesible (`role="switch"`, `aria-checked`, icono SVG, `Space`/`Enter`) |
+| **TASK-7.2** | Bugfix de aislamiento de interruptores | ✅ Completado | `src/styles/components.css` | Aislamiento estricto de `#theme-toggle` para evitar activación involuntaria del switch de a11y al cambiar a tema oscuro |
+| **TASK-8.1** | Suite de Pruebas Automatizadas y Mandato TDD | ✅ Completado | `package.json`, `vite.config.ts`, `tests/*.test.ts` | Vitest + happy-dom (`npm test`), 7/7 tests pasando en <350ms, especificaciones SDD actualizadas |
 
 ---
 
 ## 2. Decisiones Técnicas Implementadas
 1. **Fallback de Idioma por Defecto:** Si el navegador no reporta español (`es`) ni catalán/valenciano (`ca`/`va`), la web carga automáticamente en **Inglés (`en`)**.
 2. **Mapeo del Valenciano:** Se utiliza la clave autonómica `va` mapeada al estándar ISO `ca` / `ca-ES` de navegadores.
-3. **Tema por Defecto:** Se establece **Oscuro (`dark`)** por defecto si no hay preferencia en `localStorage`, favoreciendo la estética "nerd-tech" y el contraste de terminal.
-4. **Plan Inicial Sin Foto:** El componente `TechAvatar` dibuja un icosaedro 3D interactivo con rotación vectorial y monograma central `CLA`, encapsulado en `.hero-avatar-wrapper` con clase de soporte para intercambio inmediato cuando Carlos provea la foto.
-5. **Bundle Ultra-ligero:** Todo el código JS compilado pesa solo 13.9 KB gzipped y los estilos 3.9 KB gzipped.
-6. **Política Git para Preview:** Autorización explícita otorgada por Carlos para compilar, commitear y hacer push de forma autónoma en la rama `preview`.
-7. **Tono y Copy Informal:** Adaptación de todos los diccionarios (`es.json`, `en.json`, `va.json`) e `index.html` hacia un tono más cercano, auténtico y distendido ("nerd-tech" humano, sin clichés corporativos ni lenguaje encorsetado), manteniendo intacto el rigor técnico y la solidez de las métricas.
+3. **Tema por Defecto:** Se establece **Claro (`light`)** por defecto si no hay preferencia en `localStorage`, garantizando nitidez y legibilidad inmediata.
+4. **Foto Profesional:** Fotografía oficial de Carlos Lara Albir integrada en formato WebP con ratio 4:5, borde fino y badge dinámico de disponibilidad.
+5. **Aislamiento de Estados de Interruptores:** Los estilos de activación del tema oscuro se circunscriben explícitamente a `#theme-toggle`, impidiendo que afecten a otros switches como `.a11y-switch`.
+6. **Mandato TDD Formalizado:** Integración estricta de Test-Driven Development (Red -> Green -> Refactor) con Vitest en las 4 fases de SDD (`AGENTS.md`, `GEMINI.md`, roles y specs).
+7. **Política Git para Preview:** Autorización explícita otorgada por Carlos para compilar, commitear y hacer push de forma autónoma en la rama `preview` / `design/radix-ui`.
 
 ---
 
 ## 3. Estado de Despliegue en Preview
 - Despliegue continuo activado en Cloudflare para la rama `preview`.
-- Commits verificados con build antes de push autónomo.
+- Commits verificados con pruebas automatizadas (`npm test`) y build (`npm run build`) antes de push autónomo.
 

@@ -11,7 +11,7 @@ Bajo SDD, **el código es el resultado final de especificaciones verificadas**, 
 No se escribe código de producción sin haber completado rigurosamente las etapas previas:
 
 ```
-[01-Análisis] ──(Aprobado)──> [02-Plan] ──(Aprobado)──> [03-Task] ──(Aprobado)──> [04-Implement]
+[01-Análisis] ──(Aprobado)──> [02-Plan] ──(Aprobado)──> [03-Task] ──(Aprobado)──> [TDD: Red] ──> [04-Implement: Green/Refactor]
 ```
 
 ### Reglas de Calidad y Transición de Fases (Phase Gates)
@@ -23,10 +23,16 @@ No se escribe código de producción sin haber completado rigurosamente las etap
    - Decisiones de arquitectura (ADR), stack y jerarquía de componentes aprobadas.
 3. **Gate 3 (Task -> Implement):**
    - Requiere documento `specs/03-task/TASK-01-backlog-portfolio.md` completo.
-   - Cada tarea debe contar con Criterios de Aceptación (AC) y Definición de Terminado (DoD).
-4. **Gate 4 (Implement -> Deploy):**
+   - Cada tarea debe contar con Criterios de Aceptación (AC), Definición de Terminado (DoD) y casos de prueba requeridos.
+4. **Mandato TDD (Test-Driven Development):**
+   - Todo módulo de lógica, interactividad o componente debe desarrollarse bajo el ciclo TDD estricto:
+     - 🔴 **Red:** Redactar la prueba unitaria o de integración en `tests/*.test.ts` con Vitest antes de escribir código de producción. Verificar que falla.
+     - 🟢 **Green:** Implementar la lógica mínima necesaria en `src/` para hacer pasar el test.
+     - 🔵 **Refactor:** Mejorar la arquitectura, legibilidad y rendimiento manteniendo todos los tests en verde (`npm test`).
+5. **Gate 4 (Implement -> Deploy):**
+   - Suite de pruebas automatizadas al 100% pasando con Vitest (`npm test`).
    - Validación del build con Cloudflare (`npm run build` / `npm run preview`).
-   - Verificación de accesibilidad, SEO y Core Web Vitals (LCP < 1.5s, CLS < 0.05).
+   - Verificación de accesibilidad (WCAG 2.1 AA/AAA), SEO y Core Web Vitals (LCP < 1.5s, CLS < 0.05).
 
 ---
 

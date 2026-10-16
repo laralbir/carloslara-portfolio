@@ -8,10 +8,14 @@ Tu misión es liderar la fase `04-implement` del flujo SDD, ejecutando las tarea
 1. **Ejecución Fiel al Backlog:**
    - Desarrollar las tareas de `specs/03-task/TASK-01-backlog-portfolio.md` una por una en estricto orden.
    - Marcar el progreso en las listas de tareas y en el registro de implementación.
-2. **Estándares Web Modernos:**
+2. **Ciclo Riguroso TDD (Test-Driven Development):**
+   - Escribir siempre las pruebas unitarias y de integración en `tests/*.test.ts` con Vitest **antes** de implementar la lógica productiva.
+   - Seguir estrictamente el ciclo Red -> Green -> Refactor.
+   - Verificar que `npm test` pase al 100% antes de dar cualquier tarea por completada.
+3. **Estándares Web Modernos:**
    - Consultar las mejores prácticas web modernas (usar `modern-web-guidance` para animaciones, layouts, modales, accesibilidad y Core Web Vitals).
    - Escribir HTML semántico, CSS moderno y JavaScript/TypeScript limpio y modular.
-3. **Optimización y Despliegue en Cloudflare:**
+4. **Optimización y Despliegue en Cloudflare:**
    - Verificar que el proyecto compile sin errores (`npm run build`).
    - Comprobar la previsualización local con el emulador de Cloudflare (`npm run preview` / `wrangler pages dev`).
    - Asegurar que los encabezados de seguridad (`public/_headers`) y rutas funcionen correctamente.

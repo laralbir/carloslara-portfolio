@@ -11,7 +11,8 @@
     "contact": "Contacto",
     "themeLight": "Claro",
     "themeDark": "Oscuro",
-    "themeSystem": "Sistema"
+    "themeSystem": "Sistema",
+    "themeToggle": "Alternar entre tema claro y oscuro"
   },
   "a11y": {
     "skipToContent": "Saltar al contenido principal",
@@ -26,7 +27,8 @@
     "subtitle": "Más de 20 años diseñando arquitecturas distribuidas de alta concurrencia que no se caen con tráfico real (Event-Driven con AWS SQS, SNS y EventBridge, microservicios en Node.js/TypeScript y sincronización OTA de misión crítica). Hoy multiplico esa experiencia con ingeniería agéntica e IA: Claude Code en la terminal, servidores MCP propios y cero código al azar.",
     "ctaProjects": "Échale un ojo a mis proyectos",
     "ctaContact": "¿Nos tomamos un café?",
-    "ctaCv": "Ver Perfil / CV ↗"
+    "ctaCv": "Ver Perfil / CV ↗",
+    "statusBadge": "Disponible para roles Senior / Staff"
   },
   "aiCallout": {
     "tag": "100% IA Agéntica & SDD",
@@ -41,6 +43,18 @@
     "modalStep2": "02. Plan: Arquitectura técnica, i18n, estilos sin librerías pesadas y despliegue en el Edge de Cloudflare.",
     "modalStep3": "03. Task: Despiece en tareas pequeñas con Definition of Done (DoD) estricto.",
     "modalStep4": "04. Implement: Código limpio, tests automáticos, 100/100 en Lighthouse y push continuo.",
+    "step1Phase": "FASE 01",
+    "step1Title": "Análisis & Requisitos",
+    "step1Desc": "Quién soy, métricas reales sin humo, catálogo de capacidades y especificaciones claras antes de escribir código.",
+    "step2Phase": "FASE 02",
+    "step2Title": "Arquitectura & Plan",
+    "step2Desc": "ADRs técnicos, arquitectura desacoplada, i18n reactivo, cero CSS runtime y despliegue en el Edge de Cloudflare.",
+    "step3Phase": "FASE 03",
+    "step3Title": "Despiece en Tareas",
+    "step3Desc": "Descomposición quirúrgica en tareas pequeñas e independientes con Criterios de Aceptación (AC) y DoD estricto.",
+    "step4Phase": "FASE 04",
+    "step4Title": "Implement & Deploy",
+    "step4Desc": "TDD asistido por IA, batería de tests unitarios, análisis Opengrep, 100/100 Lighthouse y despliegue continuo en el Edge.",
     "modalLink": "Ver las carpetas de especificaciones en GitHub ➔"
   },
   "strengths": {
@@ -268,7 +282,9 @@
     "archery": {
       "title": "Tiro con Arco: Entrenador y Juez Nacional",
       "institution": "Consejo Superior de Deportes (CSD)",
-      "desc": "Llevé a mi equipo a proclamarse Campeón Universitario de España. De aquí sale mi foco milimétrico, la calma total bajo presión y el perfeccionismo técnico."
+      "desc": "Llevé a mi equipo a proclamarse Campeón Universitario de España. De aquí sale mi foco milimétrico, la calma total bajo presión y el perfeccionismo técnico.",
+      "champBadge": "🏆 Campeones Universitarios de España",
+      "focusBadge": "🎯 Láser Focus & Calma bajo Presión"
     }
   },
   "offtopic": {
