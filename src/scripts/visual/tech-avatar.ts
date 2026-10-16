@@ -1,7 +1,7 @@
 /**
- * Holographic 3D Interactive Tech Avatar
- * Renders a rotating 3D geometric wireframe core with monogram 'CLA'
- * Designed for the initial version without photo.
+ * Editorial Creative 3D Sculptural Ribbon Avatar
+ * Parametric kinetic torus sculpture reminiscent of contemporary museum art,
+ * architectural wireframe styling, and acid lime specular illumination.
  */
 
 interface Point3D {
@@ -30,36 +30,48 @@ export function initTechAvatar(): () => void {
   resize();
   window.addEventListener('resize', resize, { passive: true });
 
-  // 3D Icosahedron / Octahedron Geometry Vertices
-  const phi = (1 + Math.sqrt(5)) / 2;
-  const rawVertices: Point3D[] = [
-    { x: -1, y: phi, z: 0 },
-    { x: 1, y: phi, z: 0 },
-    { x: -1, y: -phi, z: 0 },
-    { x: 1, y: -phi, z: 0 },
-    { x: 0, y: -1, z: phi },
-    { x: 0, y: 1, z: phi },
-    { x: 0, y: -1, z: -phi },
-    { x: 0, y: 1, z: -phi },
-    { x: phi, y: 0, z: -1 },
-    { x: phi, y: 0, z: 1 },
-    { x: -phi, y: 0, z: -1 },
-    { x: -phi, y: 0, z: 1 },
-  ];
+  // Generate parametric 3D Trefoil Torus Knot Ribbon
+  const segments = 100;
+  const ribbonWidth = 0.22;
+  const strandA: Point3D[] = [];
+  const strandB: Point3D[] = [];
 
-  // Edges connecting vertices
-  const edges: [number, number][] = [
-    [0, 11], [0, 5], [0, 1], [0, 7], [0, 10],
-    [1, 5], [1, 9], [1, 8], [1, 7],
-    [2, 11], [2, 4], [2, 3], [2, 6], [2, 10],
-    [3, 4], [3, 9], [3, 8], [3, 6],
-    [4, 11], [4, 5], [4, 9],
-    [5, 9], [6, 10], [6, 7], [6, 8],
-    [7, 8], [8, 9], [10, 11],
-  ];
+  for (let i = 0; i <= segments; i++) {
+    const t = (i / segments) * Math.PI * 2;
+    // Trefoil Knot parametric equations
+    const r = 1.35 + 0.45 * Math.cos(3 * t);
+    const cx = r * Math.cos(2 * t);
+    const cy = r * Math.sin(2 * t);
+    const cz = 0.7 * Math.sin(3 * t);
 
-  let angleX = 0.2;
-  let angleY = 0.4;
+    // Tangent approximation
+    const dt = 0.001;
+    const rNext = 1.35 + 0.45 * Math.cos(3 * (t + dt));
+    const tx = (rNext * Math.cos(2 * (t + dt)) - cx) / dt;
+    const ty = (rNext * Math.sin(2 * (t + dt)) - cy) / dt;
+    const tz = (0.7 * Math.sin(3 * (t + dt)) - cz) / dt;
+
+    // Normal approximation (cross product with up vector)
+    const len = Math.sqrt(tx * tx + ty * ty + tz * tz);
+    const nx = -ty / len;
+    const ny = tx / len;
+    const nz = 0;
+
+    strandA.push({
+      x: cx + nx * ribbonWidth,
+      y: cy + ny * ribbonWidth,
+      z: cz + nz * ribbonWidth,
+    });
+
+    strandB.push({
+      x: cx - nx * ribbonWidth,
+      y: cy - ny * ribbonWidth,
+      z: cz - nz * ribbonWidth,
+    });
+  }
+
+  let angleX = 0.35;
+  let angleY = 0.25;
   let targetRotX = 0;
   let targetRotY = 0;
 
@@ -81,6 +93,25 @@ export function initTechAvatar(): () => void {
     });
   }
 
+  function projectPoint(p: Point3D, scale: number, cx: number, cy: number, cosX: number, sinX: number, cosY: number, sinY: number) {
+    const x1 = p.x * cosY + p.z * sinY;
+    const y1 = p.y;
+    const z1 = -p.x * sinY + p.z * cosY;
+
+    const x2 = x1;
+    const y2 = y1 * cosX - z1 * sinX;
+    const z2 = y1 * sinX + z1 * cosX;
+
+    const distance = 4.2;
+    const fov = 1 / (distance - z2 * 0.3);
+
+    return {
+      x: cx + x2 * scale * fov,
+      y: cy + y2 * scale * fov,
+      z: z2,
+    };
+  }
+
   function render() {
     if (!ctx || !canvas) return;
 
@@ -88,88 +119,105 @@ export function initTechAvatar(): () => void {
     const height = canvas.height;
     ctx.clearRect(0, 0, width, height);
 
-    const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
-    const primaryColor = isDark ? '#3b82f6' : '#2563eb';
-    const edgeColor = isDark ? 'rgba(96, 165, 250, 0.4)' : 'rgba(37, 99, 235, 0.35)';
-
-    // Smooth rotation towards target + continuous idle rotation
+    // Continuous kinetic rotation + mouse response
     angleX += 0.006 + (targetRotX - angleX) * 0.03;
     angleY += 0.01 + (targetRotY - angleY) * 0.03;
 
     const cx = width / 2;
     const cy = height / 2;
-    const scale = Math.min(width, height) * 0.26;
-
-    // Rotate and project vertices to 2D
-    const projected: { x: number; y: number; z: number }[] = [];
+    const scale = Math.min(width, height) * 0.24;
 
     const cosX = Math.cos(angleX);
     const sinX = Math.sin(angleX);
     const cosY = Math.cos(angleY);
     const sinY = Math.sin(angleY);
 
-    for (const v of rawVertices) {
-      // Rotation Y
-      const x1 = v.x * cosY + v.z * sinY;
-      const y1 = v.y;
-      const z1 = -v.x * sinY + v.z * cosY;
+    const projA = strandA.map(p => projectPoint(p, scale, cx, cy, cosX, sinX, cosY, sinY));
+    const projB = strandB.map(p => projectPoint(p, scale, cx, cy, cosX, sinX, cosY, sinY));
 
-      // Rotation X
-      const x2 = x1;
-      const y2 = y1 * cosX - z1 * sinX;
-      const z2 = y1 * sinX + z1 * cosX;
-
-      // Perspective projection
-      const distance = 3.5;
-      const fov = 1 / (distance - z2 * 0.3);
-
-      projected.push({
-        x: cx + x2 * scale * fov,
-        y: cy + y2 * scale * fov,
-        z: z2,
-      });
-    }
-
-    // Draw connecting wireframe edges
-    ctx.lineWidth = 1.5 * dpr;
-    for (const [startIndex, endIndex] of edges) {
-      const p1 = projected[startIndex];
-      const p2 = projected[endIndex];
+    // Draw connecting architectural cross-ribs
+    ctx.lineWidth = 1 * dpr;
+    for (let i = 0; i < segments; i += 2) {
+      const pa = projA[i];
+      const pb = projB[i];
+      const avgZ = (pa.z + pb.z) / 2;
+      const alpha = Math.max(0.1, Math.min(0.5, (avgZ + 1.2) / 2.4));
 
       ctx.beginPath();
-      ctx.moveTo(p1.x, p1.y);
-      ctx.lineTo(p2.x, p2.y);
-      ctx.strokeStyle = edgeColor;
+      ctx.moveTo(pa.x, pa.y);
+      ctx.lineTo(pb.x, pb.y);
+      ctx.strokeStyle = `rgba(212, 255, 56, ${alpha * 0.4})`;
       ctx.stroke();
     }
 
-    // Draw vertex glowing dots
-    for (const p of projected) {
+    // Draw main Strand A (Luminous Acid Line)
+    ctx.beginPath();
+    ctx.moveTo(projA[0].x, projA[0].y);
+    for (let i = 1; i < projA.length; i++) {
+      ctx.lineTo(projA[i].x, projA[i].y);
+    }
+    ctx.closePath();
+    ctx.strokeStyle = '#d4ff38';
+    ctx.lineWidth = 1.75 * dpr;
+    ctx.stroke();
+
+    // Draw Strand B (Graphite Secondary Line)
+    ctx.beginPath();
+    ctx.moveTo(projB[0].x, projB[0].y);
+    for (let i = 1; i < projB.length; i++) {
+      ctx.lineTo(projB[i].x, projB[i].y);
+    }
+    ctx.closePath();
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+    ctx.lineWidth = 1.2 * dpr;
+    ctx.stroke();
+
+    // Accent Vertex Nodes on key inflection points
+    for (let i = 0; i < segments; i += 10) {
+      const p = projA[i];
       ctx.beginPath();
       ctx.arc(p.x, p.y, 2.5 * dpr, 0, Math.PI * 2);
-      ctx.fillStyle = primaryColor;
+      ctx.fillStyle = '#d4ff38';
       ctx.fill();
     }
 
-    // Central Monogram Badge 'CLA'
+    // Central Monogram Block 'CLA' (Architectural Octagon / Diamond)
     ctx.save();
-    const badgeRadius = Math.min(width, height) * 0.17;
+    const boxSize = Math.min(width, height) * 0.16;
 
-    // Central circular ambient shadow & glass backdrop
+    // Dark solid faceted backdrop
+    ctx.translate(cx, cy);
     ctx.beginPath();
-    ctx.arc(cx, cy, badgeRadius, 0, Math.PI * 2);
-    ctx.fillStyle = isDark ? 'rgba(15, 23, 42, 0.88)' : 'rgba(255, 255, 255, 0.9)';
+    ctx.rect(-boxSize, -boxSize, boxSize * 2, boxSize * 2);
+    ctx.fillStyle = '#0a0b0e';
     ctx.fill();
-    ctx.strokeStyle = primaryColor;
-    ctx.lineWidth = 2 * dpr;
+    ctx.strokeStyle = '#d4ff38';
+    ctx.lineWidth = 1.5 * dpr;
     ctx.stroke();
 
-    // Text monogram
-    ctx.font = `bold ${Math.round(26 * dpr)}px system-ui, -apple-system, sans-serif`;
+    // Subtle corner markers
+    const markerLen = 6 * dpr;
+    ctx.strokeStyle = '#ffffff';
+    ctx.lineWidth = 1.5 * dpr;
+    // Top-left
+    ctx.beginPath();
+    ctx.moveTo(-boxSize - 3 * dpr, -boxSize + markerLen);
+    ctx.lineTo(-boxSize - 3 * dpr, -boxSize - 3 * dpr);
+    ctx.lineTo(-boxSize + markerLen, -boxSize - 3 * dpr);
+    ctx.stroke();
+    // Bottom-right
+    ctx.beginPath();
+    ctx.moveTo(boxSize + 3 * dpr, boxSize - markerLen);
+    ctx.lineTo(boxSize + 3 * dpr, boxSize + 3 * dpr);
+    ctx.lineTo(boxSize - markerLen, boxSize + 3 * dpr);
+    ctx.stroke();
+
+    // Monogram Typography in Syne
+    ctx.font = `800 ${Math.round(24 * dpr)}px 'Syne', sans-serif`;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillStyle = isDark ? '#ffffff' : '#0f172a';
-    ctx.fillText('CLA', cx, cy);
+    ctx.fillStyle = '#d4ff38';
+    ctx.fillText('CLA', 0, 1);
 
     ctx.restore();
 
@@ -183,4 +231,3 @@ export function initTechAvatar(): () => void {
     window.removeEventListener('resize', resize);
   };
 }
-
