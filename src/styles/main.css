@@ -30,6 +30,34 @@ body {
   transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
+/* Cruip Simple Ambient Gradient Illumination */
+body::before {
+  content: '';
+  position: fixed;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 520px;
+  background: radial-gradient(ellipse 60% 80% at 50% 0%, rgba(37, 99, 235, 0.12), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 300px;
+  right: -100px;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
 /* Background canvas fixed under all content */
 #canvas-background {
   position: fixed;
@@ -39,7 +67,7 @@ body {
   height: 100vh;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.85;
+  opacity: 0.45;
 }
 
 .site-wrapper {
@@ -153,28 +181,35 @@ a:hover {
 }
 
 .btn-primary {
-  background: var(--accent-gradient);
+  background: linear-gradient(to top, #2563eb, #3b82f6);
   color: #ffffff;
-  box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.35);
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(37, 99, 235, 0.8);
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+  background: linear-gradient(to top, #1d4ed8, #2563eb);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
   color: #ffffff;
 }
 
 .btn-secondary {
-  background: var(--bg-surface);
-  border-color: var(--border-card);
-  color: var(--text-primary);
+  background: #ffffff;
+  border-color: #e5e7eb;
+  color: #1f2937;
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
 .btn-secondary:hover {
-  background: var(--bg-surface-elevated);
-  border-color: var(--border-card-hover);
-  transform: translateY(-2px);
-  color: var(--text-primary);
+  background: #f9fafb;
+  border-color: #d1d5db;
+  transform: translateY(-1px);
+  color: #111827;
 }
 
 .btn-outline {
@@ -201,20 +236,19 @@ a:hover {
   border-radius: var(--radius-md);
 }
 
-/* Glass Card */
+/* Glass Card - Cruip Simple Clean Card */
 .glass-card {
   background: var(--bg-card);
   border: 1px solid var(--border-card);
   border-radius: var(--radius-lg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   transition: all var(--transition-normal);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
 }
 
 .glass-card:hover {
   border-color: var(--border-card-hover);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.06), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+  transform: translateY(-2px);
 }
 
 /* Pulse indicator dot */
