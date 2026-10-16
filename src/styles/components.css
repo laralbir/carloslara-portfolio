@@ -1520,22 +1520,12 @@ footer {
 .sdd-pipeline-container {
   margin-top: 3.5rem;
   background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--border-card);
   border-radius: var(--radius-lg);
   padding: 2.25rem 2rem;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  box-shadow: var(--shadow-md);
   position: relative;
   overflow: hidden;
-}
-
-.sdd-pipeline-container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #58a6ff, #d2a8ff, #3fb950);
 }
 
 .sdd-pipeline-header {
