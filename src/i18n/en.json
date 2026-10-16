@@ -282,7 +282,9 @@
     "archery": {
       "title": "Competitive Archery: Coach & National Judge",
       "institution": "Higher Sports Council (CSD)",
-      "desc": "Coached my university squad to become Spanish National Champions. That's where I forged pinpoint focus, total calm under pressure, and meticulous technical precision."
+      "desc": "Coached my university squad to become Spanish National Champions. That's where I forged pinpoint focus, total calm under pressure, and meticulous technical precision.",
+      "champBadge": "🏆 Spanish University Champions",
+      "focusBadge": "🎯 Laser Focus & Composure Under Pressure"
     }
   },
   "offtopic": {

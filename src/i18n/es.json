@@ -282,7 +282,9 @@
     "archery": {
       "title": "Tiro con Arco: Entrenador y Juez Nacional",
       "institution": "Consejo Superior de Deportes (CSD)",
-      "desc": "Llevé a mi equipo a proclamarse Campeón Universitario de España. De aquí sale mi foco milimétrico, la calma total bajo presión y el perfeccionismo técnico."
+      "desc": "Llevé a mi equipo a proclamarse Campeón Universitario de España. De aquí sale mi foco milimétrico, la calma total bajo presión y el perfeccionismo técnico.",
+      "champBadge": "🏆 Campeones Universitarios de España",
+      "focusBadge": "🎯 Láser Focus & Calma bajo Presión"
     }
   },
   "offtopic": {

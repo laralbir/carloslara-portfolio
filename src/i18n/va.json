@@ -282,7 +282,9 @@
     "archery": {
       "title": "Tir amb Arc: Entrenador i Jutge Nacional",
       "institution": "Consell Superior d'Esports (CSD)",
-      "desc": "Vaig portar el meu equip a proclamar-se Campió Universitari d'Espanya. D'ací ve el meu focus mil·limètric, la calma sota pressió i el perfeccionisme tècnic."
+      "desc": "Vaig portar el meu equip a proclamar-se Campió Universitari d'Espanya. D'ací ve el meu focus mil·limètric, la calma sota pressió i el perfeccionisme tècnic.",
+      "champBadge": "🏆 Campions Universitaris d'Espanya",
+      "focusBadge": "🎯 Laser Focus & Calma sota Pressió"
     }
   },
   "offtopic": {

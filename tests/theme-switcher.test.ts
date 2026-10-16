@@ -90,3 +90,4 @@ describe('Theme Switcher & Accessibility Contrast Controls', () => {
     expect(a11yBtn?.classList.contains('active')).toBe(false);
   });
 });
+
