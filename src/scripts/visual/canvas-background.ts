@@ -75,8 +75,8 @@ export function initCanvasBackground(): () => void {
     ctx.clearRect(0, 0, width, height);
 
     const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
-    const nodeColor = isDark ? 'rgba(96, 165, 250, ' : 'rgba(37, 99, 235, ';
-    const lineColor = isDark ? 'rgba(59, 130, 246, ' : 'rgba(59, 130, 246, ';
+    const nodeColor = isDark ? 'rgba(110, 86, 207, ' : 'rgba(110, 86, 207, ';
+    const lineColor = isDark ? 'rgba(110, 86, 207, ' : 'rgba(110, 86, 207, ';
 
     // Update and draw nodes
     for (let i = 0; i < nodes.length; i++) {
