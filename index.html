@@ -101,12 +101,18 @@
             <span class="sr-only" data-i18n="a11y.toggleContrast">Toggle High Contrast</span>
           </button>
 
-          <!-- Language Selector -->
-          <select id="lang-select" class="control-select" aria-label="Select Language">
-            <option value="en">EN</option>
-            <option value="es">ES</option>
-            <option value="va">VA</option>
-          </select>
+          <!-- Language Segmented Switch (ES | EN | VA) -->
+          <div id="lang-control" class="lang-segmented-control" role="radiogroup" aria-label="Seleccionar idioma / Select language">
+            <button type="button" role="radio" aria-checked="false" data-lang="es" class="lang-segment-btn" aria-label="Español (ES)">
+              <span>ES</span>
+            </button>
+            <button type="button" role="radio" aria-checked="false" data-lang="en" class="lang-segment-btn" aria-label="English (EN)">
+              <span>EN</span>
+            </button>
+            <button type="button" role="radio" aria-checked="false" data-lang="va" class="lang-segment-btn" aria-label="Valencià (VA)">
+              <span>VA</span>
+            </button>
+          </div>
 
           <!-- Theme Switch Toggle (Light / Dark) -->
           <button id="theme-toggle" role="switch" aria-checked="false" class="theme-switch" aria-label="Alternar entre tema claro y oscuro" data-i18n-aria-label="nav.themeToggle" title="Alternar tema (Claro / Oscuro)">

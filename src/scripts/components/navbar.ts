@@ -1,17 +1,57 @@
 import { setLanguage, getCurrentLanguage, Language } from '../i18n/engine';
 
 export function initNavbar(): void {
-  const langSelect = document.getElementById('lang-select') as HTMLSelectElement | null;
+  const langButtons = document.querySelectorAll<HTMLButtonElement>('.lang-segment-btn');
   const mobileToggle = document.getElementById('mobile-toggle') as HTMLButtonElement | null;
   const mobileNav = document.getElementById('mobile-nav') as HTMLElement | null;
 
-  if (langSelect) {
-    langSelect.value = getCurrentLanguage();
-    langSelect.addEventListener('change', (e) => {
-      const val = (e.target as HTMLSelectElement).value as Language;
-      setLanguage(val);
+  function updateLangSegmentUI(activeLang: Language) {
+    langButtons.forEach((btn) => {
+      const isMatch = btn.getAttribute('data-lang') === activeLang;
+      btn.setAttribute('aria-checked', String(isMatch));
+      if (isMatch) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
     });
   }
+
+  // Initialize UI with currently active language
+  updateLangSegmentUI(getCurrentLanguage());
+
+  // Listen for language changes dispatched by engine
+  window.addEventListener('languagechange', ((e: CustomEvent<{ lang: Language }>) => {
+    if (e.detail?.lang) {
+      updateLangSegmentUI(e.detail.lang);
+    }
+  }) as EventListener);
+
+  // Click & keyboard arrow navigation (WAI-ARIA radiogroup pattern)
+  langButtons.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+      const lang = btn.getAttribute('data-lang') as Language;
+      if (lang) {
+        setLanguage(lang);
+      }
+    });
+
+    btn.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        const nextIndex = (index + 1) % langButtons.length;
+        langButtons[nextIndex].focus();
+        const nextLang = langButtons[nextIndex].getAttribute('data-lang') as Language;
+        if (nextLang) setLanguage(nextLang);
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        const prevIndex = (index - 1 + langButtons.length) % langButtons.length;
+        langButtons[prevIndex].focus();
+        const prevLang = langButtons[prevIndex].getAttribute('data-lang') as Language;
+        if (prevLang) setLanguage(prevLang);
+      }
+    });
+  });
 
   // Mobile menu toggle
   if (mobileToggle && mobileNav) {

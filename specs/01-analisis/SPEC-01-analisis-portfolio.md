@@ -54,7 +54,7 @@ Crear una plataforma web de alto impacto profesional en formato **One Page** ori
 - **Barra de Navegación Flotante / Sticky (Glassmorphism):**
   - Enlaces a secciones principales (Inicio, Métricas, IA & SDD, Proyectos, Trayectoria, Skills, Contacto).
   - Indicador de sección activa (*scroll spy*).
-  - **Selector de Idioma:** Selector desplegable accesible (Español `ES`, Inglés `EN`, Valenciano `VA`) con cambio dinámico de textos sin recarga y persistencia en almacenamiento local (`localStorage`).
+  - **Selector de Idioma:** Segmented Control (Toggle Group) accesible de 3 posiciones (`[ ES | EN | VA ]`) con pastilla deslizante activa, cambio dinámico instantáneo a 1 clic sin recarga y persistencia en almacenamiento local (`localStorage`).
   - **Selector de Tema:** Switch toggle interactivo y accesible (WAI-ARIA role="switch"): **Claro (Light - predeterminado por defecto)** y **Oscuro (Dark)**, con persistencia en `localStorage`. Diseñado como un interruptor deslizable fluido con iconos de sol/luna y microanimaciones elásticas sin modo sistema.
 
 ### 3.2. Estrategia Visual: Foto de Perfil y Marca Personal
