@@ -128,7 +128,7 @@ Sustituyendo métricas aisladas de una empresa por 4 pilares universales de maes
 - **Orca Sistemas (2016 – 2018):** Analista Programador Backend & Business Intelligence (POSCRM, génesis en BI, optimización analítica de datos e impulso para la operativa e IA).
 - **Blue Solutions (2015 – 2016):** Fundador & Ingeniero Full-Stack (Desarrollo integral de software PLM para fabricante de tapicerías automoción proveedor de Ford en Almussafes; gestión 360° y arquitectura cliente-servidor).
 - **Binn (2014 – 2015):** Analista Backend y Cloud AWS.
-- **FBCV (2010 – 2014):** Programador y Analista de Sistemas.
+- **FBCV (2010):** Programador de Software (Becario / Prácticas).
 - **Servicios Taurinos Serolo (2006 – 2009):** Backend y Admin Sistemas (Venta online de entradas y control de tornos de acceso en tiempo real sobre Microsoft SQL Server para múltiples plazas de toros emblemáticas en España: **Valencia, El Puerto de Santa María, Albacete, Jaén y Palencia**, soportando picos masivos de concurrencia).
 
 ### 4.6. Habilidades Técnicas
