@@ -45,6 +45,16 @@
   - Tipografía monoespaciada en métricas, chips de tecnologías y prefijos de comando (`$`).
   - Easter egg en `console.log` con arte ASCII de bienvenida para visitantes técnicos (DevTools).
 
+### ADR-05: Estrategia de Testing Automatizado y Mandato TDD (Test-Driven Development)
+- **Decisión:** Adoptar **Vitest** como test runner nativo integrado con Vite, empleando **happy-dom** para la simulación ligera y ultrarrápida del entorno de navegador/DOM.
+- **Mandato TDD:**
+  1. Todo desarrollo de módulos TypeScript, lógica de temas, motores de internacionalización o manipulación de estado se rige por el ciclo estricto **Red -> Green -> Refactor**:
+     - **Red:** Se define la especificación en `tests/<modulo>.test.ts` comprobando que falle antes de programar la solución.
+     - **Green:** Se implementa el código productivo necesario en `src/` para superar el test.
+     - **Refactor:** Se optimiza la implementación manteniendo la suite de pruebas completa en verde.
+  2. **Scripts de Ejecución:** `npm test` (`vitest run`) y `npm run test:watch` (`vitest`).
+  3. **Criterio de Calidad en CI/CD:** La suite debe ejecutarse en <1 segundo y alcanzar el 100% de éxito como precondición obligatoria para cualquier commit o despliegue.
+
 ---
 
 ## 2. Plan para la Versión Inicial Sin Foto (Avatar Técnico 2D/3D)

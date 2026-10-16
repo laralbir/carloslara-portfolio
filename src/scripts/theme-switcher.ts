@@ -61,6 +61,7 @@ export function setA11yContrast(active: boolean): void {
     document.documentElement.setAttribute('data-a11y', 'high-contrast');
     localStorage.setItem(A11Y_STORAGE_KEY, 'high-contrast');
     if (toggleBtn) {
+      toggleBtn.setAttribute('aria-checked', 'true');
       toggleBtn.setAttribute('aria-pressed', 'true');
       toggleBtn.classList.add('active');
     }
@@ -68,6 +69,7 @@ export function setA11yContrast(active: boolean): void {
     document.documentElement.removeAttribute('data-a11y');
     localStorage.removeItem(A11Y_STORAGE_KEY);
     if (toggleBtn) {
+      toggleBtn.setAttribute('aria-checked', 'false');
       toggleBtn.setAttribute('aria-pressed', 'false');
       toggleBtn.classList.remove('active');
     }
@@ -98,6 +100,12 @@ export function initA11yContrast(): void {
   if (toggleBtn) {
     toggleBtn.addEventListener('click', () => {
       toggleA11yContrast();
+    });
+    toggleBtn.addEventListener('keydown', (e) => {
+      if (e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        toggleA11yContrast();
+      }
     });
   }
 }

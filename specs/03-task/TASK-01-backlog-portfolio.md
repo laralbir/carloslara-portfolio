@@ -14,12 +14,13 @@
 ## 1. Definición de Terminado (Definition of Done - DoD)
 Cada tarea atómica se considerará completa únicamente cuando:
 1. **Código limpio y tipado estricto:** TypeScript compilando sin errores (`tsc --noEmit`), sin dependencias superfluas.
-2. **Accesibilidad Semántica:** Estructura HTML5 con contraste verificado, estados focus visibles y atributos ARIA donde aplique.
-3. **Multi-idioma e i18n:** Todas las cadenas de texto extraídas a los tres diccionarios (`es.json`, `en.json`, `va.json`).
-4. **Respeto a Temas:** Soporte para modo Claro (predeterminado) y Oscuro, sin parpadeos ni fondos opacos.
-5. **Rendimiento:** Animaciones a 60 FPS con respeto estricto a `prefers-reduced-motion`.
-6. **Verificación Cloudflare:** Build exitoso en `./dist` compatible con `wrangler.jsonc`.
-7. **Regla Git:** Ningún commit o push sin consentimiento previo de Carlos Lara Albir.
+2. **Mandato TDD y Pruebas Unitarias Automatizadas:** Todo módulo TypeScript, lógica de interactividad o manipulación de estado debe contar con pruebas unitarias en `tests/*.test.ts` con Vitest desarrolladas bajo el ciclo TDD (Red -> Green -> Refactor), pasando al 100% con `npm test`.
+3. **Accesibilidad Semántica:** Estructura HTML5 con contraste verificado, estados focus visibles y atributos ARIA donde aplique (WCAG 2.1 AA/AAA).
+4. **Multi-idioma e i18n:** Todas las cadenas de texto extraídas a los tres diccionarios (`es.json`, `en.json`, `va.json`).
+5. **Respeto a Temas:** Soporte para modo Claro (predeterminado) y Oscuro, sin parpadeos ni fondos opacos.
+6. **Rendimiento:** Animaciones a 60 FPS con respeto estricto a `prefers-reduced-motion`.
+7. **Verificación Cloudflare:** Build exitoso en `./dist` compatible con `wrangler.jsonc` (`npm run build`).
+8. **Regla Git:** En rama `preview` el agente tiene autorización para commit y push tras validar pruebas y build; en rama `main` queda estrictamente prohibido sin consentimiento previo explícito de Carlos Lara Albir.
 
 ---
 

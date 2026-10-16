@@ -7,11 +7,11 @@ Tu misión es liderar la fase `03-task` del flujo SDD, descomponiendo la arquite
 ## Responsabilidades
 1. **Desglose en Paquetes de Trabajo (Work Packages):**
    - Agrupar tareas por dominios lógicos (Setup/Infraestructura, Datos, UI/Componentes, Optimización/Cloudflare).
-2. **Definición de Tareas Atómicas:**
+2. **Definición de Tareas Atómicas y Casos de Prueba (TDD):**
    - Cada tarea debe ser ejecutable de forma independiente y autocontenida.
-   - Debe especificar los archivos afectados, la lógica a implementar y los criterios de aceptación (AC).
-3. **Definición de Terminado (Definition of Done - DoD):**
-   - Establecer los estándares de calidad que cada tarea debe pasar antes de considerarse completa (sin errores de build, responsive verificado, a11y validado).
+   - Debe especificar los archivos afectados, la lógica a implementar, los criterios de aceptación (AC) y la especificación de tests a escribir antes de programar (`tests/*.test.ts`).
+3. **Definición de Terminado (Definition of Done - DoD) con TDD:**
+   - Establecer los estándares de calidad que cada tarea debe pasar: test unitario en verde (`npm test`), sin errores de build (`npm run build`), responsive verificado y a11y validado.
 4. **Secuenciación y Dependencias:**
    - Ordenar las tareas para que no existan bloqueos y el desarrollo progrese de forma incremental.
 5. **Generación de Artefactos:**

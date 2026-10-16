@@ -95,10 +95,17 @@
         </nav>
 
         <div class="nav-controls">
-          <!-- High-Contrast Accessibility Mode Toggle (Daltonism / Low-Vision) -->
-          <button id="a11y-toggle" class="a11y-toggle-btn" aria-label="Toggle High Contrast / Accessibility" data-i18n-aria-label="a11y.toggleContrast" data-i18n-title="a11y.toggleContrast" title="Toggle High Contrast (Daltonism / A11y)" aria-pressed="false">
-            <span aria-hidden="true">👁️‍🗨️</span>
-            <span class="sr-only" data-i18n="a11y.toggleContrast">Toggle High Contrast</span>
+          <!-- High-Contrast Accessibility Mode Switch (Daltonism / Low-Vision) -->
+          <button id="a11y-toggle" role="switch" aria-checked="false" class="theme-switch a11y-switch" aria-label="Alternar modo alto contraste (accesibilidad visual / daltonismo)" data-i18n-aria-label="a11y.toggleContrast" data-i18n-title="a11y.toggleContrast" title="Modo alto contraste (Accesibilidad / Daltonismo)">
+            <span class="theme-switch-track">
+              <span class="theme-switch-thumb">
+                <svg class="thumb-icon a11y-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              </span>
+            </span>
+            <span class="sr-only" data-i18n="a11y.toggleContrast">Alternar modo alto contraste</span>
           </button>
 
           <!-- Language Segmented Switch (ES | EN | VA) -->
