@@ -13,7 +13,7 @@
   <meta property="og:description" content="20+ years of high-availability backend engineering combined with agentic AI and Spec-Driven Development. Audited metrics: 341 PRs, 0 reverts, 211 companies migrated in 11 days.">
   <meta property="og:image" content="https://carloslara.dev/favicon.svg">
   
-  <meta name="theme-color" content="#111113">
+  <meta name="theme-color" content="#ffffff">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,8 +23,8 @@
   <script>
     (function() {
       try {
-        var setting = localStorage.getItem('user_theme') || 'dark';
-        var isDark = setting === 'dark' || (setting === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        var setting = localStorage.getItem('user_theme') || 'light';
+        var isDark = setting === 'dark';
         document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
         document.documentElement.setAttribute('data-theme-setting', setting);
 
@@ -106,9 +106,8 @@
 
           <!-- Theme Selector -->
           <select id="theme-select" class="control-select" aria-label="Select Theme">
-            <option value="dark" data-i18n="nav.themeDark">Dark</option>
             <option value="light" data-i18n="nav.themeLight">Light</option>
-            <option value="system" data-i18n="nav.themeSystem">System</option>
+            <option value="dark" data-i18n="nav.themeDark">Dark</option>
           </select>
 
           <!-- Mobile Toggle Button -->

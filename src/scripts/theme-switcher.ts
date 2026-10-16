@@ -1,22 +1,18 @@
-export type ThemeSetting = 'light' | 'dark' | 'system';
+export type ThemeSetting = 'light' | 'dark';
 export type ActiveTheme = 'light' | 'dark';
 
 const STORAGE_KEY = 'user_theme';
-const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
 export function getSavedThemeSetting(): ThemeSetting {
   const saved = localStorage.getItem(STORAGE_KEY) as ThemeSetting | null;
-  if (saved === 'light' || saved === 'dark' || saved === 'system') {
+  if (saved === 'light' || saved === 'dark') {
     return saved;
   }
-  return 'dark'; // Default: dark theme as requested
+  return 'light'; // Default: light theme
 }
 
 export function resolveEffectiveTheme(setting: ThemeSetting): ActiveTheme {
-  if (setting === 'system') {
-    return mediaQuery.matches ? 'dark' : 'light';
-  }
-  return setting;
+  return setting === 'dark' ? 'dark' : 'light';
 }
 
 let currentSetting: ThemeSetting = getSavedThemeSetting();
@@ -90,18 +86,11 @@ export function initA11yContrast(): void {
 }
 
 export function initThemeSwitcher(): void {
-  // Apply saved or system theme initially
+  // Apply saved or default (light) theme initially
   applyTheme(currentSetting);
 
   // Initialize accessibility high contrast mode
   initA11yContrast();
-
-  // Listen to system changes if currently on 'system' mode
-  mediaQuery.addEventListener('change', () => {
-    if (currentSetting === 'system') {
-      applyTheme('system');
-    }
-  });
 }
 
 export function getCurrentThemeSetting(): ThemeSetting {
@@ -111,4 +100,3 @@ export function getCurrentThemeSetting(): ThemeSetting {
 export function getEffectiveTheme(): ActiveTheme {
   return resolveEffectiveTheme(currentSetting);
 }
-

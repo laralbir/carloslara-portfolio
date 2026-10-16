@@ -17,8 +17,8 @@
 | :--- | :--- | :--- | :--- | :--- |
 | **TASK-1.1** | Setup Vite + TypeScript en `package.json` | ✅ Completado | `package.json`, `tsconfig.json`, `vite.config.ts` | Build en 107ms a `./dist` (< 27KB gzipped) |
 | **TASK-1.2** | Configuración Cloudflare (`wrangler.jsonc`) | ✅ Completado | `wrangler.jsonc`, `public/` | Salida a `./dist` verificada con `wrangler deploy --dry-run` |
-| **TASK-2.1** | Tokens CSS y Temas (Claro/Oscuro/Sistema) | ✅ Completado | `src/styles/themes.css` | Variables reactivas por tema (`data-theme`) |
-| **TASK-2.2** | Módulo `theme-switcher.ts` | ✅ Completado | `src/scripts/theme-switcher.ts` | Anti-FOUC en `<head>` + `localStorage` |
+| **TASK-2.1** | Tokens CSS y Temas (Claro [Default] / Oscuro) | ✅ Completado | `src/styles/themes.css` | Variables reactivas por tema (`data-theme`), Claro por defecto |
+| **TASK-2.2** | Módulo `theme-switcher.ts` | ✅ Completado | `src/scripts/theme-switcher.ts` | Alternancia binaria Claro/Oscuro sin Sistema + `localStorage` |
 | **TASK-2.3** | Esqueleto semántico One-Page | ✅ Completado | `index.html` | Estructura semántica completa HTML5 |
 | **TASK-3.1** | Diccionarios i18n (EN, ES, VA) | ✅ Completado | `src/i18n/*.json` | Textos completos en los 3 idiomas |
 | **TASK-3.2** | Motor reactivo `engine.ts` | ✅ Completado | `src/scripts/i18n/engine.ts` | Fallback EN por defecto y mapeo ISO `ca` |

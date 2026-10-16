@@ -16,7 +16,7 @@ Cada tarea atómica se considerará completa únicamente cuando:
 1. **Código limpio y tipado estricto:** TypeScript compilando sin errores (`tsc --noEmit`), sin dependencias superfluas.
 2. **Accesibilidad Semántica:** Estructura HTML5 con contraste verificado, estados focus visibles y atributos ARIA donde aplique.
 3. **Multi-idioma e i18n:** Todas las cadenas de texto extraídas a los tres diccionarios (`es.json`, `en.json`, `va.json`).
-4. **Respeto a Temas:** Soporte automático para los 3 modos: Claro, Oscuro y Sistema, sin parpadeos.
+4. **Respeto a Temas:** Soporte para modo Claro (predeterminado) y Oscuro, sin parpadeos ni fondos opacos.
 5. **Rendimiento:** Animaciones a 60 FPS con respeto estricto a `prefers-reduced-motion`.
 6. **Verificación Cloudflare:** Build exitoso en `./dist` compatible con `wrangler.jsonc`.
 7. **Regla Git:** Ningún commit o push sin consentimiento previo de Carlos Lara Albir.
@@ -40,15 +40,16 @@ Cada tarea atómica se considerará completa únicamente cuando:
 ---
 
 ### WP2: Arquitectura de Estilos, Temas y Layout One-Page
-- [ ] **TASK-2.1: Sistema de Tokens CSS y Modo Claro / Oscuro / Sistema**
-  - Crear `src/styles/themes.css` con variables CSS para paleta técnica moderna (azul eléctrico `#3b82f6`, fondos oscuros `#090d16` / claros `#f8fafc`, bordes y sombras con blur).
-  - Configurar reglas CSS para `[data-theme="light"]`, `[data-theme="dark"]` y selector `@media (prefers-color-scheme: dark)`.
-  - **AC:** Cambio instantáneo de colores mediante el atributo `data-theme`.
+- [x] **TASK-2.1: Sistema de Tokens CSS y Modo Claro (Predeterminado) / Oscuro**
+  - Crear `src/styles/themes.css` con variables CSS para paleta técnica moderna (Teal/Cyan `#00bba7`, fondos claros `#ffffff` / oscuros `#111113`, bordes y sombras con blur).
+  - Configurar reglas CSS para `:root`, `[data-theme="light"]` (default) y `[data-theme="dark"]`.
+  - **AC:** Cambio instantáneo de colores mediante el atributo `data-theme` con tema claro predeterminado.
 
-- [ ] **TASK-2.2: Módulo Theme Switcher con Persistencia (`theme-switcher.ts`)**
-  - Implementar lógica de alternancia entre `light`, `dark` y `system`.
+- [x] **TASK-2.2: Módulo Theme Switcher con Persistencia (`theme-switcher.ts`)**
+  - Implementar lógica de alternancia binaria entre `light` (predeterminado) y `dark`.
+  - Eliminar la opción "Sistema" del selector para garantizar una experiencia visual clara y consistente.
   - Script bloqueante en `<head>` para leer `localStorage.getItem('user_theme')` y evitar FOUC.
-  - **AC:** Al recargar la página se conserva el tema elegido; si es "system", se adapta dinámicamente si el SO cambia de tema.
+  - **AC:** Al recargar la página se conserva el tema elegido; por defecto inicia en `light`.
 
 - [ ] **TASK-2.3: Esqueleto Semántico One-Page en `index.html`**
   - Maquetar la estructura HTML5 con `header`, `main` con sus secciones (`#hero`, `#metrics`, `#ai-sdd`, `#projects`, `#experience`, `#skills`, `#education`, `#contact`) y `footer`.
@@ -97,7 +98,7 @@ Cada tarea atómica se considerará completa únicamente cuando:
 ### WP5: Implementación de Secciones y Contenido
 - [ ] **TASK-5.1: Barra de Navegación (`Navbar`) con Scrollspy y Glassmorphism**
   - Menú fijo superior con efecto desenfoque (*backdrop-filter*).
-  - Selector de tema (3 estados con iconos), selector de idioma (ES/EN/VA) y enlace al repositorio de GitHub.
+  - Selector de tema (2 estados: Claro / Oscuro), selector de idioma (ES/EN/VA) y enlace al repositorio de GitHub.
   - Menú hamburguesa accesible para dispositivos móviles.
   - **AC:** Responsive impecable y resalta la sección activa al hacer scroll.
 
