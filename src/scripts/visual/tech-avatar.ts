@@ -158,14 +158,14 @@ export function initTechAvatar(): () => void {
     ctx.save();
     ctx.beginPath();
     ctx.ellipse(cx, cy, crystalRadius * 1.35, crystalRadius * 0.55, angleY * 0.3, 0, Math.PI * 2);
-    ctx.strokeStyle = isDark ? 'rgba(110, 86, 207, 0.25)' : 'rgba(110, 86, 207, 0.18)';
+    ctx.strokeStyle = isDark ? 'rgba(0, 187, 167, 0.25)' : 'rgba(0, 187, 167, 0.18)';
     ctx.lineWidth = 1 * dpr;
     ctx.setLineDash([3 * dpr, 6 * dpr]);
     ctx.stroke();
 
     ctx.beginPath();
     ctx.ellipse(cx, cy, crystalRadius * 1.15, crystalRadius * 0.95, -angleX * 0.4, 0, Math.PI * 2);
-    ctx.strokeStyle = isDark ? 'rgba(0, 162, 199, 0.22)' : 'rgba(0, 162, 199, 0.15)';
+    ctx.strokeStyle = isDark ? 'rgba(14, 165, 233, 0.25)' : 'rgba(14, 165, 233, 0.18)';
     ctx.lineWidth = 1 * dpr;
     ctx.setLineDash([2 * dpr, 8 * dpr]);
     ctx.stroke();
@@ -206,27 +206,27 @@ export function initTechAvatar(): () => void {
       ctx.closePath();
 
       if (isFacing) {
-        // Front-facing facet: vibrant Radix Indigo to Cyan prismatic shimmer
+        // Front-facing facet: vibrant Seafoam Teal to Oceanic Cyan shimmer
         const depthFactor = (face.avgZ + 1) / 2; // 0 to 1
-        const alpha = isDark ? 0.18 + depthFactor * 0.18 : 0.12 + depthFactor * 0.12;
+        const alpha = isDark ? 0.2 + depthFactor * 0.2 : 0.14 + depthFactor * 0.14;
 
         const grad = ctx.createLinearGradient(p0.x, p0.y, p2.x, p2.y);
-        grad.addColorStop(0, `rgba(110, 86, 207, ${alpha})`);
-        grad.addColorStop(0.6, `rgba(142, 78, 198, ${alpha * 0.85})`);
-        grad.addColorStop(1, `rgba(0, 162, 199, ${alpha * 1.1})`);
+        grad.addColorStop(0, `rgba(0, 187, 167, ${alpha * 1.15})`);
+        grad.addColorStop(0.5, `rgba(6, 182, 212, ${alpha})`);
+        grad.addColorStop(1, `rgba(14, 165, 233, ${alpha * 1.2})`);
 
         ctx.fillStyle = grad;
         ctx.fill();
 
         // Facet edge highlights
-        ctx.strokeStyle = isDark ? `rgba(255, 255, 255, ${0.1 + depthFactor * 0.2})` : `rgba(110, 86, 207, ${0.2 + depthFactor * 0.25})`;
+        ctx.strokeStyle = isDark ? `rgba(255, 255, 255, ${0.12 + depthFactor * 0.22})` : `rgba(0, 187, 167, ${0.25 + depthFactor * 0.25})`;
         ctx.lineWidth = 1.2 * dpr;
         ctx.stroke();
       } else {
         // Back-facing facet: subtle dark translucent mesh
         ctx.fillStyle = isDark ? 'rgba(17, 17, 19, 0.25)' : 'rgba(255, 255, 255, 0.15)';
         ctx.fill();
-        ctx.strokeStyle = isDark ? 'rgba(110, 86, 207, 0.08)' : 'rgba(110, 86, 207, 0.06)';
+        ctx.strokeStyle = isDark ? 'rgba(0, 187, 167, 0.08)' : 'rgba(0, 187, 167, 0.06)';
         ctx.lineWidth = 0.8 * dpr;
         ctx.stroke();
       }
@@ -243,13 +243,13 @@ export function initTechAvatar(): () => void {
       // Glow halo
       ctx.beginPath();
       ctx.arc(p.x, p.y, nodeRadius * 3, 0, Math.PI * 2);
-      ctx.fillStyle = isDark ? `rgba(0, 162, 199, ${0.15 + pulse * 0.2})` : `rgba(110, 86, 207, ${0.12 + pulse * 0.15})`;
+      ctx.fillStyle = isDark ? `rgba(14, 165, 233, ${0.18 + pulse * 0.22})` : `rgba(0, 187, 167, ${0.14 + pulse * 0.18})`;
       ctx.fill();
 
       // Sharp node core
       ctx.beginPath();
       ctx.arc(p.x, p.y, nodeRadius, 0, Math.PI * 2);
-      ctx.fillStyle = isDark ? '#00a2c7' : '#6e56cf';
+      ctx.fillStyle = isDark ? '#38bdf8' : '#00bba7';
       ctx.fill();
     }
 
@@ -259,7 +259,7 @@ export function initTechAvatar(): () => void {
 
     // Ambient radial glow behind badge
     const badgeGlow = ctx.createRadialGradient(cx, cy, 0, cx, cy, badgeRadius * 1.5);
-    badgeGlow.addColorStop(0, isDark ? 'rgba(110, 86, 207, 0.4)' : 'rgba(110, 86, 207, 0.2)');
+    badgeGlow.addColorStop(0, isDark ? 'rgba(0, 187, 167, 0.45)' : 'rgba(0, 187, 167, 0.25)');
     badgeGlow.addColorStop(1, 'transparent');
     ctx.fillStyle = badgeGlow;
     ctx.beginPath();
@@ -273,7 +273,7 @@ export function initTechAvatar(): () => void {
     ctx.fill();
 
     // Inset specular border
-    ctx.strokeStyle = isDark ? 'rgba(110, 86, 207, 0.8)' : 'rgba(110, 86, 207, 0.6)';
+    ctx.strokeStyle = isDark ? 'rgba(0, 187, 167, 0.85)' : 'rgba(0, 187, 167, 0.65)';
     ctx.lineWidth = 1.5 * dpr;
     ctx.stroke();
 

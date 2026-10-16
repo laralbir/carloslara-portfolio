@@ -3,12 +3,12 @@
    ========================================================================== */
 
 :root {
-  /* Radix UI Brand Accents (Radix Indigo 9 & Cyan) */
-  --accent-primary: #6e56cf;
-  --accent-secondary: #7c66dc;
-  --accent-gradient: linear-gradient(135deg, #6e56cf 0%, #8e4ec6 50%, #00a2c7 100%);
-  --accent-glow: rgba(110, 86, 207, 0.22);
-  --accent-glow-strong: rgba(110, 86, 207, 0.45);
+  /* Radix UI Brand Accents (Pleasant Seafoam Teal & Oceanic Cyan) */
+  --accent-primary: #00bba7;
+  --accent-secondary: #0ea5e9;
+  --accent-gradient: linear-gradient(135deg, #00bba7 0%, #06b6d4 50%, #0ea5e9 100%);
+  --accent-glow: rgba(0, 187, 167, 0.22);
+  --accent-glow-strong: rgba(0, 187, 167, 0.45);
   --success: #30a46c;
   --warning: #f5d90a;
   --danger: #e5484d;
@@ -42,13 +42,13 @@
   --bg-surface-elevated: #2b2b2f;
   --bg-card: rgba(24, 24, 27, 0.75);
   --bg-card-hover: rgba(33, 33, 36, 0.9);
-  --bg-badge: rgba(110, 86, 207, 0.14);
+  --bg-badge: rgba(0, 187, 167, 0.12);
   --bg-code: #0b0b0d;
 
   --border-subtle: rgba(255, 255, 255, 0.05);
   --border-card: rgba(255, 255, 255, 0.09);
-  --border-card-hover: rgba(110, 86, 207, 0.45);
-  --border-accent: rgba(110, 86, 207, 0.32);
+  --border-card-hover: rgba(0, 187, 167, 0.45);
+  --border-accent: rgba(0, 187, 167, 0.32);
 
   --text-primary: #eeeeee;
   --text-secondary: #b4b4b8;
@@ -58,43 +58,43 @@
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
   --shadow-md: 0 4px 16px -2px rgba(0, 0, 0, 0.6);
   --shadow-lg: 0 16px 40px -4px rgba(0, 0, 0, 0.75);
-  --shadow-glow: 0 0 35px rgba(110, 86, 207, 0.28);
+  --shadow-glow: 0 0 35px rgba(0, 187, 167, 0.28);
 
   --nav-backdrop: rgba(17, 17, 19, 0.88);
-  --canvas-nodes: rgba(110, 86, 207, 0.55);
-  --canvas-lines: rgba(110, 86, 207, 0.12);
+  --canvas-nodes: rgba(0, 187, 167, 0.55);
+  --canvas-lines: rgba(0, 187, 167, 0.12);
 }
 
-/* Light Theme Variables */
+/* Light Theme Variables (Clean, Crisp, No Muddy Gray) */
 :root[data-theme="light"] {
   --color-scheme: light;
-  --bg-primary: #fdfdfd;
-  --bg-secondary: #f9f9fb;
-  --bg-surface: #f0f0f3;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-surface: #f1f5f9;
   --bg-surface-elevated: #ffffff;
-  --bg-card: rgba(255, 255, 255, 0.9);
+  --bg-card: #ffffff;
   --bg-card-hover: #ffffff;
-  --bg-badge: rgba(110, 86, 207, 0.08);
-  --bg-code: #f0f0f3;
+  --bg-badge: rgba(0, 187, 167, 0.08);
+  --bg-code: #f8fafc;
 
-  --border-subtle: rgba(0, 0, 0, 0.06);
-  --border-card: rgba(0, 0, 0, 0.1);
-  --border-card-hover: #6e56cf;
-  --border-accent: rgba(110, 86, 207, 0.25);
+  --border-subtle: rgba(0, 0, 0, 0.05);
+  --border-card: rgba(0, 0, 0, 0.08);
+  --border-card-hover: #009688;
+  --border-accent: rgba(0, 187, 167, 0.3);
 
-  --text-primary: #1c2024;
-  --text-secondary: #60646c;
-  --text-muted: #8b8d98;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
   --text-inverse: #ffffff;
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
   --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.12);
-  --shadow-glow: 0 0 25px rgba(110, 86, 207, 0.18);
+  --shadow-glow: 0 0 25px rgba(0, 187, 167, 0.18);
 
-  --nav-backdrop: rgba(253, 253, 253, 0.88);
-  --canvas-nodes: rgba(110, 86, 207, 0.35);
-  --canvas-lines: rgba(110, 86, 207, 0.08);
+  --nav-backdrop: rgba(255, 255, 255, 0.92);
+  --canvas-nodes: rgba(0, 187, 167, 0.35);
+  --canvas-lines: rgba(0, 187, 167, 0.08);
 }
 
 /* High Contrast / Colorblind-friendly Accessibility Mode */
