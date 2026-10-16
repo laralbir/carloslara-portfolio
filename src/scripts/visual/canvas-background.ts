@@ -32,16 +32,16 @@ export function initCanvasBackground(): () => void {
   let mouseX = -1000;
   let mouseY = -1000;
 
-  const nodeCount = Math.min(Math.floor((width * height) / 18000), 75);
+  const nodeCount = Math.min(Math.floor((width * height) / 25000), 45);
   const nodes: NodePoint[] = [];
 
   for (let i = 0; i < nodeCount; i++) {
     nodes.push({
       x: Math.random() * width,
       y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.45,
-      vy: (Math.random() - 0.5) * 0.45,
-      radius: Math.random() * 1.75 + 1,
+      vx: (Math.random() - 0.5) * 0.35,
+      vy: (Math.random() - 0.5) * 0.35,
+      radius: Math.random() * 1.2 + 0.8,
       pulse: Math.random() * Math.PI,
     });
   }
@@ -74,11 +74,12 @@ export function initCanvasBackground(): () => void {
     if (!ctx || !isVisible) return;
     ctx.clearRect(0, 0, width, height);
 
-    const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
-    const nodeColor = isDark ? 'rgba(0, 187, 167, ' : 'rgba(0, 187, 167, ';
-    const lineColor = isDark ? 'rgba(0, 187, 167, ' : 'rgba(0, 187, 167, ';
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const starHaloColor = isDark ? 'rgba(0, 187, 167, 0.12)' : 'rgba(14, 165, 233, 0.08)';
+    const starCoreColor = isDark ? 'rgba(0, 220, 195, 0.75)' : 'rgba(0, 168, 150, 0.45)';
+    const lineColor = isDark ? 'rgba(0, 187, 167, ' : 'rgba(0, 168, 150, ';
 
-    // Update and draw nodes
+    // Update and draw nodes (estrellitas)
     for (let i = 0; i < nodes.length; i++) {
       const node = nodes[i];
       node.x += node.vx;
@@ -89,7 +90,7 @@ export function initCanvasBackground(): () => void {
       if (node.y < 0 || node.y > height) node.vy *= -1;
 
       node.pulse += 0.02;
-      const pulsingRadius = node.radius + Math.sin(node.pulse) * 0.5;
+      const pulsingRadius = node.radius + Math.sin(node.pulse) * 0.35;
 
       // Interactive gentle push away from cursor
       const dx = mouseX - node.x;
@@ -101,9 +102,16 @@ export function initCanvasBackground(): () => void {
         node.y -= (dy / dist) * force * 1.5;
       }
 
+      // 1. Soft star halo
+      ctx.beginPath();
+      ctx.arc(node.x, node.y, pulsingRadius * 2, 0, Math.PI * 2);
+      ctx.fillStyle = starHaloColor;
+      ctx.fill();
+
+      // 2. Delicate star core
       ctx.beginPath();
       ctx.arc(node.x, node.y, pulsingRadius, 0, Math.PI * 2);
-      ctx.fillStyle = `${nodeColor}${isDark ? 0.45 : 0.25})`;
+      ctx.fillStyle = starCoreColor;
       ctx.fill();
 
       // Connect nearby nodes
@@ -113,13 +121,13 @@ export function initCanvasBackground(): () => void {
         const lineDy = node.y - nodeB.y;
         const distance = Math.sqrt(lineDx * lineDx + lineDy * lineDy);
 
-        if (distance < 130) {
-          const alpha = (1 - distance / 130) * (isDark ? 0.15 : 0.08);
+        if (distance < 115) {
+          const alpha = (1 - distance / 115) * (isDark ? 0.14 : 0.09);
           ctx.beginPath();
           ctx.moveTo(node.x, node.y);
           ctx.lineTo(nodeB.x, nodeB.y);
           ctx.strokeStyle = `${lineColor}${alpha})`;
-          ctx.lineWidth = 1;
+          ctx.lineWidth = 0.75;
           ctx.stroke();
         }
       }

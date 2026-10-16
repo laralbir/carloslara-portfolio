@@ -147,7 +147,7 @@ export function initTechAvatar(): () => void {
     const cosY = Math.cos(angleY);
     const sinY = Math.sin(angleY);
 
-    const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
 
     // 1. Project all vertices
     const projected: ProjectedPoint[] = vertices.map(v =>
@@ -243,13 +243,13 @@ export function initTechAvatar(): () => void {
       // Glow halo
       ctx.beginPath();
       ctx.arc(p.x, p.y, nodeRadius * 3, 0, Math.PI * 2);
-      ctx.fillStyle = isDark ? `rgba(14, 165, 233, ${0.18 + pulse * 0.22})` : `rgba(0, 187, 167, ${0.14 + pulse * 0.18})`;
+      ctx.fillStyle = isDark ? `rgba(14, 165, 233, ${0.18 + pulse * 0.22})` : `rgba(0, 187, 167, ${0.22 + pulse * 0.20})`;
       ctx.fill();
 
       // Sharp node core
       ctx.beginPath();
       ctx.arc(p.x, p.y, nodeRadius, 0, Math.PI * 2);
-      ctx.fillStyle = isDark ? '#38bdf8' : '#00bba7';
+      ctx.fillStyle = isDark ? '#38bdf8' : '#00897b';
       ctx.fill();
     }
 
