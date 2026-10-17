@@ -28,7 +28,7 @@ describe('Offtopic Dual-View Switcher & Lightbox', () => {
             <div class="offtopic-layer offtopic-layer-photo" aria-hidden="true">
               <img src="/assets/offtopic/archery-real.jpg"
                    alt="Diana con flechas"
-                   data-caption="Diana oficial FITA a 18m"
+                   data-caption="Diana oficial FITA a 50m"
                    class="offtopic-real-img" />
             </div>
           </div>
@@ -127,7 +127,7 @@ describe('Offtopic Dual-View Switcher & Lightbox', () => {
 
     expect(dialog.showModal).toHaveBeenCalled();
     expect(lightboxImg.getAttribute('src')).toBe('/assets/offtopic/archery-real.jpg');
-    expect(lightboxCaption.textContent).toBe('Diana oficial FITA a 18m');
+    expect(lightboxCaption.textContent).toBe('Diana oficial FITA a 50m');
 
     closeBtn.click();
     expect(dialog.close).toHaveBeenCalled();
