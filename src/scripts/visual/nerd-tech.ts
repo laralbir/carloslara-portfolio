@@ -16,9 +16,6 @@ export function initNerdTech(): void {
 
   // 4. Interactive Skills Filter Bar
   initSkillsFilter();
-
-  // 5. Interactive Hobby Elements ("Gracia y Fantasía")
-  initInteractiveHobbies();
 }
 
 function printConsoleEasterEgg(): void {
@@ -123,55 +120,4 @@ function initSkillsFilter(): void {
   });
 }
 
-function initInteractiveHobbies(): void {
-  // 1. Archery Target Click
-  const targetSvg = document.querySelector<SVGElement>('.archery-target-svg');
-  if (targetSvg) {
-    targetSvg.style.cursor = 'crosshair';
-    targetSvg.addEventListener('click', (e) => {
-      const parent = targetSvg.closest('.offtopic-visual');
-      if (!parent) return;
-
-      const existingFloat = parent.querySelector('.target-hit-popup');
-      if (existingFloat) existingFloat.remove();
-
-      const floatEl = document.createElement('div');
-      floatEl.className = 'target-hit-popup';
-      floatEl.textContent = '🎯 10! ¡Pleno en el centro!';
-      floatEl.style.cssText = `
-        position: absolute;
-        top: 20%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: #eab308;
-        color: #000;
-        font-weight: 800;
-        font-size: 0.75rem;
-        padding: 0.25rem 0.6rem;
-        border-radius: 9999px;
-        box-shadow: 0 0 15px rgba(234, 179, 8, 0.8);
-        pointer-events: none;
-        z-index: 10;
-        animation: float-hit 1.5s ease-out forwards;
-      `;
-      parent.appendChild(floatEl);
-
-      setTimeout(() => floatEl.remove(), 1500);
-    });
-  }
-
-  // 2. Vinyl Record Toggle Click
-  const vinylDisc = document.querySelector<HTMLElement>('.vinyl-disc');
-  const vuEqualizer = document.querySelector<HTMLElement>('.vu-equalizer');
-  if (vinylDisc) {
-    vinylDisc.style.cursor = 'pointer';
-    vinylDisc.addEventListener('click', () => {
-      vinylDisc.classList.toggle('vinyl-paused');
-      const isPaused = vinylDisc.classList.contains('vinyl-paused');
-      if (vuEqualizer) {
-        vuEqualizer.style.opacity = isPaused ? '0.2' : '1';
-      }
-    });
-  }
-}
 

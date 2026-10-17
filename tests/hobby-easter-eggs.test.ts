@@ -157,12 +157,19 @@ describe('Hobby Interactive Easter Eggs', () => {
       expect(disc.getAttribute('data-speed')).toBe('45');
       expect(disc.classList.contains('is-turbo')).toBe(true);
       expect(feedback.textContent).toContain('45 RPM');
+      const vuEqualizer = document.querySelector<HTMLElement>('.vu-equalizer');
+      if (vuEqualizer) {
+        expect(vuEqualizer.style.opacity).not.toBe('0.2');
+      }
 
       toggleVinylSpeed(disc);
 
       expect(disc.getAttribute('data-speed')).toBe('33');
       expect(disc.classList.contains('is-turbo')).toBe(false);
       expect(feedback.textContent).toContain('33 ⅓ RPM');
+      if (vuEqualizer) {
+        expect(vuEqualizer.style.opacity).not.toBe('0.2');
+      }
     });
   });
 
