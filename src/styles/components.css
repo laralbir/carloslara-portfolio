@@ -2138,6 +2138,19 @@ footer {
   display: block;
 }
 
+/* Precise vertical focal points for authentic hobby photography */
+.offtopic-card[data-hobby="hifi"] .offtopic-real-img {
+  object-position: center 62%;
+}
+
+.offtopic-card[data-hobby="archery"] .offtopic-real-img {
+  object-position: center 30%;
+}
+
+.offtopic-card[data-hobby="moto"] .offtopic-real-img {
+  object-position: center 45%;
+}
+
 .offtopic-layer-photo:hover .offtopic-real-img {
   transform: scale(1.05);
   filter: brightness(1) contrast(1.06);
