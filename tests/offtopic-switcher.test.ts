@@ -133,3 +133,4 @@ describe('Offtopic Dual-View Switcher & Lightbox', () => {
     expect(dialog.close).toHaveBeenCalled();
   });
 });
+
