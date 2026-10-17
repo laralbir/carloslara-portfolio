@@ -1,5 +1,11 @@
 User-agent: *
 Allow: /
 
+# LLM & AI Recruiter Bots Structured CVs
+# See: https://llmstxt.org/
+# Index: https://carloslara.dev/llms.txt
+# Full CV: https://carloslara.dev/llms-full.txt
+# Direct Markdown: https://carloslara.dev/cv.md
+
 Sitemap: https://carloslara.dev/sitemap.xml
 

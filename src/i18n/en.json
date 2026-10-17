@@ -235,6 +235,15 @@
         "Designed REST APIs for mobile applications and managed cloud infrastructure on AWS."
       ]
     },
+    "early": {
+      "role": "Early Engineering & Systems Administration",
+      "company": "Serolo & FBCV",
+      "period": "2006 – 2010",
+      "points": [
+        "<strong>Servicios Taurinos Serolo (2006–2009):</strong> Real-time online ticket sales and automated electronic turnstile access control on Microsoft SQL Server across major Spanish venues (Valencia, Albacete, El Puerto), sustaining sub-second reliability during massive box-office rushes.",
+        "<strong>Valencia Basketball Federation (FBCV, 2010):</strong> Development and maintenance of sports licensing and digital competition management platforms."
+      ]
+    },
     "fbcv": {
       "role": "Software Developer Intern",
       "company": "Valencia Basketball Federation (FBCV)",
@@ -314,6 +323,7 @@
     "copyEmail": "Copy Email",
     "emailCopied": "Email copied! Drop me a line anytime.",
     "downloadCv": "Download CV (PDF)",
+    "cvMarkdown": "CV Markdown (AI/ATS) ↗",
     "location": "Torrent, Valencia, Spain (or anywhere in the world, remote)"
   },
   "footer": {

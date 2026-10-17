@@ -235,6 +235,15 @@
         "Diseño de APIs REST para apps móviles y administración de infraestructura en la nube con AWS."
       ]
     },
+    "early": {
+      "role": "Primeros Años & Fundamentos Técnicos",
+      "company": "Serolo & FBCV",
+      "period": "2006 – 2010",
+      "points": [
+        "<strong>Servicios Taurinos Serolo (2006–2009):</strong> Venta de entradas online y control de tornos de acceso en tiempo real sobre Microsoft SQL Server en plazas emblemáticas (Valencia, El Puerto, Albacete), garantizando fiabilidad sub-segundo bajo picos masivos de venta.",
+        "<strong>Federación de Baloncesto de la C. Valenciana (2010):</strong> Desarrollo y mantenimiento del software de gestión deportiva interna: licencias, ligas y actas digitales."
+      ]
+    },
     "fbcv": {
       "role": "Programador de Software (Becario)",
       "company": "Federación de Baloncesto de la C. Valenciana",
@@ -314,6 +323,7 @@
     "copyEmail": "Copiar email",
     "emailCopied": "¡Email copiado! Escríbeme cuando quieras.",
     "downloadCv": "Descargar CV (PDF)",
+    "cvMarkdown": "CV Markdown (IA/ATS) ↗",
     "location": "Torrent, Valencia, España (o en cualquier rincón del mundo en remoto)"
   },
   "footer": {

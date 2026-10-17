@@ -19,6 +19,103 @@
   
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <!-- Machine-Readable Resumes for AI Recruitment Bots & Crawlers (LLMs.txt & Markdown) -->
+  <link rel="alternate" type="text/markdown" title="LLM-readable CV (Summary)" href="/llms.txt">
+  <link rel="alternate" type="text/markdown" title="LLM-readable CV (Full Resume)" href="/llms-full.txt">
+  <link rel="alternate" type="text/markdown" title="Curriculum Vitae Markdown" href="/cv.md">
+
+  <!-- Structured Data (JSON-LD) for Search Engines, ATS & AI Bots -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://carloslara.dev/#person",
+        "name": "Carlos Lara Albir",
+        "jobTitle": "Senior Backend Engineer & AI-Augmented Developer",
+        "description": "Senior Backend Engineer with 20+ years building mission-critical distributed architectures, event-driven microservices (AWS SQS, SNS, EventBridge, Node.js/TypeScript), real-time OTA synchronization, and pioneering agentic AI engineering (Claude Code, MCP, SDD).",
+        "url": "https://carloslara.dev",
+        "email": "info@carloslara.dev",
+        "image": "https://carloslara.dev/assets/carlos-lara.jpg",
+        "sameAs": [
+          "https://www.linkedin.com/in/carlos-lara-albir-687277a4",
+          "https://github.com/laralbir"
+        ],
+        "knowsAbout": [
+          "Distributed Systems",
+          "Event-Driven Architecture (EDA)",
+          "AWS (SQS, SNS, EventBridge, EC2, S3)",
+          "TypeScript",
+          "Node.js",
+          "PHP",
+          "MongoDB",
+          "Microsoft SQL Server",
+          "PostgreSQL",
+          "MySQL",
+          "Hexagonal Architecture",
+          "Domain-Driven Design (DDD)",
+          "Model Context Protocol (MCP)",
+          "Claude Code",
+          "Spec-Driven Development (SDD)",
+          "Test-Driven Development (TDD)",
+          "Microservices",
+          "PCI-DSS Security",
+          "Cloudflare Workers & Pages"
+        ],
+        "hasOccupation": [
+          {
+            "@type": "Occupation",
+            "name": "Senior Backend Engineer",
+            "occupationalCategory": "15-1252.00",
+            "skills": "Distributed Systems, Event-Driven Architecture, Node.js, TypeScript, AWS, NoSQL, SQL",
+            "responsibilities": "Design and lead distributed architectures, real-time synchronization engines, and agentic AI tooling"
+          }
+        ],
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Avantio",
+          "sameAs": "https://www.avantio.com"
+        },
+        "alumniOf": [
+          {
+            "@type": "EducationalOrganization",
+            "name": "Universitat Politècnica de València (UPV)",
+            "programName": "Computer Software Engineering"
+          },
+          {
+            "@type": "EducationalOrganization",
+            "name": "CFGS Especialización en Inteligencia Artificial y Big Data"
+          },
+          {
+            "@type": "EducationalOrganization",
+            "name": "CFGS Desarrollo de Aplicaciones Informáticas (DAI)"
+          }
+        ]
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": "https://carloslara.dev/#webpage",
+        "url": "https://carloslara.dev/",
+        "name": "Carlos Lara Albir — Senior Backend Engineer & AI-Augmented Developer",
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://carloslara.dev/#website",
+          "url": "https://carloslara.dev/",
+          "name": "Carlos Lara Albir Portfolio"
+        },
+        "about": {
+          "@id": "https://carloslara.dev/#person"
+        },
+        "mainEntity": {
+          "@id": "https://carloslara.dev/#person"
+        }
+      }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -86,7 +183,6 @@
         <nav>
           <ul class="nav-menu">
             <li><a href="#strengths" class="nav-link" data-i18n="nav.strengths">Strengths</a></li>
-            <li><a href="#ai-sdd" class="nav-link" data-i18n="nav.aiSdd">AI & SDD</a></li>
             <li><a href="#projects" class="nav-link" data-i18n="nav.projects">Projects</a></li>
             <li><a href="#experience" class="nav-link" data-i18n="nav.experience">Experience</a></li>
             <li><a href="#skills" class="nav-link" data-i18n="nav.skills">Skills</a></li>
@@ -160,7 +256,6 @@
     <div id="mobile-nav" class="mobile-nav" aria-hidden="true">
       <a href="#hero" class="nav-link" data-i18n="nav.home">Home</a>
       <a href="#strengths" class="nav-link" data-i18n="nav.strengths">Strengths</a>
-      <a href="#ai-sdd" class="nav-link" data-i18n="nav.aiSdd">AI & SDD</a>
       <a href="#projects" class="nav-link" data-i18n="nav.projects">Projects</a>
       <a href="#experience" class="nav-link" data-i18n="nav.experience">Experience</a>
       <a href="#skills" class="nav-link" data-i18n="nav.skills">Skills</a>
@@ -371,127 +466,6 @@
                 <div class="db-index-seeker">
                   <div class="seeker-bar"><div class="seeker-fill" style="width: 96%;"></div></div>
                   <span class="seeker-stat">Index Seek: &lt;2ms (0 Scans)</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- AI & SDD SECTION -->
-      <section id="ai-sdd">
-        <div class="container">
-          <div class="section-header">
-            <span class="section-tag" data-i18n="nav.aiSdd">AI & SDD</span>
-            <h2 class="section-title" data-i18n="ai.title">How I work with AI (it's not just autocomplete)</h2>
-            <p class="section-subtitle" data-i18n="ai.subtitle">I don't use AI to guess code; I treat it as a team of hyper-specialized engineers operating under surgical specs.</p>
-          </div>
-
-          <div class="ai-cards-grid">
-            <div class="glass-card ai-card">
-              <div class="ai-card-icon" aria-hidden="true">📐</div>
-              <h3 class="ai-card-title" data-i18n="ai.sddTitle">Spec-Driven Development (SDD)</h3>
-              <p class="ai-card-desc" data-i18n="ai.sddDesc">Think first, code second. A tight 4-phase loop (Analysis → Plan → Task → Code) backed by custom skills integrated with Jira and the repo. If it's not in the spec and covered by tests, it doesn't ship.</p>
-            </div>
-
-            <div class="glass-card ai-card">
-              <div class="ai-card-icon" aria-hidden="true">🔌</div>
-              <h3 class="ai-card-title" data-i18n="ai.mcpTitle">Live Production MCP Diagnostic Server</h3>
-              <p class="ai-card-desc" data-i18n="ai.mcpDesc">Engineered an in-house Model Context Protocol server using hexagonal architecture in Next.js. Equipped with 25+ read-only tools on MongoDB and SQL Server. Troubleshooting weird reservation or payment bugs is now as simple as asking in plain language.</p>
-            </div>
-
-            <div class="glass-card ai-card">
-              <div class="ai-card-icon" aria-hidden="true">🤖</div>
-              <h3 class="ai-card-title" data-i18n="ai.claudeTitle">Claude Code & Antigravity in the terminal</h3>
-              <p class="ai-card-desc" data-i18n="ai.claudeDesc">Real pair programming: specialized subagents, strict security guardrails (read-only queries in prod, zero secrets in context), and automated TDD right from the console.</p>
-            </div>
-
-            <div class="glass-card ai-card">
-              <div class="ai-card-icon" aria-hidden="true">⏱️</div>
-              <h3 class="ai-card-title" data-i18n="ai.estimationTitle">Automated Time Tracking & Calibrated Estimates with Claude</h3>
-              <p class="ai-card-desc" data-i18n="ai.estimationDesc">AI workflow with Claude reconciling Jira tickets, Google Calendar meetings, and GitHub commits/PRs to log accurate billable hours without manual drudgery. Complemented by a team-calibrated Story Points estimation skill.</p>
-            </div>
-
-            <div class="glass-card ai-card">
-              <div class="ai-card-icon" aria-hidden="true">🧪</div>
-              <h3 class="ai-card-title" data-i18n="ai.qaTitle">AI-Driven TDD & Autonomous QA</h3>
-              <p class="ai-card-desc" data-i18n="ai.qaDesc">AI drafts full unit, integration, and edge-case suites (fuzzing) before any implementation logic is validated. Quality hooks and static analysis with Opengrep secure zero production reverts.</p>
-            </div>
-
-            <div class="glass-card ai-card">
-              <div class="ai-card-icon" aria-hidden="true">📈</div>
-              <h3 class="ai-card-title" data-i18n="ai.observabilityTitle">Proactive Observability & Telemetry</h3>
-              <p class="ai-card-desc" data-i18n="ai.observabilityDesc">Real-time Grafana telemetry tracking cycle times and production throughput. AI agents digest gigabytes of distributed logs on demand to spot and resolve anomalies before users notice.</p>
-            </div>
-          </div>
-
-          <!-- Spec-Driven Development Interactive Visual Pipeline -->
-          <div class="sdd-pipeline-container" role="region" aria-label="Pipeline interactivo de Spec-Driven Development">
-            <div class="sdd-pipeline-header">
-              <div class="sdd-header-left">
-                <span class="section-tag" data-i18n="ai.pipelineTag">Metodología en Acción</span>
-                <h3 class="sdd-pipeline-title" data-i18n="ai.pipelineTitle">El Pipeline SDD: De la Especificación a Producción sin Reverts</h3>
-              </div>
-              <button class="btn btn-secondary btn-sm open-sdd-modal" aria-haspopup="dialog" style="align-self: flex-start;">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-                <span data-i18n="ai.pipelineModalBtn">Ver detalles de los 4 Gates</span>
-              </button>
-            </div>
-
-            <div class="sdd-pipeline-grid">
-              <!-- Step 1 -->
-              <div class="glass-card sdd-pipeline-card">
-                <div class="sdd-card-top">
-                  <span class="sdd-step-num">01</span>
-                  <span class="sdd-status-chip">Gate 1 ✓</span>
-                </div>
-                <div class="sdd-step-icon" aria-hidden="true">📋</div>
-                <h4 class="sdd-step-title" data-i18n="aiCallout.step1Title">01. Análisis &amp; Specs</h4>
-                <p class="sdd-step-desc">Elicitación rigurosa, métricas cuantificables sin humo y cero suposiciones antes de tocar una sola línea.</p>
-                <div class="sdd-step-footer">
-                  <span class="sdd-gate-badge">SPEC-01 Verificado</span>
-                </div>
-              </div>
-
-              <!-- Step 2 -->
-              <div class="glass-card sdd-pipeline-card">
-                <div class="sdd-card-top">
-                  <span class="sdd-step-num">02</span>
-                  <span class="sdd-status-chip">Gate 2 ✓</span>
-                </div>
-                <div class="sdd-step-icon" aria-hidden="true">🏛️</div>
-                <h4 class="sdd-step-title" data-i18n="aiCallout.step2Title">02. Arquitectura &amp; Plan</h4>
-                <p class="sdd-step-desc">ADRs documentados, diseño Event-Driven con AWS SQS/SNS, contratos de API e idempotencia probada.</p>
-                <div class="sdd-step-footer">
-                  <span class="sdd-gate-badge">PLAN-01 Aprobado</span>
-                </div>
-              </div>
-
-              <!-- Step 3 -->
-              <div class="glass-card sdd-pipeline-card">
-                <div class="sdd-card-top">
-                  <span class="sdd-step-num">03</span>
-                  <span class="sdd-status-chip">Gate 3 ✓</span>
-                </div>
-                <div class="sdd-step-icon" aria-hidden="true">🎯</div>
-                <h4 class="sdd-step-title" data-i18n="aiCallout.step3Title">03. Despiece Atómico</h4>
-                <p class="sdd-step-desc">Descomposición en tareas pequeñas e independientes con Definition of Done (DoD) estricto y tests previstos.</p>
-                <div class="sdd-step-footer">
-                  <span class="sdd-gate-badge">TASK-01 Validado</span>
-                </div>
-              </div>
-
-              <!-- Step 4 -->
-              <div class="glass-card sdd-pipeline-card highlight-step">
-                <div class="sdd-card-top">
-                  <span class="sdd-step-num">04</span>
-                  <span class="sdd-status-chip chip-live">Gate 4 · Prod ⚡</span>
-                </div>
-                <div class="sdd-step-icon" aria-hidden="true">🚀</div>
-                <h4 class="sdd-step-title" data-i18n="aiCallout.step4Title">04. Implement &amp; Verify</h4>
-                <p class="sdd-step-desc">TDD con IA, tests automáticos, análisis estático Opengrep, 0 reverts y build inmutable en Cloudflare.</p>
-                <div class="sdd-step-footer">
-                  <span class="sdd-gate-badge badge-prod">100% Producción</span>
                 </div>
               </div>
             </div>
@@ -791,38 +765,21 @@
               </div>
             </div>
 
-            <!-- FBCV -->
+            <!-- Early Career: Serolo & FBCV (2006–2010) -->
             <div class="timeline-item">
               <div class="timeline-dot"></div>
               <div class="glass-card" style="padding: 1.75rem;">
                 <div class="timeline-header">
-                  <h3 class="timeline-role" data-i18n="experience.fbcv.role">Software Developer Intern</h3>
+                  <h3 class="timeline-role" data-i18n="experience.early.role">Early Engineering & Systems Administration</h3>
                   <div class="timeline-company-period">
-                    <span class="timeline-company">Federación de Baloncesto de la C. Valenciana</span>
+                    <span class="timeline-company" data-i18n="experience.early.company">Serolo & FBCV</span>
                     <span>·</span>
-                    <span data-i18n="experience.fbcv.period">2010</span>
+                    <span data-i18n="experience.early.period">2006 – 2010</span>
                   </div>
                 </div>
                 <ul class="timeline-points">
-                  <li class="timeline-point" data-i18n="experience.fbcv.points.0">Development and maintenance of internal sports management systems during internship: player licensing, league fixtures, and digital scorecards.</li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- Serolo -->
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="glass-card" style="padding: 1.75rem;">
-                <div class="timeline-header">
-                  <h3 class="timeline-role" data-i18n="experience.serolo.role">Backend Developer & Systems Administrator</h3>
-                  <div class="timeline-company-period">
-                    <span class="timeline-company">Servicios Taurinos Serolo S.L.</span>
-                    <span>·</span>
-                    <span>2006 – 2009</span>
-                  </div>
-                </div>
-                <ul class="timeline-points">
-                  <li class="timeline-point" data-i18n="experience.serolo.points.0">Engineered real-time online ticket sales and automated electronic turnstile access control on Microsoft SQL Server across multiple premier bullrings in Spain: Valencia, El Puerto de Santa María, Albacete, Jaén, and Palencia, maintaining sub-second reliability during massive concurrent box-office rushes.</li>
+                  <li class="timeline-point" data-i18n="experience.early.points.0"><strong>Servicios Taurinos Serolo (2006–2009):</strong> Real-time online ticket sales and automated electronic turnstile access control on Microsoft SQL Server across major Spanish venues (Valencia, Albacete, El Puerto), sustaining sub-second reliability during massive box-office rushes.</li>
+                  <li class="timeline-point" data-i18n="experience.early.points.1"><strong>Federación de Baloncesto de la C. Valenciana (2010):</strong> Development and maintenance of sports licensing and digital competition management platforms.</li>
                 </ul>
               </div>
             </div>
@@ -954,16 +911,6 @@
               <span class="education-card-inst" data-i18n="education.daiDegree.institution">Official Higher Technical Degree</span>
               <p class="education-card-desc" data-i18n="education.daiDegree.desc">Software architecture, object-oriented design, database design, and systems engineering.</p>
             </div>
-
-            <div class="glass-card education-card">
-              <h3 class="education-card-title" data-i18n="education.archery.title">Sport Leadership: National Archery Coach & Judge</h3>
-              <span class="education-card-inst" data-i18n="education.archery.institution">Certified by Higher Sports Council (CSD)</span>
-              <p class="education-card-desc" data-i18n="education.archery.desc">Coached team to Spanish University Championship title. Fosters laser focus, emotional self-regulation under pressure, and relentless attention to detail.</p>
-              <div class="education-micro-tag">
-                <span class="champ-badge" data-i18n="education.archery.champBadge">🏆 Campeones Universitarios de España</span>
-                <span class="precision-badge" data-i18n="education.archery.focusBadge">🎯 Láser Focus &amp; Calma bajo Presión</span>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -999,6 +946,10 @@
               <span class="offtopic-badge" data-i18n="offtopic.archery.badge">Laser Precision & Mental Focus</span>
               <h3 class="offtopic-title" data-i18n="offtopic.archery.title">Archery</h3>
               <p class="offtopic-desc" data-i18n="offtopic.archery.desc">Active competitor, certified National Archery Coach and Judge by the Spanish Sports Council (CSD). Coached my squad to the Spanish University Championship title. Every shot demands what high-concurrency systems require: breathing control, micrometric stance, laser focus, and absolute serenity under peak pressure.</p>
+              <div class="education-micro-tag" style="margin-top: 0.85rem;">
+                <span class="champ-badge" data-i18n="education.archery.champBadge">🏆 Campeones Universitarios de España</span>
+                <span class="precision-badge" data-i18n="education.archery.focusBadge">🎯 Láser Focus &amp; Calma bajo Presión</span>
+              </div>
             </div>
 
             <!-- Hobby 2: HiFi Audiophile -->
@@ -1086,6 +1037,10 @@
                 <svg class="btn-github-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
                 <span>GitHub ↗</span>
               </a>
+              <a href="/cv.md" target="_blank" class="btn btn-outline" data-i18n="contact.cvMarkdown">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                <span>CV Markdown (AI/ATS) ↗</span>
+              </a>
             </div>
 
             <p style="font-size: 0.9rem; color: var(--text-muted);" data-i18n="contact.location">
@@ -1102,6 +1057,10 @@
         <p>&copy; 2026 Carlos Lara Albir. <span data-i18n="footer.rights">All rights reserved.</span></p>
         <p data-i18n="footer.builtWith">Architected & implemented 100% with AI & Spec-Driven Development.</p>
         <p style="font-size: 0.75rem; opacity: 0.8;" data-i18n="footer.edgePowered">Hosted on Cloudflare Edge global network.</p>
+        <div class="footer-ai-links" style="margin-top: 0.75rem; font-size: 0.8125rem; display: flex; gap: 1.25rem; justify-content: center; flex-wrap: wrap;">
+          <a href="/llms.txt" class="footer-ai-link" style="color: var(--text-secondary); text-decoration: underline; text-underline-offset: 3px;" title="Standard machine-readable portfolio index for AI & LLMs">🤖 llms.txt (AI Resume Index)</a>
+          <a href="/cv.md" class="footer-ai-link" style="color: var(--text-secondary); text-decoration: underline; text-underline-offset: 3px;" title="Full clean Markdown CV for ATS & Recruiter bots">📄 cv.md (Markdown CV)</a>
+        </div>
       </div>
     </footer>
   </div>

@@ -8,7 +8,7 @@ Este proyecto sigue una metodología estricta de desarrollo guiado por especific
 
 ```
 ┌──────────────┐     ┌──────────────┐     ┌──────────────┐     ┌──────────────┐
-│ 01. Análisis │ ──> │   02. Plan   │ ──> │   03. Task   │ ──> │04. Implement│
+│ 01. Análisis │ ──> │   02. Plan   │ ──> │   03. Task   │ ──> │04. Implement │
 └──────────────┘     └──────────────┘     └──────────────┘     └──────────────┘
   (Requisitos y        (Arquitectura y      (Desglose de tareas   (Ejecución y
   Posicionamiento)     Diseño Técnico)      y Criterios DoD)      Verificación)

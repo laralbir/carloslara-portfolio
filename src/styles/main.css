@@ -102,20 +102,26 @@ body::after {
 
 /* Sections */
 section {
-  padding: 5rem 0;
+  padding: 3.25rem 0;
   position: relative;
 }
 
 @media (min-width: 768px) {
   section {
-    padding: 7rem 0;
+    padding: 6.5rem 0;
   }
 }
 
 .section-header {
   text-align: center;
   max-width: 720px;
-  margin: 0 auto 3.5rem auto;
+  margin: 0 auto 2.25rem auto;
+}
+
+@media (min-width: 768px) {
+  .section-header {
+    margin-bottom: 3.5rem;
+  }
 }
 
 .section-tag {

@@ -1,0 +1,27 @@
+# Carlos Lara Albir — Senior Backend Engineer & AI-Augmented Developer
+
+> Senior Backend Engineer with over 20 years of experience architecting resilient distributed systems, event-driven microservices (AWS SQS, SNS, EventBridge, Node.js/TypeScript), real-time OTA synchronization engines, and pioneering agentic AI engineering (Claude Code, Model Context Protocol, Spec-Driven Development).
+
+## Quick Facts
+- **Name:** Carlos Lara Albir
+- **Role:** Senior Backend Engineer / Staff Engineer / Tech Lead
+- **Experience:** 20+ years (2006 – Present)
+- **Status:** Open to new challenges (Senior / Staff / Tech Lead)
+- **Location:** Torrent, Valencia, Spain (Remote / Hybrid)
+- **Email:** info@carloslara.dev
+- **Website:** https://carloslara.dev
+- **LinkedIn:** https://www.linkedin.com/in/carlos-lara-albir-687277a4
+- **GitHub:** https://github.com/laralbir
+
+## Core Tech Stack
+- **Languages:** TypeScript, Node.js, Modern PHP, SQL
+- **Architecture:** Distributed Systems, Event-Driven Architecture (EDA), Microservices, Hexagonal Architecture, Domain-Driven Design (DDD), Idempotency, DLQ Handling
+- **Cloud & Messaging:** AWS (SQS, SNS, EventBridge, EC2, S3, RDS), Cloudflare Workers & Pages, Docker
+- **Databases:** MongoDB (Aggregations & Index Optimization), Microsoft SQL Server, MySQL, PostgreSQL, Redis
+- **AI & Developer Tooling:** Claude Code (CLI), Model Context Protocol (MCP), Spec-Driven Development (SDD), Test-Driven Development (TDD), Vitest, Opengrep
+
+## Machine-Readable Resources
+- [Full Curriculum Vitae (Markdown)](/llms-full.txt): Comprehensive resume formatted for LLMs, ATS crawlers, and AI recruiter agents.
+- [Curriculum Vitae (cv.md)](/cv.md): Direct Markdown copy of full resume.
+- [Portfolio Web](https://carloslara.dev): Canonical interactive web portfolio.
+- [GitHub Repositories](https://github.com/laralbir): Public source code, MCP servers, and open-source tooling.
