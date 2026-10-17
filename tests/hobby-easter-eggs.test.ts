@@ -1,6 +1,7 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import {
   calculateArcheryScore,
+  computeBowTremor,
   initHobbyEasterEggs,
   triggerArcheryShot,
   toggleVinylSpeed,
@@ -142,6 +143,17 @@ describe('Hobby Interactive Easter Eggs', () => {
       stopManualAim(area);
       expect(getManualAimState().isManual).toBe(false);
       expect(area.classList.contains('is-aiming-manual')).toBe(false);
+    });
+
+    it('generates realistic bow sway and muscular jitter with difficulty range', () => {
+      const tremor1 = computeBowTremor(1000);
+      const tremor2 = computeBowTremor(2500);
+
+      expect(typeof tremor1.x).toBe('number');
+      expect(typeof tremor1.y).toBe('number');
+      expect(Math.abs(tremor1.x)).toBeGreaterThan(0);
+      expect(Math.abs(tremor1.y)).toBeGreaterThan(0);
+      expect(tremor1.x).not.toBe(tremor2.x);
     });
   });
 

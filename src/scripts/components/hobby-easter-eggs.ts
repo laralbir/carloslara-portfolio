@@ -58,6 +58,26 @@ export function getManualAimState(): { isManual: boolean; x: number; y: number }
   return { isManual: isAimingManual, x: currentAimX, y: currentAimY };
 }
 
+/**
+ * Realistic bow sway & muscular tremor simulation.
+ * Combines low-frequency respiratory drift with higher-frequency muscular tension jitter.
+ * Provides intentional gaming difficulty where release timing is key to hitting the gold center.
+ */
+export function computeBowTremor(time: number): { x: number; y: number } {
+  // 1. Slow respiratory figure-8 drift (amplitude ~10px)
+  const driftX = Math.sin(time * 0.0024) * 6.8 + Math.sin(time * 0.0051) * 3.6;
+  const driftY = Math.cos(time * 0.0029) * 6.2 + Math.sin(time * 0.0064) * 3.6;
+
+  // 2. High-frequency muscular tension jitter (amplitude ~5px)
+  const jitterX = Math.sin(time * 0.019) * 3.2 + Math.cos(time * 0.038) * 1.8;
+  const jitterY = Math.cos(time * 0.023) * 3.2 + Math.sin(time * 0.043) * 1.8;
+
+  return {
+    x: driftX + jitterX,
+    y: driftY + jitterY,
+  };
+}
+
 export function startManualAim(area: HTMLElement, clientX: number, clientY: number): void {
   const aimer = area.querySelector<HTMLElement>('.archery-sight-aimer');
   const targetSvg = area.querySelector<SVGSVGElement>('.archery-target-svg');
@@ -97,17 +117,16 @@ export function startManualAim(area: HTMLElement, clientX: number, clientY: numb
   const loop = () => {
     if (!isAimingManual) return;
 
-    // Smooth inertia lerp (bow weight/stabilizer feeling)
-    currentAimX += (targetAimX - currentAimX) * 0.22;
-    currentAimY += (targetAimY - currentAimY) * 0.22;
+    // Heavy stabilizer bow inertia (lag factor 0.11 feels like real bow mass)
+    currentAimX += (targetAimX - currentAimX) * 0.11;
+    currentAimY += (targetAimY - currentAimY) * 0.11;
 
-    // Subtle breath tremor (simulates muscular bow holding under tension)
+    // Noticeable bow holding sway & breath tremor (deliberate difficulty)
     const time = (typeof performance !== 'undefined' ? performance.now() : Date.now());
-    const tremorX = Math.sin(time * 0.007) * 1.5 + Math.sin(time * 0.017) * 0.7;
-    const tremorY = Math.cos(time * 0.008) * 1.5 + Math.cos(time * 0.019) * 0.7;
+    const tremor = computeBowTremor(time);
 
-    const finalX = currentAimX + tremorX;
-    const finalY = currentAimY + tremorY;
+    const finalX = currentAimX + tremor.x;
+    const finalY = currentAimY + tremor.y;
 
     aimer.style.transform = `translate(${finalX.toFixed(2)}px, ${finalY.toFixed(2)}px)`;
     aimRafId = requestAnimationFrame(loop);
@@ -165,10 +184,9 @@ export function triggerArcheryShot(area: HTMLElement): void {
 
   if (isAimingManual) {
     const time = (typeof performance !== 'undefined' ? performance.now() : Date.now());
-    const tremorX = Math.sin(time * 0.007) * 1.5 + Math.sin(time * 0.017) * 0.7;
-    const tremorY = Math.cos(time * 0.008) * 1.5 + Math.cos(time * 0.019) * 0.7;
-    dx = currentAimX + tremorX;
-    dy = currentAimY + tremorY;
+    const tremor = computeBowTremor(time);
+    dx = currentAimX + tremor.x;
+    dy = currentAimY + tremor.y;
   } else if (aimer && targetSvg && typeof aimer.getBoundingClientRect === 'function') {
     const aimerRect = aimer.getBoundingClientRect();
     const svgRect = targetSvg.getBoundingClientRect();
