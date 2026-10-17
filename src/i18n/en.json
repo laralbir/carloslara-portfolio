@@ -300,20 +300,30 @@
     "tag": "Beyond the Console",
     "title": "Passions & Off-Topic Pursuits",
     "subtitle": "Precision engineering draws inspiration from sports discipline, acoustic fidelity, and long-distance exploration on two wheels.",
+    "viewAnim": "Animation",
+    "viewPhoto": "Real Photo",
+    "photoZoomHint": "Expand photo",
+    "closeLightbox": "Close photo",
     "archery": {
       "title": "Archery",
       "badge": "Laser Precision & Mental Focus",
-      "desc": "Active competitor, certified National Archery Coach and Judge by the Spanish Sports Council (CSD). Coached my squad to the Spanish University Championship title. Every shot demands what high-concurrency systems require: breathing control, micrometric stance, laser focus, and absolute serenity under peak pressure."
+      "desc": "Active competitor, certified National Archery Coach and Judge by the Spanish Sports Council (CSD). Coached my squad to the Spanish University Championship title. Every shot demands what high-concurrency systems require: breathing control, micrometric stance, laser focus, and absolute serenity under peak pressure.",
+      "photoCaption": "Official 18m target with tight arrow grouping in the 10/9 bullseye. Laser focus and technical composure.",
+      "photoAlt": "Official archery target with arrows grouped in the bullseye"
     },
     "hifi": {
       "title": "HiFi & Multi-format Audiophile",
       "badge": "Vinyl · Cassette · CD · Lossless Stream",
-      "desc": "Audiophile embracing all physical and digital audio formats: the warm, organic analog ritual of 33 RPM vinyl, the nostalgic mechanics of cassette tapes, the crystalline accuracy of Compact Discs, and uncompressed Hi-Res streaming (FLAC/DSD). This acoustic devotion led directly to engineering the Ámbar touchscreen HiFi station."
+      "desc": "Audiophile embracing all physical and digital audio formats: the warm, organic analog ritual of 33 RPM vinyl, the nostalgic mechanics of cassette tapes, the crystalline accuracy of Compact Discs, and uncompressed Hi-Res streaming (FLAC/DSD). This acoustic devotion led directly to engineering the Ámbar touchscreen HiFi station.",
+      "photoCaption": "Vintage Pioneer CT-F650 cassette deck with fluorescent meters on workbench undergoing calibration.",
+      "photoAlt": "Vintage Pioneer CT-F650 stereo cassette player on workbench with tools"
     },
     "moto": {
       "title": "Motorcycle Touring & Travel",
       "badge": "Long Distance, Mountain Passes & Freedom",
-      "desc": "Medium and long-distance motorcycle road trips. Carving mountain passes, meticulously planning technical routes, and sustaining deep concentration across hundreds of miles. Built on the same engineering principles: anticipation, environmental awareness, and embracing the journey."
+      "desc": "Medium and long-distance motorcycle road trips. Carving mountain passes, meticulously planning technical routes, and sustaining deep concentration across hundreds of miles. Built on the same engineering principles: anticipation, environmental awareness, and embracing the journey.",
+      "photoCaption": "Adventure touring motorbike after a demanding route conquering high mountain passes.",
+      "photoAlt": "Touring motorcycle with Shoei helmet and gloves resting on fuel tank"
     }
   },
   "contact": {

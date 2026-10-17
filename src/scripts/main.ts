@@ -10,6 +10,7 @@ import { initTechAvatar } from './visual/tech-avatar';
 import { initCounterAnimator } from './visual/counter-animator';
 import { initNavbar } from './components/navbar';
 import { initSddModal } from './components/sdd-modal';
+import { initOfftopicSwitcher } from './components/offtopic-switcher';
 import { initNerdTech } from './visual/nerd-tech';
 
 // Register preloader as early as possible
@@ -36,10 +37,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // 6. Initialize SDD Modal & Interaction
   initSddModal();
 
-  // 7. Initialize Nerd-Tech Features & Console Easter Egg
+  // 7. Initialize Offtopic Dual-View Switcher & Lightbox
+  initOfftopicSwitcher();
+
+  // 8. Initialize Nerd-Tech Features & Console Easter Egg
   initNerdTech();
 
-  // 8. Gracefully hide preloader once everything is 100% mounted and translated
+  // 9. Gracefully hide preloader once everything is 100% mounted and translated
   requestAnimationFrame(() => {
     setTimeout(hidePreloader, 180);
   });

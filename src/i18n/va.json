@@ -300,20 +300,30 @@
     "tag": "Fora de la Consola",
     "title": "Aficions & Passions Personals",
     "subtitle": "L'enginyeria de precisió també es nodrix de la concentració esportiva, l'acústica d'alta fidelitat i l'esperit explorador en ruta.",
+    "viewAnim": "Animació",
+    "viewPhoto": "Foto Real",
+    "photoZoomHint": "Ampliar foto",
+    "closeLightbox": "Tancar foto",
     "archery": {
       "title": "Tir amb Arc",
       "badge": "Precisió Mil·limètrica & Control Mental",
-      "desc": "Esportista en actiu, Entrenador i Jutge Nacional de tir amb arc certificat pel Consejo Superior de Deportes (CSD). Vaig guiar el meu equip al títol de Campió Universitari d'Espanya. Cada tir exigix el mateix que un bon desplegament: respiració, postura mil·limètrica, focus absolut i serenitat total sota màxima pressió."
+      "desc": "Esportista en actiu, Entrenador i Jutge Nacional de tir amb arc certificat pel Consejo Superior de Deportes (CSD). Vaig guiar el meu equip al títol de Campió Universitari d'Espanya. Cada tir exigix el mateix que un bon desplegament: respiració, postura mil·limètrica, focus absolut i serenitat total sota màxima pressió.",
+      "photoCaption": "Diana oficial FITA a 18m amb fletxes en agrupació tancada 10/9. Concentració i tècnica mil·limètrica.",
+      "photoAlt": "Diana oficial de tir amb arc amb fletxes al centre"
     },
     "hifi": {
       "title": "HiFi & Audiòfil Multiformat",
       "badge": "Vinil · Casset · CD · Lossless Stream",
-      "desc": "Amant del so d'alta fidelitat en tots els formats físics i digitals: l'encant analògic i la calidesa del vinil a 33 RPM, la mecànica nostàlgica de les cintes de casset, la fidelitat neta del Compact Disc i l'streaming Hi-Res sense pèrdues (FLAC/DSD). D'eixa devoció acústica va nàixer el meu projecte d'estació tàctil HiFi Ámbar."
+      "desc": "Amant del so d'alta fidelitat en tots els formats físics i digitals: l'encant analògic i la calidesa del vinil a 33 RPM, la mecànica nostàlgica de les cintes de casset, la fidelitat neta del Compact Disc i l'streaming Hi-Res sense pèrdues (FLAC/DSD). D'eixa devoció acústica va nàixer el meu projecte d'estació tàctil HiFi Ámbar.",
+      "photoCaption": "Pletina vintage Pioneer CT-F650 amb vúmetres fluorescents en banc de calibratge.",
+      "photoAlt": "Pletina vintage Pioneer CT-F650 sobre banc de treball amb ferramentes"
     },
     "moto": {
       "title": "Mototurisme & Viatges en Moto",
       "badge": "Quilòmetres, Ports de Muntanya & Aventura",
-      "desc": "Viatges en moto de mitjana i llarga distància per carretera i muntanya. Traçar corbes amb fluïdesa, planificar itineraris tècnics al detall i mantindre concentració constant durant centenars de quilòmetres. La mateixa resiliència que en producció: anticipació, atenció a l'entorn i gaudi del camí."
+      "desc": "Viatges en moto de mitjana i llarga distància per carretera i muntanya. Traçar corbes amb fluïdesa, planificar itineraris tècnics al detall i mantindre concentració constant durant centenars de quilòmetres. La mateixa resiliència que en producció: anticipació, atenció a l'entorn i gaudi del camí.",
+      "photoCaption": "Moto tourer d'aventura després d'una exigent jornada coronant ports de muntanya.",
+      "photoAlt": "Moto de viatge amb casc Shoei i guants sobre el depòsit"
     }
   },
   "contact": {

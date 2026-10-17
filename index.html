@@ -1000,23 +1000,60 @@
 
           <div class="offtopic-grid">
             <!-- Hobby 1: Archery -->
-            <div class="glass-card offtopic-card">
-              <div class="offtopic-visual" aria-hidden="true">
-                <svg class="archery-target-svg" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <!-- Concentric target rings -->
-                  <circle cx="80" cy="80" r="70" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
-                  <circle cx="80" cy="80" r="56" fill="#1e293b" stroke="#0f172a" stroke-width="2"/>
-                  <circle cx="80" cy="80" r="42" fill="#0284c7" stroke="#0369a1" stroke-width="2"/>
-                  <circle cx="80" cy="80" r="28" fill="#dc2626" stroke="#b91c1c" stroke-width="2"/>
-                  <circle cx="80" cy="80" r="14" fill="#eab308" stroke="#ca8a04" stroke-width="2"/>
-                  <circle cx="80" cy="80" r="6" fill="#fef08a"/>
-                  <!-- Animated Shockwave Rings on Impact -->
-                  <circle class="target-pulse-ring" cx="80" cy="80" r="14" fill="none" stroke="#ffd700" stroke-width="2"/>
-                  <circle class="target-pulse-ring-delayed" cx="80" cy="80" r="14" fill="none" stroke="#ffd700" stroke-width="2"/>
-                  <!-- Center Bullseye Spark -->
-                  <circle class="target-arrow-spark" cx="80" cy="80" r="3.5" fill="#ffffff"/>
-                </svg>
+            <div class="glass-card offtopic-card" data-hobby="archery">
+              <div class="offtopic-switcher-bar">
+                <div class="offtopic-segmented-control" role="tablist" aria-label="Visual view toggle">
+                  <button type="button" class="offtopic-tab is-active" role="tab" aria-selected="true" data-target="anim" aria-label="Ver animación">
+                    <span class="tab-icon" aria-hidden="true">⚡</span>
+                    <span data-i18n="offtopic.viewAnim">Animación</span>
+                  </button>
+                  <button type="button" class="offtopic-tab" role="tab" aria-selected="false" data-target="photo" aria-label="Ver foto real">
+                    <span class="tab-icon" aria-hidden="true">📷</span>
+                    <span data-i18n="offtopic.viewPhoto">Foto Real</span>
+                  </button>
+                </div>
               </div>
+
+              <div class="offtopic-visual-container">
+                <!-- Layer 1: CSS/SVG Animation -->
+                <div class="offtopic-layer offtopic-layer-anim is-visible" aria-hidden="false">
+                  <svg class="archery-target-svg" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="80" cy="80" r="70" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+                    <circle cx="80" cy="80" r="56" fill="#1e293b" stroke="#0f172a" stroke-width="2"/>
+                    <circle cx="80" cy="80" r="42" fill="#0284c7" stroke="#0369a1" stroke-width="2"/>
+                    <circle cx="80" cy="80" r="28" fill="#dc2626" stroke="#b91c1c" stroke-width="2"/>
+                    <circle cx="80" cy="80" r="14" fill="#eab308" stroke="#ca8a04" stroke-width="2"/>
+                    <circle cx="80" cy="80" r="6" fill="#fef08a"/>
+                    <circle class="target-pulse-ring" cx="80" cy="80" r="14" fill="none" stroke="#ffd700" stroke-width="2"/>
+                    <circle class="target-pulse-ring-delayed" cx="80" cy="80" r="14" fill="none" stroke="#ffd700" stroke-width="2"/>
+                    <circle class="target-arrow-spark" cx="80" cy="80" r="3.5" fill="#ffffff"/>
+                  </svg>
+                </div>
+                <!-- Layer 2: Authentic Photograph -->
+                <div class="offtopic-layer offtopic-layer-photo" aria-hidden="true">
+                  <picture>
+                    <source srcset="/assets/offtopic/archery-real.webp" type="image/webp">
+                    <img src="/assets/offtopic/archery-real.jpg"
+                         alt="Diana oficial de tiro con arco con flechas en el centro"
+                         data-i18n-aria-label="offtopic.photoZoomHint"
+                         loading="lazy"
+                         decoding="async"
+                         width="771"
+                         height="1024"
+                         class="offtopic-real-img"
+                         data-caption="Diana oficial FITA a 18m con flechas en agrupación cerrada 10/9. Concentración y técnica milimétrica."
+                         tabindex="0"
+                         role="button"
+                         aria-haspopup="dialog"
+                         aria-label="Ampliar foto real de tiro con arco">
+                  </picture>
+                  <div class="photo-overlay-badge" aria-hidden="true">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                    <span data-i18n="offtopic.photoZoomHint">Ampliar foto</span>
+                  </div>
+                </div>
+              </div>
+
               <span class="offtopic-badge" data-i18n="offtopic.archery.badge">Laser Precision & Mental Focus</span>
               <h3 class="offtopic-title" data-i18n="offtopic.archery.title">Archery</h3>
               <p class="offtopic-desc" data-i18n="offtopic.archery.desc">Active competitor, certified National Archery Coach and Judge by the Spanish Sports Council (CSD). Coached my squad to the Spanish University Championship title. Every shot demands what high-concurrency systems require: breathing control, micrometric stance, laser focus, and absolute serenity under peak pressure.</p>
@@ -1027,57 +1064,132 @@
             </div>
 
             <!-- Hobby 2: HiFi Audiophile -->
-            <div class="glass-card offtopic-card">
-              <div class="offtopic-visual" aria-hidden="true">
-                <div class="hifi-scene">
-                  <!-- Spinning Vinyl Record (33 RPM CSS rotation) -->
-                  <div class="vinyl-disc" title="Spinning Vinyl 33⅓ RPM">
-                    <div class="vinyl-label">
-                      <div class="vinyl-hole"></div>
+            <div class="glass-card offtopic-card" data-hobby="hifi">
+              <div class="offtopic-switcher-bar">
+                <div class="offtopic-segmented-control" role="tablist" aria-label="Visual view toggle">
+                  <button type="button" class="offtopic-tab is-active" role="tab" aria-selected="true" data-target="anim" aria-label="Ver animación">
+                    <span class="tab-icon" aria-hidden="true">⚡</span>
+                    <span data-i18n="offtopic.viewAnim">Animación</span>
+                  </button>
+                  <button type="button" class="offtopic-tab" role="tab" aria-selected="false" data-target="photo" aria-label="Ver foto real">
+                    <span class="tab-icon" aria-hidden="true">📷</span>
+                    <span data-i18n="offtopic.viewPhoto">Foto Real</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="offtopic-visual-container">
+                <!-- Layer 1: CSS/SVG Animation -->
+                <div class="offtopic-layer offtopic-layer-anim is-visible" aria-hidden="false">
+                  <div class="hifi-scene">
+                    <div class="vinyl-disc" title="Spinning Vinyl 33⅓ RPM">
+                      <div class="vinyl-label">
+                        <div class="vinyl-hole"></div>
+                      </div>
+                    </div>
+                    <div class="vu-equalizer" title="Dynamic Audio Equalizer">
+                      <div class="vu-bar"></div>
+                      <div class="vu-bar"></div>
+                      <div class="vu-bar"></div>
+                      <div class="vu-bar"></div>
+                      <div class="vu-bar"></div>
+                      <div class="vu-bar"></div>
                     </div>
                   </div>
-                  <!-- Dynamic Jumping VU-Meter Equalizer -->
-                  <div class="vu-equalizer" title="Dynamic Audio Equalizer">
-                    <div class="vu-bar"></div>
-                    <div class="vu-bar"></div>
-                    <div class="vu-bar"></div>
-                    <div class="vu-bar"></div>
-                    <div class="vu-bar"></div>
-                    <div class="vu-bar"></div>
+                </div>
+                <!-- Layer 2: Authentic Photograph -->
+                <div class="offtopic-layer offtopic-layer-photo" aria-hidden="true">
+                  <picture>
+                    <source srcset="/assets/offtopic/hifi-real.webp" type="image/webp">
+                    <img src="/assets/offtopic/hifi-real.jpg"
+                         alt="Pletina vintage Pioneer CT-F650 sobre banco de trabajo con herramientas"
+                         data-i18n-aria-label="offtopic.photoZoomHint"
+                         loading="lazy"
+                         decoding="async"
+                         width="764"
+                         height="1024"
+                         class="offtopic-real-img"
+                         data-caption="Pletina vintage Pioneer CT-F650 con vúmetros fluorescentes en banco de trabajo y calibración."
+                         tabindex="0"
+                         role="button"
+                         aria-haspopup="dialog"
+                         aria-label="Ampliar foto real de equipo HiFi">
+                  </picture>
+                  <div class="photo-overlay-badge" aria-hidden="true">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                    <span data-i18n="offtopic.photoZoomHint">Ampliar foto</span>
                   </div>
                 </div>
               </div>
+
               <span class="offtopic-badge" data-i18n="offtopic.hifi.badge">Vinyl · Cassette · CD · Lossless Stream</span>
               <h3 class="offtopic-title" data-i18n="offtopic.hifi.title">HiFi & Multi-format Audiophile</h3>
               <p class="offtopic-desc" data-i18n="offtopic.hifi.desc">Audiophile embracing all physical and digital audio formats: the warm, organic analog ritual of 33 RPM vinyl, the nostalgic mechanics of cassette tapes, the crystalline accuracy of Compact Discs, and uncompressed Hi-Res streaming (FLAC/DSD). This acoustic devotion led directly to engineering the Ámbar touchscreen HiFi station.</p>
             </div>
 
             <!-- Hobby 3: Motorcycle Touring -->
-            <div class="glass-card offtopic-card">
-              <div class="offtopic-visual" aria-hidden="true">
-                <div class="moto-scene">
-                  <!-- Alpine Mountain Silhouette -->
-                  <svg width="220" height="70" viewBox="0 0 220 70" fill="none" style="position: absolute; top: 10px; opacity: 0.35;">
-                    <polygon points="10,70 60,25 90,50 140,15 190,60 215,70" fill="#38bdf8"/>
-                    <polygon points="140,15 160,32 170,28" fill="#ffffff" opacity="0.8"/>
-                    <polygon points="60,25 75,38 85,32" fill="#ffffff" opacity="0.8"/>
-                  </svg>
-                  <!-- Moving Perspective Road -->
-                  <div class="moto-road-perspective">
-                    <div class="moto-road-line"></div>
-                  </div>
-                  <!-- Touring Adventure Motorcycle -->
-                  <svg class="moto-silhouette" width="56" height="40" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="14" cy="36" r="9" stroke="#94a3b8" stroke-width="3" fill="#1e293b"/>
-                    <circle cx="50" cy="36" r="9" stroke="#94a3b8" stroke-width="3" fill="#1e293b"/>
-                    <path d="M14 36L26 26H36L44 36H50L45 22L36 18H28L22 26L14 36Z" fill="#38bdf8"/>
-                    <path d="M35 18L39 8H44L41 18H35Z" fill="#bae6fd" opacity="0.85"/>
-                    <circle cx="33" cy="10" r="5" fill="#f8fafc"/>
-                    <path d="M29 16C29 16 33 14 38 18L34 26H28L29 16Z" fill="#cbd5e1"/>
-                    <rect x="10" y="24" width="10" height="9" rx="1.5" fill="#64748b" stroke="#cbd5e1" stroke-width="1"/>
-                  </svg>
+            <div class="glass-card offtopic-card" data-hobby="moto">
+              <div class="offtopic-switcher-bar">
+                <div class="offtopic-segmented-control" role="tablist" aria-label="Visual view toggle">
+                  <button type="button" class="offtopic-tab is-active" role="tab" aria-selected="true" data-target="anim" aria-label="Ver animación">
+                    <span class="tab-icon" aria-hidden="true">⚡</span>
+                    <span data-i18n="offtopic.viewAnim">Animación</span>
+                  </button>
+                  <button type="button" class="offtopic-tab" role="tab" aria-selected="false" data-target="photo" aria-label="Ver foto real">
+                    <span class="tab-icon" aria-hidden="true">📷</span>
+                    <span data-i18n="offtopic.viewPhoto">Foto Real</span>
+                  </button>
                 </div>
               </div>
+
+              <div class="offtopic-visual-container">
+                <!-- Layer 1: CSS/SVG Animation -->
+                <div class="offtopic-layer offtopic-layer-anim is-visible" aria-hidden="false">
+                  <div class="moto-scene">
+                    <svg width="220" height="70" viewBox="0 0 220 70" fill="none" style="position: absolute; top: 10px; opacity: 0.35;">
+                      <polygon points="10,70 60,25 90,50 140,15 190,60 215,70" fill="#38bdf8"/>
+                      <polygon points="140,15 160,32 170,28" fill="#ffffff" opacity="0.8"/>
+                      <polygon points="60,25 75,38 85,32" fill="#ffffff" opacity="0.8"/>
+                    </svg>
+                    <div class="moto-road-perspective">
+                      <div class="moto-road-line"></div>
+                    </div>
+                    <svg class="moto-silhouette" width="56" height="40" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="14" cy="36" r="9" stroke="#94a3b8" stroke-width="3" fill="#1e293b"/>
+                      <circle cx="50" cy="36" r="9" stroke="#94a3b8" stroke-width="3" fill="#1e293b"/>
+                      <path d="M14 36L26 26H36L44 36H50L45 22L36 18H28L22 26L14 36Z" fill="#38bdf8"/>
+                      <path d="M35 18L39 8H44L41 18H35Z" fill="#bae6fd" opacity="0.85"/>
+                      <circle cx="33" cy="10" r="5" fill="#f8fafc"/>
+                      <path d="M29 16C29 16 33 14 38 18L34 26H28L29 16Z" fill="#cbd5e1"/>
+                      <rect x="10" y="24" width="10" height="9" rx="1.5" fill="#64748b" stroke="#cbd5e1" stroke-width="1"/>
+                    </svg>
+                  </div>
+                </div>
+                <!-- Layer 2: Authentic Photograph -->
+                <div class="offtopic-layer offtopic-layer-photo" aria-hidden="true">
+                  <picture>
+                    <source srcset="/assets/offtopic/moto-real.webp" type="image/webp">
+                    <img src="/assets/offtopic/moto-real.jpg"
+                         alt="Moto de viaje con casco Shoei y guantes sobre el depósito"
+                         data-i18n-aria-label="offtopic.photoZoomHint"
+                         loading="lazy"
+                         decoding="async"
+                         width="764"
+                         height="1024"
+                         class="offtopic-real-img"
+                         data-caption="Moto tourer de aventura tras una jornada técnica cruzando puertos de montaña."
+                         tabindex="0"
+                         role="button"
+                         aria-haspopup="dialog"
+                         aria-label="Ampliar foto real de moto tourer">
+                  </picture>
+                  <div class="photo-overlay-badge" aria-hidden="true">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                    <span data-i18n="offtopic.photoZoomHint">Ampliar foto</span>
+                  </div>
+                </div>
+              </div>
+
               <span class="offtopic-badge" data-i18n="offtopic.moto.badge">Long Distance, Mountain Passes & Freedom</span>
               <h3 class="offtopic-title" data-i18n="offtopic.moto.title">Motorcycle Touring & Travel</h3>
               <p class="offtopic-desc" data-i18n="offtopic.moto.desc">Medium and long-distance motorcycle road trips. Carving mountain passes, meticulously planning technical routes, and sustaining deep concentration across hundreds of miles. Built on the same engineering principles: anticipation, environmental awareness, and embracing the journey.</p>
@@ -1265,6 +1377,19 @@
         <svg class="btn-github-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
         <span data-i18n="aiCallout.modalLink">View specs directory on GitHub ➔</span>
       </a>
+    </div>
+  </dialog>
+
+  <!-- Accessible Offtopic Lightbox Dialog -->
+  <dialog id="offtopic-lightbox" class="offtopic-lightbox" aria-labelledby="offtopic-lightbox-caption">
+    <div class="lightbox-dialog-body">
+      <button type="button" class="lightbox-close" aria-label="Cerrar ampliación" data-i18n-aria-label="offtopic.closeLightbox">✕</button>
+      <div class="lightbox-media-wrapper">
+        <img class="lightbox-img" src="" alt="" />
+      </div>
+      <div class="lightbox-footer">
+        <p id="offtopic-lightbox-caption" class="lightbox-caption"></p>
+      </div>
     </div>
   </dialog>
 
