@@ -22,8 +22,8 @@
   "hero": {
     "badge": "Buscando mi próximo gran reto · Senior / Staff / Tech Lead",
     "titlePrefix": "Carlos Lara Albir",
-    "titleHighlight": "Senior Backend Engineer",
-    "titleSuffix": "& Desarrollador Aumentado con IA",
+    "titleHighlight": "Agentic Engineer",
+    "titleSuffix": "& Senior Backend Architect",
     "subtitle": "Más de 20 años diseñando arquitecturas distribuidas de alta concurrencia que no se caen con tráfico real (Event-Driven con AWS SQS, SNS y EventBridge, microservicios en Node.js/TypeScript y sincronización OTA de misión crítica). Hoy multiplico esa experiencia con ingeniería agéntica e IA: Claude Code en la terminal, servidores MCP propios y cero código al azar.",
     "ctaProjects": "Échale un ojo a mis proyectos",
     "ctaContact": "¿Nos tomamos un café?",

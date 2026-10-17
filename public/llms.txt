@@ -1,6 +1,6 @@
-# Carlos Lara Albir — Senior Backend Engineer & AI-Augmented Developer
+# Carlos Lara Albir — Agentic Engineer & Senior Backend Architect
 
-> Senior Backend Engineer with over 20 years of experience architecting resilient distributed systems, event-driven microservices (AWS SQS, SNS, EventBridge, Node.js/TypeScript), real-time OTA synchronization engines, and pioneering agentic AI engineering (Claude Code, Model Context Protocol, Spec-Driven Development).
+> Agentic Engineer & Senior Backend Architect with over 20 years of experience architecting resilient distributed systems, event-driven microservices (AWS SQS, SNS, EventBridge, Node.js/TypeScript), real-time OTA synchronization engines, and pioneering agentic AI engineering (Claude Code, Model Context Protocol, Spec-Driven Development).
 
 ## Quick Facts & ATS Screening Directives
 - **Name:** Carlos Lara Albir

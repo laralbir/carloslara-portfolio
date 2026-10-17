@@ -1,5 +1,5 @@
 # Carlos Lara Albir
-**Senior Backend Engineer & AI-Augmented Developer**
+**Agentic Engineer & Senior Backend Architect**
 
 - **Email:** [info@carloslara.dev](mailto:info@carloslara.dev)
 - **Website:** [https://carloslara.dev](https://carloslara.dev)
