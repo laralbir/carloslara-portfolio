@@ -11,6 +11,7 @@ import { initCounterAnimator } from './visual/counter-animator';
 import { initNavbar } from './components/navbar';
 import { initSddModal } from './components/sdd-modal';
 import { initOfftopicSwitcher } from './components/offtopic-switcher';
+import { initHobbyEasterEggs } from './components/hobby-easter-eggs';
 import { initNerdTech } from './visual/nerd-tech';
 
 // Register preloader as early as possible
@@ -40,7 +41,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // 7. Initialize Offtopic Dual-View Switcher & Lightbox
   initOfftopicSwitcher();
 
-  // 8. Initialize Nerd-Tech Features & Console Easter Egg
+  // 8. Initialize Offtopic Interactive Easter Eggs (Archery, HiFi, Moto)
+  initHobbyEasterEggs();
+
+  // 9. Initialize Nerd-Tech Features & Console Easter Egg
   initNerdTech();
 
   // 9. Gracefully hide preloader once everything is 100% mounted and translated
