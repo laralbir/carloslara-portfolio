@@ -43,5 +43,17 @@ describe('i18n Engine & Language Control', () => {
     expect(enBtn?.getAttribute('aria-checked')).toBe('false');
     expect(enBtn?.classList.contains('active')).toBe(false);
   });
+
+  it('correctly renders HTML tags such as <strong> as DOM elements rather than literal text', () => {
+    document.body.innerHTML = `
+      <li id="point-0" data-i18n="experience.early.points.0">Placeholder</li>
+    `;
+
+    applyTranslations('es');
+    const li = document.getElementById('point-0');
+    expect(li?.innerHTML).toContain('<strong>Servicios Taurinos Serolo (2006–2009):</strong>');
+    expect(li?.querySelector('strong')).not.toBeNull();
+    expect(li?.querySelector('strong')?.textContent).toBe('Servicios Taurinos Serolo (2006–2009):');
+  });
 });
 

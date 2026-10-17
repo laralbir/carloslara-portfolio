@@ -64,7 +64,12 @@ export function applyTranslations(lang = currentLang): void {
   elements.forEach((el) => {
     const key = el.getAttribute('data-i18n');
     if (key) {
-      el.textContent = t(key, lang);
+      const val = t(key, lang);
+      if (val.includes('<') && val.includes('>')) {
+        el.innerHTML = val;
+      } else {
+        el.textContent = val;
+      }
     }
   });
 
