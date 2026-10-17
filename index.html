@@ -183,8 +183,48 @@
       } catch (e) {}
     })();
   </script>
+
+  <!-- Critical Preloader Instant Inline CSS to Prevent Any Paint Flash -->
+  <style>
+    .app-preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 999999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffffff;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s;
+    }
+    [data-theme="dark"] .app-preloader {
+      background-color: #0b0f19;
+    }
+    .app-preloader.preloader-hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+  </style>
 </head>
 <body>
+  <!-- High-Tech Preloader Overlay (Active until JS & DOM are 100% hydrated) -->
+  <div id="app-preloader" class="app-preloader" aria-live="polite" aria-busy="true">
+    <div class="preloader-content">
+      <div class="preloader-brand">
+        <span class="preloader-monogram">CLA</span>
+      </div>
+      <div class="preloader-spinner-wrapper">
+        <div class="preloader-spinner" aria-hidden="true"></div>
+      </div>
+      <div class="preloader-telemetry">
+        <span class="preloader-prompt">carlos@edge:~$</span>
+        <span class="preloader-status">INITIALIZING_RUNTIME...</span>
+      </div>
+    </div>
+  </div>
+
   <!-- Accessibility Skip Link -->
   <a href="#main-content" class="skip-link" data-i18n="a11y.skipToContent">Skip to main content</a>
 

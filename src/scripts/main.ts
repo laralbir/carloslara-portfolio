@@ -2,6 +2,7 @@ import '../styles/themes.css';
 import '../styles/main.css';
 import '../styles/components.css';
 
+import { initPreloader, hidePreloader } from './components/preloader';
 import { initThemeSwitcher } from './theme-switcher';
 import { applyTranslations, resolveInitialLanguage } from './i18n/engine';
 import { initCanvasBackground } from './visual/canvas-background';
@@ -11,11 +12,14 @@ import { initNavbar } from './components/navbar';
 import { initSddModal } from './components/sdd-modal';
 import { initNerdTech } from './visual/nerd-tech';
 
+// Register preloader as early as possible
+initPreloader();
+
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Initialize Theme
   initThemeSwitcher();
 
-  // 2. Initialize Language
+  // 2. Initialize Language (Translates all DOM nodes)
   const initialLang = resolveInitialLanguage();
   applyTranslations(initialLang);
 
@@ -34,5 +38,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 7. Initialize Nerd-Tech Features & Console Easter Egg
   initNerdTech();
+
+  // 8. Gracefully hide preloader once everything is 100% mounted and translated
+  requestAnimationFrame(() => {
+    setTimeout(hidePreloader, 180);
+  });
 });
 

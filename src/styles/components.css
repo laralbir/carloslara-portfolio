@@ -2496,3 +2496,128 @@ footer {
   }
 }
 
+/* --------------------------------------------------------------------------
+   NERD-TECH PRELOADER OVERLAY
+   -------------------------------------------------------------------------- */
+.app-preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-primary, #ffffff);
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s;
+}
+
+[data-theme="dark"] .app-preloader {
+  background-color: #0b0f19;
+}
+
+.app-preloader.preloader-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.preloader-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preloader-monogram {
+  font-family: var(--font-mono, monospace);
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: var(--accent-primary, #0ea5e9);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md, 8px);
+  background: var(--bg-badge, rgba(14, 165, 233, 0.08));
+  border: 1px solid var(--border-accent, rgba(14, 165, 233, 0.3));
+  box-shadow: 0 0 25px rgba(14, 165, 233, 0.25);
+  animation: preloader-pulse 1.8s infinite ease-in-out;
+}
+
+.preloader-spinner-wrapper {
+  position: relative;
+  width: 48px;
+  height: 48px;
+}
+
+.preloader-spinner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid var(--border-card, rgba(148, 163, 184, 0.2));
+  border-top-color: var(--accent-primary, #0ea5e9);
+  border-right-color: var(--accent-secondary, #6366f1);
+  animation: preloader-spin 0.8s linear infinite;
+}
+
+.preloader-telemetry {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8125rem;
+  color: var(--text-muted, #64748b);
+}
+
+.preloader-prompt {
+  color: var(--accent-primary, #0ea5e9);
+  font-weight: 600;
+}
+
+.preloader-status {
+  letter-spacing: 0.05em;
+  animation: preloader-blink 1.2s infinite;
+}
+
+@keyframes preloader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes preloader-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.2);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 32px rgba(14, 165, 233, 0.45);
+  }
+}
+
+@keyframes preloader-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-preloader {
+    transition: none;
+  }
+  .preloader-spinner,
+  .preloader-monogram,
+  .preloader-status {
+    animation: none;
+  }
+}
+
+
