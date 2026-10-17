@@ -47,6 +47,114 @@ export function calculateArcheryScore(dx: number, dy: number): ArcheryScoreResul
   return { score: 1, zone: 'Blanco', label: '🎯 1 BLANCO' };
 }
 
+let isAimingManual = false;
+let currentAimX = 0;
+let currentAimY = 0;
+let targetAimX = 0;
+let targetAimY = 0;
+let aimRafId: number | null = null;
+
+export function getManualAimState(): { isManual: boolean; x: number; y: number } {
+  return { isManual: isAimingManual, x: currentAimX, y: currentAimY };
+}
+
+export function startManualAim(area: HTMLElement, clientX: number, clientY: number): void {
+  const aimer = area.querySelector<HTMLElement>('.archery-sight-aimer');
+  const targetSvg = area.querySelector<SVGSVGElement>('.archery-target-svg');
+  if (!aimer || !targetSvg) return;
+
+  isAimingManual = true;
+  area.classList.add('is-aiming-manual');
+
+  const updateCoords = (cx: number, cy: number) => {
+    const svgRect = targetSvg.getBoundingClientRect();
+    if (svgRect.width <= 0) return;
+    const centerX = svgRect.left + svgRect.width / 2;
+    const centerY = svgRect.top + svgRect.height / 2;
+    const scaleX = 160 / svgRect.width;
+    const scaleY = 160 / svgRect.height;
+
+    let x = (cx - centerX) * scaleX;
+    let y = (cy - centerY) * scaleY;
+    const dist = Math.hypot(x, y);
+    const maxRadius = 68;
+    if (dist > maxRadius) {
+      x = (x / dist) * maxRadius;
+      y = (y / dist) * maxRadius;
+    }
+    targetAimX = x;
+    targetAimY = y;
+  };
+
+  updateCoords(clientX, clientY);
+  currentAimX = targetAimX;
+  currentAimY = targetAimY;
+
+  if (aimRafId) {
+    cancelAnimationFrame(aimRafId);
+  }
+
+  const loop = () => {
+    if (!isAimingManual) return;
+
+    // Smooth inertia lerp (bow weight/stabilizer feeling)
+    currentAimX += (targetAimX - currentAimX) * 0.22;
+    currentAimY += (targetAimY - currentAimY) * 0.22;
+
+    // Subtle breath tremor (simulates muscular bow holding under tension)
+    const time = (typeof performance !== 'undefined' ? performance.now() : Date.now());
+    const tremorX = Math.sin(time * 0.007) * 1.5 + Math.sin(time * 0.017) * 0.7;
+    const tremorY = Math.cos(time * 0.008) * 1.5 + Math.cos(time * 0.019) * 0.7;
+
+    const finalX = currentAimX + tremorX;
+    const finalY = currentAimY + tremorY;
+
+    aimer.style.transform = `translate(${finalX.toFixed(2)}px, ${finalY.toFixed(2)}px)`;
+    aimRafId = requestAnimationFrame(loop);
+  };
+
+  aimRafId = requestAnimationFrame(loop);
+}
+
+export function updateManualAimCoords(area: HTMLElement, clientX: number, clientY: number): void {
+  if (!isAimingManual) return;
+  const targetSvg = area.querySelector<SVGSVGElement>('.archery-target-svg');
+  if (!targetSvg) return;
+
+  const svgRect = targetSvg.getBoundingClientRect();
+  if (svgRect.width <= 0) return;
+  const centerX = svgRect.left + svgRect.width / 2;
+  const centerY = svgRect.top + svgRect.height / 2;
+  const scaleX = 160 / svgRect.width;
+  const scaleY = 160 / svgRect.height;
+
+  let x = (clientX - centerX) * scaleX;
+  let y = (clientY - centerY) * scaleY;
+  const dist = Math.hypot(x, y);
+  const maxRadius = 68;
+  if (dist > maxRadius) {
+    x = (x / dist) * maxRadius;
+    y = (y / dist) * maxRadius;
+  }
+  targetAimX = x;
+  targetAimY = y;
+}
+
+export function stopManualAim(area: HTMLElement): void {
+  isAimingManual = false;
+  area.classList.remove('is-aiming-manual');
+
+  if (aimRafId) {
+    cancelAnimationFrame(aimRafId);
+    aimRafId = null;
+  }
+
+  const aimer = area.querySelector<HTMLElement>('.archery-sight-aimer');
+  if (aimer) {
+    aimer.style.transform = '';
+  }
+}
+
 export function triggerArcheryShot(area: HTMLElement): void {
   const feedback = area.querySelector<HTMLElement>('.archery-hit-feedback');
   const aimer = area.querySelector<HTMLElement>('#archery-sight-aimer') || area.querySelector<HTMLElement>('.archery-sight-aimer');
@@ -55,7 +163,13 @@ export function triggerArcheryShot(area: HTMLElement): void {
   let dx = 0;
   let dy = 0;
 
-  if (aimer && targetSvg && typeof aimer.getBoundingClientRect === 'function') {
+  if (isAimingManual) {
+    const time = (typeof performance !== 'undefined' ? performance.now() : Date.now());
+    const tremorX = Math.sin(time * 0.007) * 1.5 + Math.sin(time * 0.017) * 0.7;
+    const tremorY = Math.cos(time * 0.008) * 1.5 + Math.cos(time * 0.019) * 0.7;
+    dx = currentAimX + tremorX;
+    dy = currentAimY + tremorY;
+  } else if (aimer && targetSvg && typeof aimer.getBoundingClientRect === 'function') {
     const aimerRect = aimer.getBoundingClientRect();
     const svgRect = targetSvg.getBoundingClientRect();
 
@@ -197,6 +311,28 @@ export function initHobbyEasterEggs(): void {
   // 1. Archery Scene
   const archeryArea = document.querySelector<HTMLElement>('.archery-interactive-area');
   if (archeryArea) {
+    // Follow mouse pointer with realistic bow holding inertia & micro-sway
+    archeryArea.addEventListener('pointerenter', (e) => {
+      if (e.pointerType === 'mouse') {
+        startManualAim(archeryArea, e.clientX, e.clientY);
+      }
+    });
+
+    archeryArea.addEventListener('pointermove', (e) => {
+      if (e.pointerType === 'mouse') {
+        if (!getManualAimState().isManual) {
+          startManualAim(archeryArea, e.clientX, e.clientY);
+        } else {
+          updateManualAimCoords(archeryArea, e.clientX, e.clientY);
+        }
+      }
+    });
+
+    // When pointer leaves focus/hover, revert to autonomous wandering across entire target
+    archeryArea.addEventListener('pointerleave', () => {
+      stopManualAim(archeryArea);
+    });
+
     attachResponsiveHandler(archeryArea, () => triggerArcheryShot(archeryArea));
   }
 

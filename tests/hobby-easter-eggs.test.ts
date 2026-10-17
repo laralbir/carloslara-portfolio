@@ -5,6 +5,10 @@ import {
   triggerArcheryShot,
   toggleVinylSpeed,
   triggerMotoAcceleration,
+  startManualAim,
+  updateManualAimCoords,
+  stopManualAim,
+  getManualAimState,
 } from '../src/scripts/components/hobby-easter-eggs';
 
 describe('Hobby Interactive Easter Eggs', () => {
@@ -108,6 +112,36 @@ describe('Hobby Interactive Easter Eggs', () => {
 
       expect(feedback.children.length).toBeGreaterThan(0);
       expect(feedback.textContent).toMatch(/🎯/);
+    });
+
+    it('engages manual aim on pointer interaction and follows mouse coordinates', () => {
+      const area = document.querySelector<HTMLElement>('.archery-interactive-area')!;
+      const svg = document.querySelector<SVGSVGElement>('.archery-target-svg')!;
+
+      vi.spyOn(svg, 'getBoundingClientRect').mockReturnValue({
+        left: 100,
+        top: 100,
+        width: 160,
+        height: 160,
+        right: 260,
+        bottom: 260,
+        x: 100,
+        y: 100,
+        toJSON: () => {},
+      });
+
+      startManualAim(area, 180, 180);
+
+      expect(getManualAimState().isManual).toBe(true);
+      expect(area.classList.contains('is-aiming-manual')).toBe(true);
+      expect(Math.abs(getManualAimState().x)).toBeLessThan(1);
+      expect(Math.abs(getManualAimState().y)).toBeLessThan(1);
+
+      updateManualAimCoords(area, 210, 180);
+
+      stopManualAim(area);
+      expect(getManualAimState().isManual).toBe(false);
+      expect(area.classList.contains('is-aiming-manual')).toBe(false);
     });
   });
 

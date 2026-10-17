@@ -2360,6 +2360,10 @@ footer {
   will-change: transform;
 }
 
+.archery-interactive-area.is-aiming-manual .archery-sight-aimer {
+  animation: none !important;
+}
+
 @keyframes aimer-wandering {
   0%   { transform: translate(0px, 0px); }
   4%   { transform: translate(-6px, 9px); }
