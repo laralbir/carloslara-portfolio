@@ -33,6 +33,8 @@
 | **TASK-8.1** | Suite de Pruebas Automatizadas y Mandato TDD | ✅ Completado | `package.json`, `vite.config.ts`, `tests/*.test.ts` | Vitest + happy-dom (`npm test`), 7/7 tests pasando en <350ms, especificaciones SDD actualizadas |
 | **TASK-9.1** | Optimización Navbar y Pipeline SDD en Móvil | ✅ Completado | `index.html`, `src/styles/components.css` | Ocultación de texto de marca en <768px (solo monograma `CLA`), ocultación del box interactivo SDD en mobile |
 | **TASK-9.2** | Eliminación de scroll horizontal y corte de botones | ✅ Completado | `src/styles/main.css`, `src/styles/components.css` | Viewport containment estricto en `html` y `body`, supresión de `100vw`, botones de banner en columna adaptable |
+| **TASK-10.1** | Poda de Redundancias y Reducción Scroll Móvil | ✅ Completado | `index.html`, `src/styles/*.css`, `src/i18n/*.json` | Eliminación de sección `#ai-sdd`, deduplicación de tiro con arco a `#offtopic`, unificación de inicios 2006-2010 y reducción de >500px de padding vertical en móvil |
+| **TASK-10.2** | Optimización para Bots de IA de Reclutamiento & ATS | ✅ Completado | `public/llms.txt`, `public/llms-full.txt`, `public/cv.md`, `public/_headers`, `public/robots.txt`, `index.html` | Estándar llmstxt.org, bloque de metadatos de cribado rápido (IC5/IC6, stack desglosado, idiomas, autorización de trabajo), estructura CAR/STAR con métricas y Schema.org JSON-LD enriquecido |
 
 ---
 

@@ -55,6 +55,17 @@
   2. **Scripts de Ejecución:** `npm test` (`vitest run`) y `npm run test:watch` (`vitest`).
   3. **Criterio de Calidad en CI/CD:** La suite debe ejecutarse en <1 segundo y alcanzar el 100% de éxito como precondición obligatoria para cualquier commit o despliegue.
 
+### ADR-06: Arquitectura de Ingestión Machine-Readable para Bots de IA y ATS (/llms.txt, /llms-full.txt, /cv.md y Schema.org JSON-LD)
+- **Decisión:** Implementar una arquitectura de doble consumo (Humano / Agente de IA) que exponga el perfil profesional en formatos estándar machine-readable directamente en el Edge de Cloudflare:
+  1. **Estándar Abierto `llms.txt` y `llms-full.txt`:** Ubicados en la raíz pública (`/llms.txt` para índice y directivas rápidas; `/llms-full.txt` para el CV completo en Markdown).
+  2. **Endpoint Directo `/cv.md`:** Espejo del CV Markdown completo servido con `Content-Type: text/markdown; charset=utf-8` para facilitar la ingesta a herramientas ATS y LLMs sin procesar scripts ni DOM.
+  3. **Grafo de Entidades Schema.org JSON-LD en `<head>`:** Objeto semántico `@graph` con `@type: "Person"` y `"ProfilePage"`, enriquecido con ocupaciones estandarizadas (código O*NET `15-1252.00`), idiomas ISO, nacionalidad, dirección, empresa y competencias `knowsAbout`.
+  4. **Descubribilidad:** Declaración en `public/robots.txt` y etiquetas `<link rel="alternate" type="text/markdown" ...>` en el `<head>` de `index.html`.
+- **Justificación:**
+  1. **Tasa de Acierto (Match Rate) Máxima en ATS:** Elimina la pérdida de datos, fragmentación o alucinaciones provocadas por parsers DOM que intentan raspar SPAs complejas.
+  2. **Eficiencia en Tokens y Latencia:** Un crawler de IA descarga y procesa el CV íntegro en <50ms con <2.500 tokens de contexto, frente a los >15.000 tokens requeridos para parsear un árbol HTML completo.
+  3. **Diferenciación Técnica:** Demuestra en la propia arquitectura el conocimiento profundo de Carlos sobre ecosistemas agénticos y estándares de interoperabilidad de IA.
+
 ---
 
 ## 2. Plan para la Versión Inicial Sin Foto (Avatar Técnico 2D/3D)
@@ -103,8 +114,16 @@ Ubicado bajo el encabezado principal del Hero o como barra flotante superior (*T
 ## 4. Jerarquía de Componentes y Estructura de Código
 
 ```
+public/
+├── llms.txt                     # Índice y directivas de cribado rápido para LLMs y bots
+├── llms-full.txt                # CV íntegro en Markdown optimizado para ATS y agentes
+├── cv.md                        # Endpoint directo en Markdown sin procesar
+├── _headers                     # Cabeceras de seguridad y Content-Type/Caché para markdown
+├── robots.txt                   # Instrucciones y sitemap para crawlers y bots de IA
+└── assets/                      # Iconos SVG, monograma CLA y fotografía profesional
+
 src/
-├── index.html                   # Documento principal semántico One-Page
+├── index.html                   # Documento principal semántico One-Page con JSON-LD
 ├── styles/
 │   ├── main.css                 # Reset, tipografía y layout general
 │   ├── themes.css               # Variables CSS para Light (Default) y Dark
@@ -112,6 +131,7 @@ src/
 ├── scripts/
 │   ├── main.ts                  # Punto de entrada de la aplicación
 │   ├── theme-switcher.ts        # Lógica de Claro/Oscuro + LocalStorage (Claro por defecto)
+│   ├── a11y-switcher.ts         # Modo alto contraste para daltonismo y baja visión
 │   ├── i18n/
 │   │   ├── engine.ts            # Motor reactivo de traducción
 │   │   ├── es.json              # Textos en Español
@@ -119,12 +139,10 @@ src/
 │   │   └── va.json              # Textos en Valenciano
 │   ├── visual/
 │   │   ├── canvas-background.ts # Red de nodos 2D interactiva de fondo
-│   │   ├── tech-avatar.ts       # Holograma 3D/2D para versión inicial sin foto
 │   │   └── counter-animator.ts  # Animación de contadores de métricas
 │   └── components/
 │       ├── navbar.ts            # Scrollspy, menú móvil responsive
-│       └── sdd-modal.ts         # Modal interactivo explicativo del flujo IA/SDD
-└── assets/                      # Iconos SVG, monograma y futuro espacio para foto
+│       └── sdd-modal.ts         # Modal interactivo explicativo del flujo IA/SDD (4 Gates)
 ```
 
 ---
@@ -133,15 +151,15 @@ src/
 
 | ID Sección | Componente | Elementos Clave |
 | :--- | :--- | :--- |
-| `#hero` | **HeroSection** | Titular, subtítulo, Banner IA/SDD, `TechAvatar` (versión inicial sin foto), CTAs principales. |
+| `#hero` | **HeroSection** | Titular, subtítulo, Banner IA/SDD con modal de 4 gates, foto con aura, badges y CTAs principales. |
 | `#strengths` | **StrengthsGrid** | 4 Pilares Técnicos (Arquitectura Distribuida & EDA, Backend de Misión Crítica, IA Agéntica & SDD, Datos/BI). |
-| `#ai-sdd` | **AiEngineeringSection** | El factor diferencial: Claude Code, Antigravity, MCP Server, Spec-Driven Development y guardarraíles. |
-| `#projects` | **ProjectsShowcase** | 4 Casos de estudio (MCP Diagnóstico, Fixeador de periodos, Conectividad OTAs, Big Data E-commerce) con filtros interactivos. |
-| `#experience`| **ExperienceTimeline** | Línea temporal interactiva (Avantio 2018-hoy, Orca, Blue Solutions, Binn, FBCV, Serolo). |
-| `#skills` | **SkillsMatrix** | Grid de competencias técnicas clasificadas por área técnica con buscador/filtro. |
-| `#education` | **EducationSection** | Especialización IA/Big Data, Ingeniería Informática UPV, DAI y liderazgo en Tiro con Arco. |
-| `#contact` | **ContactSection** | Botón para agendar reunión, descarga directa de CV, enlaces directos a LinkedIn, GitHub, email y teléfono. |
-| `footer` | **Footer** | Copyright, enlace a GitHub, mención a Cloudflare Edge y créditos de construcción con IA. |
+| `#projects` | **ProjectsShowcase** | Casos de estudio (MCP Diagnóstico, Timeline Conciliator, Conectividad OTAs en Tiempo Real, Ámbar HiFi) con filtros interactivos. |
+| `#experience`| **ExperienceTimeline** | Línea temporal compactada sin redundancias (Avantio 2018-hoy, Orca, Blue Solutions, Binn, Early Career Serolo/FBCV 2006-2010). |
+| `#skills` | **SkillsMatrix** | Grid de competencias técnicas clasificadas por área técnica con buscador/filtro interactivo. |
+| `#education` | **EducationSection** | Especialización IA/Big Data, Ingeniería Informática UPV y DAI (enfoque 100% técnico académico). |
+| `#offtopic` | **OfftopicSection** | Pasiones personales (Tiro con Arco con badges de Campeón de España y láser focus, HiFi Audiophile, Mototurismo). |
+| `#contact` | **ContactSection** | Botón para agendar/copiar email, enlace directo a `cv.md` (AI/ATS), LinkedIn, GitHub y teléfono. |
+| `footer` | **Footer** | Copyright, enlaces directos a `/llms.txt` y `/cv.md`, mención a Cloudflare Edge y créditos de construcción con IA. |
 
 ---
 

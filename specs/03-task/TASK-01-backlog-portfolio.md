@@ -170,3 +170,28 @@ Cada tarea atómica se considerará completa únicamente cuando:
   - Prueba con emulador de Cloudflare (`npx wrangler dev`).
   - **AC:** Despliegue listo para validación por Carlos Lara Albir.
 
+---
+
+### WP7: Optimización Integral para Bots de IA de Reclutamiento y ATS (Machine-Readable CV)
+- [x] **TASK-7.1: Estándar Abierto `llms.txt` y `llms-full.txt` (llmstxt.org)**
+  - Crear `public/llms.txt` como índice de resumen ejecutivo con directivas ATS (roles objetivo IC5/IC6, experiencia desglosada, stack y enlaces).
+  - Crear `public/llms-full.txt` con el Curriculum Vitae íntegro en Markdown limpio, bloque de metadatos de cribado rápido, tabla de taxonomía y estructura CAR/STAR con métricas en negrita.
+  - **AC:** Ambos archivos son accesibles vía HTTP en la raíz del dominio y conformes a llmstxt.org.
+
+- [x] **TASK-7.2: Endpoint Directo en Markdown (`/cv.md`) y Enlaces en la UI**
+  - Exponer `/cv.md` en `public/` para acceso directo y sin procesar a la versión completa del CV.
+  - Integrar botón accesible en la sección de contacto (`CV Markdown (AI/ATS) ↗`) y enlaces directos en el footer.
+  - **AC:** Acceso en 1 clic desde el navegador y descarga limpia para parsers ATS.
+
+- [x] **TASK-7.3: Grafo Semántico Schema.org (JSON-LD en `<head>`)**
+  - Integrar script `application/ld+json` con tipos `Person` y `ProfilePage`.
+  - Enriquecer con código ocupacional O*NET (`15-1252.00`), idiomas ISO (`es`, `en`, `ca`), nacionalidad, dirección postal, ocupaciones objetivo, competencias (`knowsAbout`), educación (`alumniOf`) y empresa (`worksFor`).
+  - Declarar etiquetas `<link rel="alternate" type="text/markdown">` para `llms.txt`, `llms-full.txt` y `cv.md`.
+  - **AC:** Validación de datos estructurados Schema.org sin errores de sintaxis.
+
+- [x] **TASK-7.4: Configuración de Cabeceras HTTP y Robots (`_headers` y `robots.txt`)**
+  - Configurar en `public/_headers` las cabeceras `Content-Type: text/markdown; charset=utf-8` y `text/plain; charset=utf-8` con `Cache-Control: public, max-age=3600`.
+  - Actualizar `public/robots.txt` declarando explícitamente los recursos machine-readable para crawlers de IA.
+  - **AC:** Verificación mediante `curl -I` retornando 200 OK y tipos MIME correctos.
+
+

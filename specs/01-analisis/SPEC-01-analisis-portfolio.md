@@ -23,6 +23,7 @@ Crear una plataforma web de alto impacto profesional en formato **One Page** ori
 - **CTOs, VPs of Engineering y Directores Técnicos:** Buscan líderes técnicos capaces de entregar código robusto, diseñar arquitecturas escalables y modernizar la productividad de sus equipos mediante IA y buenas prácticas.
 - **Engineering Managers y Tech Leads:** Buscan ingenieros con alto rigor técnico, referentes en code reviews, con cero problemas de calidad en producción y mentalidad de producto.
 - **Technical Recruiters & Headhunters:** Necesitan identificar en menos de 5 segundos la propuesta de valor única, las tecnologías clave (TypeScript, Node.js, Cloud, IA, Event-Driven) y datos de contacto directos.
+- **Bots de IA de Reclutamiento, Crawlers LLM y Sistemas ATS (Applicant Tracking Systems):** Agentes autónomos de búsqueda y cribado curricular (LinkedIn AI Recruiter, Eightfold, Greenhouse AI, SeekOut, Paradox, y prompts de Claude/ChatGPT). Requieren ingesta machine-readable sin fricción de DOM/CSS, extracción determinista de entidades, métricas cuantificables, taxonomía de habilidades y verificación instantánea de requisitos excluyentes.
 
 ### 1.3. Propuesta de Valor Única (UVP)
 > *"Ingeniero Backend Senior con más de dos décadas diseñando sistemas de alta disponibilidad e integraciones críticas, potenciado por flujos de desarrollo agéntico con IA (Claude Code, MCP, SDD) para entregar software con velocidad exponencial y cero defectos en producción."*
@@ -155,6 +156,26 @@ Sustituyendo métricas aisladas de una empresa por 4 pilares universales de maes
 ### 4.10. Contacto y Enlaces
 - Email, LinkedIn, GitHub, Teléfono, descarga de CV.
 
+### 4.11. Optimización Integral para Bots de IA de Reclutamiento y Sistemas ATS (Machine-Readable Curriculum Vitae)
+La web no solo debe servir a lectores humanos, sino actuar como un **Curriculum Vitae machine-readable de alta fidelidad** optimizado para agentes de selección basados en IA (LinkedIn AI Recruiter, Eightfold, Greenhouse AI, SeekOut, Moonhub, y prompts de cribado con Claude/ChatGPT):
+1. **Adopción del estándar abierto `llms.txt` y `llms-full.txt` (llmstxt.org):**
+   - `/llms.txt`: Índice de resumen ejecutivo estructurado con directivas de cribado rápido (roles objetivo IC5/IC6, años de experiencia desglosados, stack core y enlaces canónicos).
+   - `/llms-full.txt`: Documento Markdown íntegro del CV con formateo limpio, tablas de competencias, hitos desglosados y métricas cuantificadas.
+2. **Endpoint Directo de CV en Markdown (`/cv.md`):**
+   - Proporciona un acceso directo sin procesar a la versión completa del CV en Markdown puro con cabecera `Content-Type: text/markdown; charset=utf-8`, permitiendo a los reclutadores e IAs copiar y pegar o ingerir el texto sin ruido de maquetación DOM ni scripts.
+3. **Bloque de Metadatos ATS & Directivas de Cribado Rápido:**
+   - Declaración explícita de puestos objetivo (*Senior Backend Engineer, Staff Software Engineer, Lead Backend Engineer, Distributed Systems Architect*).
+   - Nivel de seniority equivalente estandarizado (*IC5 / IC6 / Staff*).
+   - Años de experiencia desglosados por tecnología clave (para superar filtros numéricos automáticos).
+   - Idiomas y niveles: Español (Nativo), Catalán/Valenciano (Nativo), Inglés (Competencia profesional B2/C1).
+   - Permiso de trabajo: Ciudadanía de la Unión Europea (España) con plena disponibilidad para remoto global o híbrido (Valencia).
+4. **Estructura CAR / STAR con Métricas Cuantificadas:**
+   - Toda experiencia y caso de estudio debe redactarse bajo el esquema Contexto/Problema → Acción/Solución → Resultado Cuantificado (p.ej., *"98% reducción de tiempos de diagnóstico"*, *"Overbookings reducidos a prácticamente cero"*, *"27+ usuarios activos en OPS"*, *"0 reverts en producción"*).
+5. **Índice de Taxonomía y Palabras Clave ATS:**
+   - Cobertura exhaustiva de términos técnicos para motores de búsqueda semántica y embeddings (EDA, SQS, SNS, EventBridge, Hexagonal Architecture, DDD, Idempotency, DLQ, Microservices, CI/CD, Docker, TDD, Vitest, etc.).
+6. **Grafo Semántico Schema.org (JSON-LD en `<head>`):**
+   - Tipos `@type: ["Person", "ProfilePage"]` con código ocupacional O*NET (`15-1252.00`), idiomas ISO, nacionalidad, dirección, ocupaciones objetivo, competencias (`knowsAbout`), educación (`alumniOf`) y empleador actual (`worksFor`).
+
 ---
 
 ## 5. Requisitos No Funcionales (NFR)
@@ -165,6 +186,7 @@ Sustituyendo métricas aisladas de una empresa por 4 pilares universales de maes
 4. **Accesibilidad:** WCAG 2.1 AA (contraste para modo oscuro y claro, navegación por teclado, soporte de lectores de pantalla).
 5. **Persistencia de Preferencias:** Almacenamiento local para idioma y tema seleccionado.
 6. **Metodología de Calidad de Software (SDD + TDD Mandatario):** Todo desarrollo técnico debe estar guiado por pruebas bajo el paradigma TDD (Test-Driven Development). Ningún módulo de scripting o componente funcional se considera válido sin tests unitarios y de integración automatizados con Vitest (`tests/*.test.ts`), validados en el ciclo Red -> Green -> Refactor.
+7. **Procesamiento Óptimo por Bots de IA de Reclutamiento y ATS (RNF-AI-CV):** Los recursos `/llms.txt`, `/llms-full.txt` y `/cv.md` deben servirse directamente desde el Edge de Cloudflare con cabeceras de texto puro/markdown y caché (`Cache-Control: public, max-age=3600`), ser descubribles mediante `robots.txt` y enlaces `<link rel="alternate" type="text/markdown">` en el `<head>`, garantizando latencia <50ms y cero consumo superfluo de tokens para scrapers de IA.
 
 ---
 
