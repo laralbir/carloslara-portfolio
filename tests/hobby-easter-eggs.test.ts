@@ -155,6 +155,38 @@ describe('Hobby Interactive Easter Eggs', () => {
       expect(Math.abs(tremor1.y)).toBeGreaterThan(0);
       expect(tremor1.x).not.toBe(tremor2.x);
     });
+
+    it('supports mobile touch drag-to-aim and release-to-fire with ergonomic offset', () => {
+      const area = document.querySelector<HTMLElement>('.archery-interactive-area')!;
+      const svg = document.querySelector<SVGSVGElement>('.archery-target-svg')!;
+
+      vi.spyOn(svg, 'getBoundingClientRect').mockReturnValue({
+        left: 100,
+        top: 100,
+        width: 160,
+        height: 160,
+        right: 260,
+        bottom: 260,
+        x: 100,
+        y: 100,
+        toJSON: () => {},
+      });
+
+      startManualAim(area, 180, 180, true);
+      expect(getManualAimState().isManual).toBe(true);
+
+      // Verify ergonomic touch offset shifts y upward so finger doesn't occlude reticle
+      expect(getManualAimState().y).toBeLessThan(0);
+
+      updateManualAimCoords(area, 190, 190, true);
+
+      triggerArcheryShot(area);
+      stopManualAim(area);
+
+      expect(getManualAimState().isManual).toBe(false);
+      const feedback = document.querySelector<HTMLElement>('.archery-hit-feedback')!;
+      expect(feedback.children.length).toBeGreaterThan(0);
+    });
   });
 
   describe('HiFi Vinyl Speed & Rotation Interaction', () => {

@@ -78,7 +78,7 @@ export function computeBowTremor(time: number): { x: number; y: number } {
   };
 }
 
-export function startManualAim(area: HTMLElement, clientX: number, clientY: number): void {
+export function startManualAim(area: HTMLElement, clientX: number, clientY: number, isTouch = false): void {
   const aimer = area.querySelector<HTMLElement>('.archery-sight-aimer');
   const targetSvg = area.querySelector<SVGSVGElement>('.archery-target-svg');
   if (!aimer || !targetSvg) return;
@@ -94,8 +94,11 @@ export function startManualAim(area: HTMLElement, clientX: number, clientY: numb
     const scaleX = 160 / svgRect.width;
     const scaleY = 160 / svgRect.height;
 
+    // Ergonomic vertical offset for touch so the user's thumb does not occlude the sight
+    const adjustedCy = isTouch ? cy - (svgRect.height * 0.16) : cy;
+
     let x = (cx - centerX) * scaleX;
-    let y = (cy - centerY) * scaleY;
+    let y = (adjustedCy - centerY) * scaleY;
     const dist = Math.hypot(x, y);
     const maxRadius = 68;
     if (dist > maxRadius) {
@@ -135,7 +138,7 @@ export function startManualAim(area: HTMLElement, clientX: number, clientY: numb
   aimRafId = requestAnimationFrame(loop);
 }
 
-export function updateManualAimCoords(area: HTMLElement, clientX: number, clientY: number): void {
+export function updateManualAimCoords(area: HTMLElement, clientX: number, clientY: number, isTouch = false): void {
   if (!isAimingManual) return;
   const targetSvg = area.querySelector<SVGSVGElement>('.archery-target-svg');
   if (!targetSvg) return;
@@ -147,8 +150,11 @@ export function updateManualAimCoords(area: HTMLElement, clientX: number, client
   const scaleX = 160 / svgRect.width;
   const scaleY = 160 / svgRect.height;
 
+  // Ergonomic vertical offset for touch so the user's thumb does not occlude the sight
+  const adjustedCy = isTouch ? clientY - (svgRect.height * 0.16) : clientY;
+
   let x = (clientX - centerX) * scaleX;
-  let y = (clientY - centerY) * scaleY;
+  let y = (adjustedCy - centerY) * scaleY;
   const dist = Math.hypot(x, y);
   const maxRadius = 68;
   if (dist > maxRadius) {
@@ -329,29 +335,100 @@ export function initHobbyEasterEggs(): void {
   // 1. Archery Scene
   const archeryArea = document.querySelector<HTMLElement>('.archery-interactive-area');
   if (archeryArea) {
-    // Follow mouse pointer with realistic bow holding inertia & micro-sway
-    archeryArea.addEventListener('pointerenter', (e) => {
-      if (e.pointerType === 'mouse') {
-        startManualAim(archeryArea, e.clientX, e.clientY);
+    let lastShotTime = 0;
+    let isTouchAiming = false;
+
+    const triggerShot = () => {
+      const now = Date.now();
+      if (now - lastShotTime < 280) return;
+      lastShotTime = now;
+      triggerArcheryShot(archeryArea);
+    };
+
+    // --- Pointerdown: Touch starts manual aiming; Mouse clicks to shoot ---
+    archeryArea.addEventListener('pointerdown', (e: PointerEvent) => {
+      if (e.pointerType === 'touch') {
+        isTouchAiming = true;
+        startManualAim(archeryArea, e.clientX, e.clientY, true);
+        if (typeof archeryArea.setPointerCapture === 'function') {
+          try {
+            archeryArea.setPointerCapture(e.pointerId);
+          } catch {}
+        }
+      } else if (e.button === 0) {
+        triggerShot();
       }
     });
 
-    archeryArea.addEventListener('pointermove', (e) => {
-      if (e.pointerType === 'mouse') {
+    // --- Pointermove: Touch drags to aim; Mouse hovers to aim ---
+    archeryArea.addEventListener('pointermove', (e: PointerEvent) => {
+      if (e.pointerType === 'touch') {
+        if (isTouchAiming) {
+          updateManualAimCoords(archeryArea, e.clientX, e.clientY, true);
+        }
+      } else if (e.pointerType === 'mouse') {
         if (!getManualAimState().isManual) {
-          startManualAim(archeryArea, e.clientX, e.clientY);
+          startManualAim(archeryArea, e.clientX, e.clientY, false);
         } else {
-          updateManualAimCoords(archeryArea, e.clientX, e.clientY);
+          updateManualAimCoords(archeryArea, e.clientX, e.clientY, false);
         }
       }
     });
 
-    // When pointer leaves focus/hover, revert to autonomous wandering across entire target
-    archeryArea.addEventListener('pointerleave', () => {
-      stopManualAim(archeryArea);
+    // --- Pointerup: Touch release fires the arrow! ---
+    archeryArea.addEventListener('pointerup', (e: PointerEvent) => {
+      if (e.pointerType === 'touch') {
+        if (isTouchAiming) {
+          isTouchAiming = false;
+          triggerShot();
+          stopManualAim(archeryArea);
+          if (typeof archeryArea.releasePointerCapture === 'function') {
+            try {
+              archeryArea.releasePointerCapture(e.pointerId);
+            } catch {}
+          }
+        }
+      }
     });
 
-    attachResponsiveHandler(archeryArea, () => triggerArcheryShot(archeryArea));
+    // --- Pointercancel: Touch interrupted (e.g. system alert) ---
+    archeryArea.addEventListener('pointercancel', (e: PointerEvent) => {
+      if (e.pointerType === 'touch') {
+        isTouchAiming = false;
+        stopManualAim(archeryArea);
+        if (typeof archeryArea.releasePointerCapture === 'function') {
+          try {
+            archeryArea.releasePointerCapture(e.pointerId);
+          } catch {}
+        }
+      }
+    });
+
+    // --- Pointerenter & Pointerleave for desktop mouse ---
+    archeryArea.addEventListener('pointerenter', (e: PointerEvent) => {
+      if (e.pointerType === 'mouse') {
+        startManualAim(archeryArea, e.clientX, e.clientY, false);
+      }
+    });
+
+    archeryArea.addEventListener('pointerleave', (e: PointerEvent) => {
+      if (e.pointerType === 'mouse') {
+        stopManualAim(archeryArea);
+      }
+    });
+
+    // --- Click fallback (synthetic click / testing) ---
+    archeryArea.addEventListener('click', () => {
+      triggerShot();
+    });
+
+    // --- Keyboard accessibility (Enter / Space) ---
+    archeryArea.addEventListener('keydown', (e: KeyboardEvent) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        triggerShot();
+      }
+    });
   }
 
   // 2. HiFi Vinyl Disc
