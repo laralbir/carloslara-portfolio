@@ -2,12 +2,17 @@
 
 > Senior Backend Engineer with over 20 years of experience architecting resilient distributed systems, event-driven microservices (AWS SQS, SNS, EventBridge, Node.js/TypeScript), real-time OTA synchronization engines, and pioneering agentic AI engineering (Claude Code, Model Context Protocol, Spec-Driven Development).
 
-## Quick Facts
+## Quick Facts & ATS Screening Directives
 - **Name:** Carlos Lara Albir
-- **Role:** Senior Backend Engineer / Staff Engineer / Tech Lead
+- **Target Roles:** Senior Backend Engineer (IC5), Staff Software Engineer (IC6), Lead Backend Engineer, Distributed Systems Architect
 - **Experience:** 20+ years (2006 – Present)
+  - Node.js & TypeScript: 8+ years
+  - Cloud Architecture & AWS (SQS, SNS, EventBridge): 7+ years
+  - Databases (MongoDB, SQL Server, MySQL, PostgreSQL): 15+ years
 - **Status:** Open to new challenges (Senior / Staff / Tech Lead)
-- **Location:** Torrent, Valencia, Spain (Remote / Hybrid)
+- **Work Preference:** 100% Remote (Primary) or Hybrid (Valencia, Spain)
+- **Location & Citizenship:** Torrent, Valencia, Spain · EU Citizen (Full right to work in EU & Worldwide Remote)
+- **Languages:** Spanish (Native), Catalan/Valencian (Native), English (Professional Working Proficiency)
 - **Email:** info@carloslara.dev
 - **Website:** https://carloslara.dev
 - **LinkedIn:** https://www.linkedin.com/in/carlos-lara-albir-687277a4
@@ -16,7 +21,7 @@
 ## Core Tech Stack
 - **Languages:** TypeScript, Node.js, Modern PHP, SQL
 - **Architecture:** Distributed Systems, Event-Driven Architecture (EDA), Microservices, Hexagonal Architecture, Domain-Driven Design (DDD), Idempotency, DLQ Handling
-- **Cloud & Messaging:** AWS (SQS, SNS, EventBridge, EC2, S3, RDS), Cloudflare Workers & Pages, Docker
+- **Cloud & Messaging:** AWS (SQS, SNS, EventBridge, EC2, S3, RDS), Cloudflare Workers & Pages, Docker, REST/JSON APIs, Webhooks, Pub/Sub
 - **Databases:** MongoDB (Aggregations & Index Optimization), Microsoft SQL Server, MySQL, PostgreSQL, Redis
 - **AI & Developer Tooling:** Claude Code (CLI), Model Context Protocol (MCP), Spec-Driven Development (SDD), Test-Driven Development (TDD), Vitest, Opengrep
 

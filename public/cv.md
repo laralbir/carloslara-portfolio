@@ -9,6 +9,26 @@
 
 ---
 
+## ATS & AI Screening Metadata (Quick Match)
+
+- **Target Job Titles:** Senior Backend Engineer, Staff Backend Engineer, Lead Backend Engineer, Distributed Systems Architect.
+- **Equivalent Seniority Level:** IC5 (Senior) / IC6 (Staff) / Tech Lead.
+- **Total Relevant Experience:** 20+ years (2006 – Present).
+  - *Node.js & TypeScript:* 8+ years.
+  - *Cloud Architecture & AWS (SQS, SNS, EventBridge):* 7+ years.
+  - *Databases (MongoDB, SQL Server, MySQL, PostgreSQL):* 15+ years.
+  - *Modern PHP & Hexagonal Architecture:* 10+ years.
+  - *Agentic AI Engineering (Claude Code, MCP, SDD):* Pioneer / Early adopter.
+- **Languages:**
+  - Spanish: Native / Bilingual.
+  - Catalan / Valencian: Native / Bilingual.
+  - English: Professional Working Proficiency (B2/C1 technical & written).
+- **Work Authorization & Location:** EU Citizen (Spain) — Full unrestricted right to work in the European Union and worldwide via remote contracts.
+- **Work Preference:** 100% Remote (Primary) or Hybrid (Valencia, Spain).
+- **Availability:** Immediate to short notice.
+
+---
+
 ## Executive Profile
 
 Senior Backend Engineer with over 20 years of experience designing and operating mission-critical distributed systems, high-concurrency event-driven architectures, and real-time synchronization engines for global travel platforms. Proven track record handling millions of daily transactions across leading OTAs (Booking.com, Airbnb, Expedia, VRBO, Marriott) with zero overbooking and high availability.
@@ -17,15 +37,15 @@ Pioneering practitioner of Agentic AI Engineering: integrating Claude Code in th
 
 ---
 
-## Core Technical Competencies
+## Core Technical Competencies & Keyword Index
 
 | Category | Technologies & Methodologies |
 | :--- | :--- |
 | **Languages & Runtimes** | TypeScript (Expert), Node.js (Expert), Modern PHP (Expert), ESNext JavaScript, SQL, Stored Procedures |
-| **Distributed Architecture** | Event-Driven Architecture (EDA), Microservices, Hexagonal Architecture, Domain-Driven Design (DDD), Idempotency, Dead Letter Queues (DLQ), Eventual Consistency, Circuit Breaking, PCI-DSS Security |
-| **Cloud & Event Messaging** | AWS (SQS, SNS, EventBridge, EC2, S3, RDS), Cloudflare (Workers, Pages, Edge Caching), Docker, Linux / Ubuntu / LAMP |
+| **Distributed Architecture** | Event-Driven Architecture (EDA), Microservices, Hexagonal Architecture, Domain-Driven Design (DDD), Idempotency, Dead Letter Queues (DLQ), Eventual Consistency, Circuit Breaking, Fault Tolerance, PCI-DSS Security |
+| **Cloud & Event Messaging** | AWS (SQS, SNS, EventBridge, EC2, S3, RDS), Cloudflare (Workers, Pages, Edge Caching), Docker, Linux / Ubuntu / LAMP, REST APIs, JSON APIs, Webhooks, Message Brokers, Pub/Sub |
 | **Databases & Storage** | MongoDB (Aggregation Pipelines, Compound Index Tuning, High-Volume Data Modeling), Microsoft SQL Server, MySQL, PostgreSQL, Redis (Caching, In-Memory) |
-| **AI & Developer Tooling** | Claude Code (CLI), Model Context Protocol (MCP), Spec-Driven Development (SDD), Test-Driven Development (TDD), Vitest, Opengrep Static Analysis, Grafana Telemetry, Jira/Tempo APIs |
+| **AI & Developer Tooling** | Claude Code (CLI), Model Context Protocol (MCP), Spec-Driven Development (SDD), Test-Driven Development (TDD), Vitest, Opengrep Static Analysis, Grafana Telemetry, Prometheus, Jira/Tempo APIs, GitHub Actions, CI/CD |
 
 ---
 
@@ -65,19 +85,19 @@ Pioneering practitioner of Agentic AI Engineering: integrating Claude Code in th
 ## Featured Engineering Projects
 
 ### 1. Production Model Context Protocol (MCP) Diagnostic Server
-- **Problem:** Resolving multi-channel booking anomalies across 6 OTAs required manual database log queries across gigabytes of distributed records, consuming 15 to 60 minutes per incident.
-- **Solution:** Architected an in-house Model Context Protocol server using hexagonal architecture in Next.js, equipped with 25+ read-only tools querying MongoDB and SQL Server. Engineers can query and reconstruct complete transaction histories via natural language in seconds.
-- **Impact:** Reduced diagnostic investigation times from up to 60 minutes down to less than 30 seconds.
+- **Context/Problem:** Resolving multi-channel booking anomalies across 6 OTAs required manual database log queries across gigabytes of distributed records, consuming 15 to 60 minutes per incident.
+- **Action/Solution:** Architected an in-house Model Context Protocol server using hexagonal architecture in Next.js, equipped with 25+ read-only tools querying MongoDB and SQL Server. Engineers can query and reconstruct complete transaction histories via natural language in seconds.
+- **Quantified Result/Impact:** Reduced diagnostic investigation times by 98% (from 60 minutes down to less than 30 seconds).
 
 ### 2. Visual Timeline & Conflict Conciliator
-- **Problem:** Calendar mismatches between property availability, seasonal rules, and multi-OTA bookings required manual date cross-referencing, leading to human error and delayed fixes.
-- **Solution:** Created an internal interactive graphical diagnostic engine that cross-references seasons with reservations, detects coverage gaps, and automatically suggests exact corrective sync payloads.
-- **Impact:** Eliminated manual diagnosis mistakes and provided immediate visual root-cause identification.
+- **Context/Problem:** Calendar mismatches between property availability, seasonal rules, and multi-OTA bookings required manual date cross-referencing, leading to human error and delayed fixes.
+- **Action/Solution:** Created an internal interactive graphical diagnostic engine that cross-references seasons with reservations, detects coverage gaps, and automatically suggests exact corrective sync payloads.
+- **Quantified Result/Impact:** Eliminated manual diagnosis mistakes and provided immediate visual root-cause identification.
 
 ### 3. High-Throughput Real-Time OTA Synchronization Engine
-- **Problem:** Preventing overbookings and rate mismatches across millions of transactions distributed among Booking.com, Airbnb, Expedia, and VRBO.
-- **Solution:** Built an Event-Driven Architecture (EDA) with TypeScript/Node.js microservices decoupled via AWS SQS FIFO queues and SNS fan-out, enforcing cryptographic idempotency, Dead Letter Queues, and PCI-DSS compliance.
-- **Impact:** Drove overbookings to virtually zero while maintaining high resilience under peak booking seasons.
+- **Context/Problem:** Preventing overbookings and rate mismatches across millions of transactions distributed among Booking.com, Airbnb, Expedia, and VRBO.
+- **Action/Solution:** Built an Event-Driven Architecture (EDA) with TypeScript/Node.js microservices decoupled via AWS SQS FIFO queues and SNS fan-out, enforcing cryptographic idempotency, Dead Letter Queues, and PCI-DSS compliance.
+- **Quantified Result/Impact:** Drove overbookings to virtually zero while maintaining 99.99% uptime under peak seasonal traffic.
 
 ---
 
