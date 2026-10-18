@@ -114,6 +114,27 @@ describe("React Portfolio Components", () => {
     expect(container.textContent).toContain("Campeones Universitarios de España");
   });
 
+  it("SkillsSection renders essential core pillars and high-impact technologies", async () => {
+    const { SkillsSection } = await import("../src/components/SkillsSection");
+    const root = createRoot(container);
+    await act(async () => {
+      root.render(
+        <ThemeProvider>
+          <LanguageProvider>
+            <SkillsSection />
+          </LanguageProvider>
+        </ThemeProvider>
+      );
+    });
+
+    expect(container.textContent).toContain("Claude Code CLI");
+    expect(container.textContent).toContain("Model Context Protocol (MCP)");
+    expect(container.textContent).toContain("Node.js & TypeScript");
+    expect(container.textContent).toContain("AWS SQS & SNS");
+    expect(container.textContent).toContain("PostgreSQL");
+    expect(container.textContent).toContain("Cloudflare Workers");
+  });
+
   it("ProjectsSection renders projects and supports category filtering", async () => {
     const root = createRoot(container);
     await act(async () => {
