@@ -28,7 +28,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         return saved;
       }
     }
-    return "dark"; // Default to dark for cosmic developer portfolio
+    return "light"; // Default: light theme as specified in PLAN-01 and TASK-01
   });
 
   const [a11yContrast, setA11yContrastState] = useState<boolean>(() => {

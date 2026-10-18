@@ -158,12 +158,14 @@
   <script>
     (function() {
       try {
-        var setting = localStorage.getItem('user_theme') || 'dark';
+        var setting = localStorage.getItem('user_theme') || 'light';
         var isDark = setting === 'dark';
         if (isDark) {
           document.documentElement.classList.add('dark');
+          document.documentElement.classList.remove('light');
         } else {
           document.documentElement.classList.remove('dark');
+          document.documentElement.classList.add('light');
         }
         document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
 

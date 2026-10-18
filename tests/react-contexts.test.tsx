@@ -74,20 +74,21 @@ describe("React Contexts: Language & Theme", () => {
       );
     });
 
-    // Default is dark
-    expect(contextValue.resolvedTheme).toBe("dark");
-    expect(document.documentElement.classList.contains("dark")).toBe(true);
-    expect(document.documentElement.getAttribute("data-theme")).toBe("dark");
-
-    // Toggle theme to light
-    await act(async () => {
-      contextValue.toggleTheme();
-    });
-
+    // Default is light (as specified in PLAN-01 and TASK-01)
     expect(contextValue.resolvedTheme).toBe("light");
     expect(document.documentElement.classList.contains("light")).toBe(true);
     expect(document.documentElement.classList.contains("dark")).toBe(false);
     expect(document.documentElement.getAttribute("data-theme")).toBe("light");
+
+    // Toggle theme to dark
+    await act(async () => {
+      contextValue.toggleTheme();
+    });
+
+    expect(contextValue.resolvedTheme).toBe("dark");
+    expect(document.documentElement.classList.contains("dark")).toBe(true);
+    expect(document.documentElement.classList.contains("light")).toBe(false);
+    expect(document.documentElement.getAttribute("data-theme")).toBe("dark");
 
     // Toggle high-contrast
     expect(contextValue.a11yContrast).toBe(false);
