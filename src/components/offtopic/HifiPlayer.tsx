@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import { Disc, Zap } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export const HifiPlayer: React.FC = () => {
+  const { t } = useLanguage();
   const [speed, setSpeed] = useState<"33" | "45">("33");
   const [feedback, setFeedback] = useState<string | null>(null);
 
   const toggleSpeed = () => {
     const nextSpeed = speed === "33" ? "45" : "33";
     setSpeed(nextSpeed);
-    setFeedback(nextSpeed === "45" ? "🎵 45 RPM Turbo" : "🎵 33 ⅓ RPM");
+    setFeedback(nextSpeed === "45" ? `🎵 ${t("offtopic.hifiGame.rpm45") || "45 RPM Turbo"}` : `🎵 ${t("offtopic.hifiGame.rpm33") || "33 ⅓ RPM"}`);
   };
 
   const isTurbo = speed === "45";
@@ -19,11 +21,11 @@ export const HifiPlayer: React.FC = () => {
       <div className="w-full flex items-center justify-between text-xs font-mono mb-2">
         <div className="flex items-center gap-1.5 text-amber-400">
           <Disc className="w-4 h-4" />
-          <span>Giradiscos HiFi &amp; Vinilo Analógico</span>
+          <span>{t("offtopic.hifiGame.playerTitle") || "Giradiscos HiFi & Vinilo Analógico"}</span>
         </div>
         <div className="text-[11px] font-mono">
           <span className={isTurbo ? "text-rose-400 font-bold animate-pulse" : "text-amber-300"}>
-            {isTurbo ? "45 RPM Turbo" : "33 ⅓ RPM"}
+            {isTurbo ? (t("offtopic.hifiGame.rpm45") || "45 RPM Turbo") : (t("offtopic.hifiGame.rpm33") || "33 ⅓ RPM")}
           </span>
         </div>
       </div>
@@ -37,7 +39,7 @@ export const HifiPlayer: React.FC = () => {
             role="button"
             tabIndex={0}
             data-speed={speed}
-            aria-label="Girar vinilo y cambiar velocidad entre 33 y 45 RPM"
+            aria-label={t("offtopic.hifiGame.ariaSpin") || "Girar vinilo y cambiar velocidad entre 33 y 45 RPM"}
             className={`vinyl-disc ${isTurbo ? "is-turbo" : ""}`}
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {
@@ -99,7 +101,11 @@ export const HifiPlayer: React.FC = () => {
         }`}
       >
         <Zap className="w-4 h-4 text-amber-400" />
-        <span>{isTurbo ? "Cambiar a 33 ⅓ RPM Normal" : "Haz clic en el Vinilo para 45 RPM Turbo"}</span>
+        <span>
+          {isTurbo
+            ? (t("offtopic.hifiGame.btnNormal") || "Cambiar a 33 ⅓ RPM Normal")
+            : (t("offtopic.hifiGame.btnTurbo") || "Haz clic en el Vinilo para 45 RPM Turbo")}
+        </span>
       </button>
     </div>
   );

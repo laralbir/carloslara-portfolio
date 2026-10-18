@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Crosshair, RotateCcw, Target } from "lucide-react";
 import { calculateArcheryScore, computeBowTremor, ArcheryScoreResult } from "@/scripts/components/hobby-easter-eggs";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface ShotMarker {
   id: number;
@@ -10,6 +11,7 @@ interface ShotMarker {
 }
 
 export const ArcheryGame: React.FC = () => {
+  const { t } = useLanguage();
   const containerRef = useRef<HTMLDivElement>(null);
   const targetSvgRef = useRef<SVGSVGElement>(null);
 
@@ -112,17 +114,19 @@ export const ArcheryGame: React.FC = () => {
       <div className="w-full flex items-center justify-between text-xs font-mono mb-2">
         <div className="flex items-center gap-1.5 text-primary">
           <Target className="w-4 h-4" />
-          <span>Diana WA 50m (Tiro con Arco)</span>
+          <span>{t("offtopic.archeryGame.targetTitle") || "Diana WA 50m (Tiro con Arco)"}</span>
         </div>
         <div className="flex items-center gap-3">
           <span className="text-foreground font-bold">
-            Total: <span className="text-primary">{totalScore}</span> ({shots.length} flechas)
+            {(t("offtopic.archeryGame.totalScore") || "Total: {score} ({count} flechas)")
+              .replace("{score}", String(totalScore))
+              .replace("{count}", String(shots.length))}
           </span>
           {shots.length > 0 && (
             <button
               onClick={handleReset}
               className="p-1 rounded hover:bg-background/80 text-muted-foreground hover:text-foreground cursor-pointer"
-              title="Limpiar diana"
+              title={t("offtopic.archeryGame.resetBtn") || "Limpiar diana"}
             >
               <RotateCcw className="w-3.5 h-3.5" />
             </button>
@@ -136,7 +140,7 @@ export const ArcheryGame: React.FC = () => {
         onPointerMove={(e) => updateAimFromPointer(e.clientX, e.clientY)}
         onClick={handleShoot}
         className="relative w-64 h-64 sm:w-72 sm:h-72 flex items-center justify-center cursor-crosshair group touch-none select-none"
-        title="Haz clic o toca para disparar al centro del visor"
+        title={t("offtopic.archeryGame.aimHint") || "Haz clic o toca para disparar al centro del visor"}
       >
         <svg
           ref={targetSvgRef}
@@ -221,7 +225,7 @@ export const ArcheryGame: React.FC = () => {
         className="mt-3 px-4 py-2 rounded-xl bg-primary/15 hover:bg-primary/25 active:scale-95 text-primary border border-primary/30 font-mono text-xs font-semibold flex items-center gap-2 transition-all cursor-pointer shadow-sm"
       >
         <Crosshair className="w-3.5 h-3.5 text-primary" />
-        <span>Soltar flecha (Disparar)</span>
+        <span>{t("offtopic.archeryGame.shootBtn") || "Soltar flecha (Disparar)"}</span>
       </button>
 
       {/* Result feedback ticker */}
@@ -232,7 +236,7 @@ export const ArcheryGame: React.FC = () => {
           </div>
         ) : (
           <span className="text-[11px] font-mono text-muted-foreground">
-            Apunta compensando el temblor muscular y dispara al centro del visor
+            {t("offtopic.archeryGame.aimHint") || "Apunta compensando el temblor muscular y dispara al centro del visor"}
           </span>
         )}
       </div>

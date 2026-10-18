@@ -40,10 +40,10 @@ export const HeroSection: React.FC = () => {
   ];
 
   const achievements = [
-    { number: "20+", label: "Años en Producción", icon: <ShieldCheck className="h-4 w-4 text-emerald-400" /> },
-    { number: "341", label: "PRs Merged", icon: <TrendingUp className="h-4 w-4 text-cyan-400" /> },
-    { number: "0", label: "Reverts Auditados", icon: <Award className="h-4 w-4 text-amber-400" /> },
-    { number: "211", label: "Empresas en 11 Días", icon: <Zap className="h-4 w-4 text-primary" /> },
+    { number: "20+", label: t("hero.metricYears") || "Años en Producción", icon: <ShieldCheck className="h-4 w-4 text-emerald-400" /> },
+    { number: "341", label: t("hero.metricPrs") || "PRs Merged", icon: <TrendingUp className="h-4 w-4 text-cyan-400" /> },
+    { number: "0", label: t("hero.metricReverts") || "Reverts Auditados", icon: <Award className="h-4 w-4 text-amber-400" /> },
+    { number: "211", label: t("hero.metricCompanies") || "Empresas en 11 Días", icon: <Zap className="h-4 w-4 text-primary" /> },
   ];
 
   useEffect(() => {
@@ -158,7 +158,7 @@ export const HeroSection: React.FC = () => {
                 className="px-5 py-3.5 rounded-xl font-mono text-xs font-semibold border border-border text-muted-foreground hover:text-foreground hover:border-primary/40 transition-all flex items-center justify-center gap-2"
               >
                 <Download className="h-4 w-4" />
-                <span>CV (Markdown)</span>
+                <span>{t("hero.ctaCv") || "CV (Markdown)"}</span>
               </a>
             </div>
           </motion.div>

@@ -61,5 +61,39 @@ describe('i18n Engine & Language Control', () => {
     expect(t('projects.personal4.title', 'en')).toContain('MD GitHub Navigator');
     expect(t('projects.personal4.title', 'va')).toContain('MD GitHub Navigator');
   });
+
+  it('guarantees 100% key parity and zero missing translations across es, en, and va', async () => {
+    const es = await import('../src/i18n/es.json');
+    const en = await import('../src/i18n/en.json');
+    const va = await import('../src/i18n/va.json');
+
+    function flattenKeys(obj: any, prefix = ''): string[] {
+      let keys: string[] = [];
+      for (const k of Object.keys(obj)) {
+        if (k === 'default') continue;
+        const val = obj[k];
+        const fullKey = prefix ? `${prefix}.${k}` : k;
+        if (val && typeof val === 'object' && !Array.isArray(val)) {
+          keys = keys.concat(flattenKeys(val, fullKey));
+        } else {
+          keys.push(fullKey);
+        }
+      }
+      return keys;
+    }
+
+    const esKeys = new Set(flattenKeys(es));
+    const enKeys = new Set(flattenKeys(en));
+    const vaKeys = new Set(flattenKeys(va));
+
+    expect(esKeys.size).toBeGreaterThan(400);
+    expect(enKeys.size).toBe(esKeys.size);
+    expect(vaKeys.size).toBe(esKeys.size);
+
+    const missingInEn = [...esKeys].filter((k) => !enKeys.has(k));
+    const missingInVa = [...esKeys].filter((k) => !vaKeys.has(k));
+    expect(missingInEn).toEqual([]);
+    expect(missingInVa).toEqual([]);
+  });
 });
 

@@ -12,7 +12,11 @@
     "themeLight": "Claro",
     "themeDark": "Oscuro",
     "themeSystem": "Sistema",
-    "themeToggle": "Alternar entre tema claro y oscuro"
+    "themeToggle": "Alternar entre tema claro y oscuro",
+    "ariaMain": "Navegación principal",
+    "ariaLang": "Seleccionar idioma",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú"
   },
   "a11y": {
     "skipToContent": "Saltar al contenido principal",
@@ -28,7 +32,11 @@
     "ctaProjects": "Échale un ojo a mis proyectos",
     "ctaContact": "¿Nos tomamos un café?",
     "ctaCv": "Ver Perfil / CV ↗",
-    "statusBadge": "Disponible para roles Senior / Staff"
+    "statusBadge": "Disponible para roles Senior / Staff",
+    "metricYears": "Años en Producción",
+    "metricPrs": "PRs Merged",
+    "metricReverts": "Reverts Auditados",
+    "metricCompanies": "Empresas en 11 Días"
   },
   "aiCallout": {
     "tag": "100% IA Agéntica & SDD",
@@ -104,6 +112,21 @@
       "skill3": "MySQL & PostgreSQL",
       "skill4": "Query Optimization",
       "skill5": "Business Intelligence (BI)"
+    },
+    "tabs": {
+      "visionTab": "🎯 Visión & Trayectoria",
+      "visionTitle": "Uniendo 20 años de artesanía backend con la era agéntica",
+      "visionP1": "Llevo programando y levantando arquitecturas desde antes de que existiera la nube como la conocemos hoy. He visto modas nacer y morir, pero los fundamentos permanecen: desacoplamiento, idempotencia, resiliencia y claridad de dominio.",
+      "visionP2": "Hoy no peleo contra las herramientas de Inteligencia Artificial: las integro en el corazón de mi flujo diario a través de Claude Code y el protocolo MCP, logrando un ritmo de entrega de 10x sin sacrificar ni un ápice de rigor técnico.",
+      "archTab": "⚡ Filosofía de Arquitectura",
+      "archTitle": "Arquitecturas que escalan bajo fuego real",
+      "archP1": "Mi enfoque se basa en Clean Architecture y Event-Driven Design. Cada servicio posee responsabilidades atómicas, comunica eventos asíncronos mediante AWS EventBridge o SQS, y garantiza que un pico inesperado nunca tumbe el core del negocio.",
+      "archP2": "Desde bases de datos SQL relacionales altamente normalizadas hasta NoSQL optimizado para alta lectura, selecciono la herramienta precisa para cada necesidad de negocio.",
+      "sddTab": "🛠️ SDD & Flujos Agénticos",
+      "sddTitle": "Spec-Driven Development: Cero alucinaciones, 100% código verificado",
+      "sddP1": "Bajo la metodología SDD, el código es el subproducto de una especificación impecable. Antes de tirar una sola línea, completamos Análisis, Plan de Arquitectura y Desglose Atómico de Tareas.",
+      "sddP2": "Cada pull request pasa por pruebas automatizadas TDD (Red -> Green -> Refactor), análisis de seguridad y verificación de rendimiento antes de llegar a producción.",
+      "atsResume": "Formatos preparados para evaluadores técnicos y motores ATS/IA"
     }
   },
   "ai": {
@@ -127,7 +150,7 @@
   },
   "projects": {
     "title": "Cosas interesantes que he montado",
-    "subtitle": "Proyectos de impacto real: problemas gordos resueltos con arquitectura limpia y código robusto.",
+    "subtitle": "Problemas complejos resueltos con arquitectura limpia, sistemas desacoplados e innovación agéntica.",
     "case1": {
       "title": "Servidor MCP de Diagnóstico Operativo",
       "tag": "IA & Developer Tooling",
@@ -197,11 +220,26 @@
       "problem": "Leer y estudiar documentación técnica extensa, libros o especificaciones en Markdown alojadas en repositorios de GitHub desde el móvil resulta incómodo y fragmentado.",
       "solution": "App nativa Android (Kotlin, Jetpack Compose, Material 3, Clean Architecture + MVI) desarrollada al 100% mediante desarrollo agéntico con Google Antigravity y Claude Code. Soporte completo de GFM, renderizado de diagramas Mermaid, guardado de progreso de lectura y modo offline.",
       "impact": "Experiencia eReader fluida para desarrolladores, orquestada íntegramente con un equipo de subagentes de IA bajo metodología SDD estricta."
-    }
+    },
+    "tag": "CASOS DE ESTUDIO & PROYECTOS",
+    "titlePrefix": "Cosas Interesantes ",
+    "titleHighlight": "que He Construido",
+    "filterAll": "Todos",
+    "filterEnterprise": "Backend de Empresa & EDA",
+    "filterPersonal": "Proyectos IA & Hardware",
+    "featured": "★ Destacado",
+    "auditedImpact": "Impacto Auditado:",
+    "viewDetails": "Ver ficha detallada",
+    "viewRepo": "Ver Repositorio GitHub",
+    "modalProblem": "EL PROBLEMA DE NEGOCIO:",
+    "modalSolution": "LA SOLUCIÓN TÉCNICA:",
+    "modalImpact": "EL RESULTADO / MÉTRICA:",
+    "modalClose": "Cerrar",
+    "modalCloseAria": "Cerrar modal"
   },
   "experience": {
     "title": "Mi Trayectoria (y unas cuantas batallas)",
-    "subtitle": "Más de 20 años en la trinchera del backend: desde bare-metal y SQL hasta microservicios orientados a eventos e IA.",
+    "subtitle": "Una trayectoria forjada desde el bare-metal hasta las arquitecturas distribuidas orientadas a eventos y la inteligencia artificial agéntica.",
     "avantio": {
       "role": "Senior Backend Developer & Referente Técnico de Conectividad",
       "company": "Avantio",
@@ -266,16 +304,31 @@
       "points": [
         "Gestión de venta online de entradas y control de tornos de acceso en tiempo real sobre Microsoft SQL Server para múltiples plazas de toros emblemáticas en España: Valencia, El Puerto de Santa María, Albacete, Jaén y Palencia, respondiendo con latencias críticas durante picos masivos de venta simultánea."
       ]
-    }
+    },
+    "tag": "TRAYECTORIA & BATALLAS GANADAS",
+    "titlePrefix": "20+ Años de Backend ",
+    "titleHighlight": "en Producción Real"
   },
   "skills": {
-    "title": "Mi Caja de Herramientas",
-    "subtitle": "Las tecnologías con las que peleo a diario y en las que más valor aporto",
-    "catAi": "Desarrollo Aumentado con IA",
+    "title": "Competencias Técnicas Clave",
+    "subtitle": "Lo verdaderamente esencial: un stack consolidado tras más de 20 años resolviendo arquitecturas críticas y liderando ingeniería con IA.",
+    "catAi": "Agentic Engineering & SDD",
     "catLang": "Lenguajes & Runtimes Core",
     "catData": "Bases de Datos & Caché",
-    "catArch": "Arquitectura Distribuida & Patrones",
-    "catCloud": "Cloud, Mensajería (SQS/SNS) & DevOps"
+    "catArch": "Event-Driven & Microservicios",
+    "catCloud": "Infraestructura & Fiabilidad 0 Reverts",
+    "tag": "ARSENAL TECNOLÓGICO NUCLEICO",
+    "titleHighlight": "Herramientas de Maestría",
+    "coreTech": "TECNOLOGÍAS PRINCIPALES:",
+    "compSkills": "COMPETENCIAS COMPLEMENTARIAS:",
+    "tagAi": "Orquestación de IA & SDD",
+    "tagArch": "Sistemas Distribuidos & EDA",
+    "tagData": "Alta Concurrencia & Persistencia",
+    "tagCloud": "Edge, Cloud & CI/CD",
+    "summaryAi": "Orquestación de agentes autónomos, integración por terminal y desarrollo guiado por especificaciones con 0 alucinaciones.",
+    "summaryArch": "Sistemas distribuidos de alta disponibilidad, consistencia eventual y sincronización en tiempo real sin caídas de servicio.",
+    "summaryData": "Modelado relacional y documental optimizado para latencias críticas y picos masivos de transacciones concurrentes.",
+    "summaryCloud": "Despliegues seguros en el edge y la nube con verificación automatizada de calidad y estabilidad garantizada en producción."
   },
   "education": {
     "title": "Background & Disciplina",
@@ -283,32 +336,66 @@
     "aiDegree": {
       "title": "Especialización en IA y Big Data (CFGS)",
       "institution": "En curso (2026)",
-      "desc": "Profundizando en modelos de machine learning, deep learning, pipelines de streaming masivo y arquitecturas neuronales."
+      "desc": "Profundizando en modelos de machine learning, deep learning, pipelines de streaming masivo y arquitecturas neuronales.",
+      "tag": "IA & Analítica Avanzada",
+      "badge": "En curso (2026) · Oficial",
+      "chips": [
+        "Machine Learning",
+        "Deep Learning",
+        "Streaming Pipelines",
+        "Redes Neuronales"
+      ]
     },
     "csDegree": {
       "title": "Ingeniería Informática",
       "institution": "Universidad Politécnica de Valencia (UPV)",
-      "desc": "+80% de la carrera superada, con foco en Ingeniería del Software y Sistemas Distribuidos."
+      "desc": "+80% de la carrera superada, con foco en Ingeniería del Software y Sistemas Distribuidos.",
+      "tag": "Ingeniería del Software",
+      "badge": "UPV (+80% créditos superados)",
+      "chips": [
+        "Sistemas Distribuidos",
+        "Arquitectura de Software",
+        "Algoritmia",
+        "Estructuras de Datos"
+      ]
     },
     "daiDegree": {
       "title": "Desarrollo de Aplicaciones Informáticas (CFGS DAI)",
       "institution": "Titulación Oficial",
-      "desc": "Las bases clásicas que nunca pasan de moda: algoritmos, bases de datos y arquitectura de sistemas."
+      "desc": "Las bases clásicas que nunca pasan de moda: algoritmos, bases de datos y arquitectura de sistemas.",
+      "tag": "Desarrollo de Software",
+      "badge": "Titulación Técnica Oficial",
+      "chips": [
+        "Diseño Orientado a Objetos",
+        "Bases de Datos Relacionales",
+        "Ingeniería de Sistemas",
+        "Patrones"
+      ]
     },
     "archery": {
       "title": "Tiro con Arco: Entrenador y Juez Nacional",
       "institution": "Consejo Superior de Deportes (CSD)",
       "desc": "Llevé a mi equipo a proclamarse Campeón Universitario de España. De aquí sale mi foco milimétrico, la calma total bajo presión y el perfeccionismo técnico.",
       "champBadge": "🏆 Campeones Universitarios de España",
-      "focusBadge": "🎯 Láser Focus & Calma bajo Presión"
-    }
+      "focusBadge": "🎯 Láser Focus & Calma bajo Presión",
+      "tag": "Liderazgo & Alto Rendimiento",
+      "badge": "Consejo Superior de Deportes (CSD)",
+      "chips": [
+        "Gestión bajo Presión",
+        "Foco Milimétrico",
+        "Liderazgo de Equipos",
+        "Consistencia Técnica"
+      ]
+    },
+    "tag": "Formación & Disciplina",
+    "titleHighlight": "Curiosidad Continua & Rendimiento"
   },
   "offtopic": {
-    "tag": "Fuera de la Consola",
+    "tag": "VIDA FUERA DEL TERMINAL",
     "title": "Aficiones & Pasiones Personales",
-    "subtitle": "La ingeniería de precisión también se nutre del foco deportivo, la acústica de alta fidelidad y el espíritu explorador en ruta.",
+    "subtitle": "Fotografía real de mis tres grandes aficiones. Haz clic en cualquiera de ellas para desbloquear el minijuego interactivo oculto.",
     "viewAnim": "Animación",
-    "viewPhoto": "Foto Real",
+    "viewPhoto": "Ver foto real",
     "photoZoomHint": "Ampliar foto",
     "closeLightbox": "Cerrar foto",
     "archery": {
@@ -331,22 +418,135 @@
       "desc": "Viajes en moto de media y larga distancia por carretera y montaña. Trazar curvas con fluidez, planificar itinerarios técnicos al detalle y mantener concentración constante durante cientos de kilómetros. La misma resiliencia que en producción: anticipación, atención al entorno y disfrute del camino.",
       "photoCaption": "Moto tourer de aventura tras una jornada técnica cruzando puertos de montaña.",
       "photoAlt": "Moto de viaje con casco Shoei y guantes sobre el depósito"
+    },
+    "titlePrefix": "Aficiones & Pasiones ",
+    "titleHighlight": "que Moldean mi Carácter",
+    "returnToPhoto": "Volver a la fotografía real",
+    "zoomPhoto": "Ampliar fotografía a pantalla completa",
+    "closeZoom": "Cerrar ampliación",
+    "archeryGame": {
+      "targetTitle": "Diana WA 50m (Tiro con Arco)",
+      "totalScore": "Total: {score} ({count} flechas)",
+      "shootBtn": "Soltar flecha (Disparar)",
+      "resetBtn": "Reiniciar diana",
+      "aimHint": "Apunta compensando el temblor muscular y dispara al centro del visor"
+    },
+    "motoGame": {
+      "sceneTitle": "🏍️ Ruta de Montaña · Perspectiva Trasera",
+      "cruising": "Velocidad Crucero",
+      "accelerating": "¡¡GASSS!!",
+      "acceleratingBanner": "💨 ¡Gasss! Acelerando 🏍️",
+      "throttleHint": "Clic para dar Gasss y Tirar Humo",
+      "fullThrottleHint": "¡¡ACELERANDO A FONDO!!"
+    },
+    "hifiGame": {
+      "playerTitle": "Giradiscos HiFi & Vinilo Analógico",
+      "needleActive": "Aguja posicionada",
+      "needleResting": "Aguja reposada",
+      "clickHint": "Haz clic en la aguja o en el botón para reproducir/pausar",
+      "speed": "Velocidad",
+      "rpm33": "33 ⅓ RPM",
+      "rpm45": "45 RPM Turbo",
+      "btnNormal": "Cambiar a 33 ⅓ RPM Normal",
+      "btnTurbo": "Haz clic en el Vinilo para 45 RPM Turbo",
+      "ariaSpin": "Girar vinilo y cambiar velocidad entre 33 y 45 RPM"
     }
   },
   "contact": {
     "title": "¿Nos conocemos?",
-    "subtitle": "Siempre abierto a charlar sobre retos técnicos interesantes, sistemas de alto rendimiento o posiciones Senior / Staff / Tech Lead.",
+    "subtitle": "Abierto a roles de Senior Backend Engineer, Staff Engineer, Tech Lead o consultoría especializada en sistemas de alta disponibilidad e ingeniería agéntica.",
     "statusActive": "Uplink Activo · Abierto a retos Senior, Staff o Tech Lead",
     "copyEmail": "Copiar email",
-    "emailCopied": "¡Email copiado! Escríbeme cuando quieras.",
+    "emailCopied": "Copiado",
     "linkedIn": "Ver LinkedIn ↗",
     "downloadCv": "Descargar CV (PDF)",
     "cvMarkdown": "CV Markdown (IA/ATS) ↗",
-    "location": "Torrent, Valencia, España (o en cualquier rincón del mundo en remoto)"
+    "location": "Torrent, Valencia, España (o en cualquier rincón del mundo en remoto)",
+    "tag": "CONTACTO DIRECTO",
+    "titlePrefix": "¿Hablamos sobre tu Próxima ",
+    "titleHighlight": "Arquitectura o Reto Técnico?",
+    "emailCard": "Correo Electrónico",
+    "emailCopy": "Copiar",
+    "emailResponse": "Respuesta habitual en menos de 24 horas laborables.",
+    "linkedinCard": "Perfil Profesional",
+    "githubCard": "Repositorios & Código Abierto",
+    "locationCard": "Ubicación & Disponibilidad",
+    "locationValue": "Valencia, España (Remoto / Híbrido)",
+    "formTitle": "Envíame un Mensaje",
+    "formSubtitle": "¿Tienes una vacante técnica, un proyecto exigente o quieres contrastar visiones de arquitectura? Escríbeme y conectamos.",
+    "nameLabel": "Tu Nombre / Empresa",
+    "namePlaceholder": "Ej. María Navarro (CTO)",
+    "emailLabel": "Tu Correo Electrónico *",
+    "emailPlaceholder": "nombre@empresa.com",
+    "messageLabel": "Mensaje o Contexto del Proyecto *",
+    "messagePlaceholder": "Cuéntame brevemente sobre tu equipo, el stack o la oportunidad técnica...",
+    "submitBtn": "Enviar Mensaje Directo",
+    "submittingBtn": "Enviando...",
+    "emailCopiedToast": "¡Email copiado al portapapeles! 📋",
+    "emailCopiedToastDesc": "info@carloslara.dev listo para pegar.",
+    "incompleteToast": "Campos incompletos",
+    "incompleteToastDesc": "Por favor, introduce tu email y un breve mensaje.",
+    "successToast": "¡Mensaje registrado! 🚀",
+    "successToastDesc": "Carlos te responderá a la mayor brevedad posible."
   },
   "footer": {
     "rights": "Todos los derechos reservados.",
     "builtWith": "Diseñado y desarrollado al 100% con IA agéntica y Spec-Driven Development.",
-    "edgePowered": "Alojado y desplegado con GitHub Actions & GitHub Pages."
+    "edgePowered": "Cloudflare Pages",
+    "desc": "Agentic Engineer & Senior Backend Architect. Diseñando sistemas distribuidos resilientes, sincronización en tiempo real y flujos agénticos guiados por Spec-Driven Development (SDD).",
+    "navTitle": "Navegación",
+    "aiTitle": "Machine-Readable (AI)",
+    "backToTop": "Subir"
+  },
+  "sdd": {
+    "tag": "METODOLOGÍA SDD (SPEC-DRIVEN DEVELOPMENT)",
+    "titlePrefix": "El Código es el ",
+    "titleHighlight": "Resultado Final",
+    "titleSuffix": ", no el Punto de Partida",
+    "subtitle": "Cómo orquesto agentes autónomos (Claude Code, Antigravity) con ingeniería de software rigurosa para garantizar 0 alucinaciones y código 100% verificado.",
+    "step1": {
+      "phase": "FASE 01",
+      "role": "@analyst",
+      "gate": "Gate 1 · Análisis",
+      "title": "Elicitación de Requisitos & Dominio",
+      "desc": "Especificación formal de objetivos de negocio, números auditados sin humo, restricciones de latencia y casos de uso antes de escribir una sola línea de código.",
+      "highlight": "Cero ambigüedad"
+    },
+    "step2": {
+      "phase": "FASE 02",
+      "role": "@planner",
+      "gate": "Gate 2 · Plan de Arquitectura",
+      "title": "Diseño Técnico & Decisiones ADR",
+      "desc": "Selección rigurosa de patrones (Event-Driven, Hexagonal), diseño de interfaces, diagramas de secuencia C4 y justificación de stack tecnológico.",
+      "highlight": "ADRs documentadas"
+    },
+    "step3": {
+      "phase": "FASE 03",
+      "role": "@tasker",
+      "gate": "Gate 3 · Backlog Atómico",
+      "title": "Desglose Atómico con DoD Estricto",
+      "desc": "Descomposición de la arquitectura en paquetes de trabajo y tareas atómicas. Cada tarea cuenta con Criterios de Aceptación (AC) y Definición de Terminado verificable.",
+      "highlight": "Criterios DoD claros"
+    },
+    "step4": {
+      "phase": "FASE 04",
+      "role": "@implementer",
+      "gate": "Gate 4 · Producción ⚡",
+      "title": "TDD (Red -> Green -> Refactor)",
+      "desc": "Desarrollo guiado por pruebas unitarias previas con Vitest, auditoría de seguridad Opengrep, 100/100 Lighthouse y despliegue continuo con 0 reverts.",
+      "highlight": "0 Reverts auditados"
+    },
+    "banner": {
+      "tag": "ARTEFACTO DE REFERENCIA",
+      "desc": "Todos los documentos de especificación viven en el repositorio para garantizar trazabilidad y reproducibilidad total.",
+      "btn": "Ver Specs en GitHub"
+    }
+  },
+  "welcome": {
+    "skip": "Saltar",
+    "telemetry": "Iniciando telemetría de alta disponibilidad...",
+    "msg1": "Ingeniería Agéntica & Arquitectura Backend",
+    "msg2": "Más de 20 Años en Sistemas Distribuidos de Alta Concurrencia",
+    "msg3": "Metodología SDD Estricta · 0 Reverts"
   }
 }

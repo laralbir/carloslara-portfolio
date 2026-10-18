@@ -51,7 +51,7 @@ export const Navbar: React.FC = () => {
             ? "bg-background/85 backdrop-blur-md border-b border-border/60 shadow-lg py-2.5"
             : "bg-background/40 backdrop-blur-sm border-b border-border/20 py-4"
         }`}
-        aria-label="Navegación principal"
+        aria-label={t("nav.ariaMain") || "Navegación principal"}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Brand Logo */}
@@ -93,7 +93,7 @@ export const Navbar: React.FC = () => {
             <div
               className="flex items-center bg-card/70 border border-border/60 rounded-full p-0.5 text-xs font-mono shadow-inner"
               role="radiogroup"
-              aria-label="Seleccionar idioma"
+              aria-label={t("nav.ariaLang") || "Seleccionar idioma"}
             >
               {(["es", "en", "va"] as Language[]).map((lang) => (
                 <button
@@ -118,7 +118,7 @@ export const Navbar: React.FC = () => {
               type="button"
               onClick={toggleA11yContrast}
               aria-pressed={a11yContrast}
-              title={a11yContrast ? "Desactivar alto contraste (Accesibilidad)" : "Activar alto contraste (Accesibilidad WCAG AAA)"}
+              title={a11yContrast ? (t("a11y.contrastActive") || "Modo alto contraste activado") : (t("a11y.toggleContrast") || "Alternar modo alto contraste")}
               className={`p-2 rounded-full border transition-all cursor-pointer ${
                 a11yContrast
                   ? "border-amber-400 bg-amber-400/20 text-amber-300 shadow-md ring-2 ring-amber-400/50"
@@ -126,14 +126,14 @@ export const Navbar: React.FC = () => {
               }`}
             >
               <Eye className="w-4 h-4" />
-              <span className="sr-only">{a11yContrast ? "Desactivar alto contraste" : "Activar alto contraste"}</span>
+              <span className="sr-only">{a11yContrast ? (t("a11y.contrastActive") || "Modo alto contraste activado") : (t("a11y.toggleContrast") || "Alternar modo alto contraste")}</span>
             </button>
 
             {/* Theme Toggle */}
             <button
               type="button"
               onClick={toggleTheme}
-              title={resolvedTheme === "dark" ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
+              title={t("nav.themeToggle") || "Alternar tema"}
               className="p-2 rounded-full border border-border/60 hover:bg-card/70 text-muted-foreground hover:text-foreground transition-all cursor-pointer"
             >
               {resolvedTheme === "dark" ? (
@@ -141,7 +141,7 @@ export const Navbar: React.FC = () => {
               ) : (
                 <Moon className="w-4 h-4 text-indigo-400" />
               )}
-              <span className="sr-only">Cambiar tema</span>
+              <span className="sr-only">{t("nav.themeToggle") || "Alternar tema"}</span>
             </button>
           </div>
 
@@ -156,8 +156,8 @@ export const Navbar: React.FC = () => {
                   ? "border-amber-400 bg-amber-400/20 text-amber-300 ring-1 ring-amber-400/60"
                   : "border-border/60 text-muted-foreground"
               }`}
-              title={a11yContrast ? "Alto contraste activo" : "Activar alto contraste"}
-              aria-label="Alto contraste"
+              title={a11yContrast ? (t("a11y.contrastActive") || "Modo alto contraste activado") : (t("a11y.toggleContrast") || "Alternar modo alto contraste")}
+              aria-label={t("a11y.toggleContrast") || "Alto contraste"}
             >
               <Eye className="w-4 h-4" />
             </button>
@@ -167,7 +167,7 @@ export const Navbar: React.FC = () => {
               type="button"
               onClick={toggleTheme}
               className="p-1.5 rounded-lg border border-border/60 text-muted-foreground"
-              aria-label="Cambiar tema"
+              aria-label={t("nav.themeToggle") || "Cambiar tema"}
             >
               {resolvedTheme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </button>
@@ -176,7 +176,7 @@ export const Navbar: React.FC = () => {
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-lg border border-border/60 text-foreground hover:bg-card/70 transition-colors"
-              aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
+              aria-label={mobileMenuOpen ? (t("nav.closeMenu") || "Cerrar menú") : (t("nav.openMenu") || "Abrir menú")}
               aria-expanded={mobileMenuOpen}
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}

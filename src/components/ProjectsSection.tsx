@@ -148,16 +148,17 @@ export const ProjectsSection: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-mono mb-4">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>CASOS DE ESTUDIO &amp; PROYECTOS</span>
+            <span>{t("projects.tag") || "CASOS DE ESTUDIO & PROYECTOS"}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
-            Cosas Interesantes{" "}
+            {t("projects.titlePrefix") || "Cosas Interesantes "}
             <span className="bg-gradient-to-r from-primary via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
-              que He Construido
+              {t("projects.titleHighlight") || "que He Construido"}
             </span>
           </h2>
           <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Problemas complejos resueltos con arquitectura limpia, sistemas desacoplados e innovación agéntica.
+            {t("projects.subtitle") ||
+              "Problemas complejos resueltos con arquitectura limpia, sistemas desacoplados e innovación agéntica."}
           </p>
         </div>
 
@@ -171,7 +172,7 @@ export const ProjectsSection: React.FC = () => {
                 : "bg-card/60 border border-border/60 text-muted-foreground hover:text-foreground"
             }`}
           >
-            Todos ({projects.length})
+            {t("projects.filterAll") || "Todos"} ({projects.length})
           </button>
           <button
             onClick={() => setFilter("enterprise")}
@@ -182,7 +183,7 @@ export const ProjectsSection: React.FC = () => {
             }`}
           >
             <Server className="w-4 h-4" />
-            <span>Backend de Empresa &amp; EDA</span>
+            <span>{t("projects.filterEnterprise") || "Backend de Empresa & EDA"}</span>
           </button>
           <button
             onClick={() => setFilter("personal")}
@@ -193,7 +194,7 @@ export const ProjectsSection: React.FC = () => {
             }`}
           >
             <Bot className="w-4 h-4" />
-            <span>Proyectos IA &amp; Hardware</span>
+            <span>{t("projects.filterPersonal") || "Proyectos IA & Hardware"}</span>
           </button>
         </div>
 
@@ -229,7 +230,7 @@ export const ProjectsSection: React.FC = () => {
                     <div className="flex items-center gap-1.5">
                       {proj.featured && (
                         <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-500 dark:text-amber-400 font-semibold">
-                          ★ Destacado
+                          {t("projects.featured") || "★ Destacado"}
                         </span>
                       )}
                       <span className="p-1 rounded-full text-muted-foreground group-hover:text-primary transition-colors">
@@ -252,7 +253,7 @@ export const ProjectsSection: React.FC = () => {
                   <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200 dark:bg-emerald-950/30 dark:border-emerald-500/30 mb-4">
                     <div className="text-[10px] font-mono uppercase tracking-wider text-emerald-800 dark:text-emerald-400 font-bold mb-1 flex items-center gap-1">
                       <CheckCircle className="w-3.5 h-3.5 shrink-0" />
-                      <span>Impacto Auditado:</span>
+                      <span>{t("projects.auditedImpact") || "Impacto Auditado:"}</span>
                     </div>
                     <p className="text-xs text-emerald-950 dark:text-emerald-200 font-medium line-clamp-2">
                       {t(proj.impactKey)}
@@ -280,7 +281,7 @@ export const ProjectsSection: React.FC = () => {
 
                   <div className="flex items-center justify-between gap-2">
                     <span className="text-xs font-semibold text-primary group-hover:text-cyan-400 flex items-center gap-1 transition-colors">
-                      <span>Ver ficha detallada</span>
+                      <span>{t("projects.viewDetails") || "Ver ficha detallada"}</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                     </span>
 
@@ -323,7 +324,7 @@ export const ProjectsSection: React.FC = () => {
                 <button
                   onClick={() => setSelectedProject(null)}
                   className="absolute top-5 right-5 p-2 rounded-full hover:bg-background/80 text-muted-foreground hover:text-foreground cursor-pointer"
-                  aria-label="Cerrar modal"
+                  aria-label={t("projects.modalCloseAria") || "Cerrar modal"}
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -338,19 +339,19 @@ export const ProjectsSection: React.FC = () => {
                 <div className="space-y-4 text-sm leading-relaxed mb-6">
                   <div>
                     <h4 className="font-mono text-xs text-amber-700 dark:text-amber-400 font-semibold mb-1">
-                      EL PROBLEMA DE NEGOCIO:
+                      {t("projects.modalProblem") || "EL PROBLEMA DE NEGOCIO:"}
                     </h4>
                     <p className="text-muted-foreground">{t(selectedProject.problemKey)}</p>
                   </div>
                   <div>
                     <h4 className="font-mono text-xs text-cyan-700 dark:text-cyan-400 font-semibold mb-1">
-                      LA SOLUCIÓN TÉCNICA:
+                      {t("projects.modalSolution") || "LA SOLUCIÓN TÉCNICA:"}
                     </h4>
                     <p className="text-muted-foreground">{t(selectedProject.solutionKey)}</p>
                   </div>
                   <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 dark:bg-emerald-950/30 dark:border-emerald-500/30">
                     <h4 className="font-mono text-xs text-emerald-800 dark:text-emerald-400 font-bold mb-1">
-                      EL RESULTADO / MÉTRICA:
+                      {t("projects.modalImpact") || "EL RESULTADO / MÉTRICA:"}
                     </h4>
                     <p className="text-emerald-950 dark:text-emerald-200 font-medium">{t(selectedProject.impactKey)}</p>
                   </div>
@@ -376,7 +377,7 @@ export const ProjectsSection: React.FC = () => {
                       className="px-4 py-2 rounded-xl text-xs font-semibold font-mono bg-primary text-primary-foreground hover:bg-primary/90 transition-all flex items-center gap-2"
                     >
                       <GithubIcon className="w-4 h-4" />
-                      <span>Ver Repositorio GitHub</span>
+                      <span>{t("projects.viewRepo") || "Ver Repositorio GitHub"}</span>
                       <ExternalLink className="w-3 h-3" />
                     </a>
                   )}
@@ -384,7 +385,7 @@ export const ProjectsSection: React.FC = () => {
                     onClick={() => setSelectedProject(null)}
                     className="px-4 py-2 rounded-xl text-xs font-semibold border border-border hover:bg-card text-foreground cursor-pointer"
                   >
-                    Cerrar
+                    {t("projects.modalClose") || "Cerrar"}
                   </button>
                 </div>
               </motion.div>

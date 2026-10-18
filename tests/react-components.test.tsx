@@ -189,7 +189,7 @@ describe("React Portfolio Components", () => {
       );
     });
 
-    expect(container.textContent).toContain("Skip");
+    expect(container.textContent).toMatch(/Skip|Saltar/i);
     const skipBtn = container.querySelector("button");
     expect(skipBtn).not.toBeNull();
 
@@ -234,7 +234,7 @@ describe("React Portfolio Components", () => {
     });
 
     // Minigame is unlocked
-    expect(container.textContent).toContain("Ver foto real");
+    expect(container.textContent).toMatch(/Ver foto real|View real photo|Veure foto real/i);
     expect(container.textContent).toContain("Diana WA 50m");
   });
 });

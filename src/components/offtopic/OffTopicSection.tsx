@@ -12,6 +12,7 @@ import {
 import { ArcheryGame } from "./ArcheryGame";
 import { HifiPlayer } from "./HifiPlayer";
 import { MotoThrottle } from "./MotoThrottle";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface OffTopicCardData {
   id: "archery" | "hifi" | "moto";
@@ -26,6 +27,8 @@ interface OffTopicCardData {
 }
 
 export const OffTopicSection: React.FC = () => {
+  const { t } = useLanguage();
+
   // By default, show the real authentic photograph first
   const [activeViews, setActiveViews] = useState<Record<string, "photo" | "interactive">>({
     archery: "photo",
@@ -38,34 +41,34 @@ export const OffTopicSection: React.FC = () => {
   const cards: OffTopicCardData[] = [
     {
       id: "archery",
-      title: "Tiro con Arco (Recurvo Olímpico)",
-      category: "Precisión, Foco & Balística",
-      desc: "Deporte federado de extrema disciplina mental y técnica. El control del pulso, el cálculo del viento y la consistencia biomecánica son la analogía perfecta para resolver arquitecturas críticas bajo presión.",
+      title: t("offtopic.archery.title") || "Tiro con Arco (Recurvo Olímpico)",
+      category: t("offtopic.archery.badge") || "Precisión, Foco & Balística",
+      desc: t("offtopic.archery.desc") || "Deporte federado de extrema disciplina mental y técnica. El control del pulso, el cálculo del viento y la consistencia biomecánica son la analogía perfecta para resolver arquitecturas críticas bajo presión.",
       photoUrl: "/assets/offtopic/archery-real.webp",
       photoFallback: "/assets/offtopic/archery-real.jpg",
-      photoCaption: "Carlos compitiendo en línea de tiro a 50m con arco.",
+      photoCaption: t("offtopic.archery.photoCaption") || "Carlos compitiendo en línea de tiro a 50m con arco.",
       easterEggHint: "🎯 Clic para desbloquear: Diana WA 18m",
       easterEggTag: "Minijuego Balístico",
     },
     {
       id: "hifi",
-      title: "Sonido de Alta Fidelidad & Vinilos",
-      category: "Hardware, Acústica & IoT Ámbar",
-      desc: "Audición pura en vinilo y 24-bit FLAC. Creador de la estación de control 'Ámbar' con pantallas táctiles, microcontroladores y sincronización con Kodi y Spotify.",
+      title: t("offtopic.hifi.title") || "Sonido de Alta Fidelidad & Vinilos",
+      category: t("offtopic.hifi.badge") || "Hardware, Acústica & IoT Ámbar",
+      desc: t("offtopic.hifi.desc") || "Audición pura en vinilo y 24-bit FLAC. Creador de la estación de control 'Ámbar' con pantallas táctiles, microcontroladores y sincronización con Kodi y Spotify.",
       photoUrl: "/assets/offtopic/hifi-real.webp",
       photoFallback: "/assets/offtopic/hifi-real.jpg",
-      photoCaption: "Setup de sonido HiFi analógico y digital con calibración en banco de trabajo.",
+      photoCaption: t("offtopic.hifi.photoCaption") || "Setup de sonido HiFi analógico y digital con calibración en banco de trabajo.",
       easterEggHint: "🎵 Clic para girar el vinilo analógico",
       easterEggTag: "Giradiscos & VU-Meters",
     },
     {
       id: "moto",
-      title: "Motos & Rutas de Montaña",
-      category: "Mecánica, Curvas & Telemetría",
-      desc: "Pasión por la mecánica de dos ruedas y las rutas técnicas por carretera. La concentración continua y el respeto a la física transmiten la misma atención meticulosa que exigen los sistemas distribuidos.",
+      title: t("offtopic.moto.title") || "Motos & Rutas de Montaña",
+      category: t("offtopic.moto.badge") || "Mecánica, Curvas & Telemetría",
+      desc: t("offtopic.moto.desc") || "Pasión por la mecánica de dos ruedas y las rutas técnicas por carretera. La concentración continua y el respeto a la física transmiten la misma atención meticulosa que exigen los sistemas distribuidos.",
       photoUrl: "/assets/offtopic/moto-real.webp",
       photoFallback: "/assets/offtopic/moto-real.jpg",
-      photoCaption: "Ruta de montaña por puertos y curvas de la Comunidad Valenciana.",
+      photoCaption: t("offtopic.moto.photoCaption") || "Ruta de montaña por puertos y curvas de la Comunidad Valenciana.",
       easterEggHint: "🏍️ Clic para acelerar la moto y tirar humo",
       easterEggTag: "Carretera & Escape",
     },
@@ -86,16 +89,16 @@ export const OffTopicSection: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-mono mb-4">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>VIDA FUERA DEL TERMINAL</span>
+            <span>{t("offtopic.tag") || "VIDA FUERA DEL TERMINAL"}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
-            Aficiones &amp; Pasiones{" "}
+            {t("offtopic.titlePrefix") || "Aficiones & Pasiones "}
             <span className="bg-gradient-to-r from-primary via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
-              que Moldean mi Carácter
+              {t("offtopic.titleHighlight") || "que Moldean mi Carácter"}
             </span>
           </h2>
           <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Fotografía real de mis tres grandes aficiones. Haz clic en cualquiera de ellas para desbloquear el minijuego interactivo oculto.
+            {t("offtopic.subtitle") || "Fotografía real de mis tres grandes aficiones. Haz clic en cualquiera de ellas para desbloquear el minijuego interactivo oculto."}
           </p>
         </div>
 
@@ -121,10 +124,10 @@ export const OffTopicSection: React.FC = () => {
                       <button
                         onClick={() => returnToPhoto(card.id)}
                         className="flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-mono bg-background/80 border border-border/80 text-muted-foreground hover:text-foreground hover:border-primary/50 transition-all cursor-pointer"
-                        title="Volver a la fotografía real"
+                        title={t("offtopic.returnToPhoto") || "Volver a la fotografía real"}
                       >
                         <Camera className="w-3 h-3 text-cyan-400" />
-                        <span>Ver foto real</span>
+                        <span>{t("offtopic.viewPhoto") || "Ver foto real"}</span>
                       </button>
                     )}
                   </div>
@@ -173,7 +176,7 @@ export const OffTopicSection: React.FC = () => {
                             });
                           }}
                           className="absolute top-3 right-3 p-1.5 rounded-full bg-black/60 text-white hover:bg-black/80 transition-colors z-20 cursor-pointer"
-                          title="Ampliar fotografía a pantalla completa"
+                          title={t("offtopic.zoomPhoto") || "Ampliar fotografía a pantalla completa"}
                         >
                           <Maximize2 className="w-3.5 h-3.5" />
                         </button>
@@ -199,7 +202,7 @@ export const OffTopicSection: React.FC = () => {
                             className="inline-flex items-center gap-1.5 text-[11px] font-mono text-muted-foreground hover:text-primary transition-colors cursor-pointer"
                           >
                             <ArrowLeft className="w-3 h-3" />
-                            <span>Volver a la fotografía real</span>
+                            <span>{t("offtopic.returnToPhoto") || "Volver a la fotografía real"}</span>
                           </button>
                         </div>
                       </motion.div>
@@ -228,7 +231,7 @@ export const OffTopicSection: React.FC = () => {
                 <button
                   onClick={() => setLightboxImg(null)}
                   className="absolute top-4 right-4 p-2 rounded-full bg-black/60 text-white hover:bg-black/80 transition-colors z-20 cursor-pointer"
-                  aria-label="Cerrar ampliación"
+                  aria-label={t("offtopic.closeZoom") || "Cerrar ampliación"}
                 >
                   <X className="w-5 h-5" />
                 </button>

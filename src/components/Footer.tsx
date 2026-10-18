@@ -24,8 +24,8 @@ export const Footer: React.FC = () => {
               <span className="text-lg font-bold tracking-tight">Carlos Lara Albir</span>
             </div>
             <p className="text-sm text-muted-foreground max-w-md leading-relaxed">
-              Agentic Engineer &amp; Senior Backend Architect. Diseñando sistemas distribuidos resilientes,
-              sincronización en tiempo real y flujos agénticos guiados por Spec-Driven Development (SDD).
+              {t("footer.desc") ||
+                "Agentic Engineer & Senior Backend Architect. Diseñando sistemas distribuidos resilientes, sincronización en tiempo real y flujos agénticos guiados por Spec-Driven Development (SDD)."}
             </p>
             <div className="flex items-center gap-3 pt-2">
               <a
@@ -59,7 +59,7 @@ export const Footer: React.FC = () => {
           {/* Quick Nav */}
           <div>
             <h4 className="text-xs font-mono uppercase tracking-wider text-muted-foreground font-semibold mb-4">
-              Navegación
+              {t("footer.navTitle") || "Navegación"}
             </h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
@@ -99,7 +99,7 @@ export const Footer: React.FC = () => {
           <div>
             <h4 className="text-xs font-mono uppercase tracking-wider text-muted-foreground font-semibold mb-4 flex items-center gap-1.5">
               <Bot className="w-3.5 h-3.5 text-primary" />
-              <span>Machine-Readable (AI)</span>
+              <span>{t("footer.aiTitle") || "Machine-Readable (AI)"}</span>
             </h4>
             <ul className="space-y-2 text-sm text-muted-foreground font-mono text-xs">
               <li>
@@ -148,19 +148,19 @@ export const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-border/40 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
           <div>
-            &copy; {currentYear} Carlos Lara Albir. Todos los derechos reservados.
+            &copy; {currentYear} Carlos Lara Albir. {t("footer.rights") || "Todos los derechos reservados."}
           </div>
           <div className="flex items-center gap-4">
             <span className="inline-flex items-center gap-1.5 text-emerald-400 font-mono">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-              <span>GitHub Pages</span>
+              <span>{t("footer.edgePowered") || "Cloudflare Pages"}</span>
             </span>
             <button
               onClick={scrollToTop}
               className="flex items-center gap-1 text-muted-foreground hover:text-primary transition-colors cursor-pointer"
-              aria-label="Volver arriba"
+              aria-label={t("footer.backToTop") || "Volver arriba"}
             >
-              <span>Subir</span>
+              <span>{t("footer.backToTop") || "Subir"}</span>
               <ArrowUp className="w-3.5 h-3.5" />
             </button>
           </div>

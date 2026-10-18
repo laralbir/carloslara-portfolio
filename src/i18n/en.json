@@ -12,7 +12,11 @@
     "themeLight": "Light",
     "themeDark": "Dark",
     "themeSystem": "System",
-    "themeToggle": "Toggle light and dark theme"
+    "themeToggle": "Toggle light and dark theme",
+    "ariaMain": "Main navigation",
+    "ariaLang": "Select language",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
   },
   "a11y": {
     "skipToContent": "Skip to main content",
@@ -28,7 +32,11 @@
     "ctaProjects": "Check out my work & numbers",
     "ctaContact": "Let's chat",
     "ctaCv": "View LinkedIn / CV ↗",
-    "statusBadge": "Available for Senior / Staff roles"
+    "statusBadge": "Available for Senior / Staff roles",
+    "metricYears": "Years in Production",
+    "metricPrs": "PRs Merged",
+    "metricReverts": "Audited Reverts",
+    "metricCompanies": "Companies in 11 Days"
   },
   "aiCallout": {
     "tag": "100% Agentic AI & SDD",
@@ -104,6 +112,21 @@
       "skill3": "MySQL & PostgreSQL",
       "skill4": "Query Optimization",
       "skill5": "Business Intelligence (BI)"
+    },
+    "tabs": {
+      "visionTab": "🎯 Vision & Career",
+      "visionTitle": "Bridging 20 Years of Backend Craftsmanship with the Agentic Era",
+      "visionP1": "I have been programming and building architectures since before the cloud existed as we know it today. I have seen trends come and go, but the fundamentals remain: decoupling, idempotency, resilience, and domain clarity.",
+      "visionP2": "Today I don't fight against AI tools: I integrate them into the heart of my daily workflow via Claude Code and the MCP protocol, achieving 10x delivery speed without sacrificing a shred of technical rigor.",
+      "archTab": "⚡ Architecture Philosophy",
+      "archTitle": "Architectures That Scale Under Real Fire",
+      "archP1": "My approach is built on Clean Architecture and Event-Driven Design. Each service owns atomic responsibilities, communicates asynchronous events via AWS EventBridge or SQS, and ensures unexpected traffic spikes never take down business operations.",
+      "archP2": "From highly normalized relational SQL databases to read-optimized NoSQL, I select the precise tool tailored to each business requirement.",
+      "sddTab": "🛠️ SDD & Agentic Workflows",
+      "sddTitle": "Spec-Driven Development: Zero Hallucinations, 100% Verified Code",
+      "sddP1": "Under SDD methodology, code is the byproduct of an impeccable specification. Before writing a single line, we complete Analysis, Architecture Plan, and Atomic Task Breakdown.",
+      "sddP2": "Every pull request passes automated TDD unit tests (Red -> Green -> Refactor), security vulnerability scans, and performance audits before reaching production.",
+      "atsResume": "Formats optimized for technical reviewers and ATS/AI engines"
     }
   },
   "ai": {
@@ -127,7 +150,7 @@
   },
   "projects": {
     "title": "Cool stuff I've built",
-    "subtitle": "High-impact projects: gnarly problems solved with clean architecture and resilient code.",
+    "subtitle": "Complex real-world problems solved with clean architecture, decoupled systems, and agentic innovation.",
     "case1": {
       "title": "Production MCP Diagnostic Server",
       "tag": "AI & Developer Tooling",
@@ -197,11 +220,26 @@
       "problem": "Reading and navigating extensive technical books, architecture specs, and Markdown documentation across GitHub repositories on mobile devices is friction-heavy and fragmented.",
       "solution": "Native Android app (Kotlin, Jetpack Compose, Material 3, Clean Architecture + MVI) built 100% through AI agentic workflows (Google Antigravity & Claude Code under strict SDD). Features full GFM rendering, Mermaid diagrams, reading progress tracking, and offline support.",
       "impact": "Polished eReader experience for developers, orchestrated from scratch by autonomous AI multi-agent workflows."
-    }
+    },
+    "tag": "CASE STUDIES & PROJECTS",
+    "titlePrefix": "Interesting Things ",
+    "titleHighlight": "I've Built",
+    "filterAll": "All",
+    "filterEnterprise": "Enterprise Backend & EDA",
+    "filterPersonal": "AI & Hardware Projects",
+    "featured": "★ Featured",
+    "auditedImpact": "Audited Impact:",
+    "viewDetails": "View detailed specs",
+    "viewRepo": "View GitHub Repository",
+    "modalProblem": "THE BUSINESS PROBLEM:",
+    "modalSolution": "THE TECHNICAL SOLUTION:",
+    "modalImpact": "THE RESULT / METRIC:",
+    "modalClose": "Close",
+    "modalCloseAria": "Close modal"
   },
   "experience": {
     "title": "Career & Battles",
-    "subtitle": "Over two decades in the backend trenches: from bare-metal servers to event-driven microservices and agentic AI.",
+    "subtitle": "A journey forged from bare-metal engineering to event-driven distributed architectures and agentic AI.",
     "avantio": {
       "role": "Senior Backend Developer & Connectivity Tech Reference",
       "company": "Avantio",
@@ -266,16 +304,31 @@
       "points": [
         "Engineered real-time online ticket sales and automated electronic turnstile access control on Microsoft SQL Server across multiple premier bullrings in Spain: Valencia, El Puerto de Santa María, Albacete, Jaén, and Palencia, maintaining sub-second reliability during massive concurrent box-office rushes."
       ]
-    }
+    },
+    "tag": "CAREER & AUDITED BATTLES",
+    "titlePrefix": "20+ Years of Backend ",
+    "titleHighlight": "in Real Production"
   },
   "skills": {
-    "title": "My Tech Toolkit",
-    "subtitle": "The technologies I work with daily and where I deliver maximum value",
-    "catAi": "AI-Augmented Development",
+    "title": "Core Technical Competencies",
+    "subtitle": "The truly essential: a consolidated stack forged over 20+ years solving critical architectures and pioneering AI-driven engineering.",
+    "catAi": "Agentic Engineering & SDD",
     "catLang": "Core Languages & Runtimes",
     "catData": "Databases & Caching",
-    "catArch": "Distributed Architecture & Patterns",
-    "catCloud": "Cloud, Event Messaging (SQS/SNS) & DevOps"
+    "catArch": "Event-Driven & Microservices",
+    "catCloud": "Infrastructure & 0-Revert Reliability",
+    "tag": "CORE TECH ARSENAL",
+    "titleHighlight": "Mastery Tooling",
+    "coreTech": "CORE TECHNOLOGIES:",
+    "compSkills": "COMPLEMENTARY SKILLS:",
+    "tagAi": "AI Orchestration & SDD",
+    "tagArch": "Distributed Systems & EDA",
+    "tagData": "High Concurrency & Persistence",
+    "tagCloud": "Edge, Cloud & CI/CD",
+    "summaryAi": "Autonomous agent orchestration, terminal integration, and specification-driven development with 0 hallucinations.",
+    "summaryArch": "High-availability distributed systems, eventual consistency, and real-time synchronization without service downtime.",
+    "summaryData": "Relational and document modeling optimized for critical latencies and massive concurrent transaction spikes.",
+    "summaryCloud": "Reliable deployments on edge and cloud with automated quality verification and guaranteed production stability."
   },
   "education": {
     "title": "Background & Mindset",
@@ -283,30 +336,64 @@
     "aiDegree": {
       "title": "Specialization in Artificial Intelligence & Big Data (CFGS)",
       "institution": "In progress (2026)",
-      "desc": "Deepening machine learning models, deep learning, high-throughput streaming pipelines, and neural architectures."
+      "desc": "Deepening machine learning models, deep learning, high-throughput streaming pipelines, and neural architectures.",
+      "tag": "AI & Advanced Analytics",
+      "badge": "In progress (2026) · Official",
+      "chips": [
+        "Machine Learning",
+        "Deep Learning",
+        "Streaming Pipelines",
+        "Neural Networks"
+      ]
     },
     "csDegree": {
       "title": "Computer Science Engineering",
       "institution": "Polytechnic University of Valencia (UPV)",
-      "desc": "+80% completed with specialization in Software Engineering and Distributed Systems."
+      "desc": "+80% completed with specialization in Software Engineering and Distributed Systems.",
+      "tag": "Software Engineering",
+      "badge": "UPV (+80% credits completed)",
+      "chips": [
+        "Distributed Systems",
+        "Software Architecture",
+        "Algorithms",
+        "Data Structures"
+      ]
     },
     "daiDegree": {
       "title": "Higher Technical Degree in Software Application Development (CFGS DAI)",
       "institution": "Official Degree",
-      "desc": "The timeless foundational blocks: algorithms, database design, and systems architecture."
+      "desc": "The timeless foundational blocks: algorithms, database design, and systems architecture.",
+      "tag": "Software Development",
+      "badge": "Official Technical Degree",
+      "chips": [
+        "Object-Oriented Design",
+        "Relational Databases",
+        "Systems Engineering",
+        "Patterns"
+      ]
     },
     "archery": {
       "title": "Competitive Archery: Coach & National Judge",
       "institution": "Higher Sports Council (CSD)",
       "desc": "Coached my university squad to become Spanish National Champions. That's where I forged pinpoint focus, total calm under pressure, and meticulous technical precision.",
       "champBadge": "🏆 Spanish University Champions",
-      "focusBadge": "🎯 Laser Focus & Composure Under Pressure"
-    }
+      "focusBadge": "🎯 Laser Focus & Composure Under Pressure",
+      "tag": "Leadership & High Performance",
+      "badge": "Higher Sports Council (CSD)",
+      "chips": [
+        "High-Pressure Composure",
+        "Laser Focus",
+        "Team Leadership",
+        "Technical Consistency"
+      ]
+    },
+    "tag": "Education & Discipline",
+    "titleHighlight": "Continuous Curiosity & High Performance"
   },
   "offtopic": {
-    "tag": "Beyond the Console",
+    "tag": "LIFE BEYOND THE TERMINAL",
     "title": "Passions & Off-Topic Pursuits",
-    "subtitle": "Precision engineering draws inspiration from sports discipline, acoustic fidelity, and long-distance exploration on two wheels.",
+    "subtitle": "Real photographs of my three main hobbies. Click any card to unlock its hidden interactive minigame.",
     "viewAnim": "Animation",
     "viewPhoto": "Real Photo",
     "photoZoomHint": "Expand photo",
@@ -331,22 +418,135 @@
       "desc": "Medium and long-distance motorcycle road trips. Carving mountain passes, meticulously planning technical routes, and sustaining deep concentration across hundreds of miles. Built on the same engineering principles: anticipation, environmental awareness, and embracing the journey.",
       "photoCaption": "Adventure touring motorbike after a demanding route conquering high mountain passes.",
       "photoAlt": "Touring motorcycle with Shoei helmet and gloves resting on fuel tank"
+    },
+    "titlePrefix": "Hobbies & Passions ",
+    "titleHighlight": "Shaping My Character",
+    "returnToPhoto": "Return to real photo",
+    "zoomPhoto": "Enlarge photo to fullscreen",
+    "closeZoom": "Close enlarged view",
+    "archeryGame": {
+      "targetTitle": "WA 50m Target (Target Archery)",
+      "totalScore": "Total: {score} ({count} arrows)",
+      "shootBtn": "Release arrow (Shoot)",
+      "resetBtn": "Reset target",
+      "aimHint": "Compensate for sight tremor and release at the center of the aperture"
+    },
+    "motoGame": {
+      "sceneTitle": "🏍️ Mountain Pass · Rear Perspective",
+      "cruising": "Cruising Speed",
+      "accelerating": "FULL THROTTLE!!",
+      "acceleratingBanner": "💨 Full Throttle! Accelerating 🏍️",
+      "throttleHint": "Click to throttle up and blow exhaust smoke",
+      "fullThrottleHint": "FULL THROTTLE ACCELERATION!!"
+    },
+    "hifiGame": {
+      "playerTitle": "HiFi Turntable & Analog Vinyl",
+      "needleActive": "Tonearm needle active",
+      "needleResting": "Tonearm needle resting",
+      "clickHint": "Click tonearm or button to play/pause",
+      "speed": "Speed",
+      "rpm33": "33 ⅓ RPM",
+      "rpm45": "45 RPM Turbo",
+      "btnNormal": "Switch to normal 33 ⅓ RPM",
+      "btnTurbo": "Click vinyl for 45 RPM Turbo",
+      "ariaSpin": "Spin vinyl and toggle speed between 33 and 45 RPM"
     }
   },
   "contact": {
     "title": "Let's get in touch",
-    "subtitle": "Always up for discussing challenging engineering problems, high-throughput architectures, or Senior / Staff / Tech Lead roles.",
+    "subtitle": "Open to Senior Backend Engineer, Staff Engineer, Tech Lead roles, or specialized consulting in high-concurrency systems and agentic engineering.",
     "statusActive": "Uplink Active · Open to Senior, Staff, or Tech Lead roles",
     "copyEmail": "Copy Email",
-    "emailCopied": "Email copied! Drop me a line anytime.",
+    "emailCopied": "Copied",
     "linkedIn": "View LinkedIn ↗",
     "downloadCv": "Download CV (PDF)",
     "cvMarkdown": "CV Markdown (AI/ATS) ↗",
-    "location": "Torrent, Valencia, Spain (or anywhere in the world, remote)"
+    "location": "Torrent, Valencia, Spain (or anywhere in the world, remote)",
+    "tag": "DIRECT CONTACT",
+    "titlePrefix": "Let's Discuss Your Next ",
+    "titleHighlight": "Architecture or Technical Challenge?",
+    "emailCard": "Email Address",
+    "emailCopy": "Copy",
+    "emailResponse": "Usual response within 24 business hours.",
+    "linkedinCard": "Professional Profile",
+    "githubCard": "Open Source & Repositories",
+    "locationCard": "Location & Availability",
+    "locationValue": "Valencia, Spain (Remote / Hybrid)",
+    "formTitle": "Send Me a Message",
+    "formSubtitle": "Have a technical vacancy, a demanding project, or want to discuss architecture approaches? Drop me a line and let's connect.",
+    "nameLabel": "Your Name / Company",
+    "namePlaceholder": "e.g. Sarah Jenkins (CTO)",
+    "emailLabel": "Your Email Address *",
+    "emailPlaceholder": "name@company.com",
+    "messageLabel": "Message or Project Context *",
+    "messagePlaceholder": "Tell me briefly about your team, tech stack, or the technical opportunity...",
+    "submitBtn": "Send Direct Message",
+    "submittingBtn": "Sending...",
+    "emailCopiedToast": "Email copied to clipboard! 📋",
+    "emailCopiedToastDesc": "info@carloslara.dev ready to paste.",
+    "incompleteToast": "Incomplete fields",
+    "incompleteToastDesc": "Please provide your email and a brief message.",
+    "successToast": "Message recorded! 🚀",
+    "successToastDesc": "Carlos will reply as soon as possible."
   },
   "footer": {
     "rights": "All rights reserved.",
     "builtWith": "Crafted 100% with agentic AI and Spec-Driven Development.",
-    "edgePowered": "Hosted and continuously deployed with GitHub Actions & GitHub Pages."
+    "edgePowered": "Cloudflare Pages",
+    "desc": "Agentic Engineer & Senior Backend Architect. Engineering resilient distributed systems, real-time synchronization, and agentic workflows guided by Spec-Driven Development (SDD).",
+    "navTitle": "Navigation",
+    "aiTitle": "Machine-Readable (AI)",
+    "backToTop": "Back to top"
+  },
+  "sdd": {
+    "tag": "SDD METHODOLOGY (SPEC-DRIVEN DEVELOPMENT)",
+    "titlePrefix": "Code is the ",
+    "titleHighlight": "Final Outcome",
+    "titleSuffix": ", not the Starting Point",
+    "subtitle": "How I orchestrate autonomous agents (Claude Code, Antigravity) with rigorous software engineering to ensure 0 hallucinations and 100% verified code.",
+    "step1": {
+      "phase": "PHASE 01",
+      "role": "@analyst",
+      "gate": "Gate 1 · Analysis",
+      "title": "Requirements Elicitation & Domain",
+      "desc": "Formal specification of business objectives, audited real-world metrics, latency constraints, and use cases before writing a single line of code.",
+      "highlight": "Zero ambiguity"
+    },
+    "step2": {
+      "phase": "PHASE 02",
+      "role": "@planner",
+      "gate": "Gate 2 · Architecture Plan",
+      "title": "Technical Design & ADR Decisions",
+      "desc": "Rigorous pattern selection (Event-Driven, Hexagonal), interface design, C4 sequence diagrams, and technology stack justification.",
+      "highlight": "Documented ADRs"
+    },
+    "step3": {
+      "phase": "PHASE 03",
+      "role": "@tasker",
+      "gate": "Gate 3 · Atomic Backlog",
+      "title": "Atomic Breakdown with Strict DoD",
+      "desc": "Decomposition of architecture into work packages and atomic tasks. Each task includes Acceptance Criteria (AC) and verifiable Definition of Done.",
+      "highlight": "Clear DoD criteria"
+    },
+    "step4": {
+      "phase": "PHASE 04",
+      "role": "@implementer",
+      "gate": "Gate 4 · Production ⚡",
+      "title": "TDD (Red -> Green -> Refactor)",
+      "desc": "Test-driven development with Vitest unit tests, Opengrep security audit, 100/100 Lighthouse, and continuous deployment with 0 reverts.",
+      "highlight": "0 Audited reverts"
+    },
+    "banner": {
+      "tag": "REFERENCE ARTIFACT",
+      "desc": "All specification documents live inside the repository to guarantee complete traceability and reproducibility.",
+      "btn": "View Specs on GitHub"
+    }
+  },
+  "welcome": {
+    "skip": "Skip",
+    "telemetry": "Initializing high-availability telemetry...",
+    "msg1": "Agentic Engineering & Distributed Architecture",
+    "msg2": "20+ Years Mission-Critical Distributed Systems",
+    "msg3": "Strict SDD Methodology · 0 Reverts"
   }
 }

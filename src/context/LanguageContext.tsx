@@ -9,6 +9,7 @@ export interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
   t: (key: string, params?: Record<string, string | number>) => string;
+  tArray: (key: string) => string[];
   languages: { code: Language; label: string; flag: string }[];
 }
 
@@ -35,6 +36,17 @@ function getNestedValue(obj: any, path: string): string | undefined {
     current = current[part];
   }
   return typeof current === "string" ? current : undefined;
+}
+
+function getNestedArray(obj: any, path: string): string[] | undefined {
+  if (!obj || typeof obj !== "object") return undefined;
+  const parts = path.split(".");
+  let current = obj;
+  for (const part of parts) {
+    if (current === undefined || current === null) return undefined;
+    current = current[part];
+  }
+  return Array.isArray(current) ? current : undefined;
 }
 
 export function resolveInitialLanguage(): Language {
@@ -99,12 +111,27 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     [language]
   );
 
+  const tArray = useCallback(
+    (key: string): string[] => {
+      let arr = getNestedArray(translations[language], key);
+      if (!arr && language !== "es") {
+        arr = getNestedArray(translations.es, key);
+      }
+      if (!arr && language !== "en") {
+        arr = getNestedArray(translations.en, key);
+      }
+      return arr || [];
+    },
+    [language]
+  );
+
   return (
     <LanguageContext.Provider
       value={{
         language,
         setLanguage,
         t,
+        tArray,
         languages: LANGUAGES,
       }}
     >

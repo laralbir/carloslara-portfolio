@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Wind, Flame } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface SmokePuff {
   id: number;
@@ -7,6 +8,7 @@ interface SmokePuff {
 }
 
 export const MotoThrottle: React.FC = () => {
+  const { t } = useLanguage();
   const [isAccelerating, setIsAccelerating] = useState(false);
   const [smokePuffs, setSmokePuffs] = useState<SmokePuff[]>([]);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -44,11 +46,11 @@ export const MotoThrottle: React.FC = () => {
       {/* Top Header */}
       <div className="w-full flex items-center justify-between text-xs font-mono mb-2">
         <div className="flex items-center gap-1.5 text-cyan-400">
-          <span>🏍️ Ruta de Montaña · Perspectiva Trasera</span>
+          <span>{t("offtopic.motoGame.sceneTitle") || "🏍️ Ruta de Montaña · Perspectiva Trasera"}</span>
         </div>
         <div className="text-[11px] font-mono">
           <span className={isAccelerating ? "text-amber-400 font-bold animate-pulse" : "text-muted-foreground"}>
-            {isAccelerating ? "¡¡GASSS!!" : "Velocidad Crucero"}
+            {isAccelerating ? (t("offtopic.motoGame.accelerating") || "¡¡GASSS!!") : (t("offtopic.motoGame.cruising") || "Velocidad Crucero")}
           </span>
         </div>
       </div>
@@ -62,7 +64,7 @@ export const MotoThrottle: React.FC = () => {
         }`}
         role="button"
         tabIndex={0}
-        aria-label="Acelerar moto de aventura en carretera"
+        aria-label={t("offtopic.motoGame.throttleHint") || "Acelerar moto de aventura en carretera"}
         onKeyDown={(e) => {
           if (e.key === "Enter" || e.key === " ") {
             e.preventDefault();
@@ -155,7 +157,7 @@ export const MotoThrottle: React.FC = () => {
         {/* Feedback Badge Ticker */}
         {isAccelerating && (
           <div className="moto-feedback is-active absolute top-2.5 z-20 flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/90 border border-cyan-500/50 text-cyan-300 font-mono text-xs shadow-lg animate-fade-in">
-            <span>💨 ¡Gasss! Acelerando 🏍️</span>
+            <span>{t("offtopic.motoGame.acceleratingBanner") || "💨 ¡Gasss! Acelerando 🏍️"}</span>
           </div>
         )}
       </div>
@@ -170,7 +172,11 @@ export const MotoThrottle: React.FC = () => {
         }`}
       >
         <Wind className="w-4 h-4 text-cyan-400" />
-        <span>{isAccelerating ? "¡¡ACELERANDO A FONDO!!" : "Clic para dar Gasss y Tirar Humo"}</span>
+        <span>
+          {isAccelerating
+            ? (t("offtopic.motoGame.fullThrottleHint") || "¡¡ACELERANDO A FONDO!!")
+            : (t("offtopic.motoGame.throttleHint") || "Clic para dar Gasss y Tirar Humo")}
+        </span>
       </button>
     </div>
   );

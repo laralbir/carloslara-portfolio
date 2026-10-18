@@ -11,46 +11,56 @@ import {
   Sparkles,
   Layers,
 } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export const SddSection: React.FC = () => {
+  const { t } = useLanguage();
   const [activeStep, setActiveStep] = useState(0);
 
   const steps = [
     {
-      phase: "FASE 01",
+      phase: t("sdd.step1.phase") || "FASE 01",
       role: "@analyst",
-      gate: "Gate 1 · Análisis",
-      title: "Elicitación de Requisitos & Dominio",
-      desc: "Especificación formal de objetivos de negocio, números auditados sin humo, restricciones de latencia y casos de uso antes de escribir una sola línea de código.",
+      gate: t("sdd.step1.gate") || "Gate 1 · Análisis",
+      title: t("sdd.step1.title") || "Elicitación de Requisitos & Dominio",
+      desc:
+        t("sdd.step1.desc") ||
+        "Especificación formal de objetivos de negocio, números auditados sin humo, restricciones de latencia y casos de uso antes de escribir una sola línea de código.",
       artifact: "specs/01-analisis/SPEC-01.md",
-      highlight: "Cero ambigüedad",
+      highlight: t("sdd.step1.highlight") || "Cero ambigüedad",
     },
     {
-      phase: "FASE 02",
+      phase: t("sdd.step2.phase") || "FASE 02",
       role: "@planner",
-      gate: "Gate 2 · Plan de Arquitectura",
-      title: "Diseño Técnico & Decisiones ADR",
-      desc: "Selección rigurosa de patrones (Event-Driven, Hexagonal), diseño de interfaces, diagramas de secuencia C4 y justificación de stack tecnológico.",
+      gate: t("sdd.step2.gate") || "Gate 2 · Plan de Arquitectura",
+      title: t("sdd.step2.title") || "Diseño Técnico & Decisiones ADR",
+      desc:
+        t("sdd.step2.desc") ||
+        "Selección rigurosa de patrones (Event-Driven, Hexagonal), diseño de interfaces, diagramas de secuencia C4 y justificación de stack tecnológico.",
       artifact: "specs/02-plan/PLAN-01.md",
-      highlight: "ADRs documentadas",
+      highlight: t("sdd.step2.highlight") || "ADRs documentadas",
     },
     {
-      phase: "FASE 03",
+      phase: t("sdd.step3.phase") || "FASE 03",
       role: "@tasker",
-      gate: "Gate 3 · Backlog Atómico",
-      title: "Desglose Atómico con DoD Estricto",
-      desc: "Descomposición de la arquitectura en paquetes de trabajo y tareas atómicas. Cada tarea cuenta con Criterios de Aceptación (AC) y Definición de Terminado verificable.",
+      gate: t("sdd.step3.gate") || "Gate 3 · Backlog Atómico",
+      title: t("sdd.step3.title") || "Desglose Atómico con DoD Estricto",
+      desc:
+        t("sdd.step3.desc") ||
+        "Descomposición de la arquitectura en paquetes de trabajo y tareas atómicas. Cada tarea cuenta con Criterios de Aceptación (AC) y Definición de Terminado verificable.",
       artifact: "specs/03-task/TASK-01.md",
-      highlight: "Criterios DoD claros",
+      highlight: t("sdd.step3.highlight") || "Criterios DoD claros",
     },
     {
-      phase: "FASE 04",
+      phase: t("sdd.step4.phase") || "FASE 04",
       role: "@implementer",
-      gate: "Gate 4 · Producción ⚡",
-      title: "TDD (Red -> Green -> Refactor)",
-      desc: "Desarrollo guiado por pruebas unitarias previas con Vitest, auditoría de seguridad Opengrep, 100/100 Lighthouse y despliegue continuo con 0 reverts.",
+      gate: t("sdd.step4.gate") || "Gate 4 · Producción ⚡",
+      title: t("sdd.step4.title") || "TDD (Red -> Green -> Refactor)",
+      desc:
+        t("sdd.step4.desc") ||
+        "Desarrollo guiado por pruebas unitarias previas con Vitest, auditoría de seguridad Opengrep, 100/100 Lighthouse y despliegue continuo con 0 reverts.",
       artifact: "tests/*.test.ts & src/",
-      highlight: "0 Reverts auditados",
+      highlight: t("sdd.step4.highlight") || "0 Reverts auditados",
     },
   ];
 
@@ -61,17 +71,18 @@ export const SddSection: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono mb-4">
             <Terminal className="w-3.5 h-3.5" />
-            <span>METODOLOGÍA SDD (SPEC-DRIVEN DEVELOPMENT)</span>
+            <span>{t("sdd.tag") || "METODOLOGÍA SDD (SPEC-DRIVEN DEVELOPMENT)"}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
-            El Código es el{" "}
+            {t("sdd.titlePrefix") || "El Código es el "}
             <span className="bg-gradient-to-r from-primary via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
-              Resultado Final
+              {t("sdd.titleHighlight") || "Resultado Final"}
             </span>
-            , no el Punto de Partida
+            {t("sdd.titleSuffix") || ", no el Punto de Partida"}
           </h2>
           <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Cómo orquesto agentes autónomos (Claude Code, Antigravity) con ingeniería de software rigurosa para garantizar 0 alucinaciones y código 100% verificado.
+            {t("sdd.subtitle") ||
+              "Cómo orquesto agentes autónomos (Claude Code, Antigravity) con ingeniería de software rigurosa para garantizar 0 alucinaciones y código 100% verificado."}
           </p>
         </div>
 
@@ -132,13 +143,14 @@ export const SddSection: React.FC = () => {
             </div>
             <div>
               <div className="text-xs font-mono text-primary font-semibold">
-                ARTEFACTO DE REFERENCIA · {steps[activeStep].phase}
+                {t("sdd.banner.tag") || "ARTEFACTO DE REFERENCIA"} · {steps[activeStep].phase}
               </div>
               <h4 className="text-lg font-bold text-foreground mt-0.5">
                 {steps[activeStep].gate} — {steps[activeStep].artifact}
               </h4>
               <p className="text-sm text-muted-foreground mt-1 max-w-2xl">
-                Todos los documentos de especificación viven en el repositorio para garantizar trazabilidad y reproducibilidad total.
+                {t("sdd.banner.desc") ||
+                  "Todos los documentos de especificación viven en el repositorio para garantizar trazabilidad y reproducibilidad total."}
               </p>
             </div>
           </div>
@@ -149,7 +161,7 @@ export const SddSection: React.FC = () => {
             rel="noopener noreferrer"
             className="px-5 py-2.5 rounded-xl text-xs font-semibold font-mono bg-primary text-primary-foreground hover:bg-primary/90 transition-all flex items-center gap-2 whitespace-nowrap shadow-md"
           >
-            <span>Ver Specs en GitHub</span>
+            <span>{t("sdd.banner.btn") || "Ver Specs en GitHub"}</span>
             <ExternalLink className="w-3.5 h-3.5" />
           </a>
         </div>

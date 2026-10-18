@@ -11,26 +11,14 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onWelcomeComplete 
   const [phase, setPhase] = useState(0);
   const [exitAnimation, setExitAnimation] = useState(false);
   const [typedText, setTypedText] = useState("");
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
 
   const domainUrl = "https://carloslara.dev";
 
   const welcomeMessages = [
-    language === "va"
-      ? "Enginyeria Agèntica & Arquitectura Backend"
-      : language === "en"
-      ? "Agentic Engineering & Distributed Architecture"
-      : "Ingeniería Agéntica & Arquitectura Backend",
-    language === "va"
-      ? "20+ Anys de Sistemes Crítics d'Alta Disponibilitat"
-      : language === "en"
-      ? "20+ Years Mission-Critical Distributed Systems"
-      : "Más de 20 Años en Sistemas Distribuidos de Alta Concurrencia",
-    language === "va"
-      ? "Metodologia SDD Estricta · 0 Reverts"
-      : language === "en"
-      ? "Strict SDD Methodology · 0 Reverts"
-      : "Metodología SDD Estricta · 0 Reverts",
+    t("welcome.msg1") || "Ingeniería Agéntica & Arquitectura Backend",
+    t("welcome.msg2") || "Más de 20 Años en Sistemas Distribuidos de Alta Concurrencia",
+    t("welcome.msg3") || "Metodología SDD Estricta · 0 Reverts",
   ];
 
   useEffect(() => {
@@ -77,9 +65,9 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onWelcomeComplete 
         <button
           onClick={handleSkip}
           className="absolute top-6 right-6 z-20 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono border border-border/60 bg-card/60 backdrop-blur-md text-muted-foreground hover:text-foreground hover:border-primary/50 transition-all cursor-pointer"
-          aria-label="Skip intro"
+          aria-label={t("welcome.skip") || "Saltar"}
         >
-          <span>Skip</span>
+          <span>{t("welcome.skip") || "Saltar"}</span>
           <FastForward className="w-3.5 h-3.5" />
         </button>
 
@@ -151,7 +139,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onWelcomeComplete 
             >
               <div className="h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-primary via-cyan-400 to-primary animate-pulse" />
               <p className="mt-3 text-xs font-mono text-muted-foreground">
-                Initializing high-availability telemetry...
+                {t("welcome.telemetry") || "Initializing high-availability telemetry..."}
               </p>
             </motion.div>
           )}

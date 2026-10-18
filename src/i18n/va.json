@@ -12,7 +12,11 @@
     "themeLight": "Clar",
     "themeDark": "Fosc",
     "themeSystem": "Sistema",
-    "themeToggle": "Alternar entre tema clar i fosc"
+    "themeToggle": "Alternar entre tema clar i fosc",
+    "ariaMain": "Navegació principal",
+    "ariaLang": "Seleccionar idioma",
+    "openMenu": "Obrir menú",
+    "closeMenu": "Tancar menú"
   },
   "a11y": {
     "skipToContent": "Saltar al contingut principal",
@@ -28,7 +32,11 @@
     "ctaProjects": "Fes-li una ullada als projectes",
     "ctaContact": "Fem un café?",
     "ctaCv": "Veure Perfil / CV ↗",
-    "statusBadge": "Disponible per a rols Senior / Staff"
+    "statusBadge": "Disponible per a rols Senior / Staff",
+    "metricYears": "Anys en Producció",
+    "metricPrs": "PRs Merged",
+    "metricReverts": "Reverts Auditats",
+    "metricCompanies": "Empreses en 11 Dies"
   },
   "aiCallout": {
     "tag": "100% IA Agèntica & SDD",
@@ -104,6 +112,21 @@
       "skill3": "MySQL & PostgreSQL",
       "skill4": "Query Optimization",
       "skill5": "Business Intelligence (BI)"
+    },
+    "tabs": {
+      "visionTab": "🎯 Visió & Trajectòria",
+      "visionTitle": "Unint 20 anys d'artesania backend amb l'era agèntica",
+      "visionP1": "Porte programant i alçant arquitectures des d'abans que existira el núvol com el coneixem hui. He vist modes nàixer i morir, però els fonaments romanen: desacoblament, idempotència, resiliència i claredat de domini.",
+      "visionP2": "Hui no lluite contra les eines d'Intel·ligència Artificial: les integre en el cor del meu flux diari a través de Claude Code i el protocol MCP, aconseguint un ritme de lliurament de 10x sense sacrificar ni un bri de rigor tècnic.",
+      "archTab": "⚡ Filosofia d'Arquitectura",
+      "archTitle": "Arquitectures que escalen sota foc real",
+      "archP1": "El meu enfocament es basa en Clean Architecture i Event-Driven Design. Cada servei posseïx responsabilitats atòmiques, comunica esdeveniments asíncrons mitjançant AWS EventBridge o SQS, i garantix que un pic inesperat mai tombe el core del negoci.",
+      "archP2": "Des de bases de dades SQL relacionals altament normalitzades fins a NoSQL optimitzat per a alta lectura, seleccione l'eina precisa per a cada necessitat de negoci.",
+      "sddTab": "🛠️ SDD & Fluxos Agèntics",
+      "sddTitle": "Spec-Driven Development: Zero al·lucinacions, 100% codi verificat",
+      "sddP1": "Sota la metodologia SDD, el codi és el subproducte d'una especificació impecable. Abans de tirar una sola línia, completem Anàlisi, Pla d'Arquitectura i Desglossament Atòmic de Tasques.",
+      "sddP2": "Cada pull request passa per proves automatitzades TDD (Red -> Green -> Refactor), anàlisi de seguretat i verificació de rendiment abans d'arribar a producció.",
+      "atsResume": "Formats preparats per a avaluadors tècnics i motors ATS/IA"
     }
   },
   "ai": {
@@ -127,7 +150,7 @@
   },
   "projects": {
     "title": "Coses interessants que he muntat",
-    "subtitle": "Projectes d'impacte real: problemes grossos resolts amb arquitectura neta i codi robust.",
+    "subtitle": "Problemes complexos resolts amb arquitectura neta, sistemes desacoblats i innovació agèntica.",
     "case1": {
       "title": "Servidor MCP de Diagnòstic Operatiu",
       "tag": "IA & Developer Tooling",
@@ -197,11 +220,26 @@
       "problem": "Llegir i estudiar documentació tècnica extensa, llibres o especificacions en Markdown allotjades en repositoris de GitHub des del mòbil resulta incòmode i fragmentat.",
       "solution": "App nativa Android (Kotlin, Jetpack Compose, Material 3, Clean Architecture + MVI) desenvolupada al 100% mitjançant desenvolupament agèntic amb Google Antigravity i Claude Code. Suport complet de GFM, renderitzat de diagrames Mermaid, guardat de progrés de lectura i mode offline.",
       "impact": "Experiència eReader fluida per a desenvolupadors, orquestrada íntegrament amb un equip de subagents d'IA sota metodologia SDD estricta."
-    }
+    },
+    "tag": "CASOS D'ESTUDI & PROJECTES",
+    "titlePrefix": "Coses Interessants ",
+    "titleHighlight": "que He Construït",
+    "filterAll": "Tots",
+    "filterEnterprise": "Backend d'Empresa & EDA",
+    "filterPersonal": "Projectes IA & Hardware",
+    "featured": "★ Destacat",
+    "auditedImpact": "Impacte Auditat:",
+    "viewDetails": "Veure fitxa detallada",
+    "viewRepo": "Veure Repositori GitHub",
+    "modalProblem": "EL PROBLEMA DE NEGOCI:",
+    "modalSolution": "LA SOLUCIÓ TÈCNICA:",
+    "modalImpact": "EL RESULTAT / MÈTRICA:",
+    "modalClose": "Tancar",
+    "modalCloseAria": "Tancar modal"
   },
   "experience": {
     "title": "La meua Trajectòria (i unes quantes batalles)",
-    "subtitle": "Més de 20 anys a la trinxera del backend: des de bare-metal i SQL fins a microserveis orientats a esdeveniments i IA.",
+    "subtitle": "Una trajectòria forjada des del bare-metal fins a les arquitectures distribuïdes orientades a esdeveniments i la intel·ligència artificial agèntica.",
     "avantio": {
       "role": "Senior Backend Developer & Referent Tècnic de Connectivitat",
       "company": "Avantio",
@@ -266,16 +304,31 @@
       "points": [
         "Gestió de venda en línia d'entrades i control de torns d'accés en temps real sobre Microsoft SQL Server per a múltiples places de bous emblemàtiques a Espanya: València, El Puerto de Santa María, Albacete, Jaén i Palència, responent amb latències crítiques durant pics massius de venda simultània."
       ]
-    }
+    },
+    "tag": "TRAJECTÒRIA & BATALLES GUANYADES",
+    "titlePrefix": "20+ Anys de Backend ",
+    "titleHighlight": "en Producció Real"
   },
   "skills": {
-    "title": "La meua Caixa d'Eines",
-    "subtitle": "Les tecnologies amb què lluite a diari i on més valor aporte",
-    "catAi": "Desenvolupament Augmentat amb IA",
+    "title": "Competències Tècniques Clau",
+    "subtitle": "El verdaderament essencial: un stack consolidat després de més de 20 anys resolent arquitectures crítiques i liderant enginyeria amb IA.",
+    "catAi": "Agentic Engineering & SDD",
     "catLang": "Llenguatges & Runtimes Core",
     "catData": "Bases de Dades & Memòria Cau",
-    "catArch": "Arquitectura Distribuïda & Patrons",
-    "catCloud": "Cloud, Esdeveniments (SQS/SNS) & DevOps"
+    "catArch": "Event-Driven & Microserveis",
+    "catCloud": "Infraestructura & Fiabilitat 0 Reverts",
+    "tag": "ARSENAL TECNOLÒGIC NUCLEAR",
+    "titleHighlight": "Eines de Mestratge",
+    "coreTech": "TECNOLOGIES PRINCIPALS:",
+    "compSkills": "COMPETÈNCIES COMPLEMENTÀRIES:",
+    "tagAi": "Orquestació d'IA & SDD",
+    "tagArch": "Sistemes Distribuïts & EDA",
+    "tagData": "Alta Concurrència & Persistència",
+    "tagCloud": "Edge, Cloud & CI/CD",
+    "summaryAi": "Orquestació d'agents autònoms, integració per terminal i desenvolupament guiat per especificacions amb 0 al·lucinacions.",
+    "summaryArch": "Sistemes distribuïts d'alta disponibilitat, consistència eventual i sincronització en temps real sense caigudes de servei.",
+    "summaryData": "Modelatge relacional i documental optimitzat per a latències crítiques i pics massius de transaccions concurrents.",
+    "summaryCloud": "Desplegaments segurs en l'edge i el núvol amb verificació automatitzada de qualitat i estabilitat garantida en producció."
   },
   "education": {
     "title": "Background & Disciplina",
@@ -283,30 +336,64 @@
     "aiDegree": {
       "title": "Especialització en IA i Big Data (CFGS)",
       "institution": "En curs (2026)",
-      "desc": "Aprofundint en models de machine learning, deep learning, pipelines de streaming massiu i arquitectures neuronals."
+      "desc": "Aprofundint en models de machine learning, deep learning, pipelines de streaming massiu i arquitectures neuronals.",
+      "tag": "IA & Analítica Avançada",
+      "badge": "En curs (2026) · Oficial",
+      "chips": [
+        "Machine Learning",
+        "Deep Learning",
+        "Streaming Pipelines",
+        "Xarxes Neuronals"
+      ]
     },
     "csDegree": {
       "title": "Enginyeria Informàtica",
       "institution": "Universitat Politècnica de València (UPV)",
-      "desc": "+80% dels crèdits superats, amb focus en Enginyeria del Software i Sistemes Distribuïts."
+      "desc": "+80% dels crèdits superats, amb focus en Enginyeria del Software i Sistemes Distribuïts.",
+      "tag": "Enginyeria del Software",
+      "badge": "UPV (+80% crèdits superats)",
+      "chips": [
+        "Sistemes Distribuïts",
+        "Arquitectura de Software",
+        "Algorísmia",
+        "Estructures de Dades"
+      ]
     },
     "daiDegree": {
       "title": "Desenvolupament d'Aplicacions Informàtiques (CFGS DAI)",
       "institution": "Titulació Oficial",
-      "desc": "Les bases clàssiques que mai passen de moda: algorismes, bases de dades i arquitectura de sistemes."
+      "desc": "Les bases clàssiques que mai passen de moda: algorismes, bases de dades i arquitectura de sistemes.",
+      "tag": "Desenvolupament de Software",
+      "badge": "Titulació Tècnica Oficial",
+      "chips": [
+        "Disseny Orientat a Objectes",
+        "Bases de Dades Relacionals",
+        "Enginyeria de Sistemes",
+        "Patrons"
+      ]
     },
     "archery": {
       "title": "Tir amb Arc: Entrenador i Jutge Nacional",
       "institution": "Consell Superior d'Esports (CSD)",
       "desc": "Vaig portar el meu equip a proclamar-se Campió Universitari d'Espanya. D'ací ve el meu focus mil·limètric, la calma sota pressió i el perfeccionisme tècnic.",
       "champBadge": "🏆 Campions Universitaris d'Espanya",
-      "focusBadge": "🎯 Laser Focus & Calma sota Pressió"
-    }
+      "focusBadge": "🎯 Laser Focus & Calma sota Pressió",
+      "tag": "Lideratge & Alt Rendiment",
+      "badge": "Consell Superior d'Esports (CSD)",
+      "chips": [
+        "Gestió sota Pressió",
+        "Focus Mil·limètric",
+        "Lideratge d'Equips",
+        "Consistència Tècnica"
+      ]
+    },
+    "tag": "Formació & Disciplina",
+    "titleHighlight": "Curiositat Contínua & Rendiment"
   },
   "offtopic": {
-    "tag": "Fora de la Consola",
+    "tag": "VIDA FORA DEL TERMINAL",
     "title": "Aficions & Passions Personals",
-    "subtitle": "L'enginyeria de precisió també es nodrix de la concentració esportiva, l'acústica d'alta fidelitat i l'esperit explorador en ruta.",
+    "subtitle": "Fotografia real de les meues tres grans aficions. Fes clic en qualsevol d'elles per a desbloquejar el minijoc interactiu ocult.",
     "viewAnim": "Animació",
     "viewPhoto": "Foto Real",
     "photoZoomHint": "Ampliar foto",
@@ -331,22 +418,135 @@
       "desc": "Viatges en moto de mitjana i llarga distància per carretera i muntanya. Traçar corbes amb fluïdesa, planificar itineraris tècnics al detall i mantindre concentració constant durant centenars de quilòmetres. La mateixa resiliència que en producció: anticipació, atenció a l'entorn i gaudi del camí.",
       "photoCaption": "Moto tourer d'aventura després d'una exigent jornada coronant ports de muntanya.",
       "photoAlt": "Moto de viatge amb casc Shoei i guants sobre el depòsit"
+    },
+    "titlePrefix": "Aficions & Passions ",
+    "titleHighlight": "que Motlen el Meu Caràcter",
+    "returnToPhoto": "Tornar a la fotografia real",
+    "zoomPhoto": "Ampliar fotografia a pantalla completa",
+    "closeZoom": "Tancar ampliació",
+    "archeryGame": {
+      "targetTitle": "Diana WA 50m (Tir amb Arc)",
+      "totalScore": "Total: {score} ({count} fletxes)",
+      "shootBtn": "Soltar fletxa (Disparar)",
+      "resetBtn": "Reiniciar diana",
+      "aimHint": "Apunta compensant el tremolor muscular i dispara al centre del visor"
+    },
+    "motoGame": {
+      "sceneTitle": "🏍️ Ruta de Muntanya · Perspectiva Posterior",
+      "cruising": "Velocitat Creuer",
+      "accelerating": "GASSS A FONS!!",
+      "acceleratingBanner": "💨 Gas a fons! Accelerant 🏍️",
+      "throttleHint": "Clic per a donar Gas i Tirar Fum",
+      "fullThrottleHint": "ACCELERANT A FONS!!"
+    },
+    "hifiGame": {
+      "playerTitle": "Giradiscs HiFi & Vinil Analògic",
+      "needleActive": "Agulla posicionada",
+      "needleResting": "Agulla en repòs",
+      "clickHint": "Fes clic en l'agulla o en el botó per a reproduir/pausar",
+      "speed": "Velocitat",
+      "rpm33": "33 ⅓ RPM",
+      "rpm45": "45 RPM Turbo",
+      "btnNormal": "Canviar a 33 ⅓ RPM Normal",
+      "btnTurbo": "Fes clic en el Vinil per a 45 RPM Turbo",
+      "ariaSpin": "Girar vinil i canviar velocitat entre 33 i 45 RPM"
     }
   },
   "contact": {
     "title": "Ens coneixem?",
-    "subtitle": "Sempre obert a xarrar sobre reptes tècnics interessants, sistemes d'alta concurrència o posicions Senior / Staff / Tech Lead.",
+    "subtitle": "Obert a rols de Senior Backend Engineer, Staff Engineer, Tech Lead o consultoria especialitzada en sistemes d'alta disponibilitat i enginyeria agèntica.",
     "statusActive": "Uplink Actiu · Obert a reptes Senior, Staff o Tech Lead",
     "copyEmail": "Copiar email",
-    "emailCopied": "Email copiat! Escriu-me quan vulgues.",
+    "emailCopied": "Copiat",
     "linkedIn": "Veure LinkedIn ↗",
     "downloadCv": "Descarregar CV (PDF)",
     "cvMarkdown": "CV Markdown (IA/ATS) ↗",
-    "location": "Torrent, València, Espanya (o en qualsevol racó del món en remot)"
+    "location": "Torrent, València, Espanya (o en qualsevol racó del món en remot)",
+    "tag": "CONTACTE DIRECTE",
+    "titlePrefix": "Parlem sobre la teua Pròxima ",
+    "titleHighlight": "Arquitectura o Repte Tècnic?",
+    "emailCard": "Correu Electrònic",
+    "emailCopy": "Copiar",
+    "emailResponse": "Resposta habitual en menys de 24 hores laborables.",
+    "linkedinCard": "Perfil Professional",
+    "githubCard": "Repositoris & Codi Obert",
+    "locationCard": "Ubicació & Disponibilitat",
+    "locationValue": "València, Espanya (Remot / Híbrid)",
+    "formTitle": "Envia'm un Missatge",
+    "formSubtitle": "Tens una vacant tècnica, un projecte exigent o vols contrastar visions d'arquitectura? Escriu-me i connectem.",
+    "nameLabel": "El teu Nom / Empresa",
+    "namePlaceholder": "Ex. Maria Navarro (CTO)",
+    "emailLabel": "El teu Correu Electrònic *",
+    "emailPlaceholder": "nom@empresa.com",
+    "messageLabel": "Missatge o Context del Projecte *",
+    "messagePlaceholder": "Conta'm breument sobre el teu equip, l'stack o l'oportunitat tècnica...",
+    "submitBtn": "Enviar Missatge Directe",
+    "submittingBtn": "Enviant...",
+    "emailCopiedToast": "Email copiat al porta-retalls! 📋",
+    "emailCopiedToastDesc": "info@carloslara.dev a punt per a apegar.",
+    "incompleteToast": "Camps incomplets",
+    "incompleteToastDesc": "Per favor, introduïx el teu email i un breu missatge.",
+    "successToast": "Missatge registrat! 🚀",
+    "successToastDesc": "Carlos et respondrà al més prompte possible."
   },
   "footer": {
     "rights": "Tots els drets reservats.",
     "builtWith": "Dissenyat i desenvolupat al 100% amb IA agèntica i Spec-Driven Development.",
-    "edgePowered": "Allotjat i desplegat amb GitHub Actions & GitHub Pages."
+    "edgePowered": "Cloudflare Pages",
+    "desc": "Agentic Engineer & Senior Backend Architect. Dissenyant sistemes distribuïts resilients, sincronització en temps real i fluxos agèntics guiats per Spec-Driven Development (SDD).",
+    "navTitle": "Navegació",
+    "aiTitle": "Machine-Readable (AI)",
+    "backToTop": "Pujar"
+  },
+  "sdd": {
+    "tag": "METODOLOGIA SDD (SPEC-DRIVEN DEVELOPMENT)",
+    "titlePrefix": "El Codi és el ",
+    "titleHighlight": "Resultat Final",
+    "titleSuffix": ", no el Punt de Partida",
+    "subtitle": "Com orquestre agents autònoms (Claude Code, Antigravity) amb enginyeria de software rigorosa per a garantir 0 al·lucinacions i codi 100% verificat.",
+    "step1": {
+      "phase": "FASE 01",
+      "role": "@analyst",
+      "gate": "Gate 1 · Anàlisi",
+      "title": "Elicitació de Requisits & Domini",
+      "desc": "Especificació formal d'objectius de negoci, números auditats sense fum, restriccions de latència i casos d'ús abans d'escriure una sola línia de codi.",
+      "highlight": "Zero ambigüitat"
+    },
+    "step2": {
+      "phase": "FASE 02",
+      "role": "@planner",
+      "gate": "Gate 2 · Pla d'Arquitectura",
+      "title": "Disseny Tècnic & Decisions ADR",
+      "desc": "Selecció rigorosa de patrons (Event-Driven, Hexagonal), disseny d'interfícies, diagrames de seqüència C4 i justificació d'stack tecnològic.",
+      "highlight": "ADRs documentades"
+    },
+    "step3": {
+      "phase": "FASE 03",
+      "role": "@tasker",
+      "gate": "Gate 3 · Backlog Atòmic",
+      "title": "Desglossament Atòmic amb DoD Estricte",
+      "desc": "Descomposició de l'arquitectura en paquets de treball i tasques atòmiques. Cada tasca compta amb Criteris d'Acceptació (AC) i Definició de Terminat verificable.",
+      "highlight": "Criteris DoD clars"
+    },
+    "step4": {
+      "phase": "FASE 04",
+      "role": "@implementer",
+      "gate": "Gate 4 · Producció ⚡",
+      "title": "TDD (Red -> Green -> Refactor)",
+      "desc": "Desenvolupament guiat per proves unitàries prèvies amb Vitest, auditoria de seguretat Opengrep, 100/100 Lighthouse i desplegament continu amb 0 reverts.",
+      "highlight": "0 Reverts auditats"
+    },
+    "banner": {
+      "tag": "ARTEFACTE DE REFERÈNCIA",
+      "desc": "Tots els documents d'especificació viuen en el repositori per a garantir traçabilitat i reproductibilitat total.",
+      "btn": "Veure Specs a GitHub"
+    }
+  },
+  "welcome": {
+    "skip": "Saltar",
+    "telemetry": "Iniciant telemetria d'alta disponibilitat...",
+    "msg1": "Enginyeria Agèntica & Arquitectura Backend",
+    "msg2": "20+ Anys de Sistemes Crítics d'Alta Disponibilitat",
+    "msg3": "Metodologia SDD Estricta · 0 Reverts"
   }
 }

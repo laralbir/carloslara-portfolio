@@ -47,19 +47,37 @@ export const AboutSection: React.FC = () => {
 
   const tabContent = {
     vision: {
-      title: "Uniendo 20 años de artesanía backend con la era agéntica",
-      p1: "Llevo programando y levantando arquitecturas desde antes de que existiera la nube como la conocemos hoy. He visto modas nacer y morir, pero los fundamentos permanecen: desacoplamiento, idempotencia, resiliencia y claridad de dominio.",
-      p2: "Hoy no peleo contra las herramientas de Inteligencia Artificial: las integro en el corazón de mi flujo diario a través de Claude Code y el protocolo MCP, logrando un ritmo de entrega de 10x sin sacrificar ni un ápice de rigor técnico.",
+      title:
+        t("strengths.tabs.visionTitle") ||
+        "Uniendo 20 años de artesanía backend con la era agéntica",
+      p1:
+        t("strengths.tabs.visionP1") ||
+        "Llevo programando y levantando arquitecturas desde antes de que existiera la nube como la conocemos hoy. He visto modas nacer y morir, pero los fundamentos permanecen: desacoplamiento, idempotencia, resiliencia y claridad de dominio.",
+      p2:
+        t("strengths.tabs.visionP2") ||
+        "Hoy no peleo contra las herramientas de Inteligencia Artificial: las integro en el corazón de mi flujo diario a través de Claude Code y el protocolo MCP, logrando un ritmo de entrega de 10x sin sacrificar ni un ápice de rigor técnico.",
     },
     architecture: {
-      title: "Arquitecturas que escalan bajo fuego real",
-      p1: "Mi enfoque se basa en Clean Architecture y Event-Driven Design. Cada servicio posee responsabilidades atómicas, comunica eventos asíncronos mediante AWS EventBridge o SQS, y garantiza que un pico inesperado nunca tumbe el core del negocio.",
-      p2: "Desde bases de datos SQL relacionales altamente normalizadas hasta NoSQL optimizado para alta lectura, selecciono la herramienta precisa para cada necesidad de negocio.",
+      title:
+        t("strengths.tabs.archTitle") ||
+        "Arquitecturas que escalan bajo fuego real",
+      p1:
+        t("strengths.tabs.archP1") ||
+        "Mi enfoque se basa en Clean Architecture y Event-Driven Design. Cada servicio posee responsabilidades atómicas, comunica eventos asíncronos mediante AWS EventBridge o SQS, y garantiza que un pico inesperado nunca tumbe el core del negocio.",
+      p2:
+        t("strengths.tabs.archP2") ||
+        "Desde bases de datos SQL relacionales altamente normalizadas hasta NoSQL optimizado para alta lectura, selecciono la herramienta precisa para cada necesidad de negocio.",
     },
     methodology: {
-      title: "Spec-Driven Development: Cero alucinaciones, 100% código verificado",
-      p1: "Bajo la metodología SDD, el código es el subproducto de una especificación impecable. Antes de tirar una sola línea, completamos Análisis, Plan de Arquitectura y Desglose Atómico de Tareas.",
-      p2: "Cada pull request pasa por pruebas automatizadas TDD (Red -> Green -> Refactor), análisis de seguridad y verificación de rendimiento antes de llegar a producción.",
+      title:
+        t("strengths.tabs.sddTitle") ||
+        "Spec-Driven Development: Cero alucinaciones, 100% código verificado",
+      p1:
+        t("strengths.tabs.sddP1") ||
+        "Bajo la metodología SDD, el código es el subproducto de una especificación impecable. Antes de tirar una sola línea, completamos Análisis, Plan de Arquitectura y Desglose Atómico de Tareas.",
+      p2:
+        t("strengths.tabs.sddP2") ||
+        "Cada pull request pasa por pruebas automatizadas TDD (Red -> Green -> Refactor), análisis de seguridad y verificación de rendimiento antes de llegar a producción.",
     },
   };
 
@@ -120,7 +138,7 @@ export const AboutSection: React.FC = () => {
                   : "text-muted-foreground hover:text-foreground hover:bg-card"
               }`}
             >
-              🎯 Visión &amp; Trayectoria
+              {t("strengths.tabs.visionTab") || "🎯 Visión & Trayectoria"}
             </button>
             <button
               onClick={() => setActiveTab("architecture")}
@@ -130,7 +148,7 @@ export const AboutSection: React.FC = () => {
                   : "text-muted-foreground hover:text-foreground hover:bg-card"
               }`}
             >
-              ⚡ Filosofía de Arquitectura
+              {t("strengths.tabs.archTab") || "⚡ Filosofía de Arquitectura"}
             </button>
             <button
               onClick={() => setActiveTab("methodology")}
@@ -140,7 +158,7 @@ export const AboutSection: React.FC = () => {
                   : "text-muted-foreground hover:text-foreground hover:bg-card"
               }`}
             >
-              🛠️ SDD &amp; Flujos Agénticos
+              {t("strengths.tabs.sddTab") || "🛠️ SDD & Flujos Agénticos"}
             </button>
           </div>
 
@@ -169,7 +187,7 @@ export const AboutSection: React.FC = () => {
           <div className="mt-8 pt-6 border-t border-border/40 flex flex-wrap items-center justify-between gap-4">
             <div className="flex items-center gap-2 text-xs font-mono text-muted-foreground">
               <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-              <span>Formatos preparados para evaluadores técnicos y motores ATS/IA</span>
+              <span>{t("strengths.tabs.atsResume") || "Formatos preparados para evaluadores técnicos y motores ATS/IA"}</span>
             </div>
 
             <div className="flex items-center gap-3">
