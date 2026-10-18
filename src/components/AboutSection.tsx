@@ -168,7 +168,7 @@ export const AboutSection: React.FC = () => {
           {/* Download Resumes Bar */}
           <div className="mt-8 pt-6 border-t border-border/40 flex flex-wrap items-center justify-between gap-4">
             <div className="flex items-center gap-2 text-xs font-mono text-muted-foreground">
-              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+              <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
               <span>Formatos preparados para evaluadores técnicos y motores ATS/IA</span>
             </div>
 

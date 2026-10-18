@@ -2649,7 +2649,8 @@ footer {
 /* 🏍️ ANIMATION 3: Motorcycle Touring Rear Perspective View & Acceleration */
 .moto-scene {
   width: 100%;
-  height: 100%;
+  height: 220px;
+  min-height: 220px;
   position: relative;
   display: flex;
   align-items: center;

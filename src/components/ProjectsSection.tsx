@@ -219,7 +219,7 @@ export const ProjectsSection: React.FC = () => {
                   {/* Problem / Solution / Impact Structured Snippets */}
                   <div className="space-y-3 mb-6 text-xs sm:text-sm leading-relaxed">
                     <div className="p-3 rounded-xl bg-background/50 border border-border/40">
-                      <div className="text-[11px] font-mono uppercase tracking-wider text-amber-400/90 font-semibold mb-1 flex items-center gap-1">
+                      <div className="text-[11px] font-mono uppercase tracking-wider text-amber-700 dark:text-amber-400 font-semibold mb-1 flex items-center gap-1">
                         <ShieldAlert className="w-3.5 h-3.5" />
                         <span>Problema / Reto:</span>
                       </div>
@@ -227,19 +227,19 @@ export const ProjectsSection: React.FC = () => {
                     </div>
 
                     <div className="p-3 rounded-xl bg-background/50 border border-border/40">
-                      <div className="text-[11px] font-mono uppercase tracking-wider text-cyan-400 font-semibold mb-1 flex items-center gap-1">
+                      <div className="text-[11px] font-mono uppercase tracking-wider text-cyan-700 dark:text-cyan-400 font-semibold mb-1 flex items-center gap-1">
                         <Lightbulb className="w-3.5 h-3.5" />
                         <span>Solución Arquitectónica:</span>
                       </div>
                       <p className="text-muted-foreground">{t(proj.solutionKey)}</p>
                     </div>
 
-                    <div className="p-3 rounded-xl bg-emerald-950/20 border border-emerald-500/30">
-                      <div className="text-[11px] font-mono uppercase tracking-wider text-emerald-400 font-semibold mb-1 flex items-center gap-1">
+                    <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200 dark:bg-emerald-950/30 dark:border-emerald-500/30">
+                      <div className="text-[11px] font-mono uppercase tracking-wider text-emerald-800 dark:text-emerald-400 font-bold mb-1 flex items-center gap-1">
                         <CheckCircle className="w-3.5 h-3.5" />
                         <span>Impacto Auditado:</span>
                       </div>
-                      <p className="text-emerald-300 font-medium">{t(proj.impactKey)}</p>
+                      <p className="text-emerald-950 dark:text-emerald-200 font-medium">{t(proj.impactKey)}</p>
                     </div>
                   </div>
                 </div>
@@ -312,22 +312,22 @@ export const ProjectsSection: React.FC = () => {
 
                 <div className="space-y-4 text-sm leading-relaxed mb-6">
                   <div>
-                    <h4 className="font-mono text-xs text-amber-400 font-semibold mb-1">
+                    <h4 className="font-mono text-xs text-amber-700 dark:text-amber-400 font-semibold mb-1">
                       EL PROBLEMA DE NEGOCIO:
                     </h4>
                     <p className="text-muted-foreground">{t(selectedProject.problemKey)}</p>
                   </div>
                   <div>
-                    <h4 className="font-mono text-xs text-cyan-400 font-semibold mb-1">
+                    <h4 className="font-mono text-xs text-cyan-700 dark:text-cyan-400 font-semibold mb-1">
                       LA SOLUCIÓN TÉCNICA:
                     </h4>
                     <p className="text-muted-foreground">{t(selectedProject.solutionKey)}</p>
                   </div>
-                  <div className="p-4 rounded-xl bg-emerald-950/20 border border-emerald-500/30">
-                    <h4 className="font-mono text-xs text-emerald-400 font-semibold mb-1">
+                  <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 dark:bg-emerald-950/30 dark:border-emerald-500/30">
+                    <h4 className="font-mono text-xs text-emerald-800 dark:text-emerald-400 font-bold mb-1">
                       EL RESULTADO / MÉTRICA:
                     </h4>
-                    <p className="text-emerald-200 font-medium">{t(selectedProject.impactKey)}</p>
+                    <p className="text-emerald-950 dark:text-emerald-200 font-medium">{t(selectedProject.impactKey)}</p>
                   </div>
                 </div>
 

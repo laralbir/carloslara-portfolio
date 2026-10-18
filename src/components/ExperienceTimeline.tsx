@@ -149,7 +149,7 @@ export const ExperienceTimeline: React.FC = () => {
                 <ul className="space-y-2 mb-6">
                   {exp.highlights.map((h, i) => (
                     <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-muted-foreground">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
                       <span>{h}</span>
                     </li>
                   ))}

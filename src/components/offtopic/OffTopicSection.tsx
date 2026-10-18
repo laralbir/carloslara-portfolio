@@ -43,7 +43,7 @@ export const OffTopicSection: React.FC = () => {
       desc: "Deporte federado de extrema disciplina mental y técnica. El control del pulso, el cálculo del viento y la consistencia biomecánica son la analogía perfecta para resolver arquitecturas críticas bajo presión.",
       photoUrl: "/assets/offtopic/archery-real.webp",
       photoFallback: "/assets/offtopic/archery-real.jpg",
-      photoCaption: "Carlos compitiendo en línea de tiro a 18m con arco recurvo olímpico.",
+      photoCaption: "Carlos compitiendo en línea de tiro a 50m con arco.",
       easterEggHint: "🎯 Clic para desbloquear: Diana WA 18m",
       easterEggTag: "Minijuego Balístico",
     },
@@ -117,7 +117,7 @@ export const OffTopicSection: React.FC = () => {
                     </span>
 
                     {/* Return to photo button when in interactive mode */}
-                    {isInteractive ? (
+                    {isInteractive && (
                       <button
                         onClick={() => returnToPhoto(card.id)}
                         className="flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-mono bg-background/80 border border-border/80 text-muted-foreground hover:text-foreground hover:border-primary/50 transition-all cursor-pointer"
@@ -126,11 +126,6 @@ export const OffTopicSection: React.FC = () => {
                         <Camera className="w-3 h-3 text-cyan-400" />
                         <span>Ver foto real</span>
                       </button>
-                    ) : (
-                      <span className="text-[10px] font-mono text-muted-foreground flex items-center gap-1">
-                        <Sparkles className="w-3 h-3 text-amber-400" />
-                        <span>Easter Egg oculto</span>
-                      </span>
                     )}
                   </div>
 
@@ -146,7 +141,7 @@ export const OffTopicSection: React.FC = () => {
                 <div className="w-full">
                   <AnimatePresence mode="wait">
                     {!isInteractive ? (
-                      /* LAYER 1: Authentic Photography with Easter Egg Invitation */
+                      /* LAYER 1: Authentic Photography (Clicking reveals surprise Easter Egg) */
                       <motion.div
                         key="photo"
                         initial={{ opacity: 0, scale: 0.98 }}
@@ -155,6 +150,7 @@ export const OffTopicSection: React.FC = () => {
                         transition={{ duration: 0.3 }}
                         onClick={() => unlockEasterEgg(card.id)}
                         className="relative rounded-2xl overflow-hidden cursor-pointer group/photo aspect-4/3 border border-border/80 shadow-md bg-neutral-950"
+                        title={card.photoCaption}
                       >
                         <img
                           src={card.photoUrl}
@@ -181,16 +177,6 @@ export const OffTopicSection: React.FC = () => {
                         >
                           <Maximize2 className="w-3.5 h-3.5" />
                         </button>
-
-                        {/* Bottom Overlay Pill: Click to Unlock Easter Egg */}
-                        <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end justify-center">
-                          <div className="px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-primary/50 text-foreground font-mono text-xs flex items-center gap-2 shadow-lg backdrop-blur-md group-hover/photo:border-primary group-hover/photo:scale-105 transition-all">
-                            <Gamepad2 className="w-4 h-4 text-primary animate-pulse" />
-                            <span className="text-primary font-semibold">
-                              {card.easterEggHint}
-                            </span>
-                          </div>
-                        </div>
                       </motion.div>
                     ) : (
                       /* LAYER 2: Interactive Easter Egg Minigame */

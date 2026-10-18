@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect, useCallback } from "react";
-import { Crosshair, RotateCcw, Target, Award } from "lucide-react";
+import React, { useState, useRef, useEffect } from "react";
+import { Crosshair, RotateCcw, Target } from "lucide-react";
 import { calculateArcheryScore, computeBowTremor, ArcheryScoreResult } from "@/scripts/components/hobby-easter-eggs";
 
 interface ShotMarker {
@@ -12,13 +12,19 @@ interface ShotMarker {
 export const ArcheryGame: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const targetSvgRef = useRef<SVGSVGElement>(null);
-  const [aimPos, setAimPos] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
+
+  // User's base aim target (follows mouse / touch)
+  const baseAimRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
+
+  // Live visor position in SVG coordinates (baseAim + natural muscular tremor)
+  const [visorPos, setVisorPos] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
+  const visorPosRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
+
   const [shots, setShots] = useState<ShotMarker[]>([]);
   const [lastResult, setLastResult] = useState<ArcheryScoreResult | null>(null);
   const [totalScore, setTotalScore] = useState(0);
-  const [isAiming, setIsAiming] = useState(false);
 
-  // Tremor loop for realistic bow sight sway (only in real browser)
+  // Tremor animation loop for realistic bow sight sway (active in real browser)
   useEffect(() => {
     if (
       typeof window === "undefined" ||
@@ -29,19 +35,24 @@ export const ArcheryGame: React.FC = () => {
     let rafId: number;
     const animateTremor = (time: number) => {
       const tremor = computeBowTremor(time);
-      setAimPos((prev) => {
-        return {
-          x: prev.x + (tremor.x * 0.12),
-          y: prev.y + (tremor.y * 0.12),
-        };
-      });
+      // Tremor adds natural Olympic sway around current aim
+      const rawVx = baseAimRef.current.x + tremor.x;
+      const rawVy = baseAimRef.current.y + tremor.y;
+      const dist = Math.hypot(rawVx, rawVy);
+      const maxRadius = 76;
+      const vx = dist > maxRadius ? (rawVx / dist) * maxRadius : rawVx;
+      const vy = dist > maxRadius ? (rawVy / dist) * maxRadius : rawVy;
+
+      visorPosRef.current = { x: vx, y: vy };
+      setVisorPos({ x: vx, y: vy });
       rafId = requestAnimationFrame(animateTremor);
     };
     rafId = requestAnimationFrame(animateTremor);
     return () => cancelAnimationFrame(rafId);
   }, []);
 
-  const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+  // Update base aim from mouse or touch event in SVG coordinates (-80 to 80)
+  const updateAimFromPointer = (clientX: number, clientY: number) => {
     if (!targetSvgRef.current) return;
     const rect = targetSvgRef.current.getBoundingClientRect();
     if (rect.width <= 0) return;
@@ -49,26 +60,27 @@ export const ArcheryGame: React.FC = () => {
     const centerY = rect.top + rect.height / 2;
     const scale = 160 / rect.width;
 
-    // Adjust vertical offset for touch to avoid thumb occlusion
-    const adjustedClientY = e.pointerType === "touch" ? e.clientY - rect.height * 0.16 : e.clientY;
-
-    const rawX = (e.clientX - centerX) * scale;
-    const rawY = (adjustedClientY - centerY) * scale;
+    const rawX = (clientX - centerX) * scale;
+    const rawY = (clientY - centerY) * scale;
 
     const dist = Math.hypot(rawX, rawY);
-    const maxRadius = 78;
-    if (dist > maxRadius) {
-      setAimPos({ x: (rawX / dist) * maxRadius, y: (rawY / dist) * maxRadius });
-    } else {
-      setAimPos({ x: rawX, y: rawY });
+    const maxRadius = 74;
+    const x = dist > maxRadius ? (rawX / dist) * maxRadius : rawX;
+    const y = dist > maxRadius ? (rawY / dist) * maxRadius : rawY;
+
+    baseAimRef.current = { x, y };
+
+    // In testing or when RAF is suspended, update visor immediately
+    if (typeof process !== "undefined" && process.env?.NODE_ENV === "test") {
+      visorPosRef.current = { x, y };
+      setVisorPos({ x, y });
     }
-    setIsAiming(true);
   };
 
+  // Shoot arrow: impact is 100% STRICTLY in the exact center of the moving visor
   const handleShoot = () => {
-    const tremor = computeBowTremor(performance.now());
-    const finalX = aimPos.x + tremor.x * 0.35;
-    const finalY = aimPos.y + tremor.y * 0.35;
+    const finalX = visorPosRef.current.x;
+    const finalY = visorPosRef.current.y;
 
     const result = calculateArcheryScore(finalX, finalY);
     setLastResult(result);
@@ -94,15 +106,13 @@ export const ArcheryGame: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      onPointerMove={handlePointerMove}
-      onPointerLeave={() => setIsAiming(false)}
       className="flex flex-col items-center justify-between p-4 bg-card/60 rounded-2xl border border-border/70 relative select-none"
     >
       {/* Header bar */}
       <div className="w-full flex items-center justify-between text-xs font-mono mb-2">
         <div className="flex items-center gap-1.5 text-primary">
           <Target className="w-4 h-4" />
-          <span>Diana WA 18m (Recurvo Olímpico)</span>
+          <span>Diana WA 50m (Tiro con Arco)</span>
         </div>
         <div className="flex items-center gap-3">
           <span className="text-foreground font-bold">
@@ -120,15 +130,18 @@ export const ArcheryGame: React.FC = () => {
         </div>
       </div>
 
-      {/* Target Container */}
+      {/* Target Container: pointer & touch listeners update base aim; click shoots */}
       <div
+        onPointerDown={(e) => updateAimFromPointer(e.clientX, e.clientY)}
+        onPointerMove={(e) => updateAimFromPointer(e.clientX, e.clientY)}
         onClick={handleShoot}
-        className="relative w-64 h-64 sm:w-72 sm:h-72 flex items-center justify-center cursor-crosshair group touch-none"
+        className="relative w-64 h-64 sm:w-72 sm:h-72 flex items-center justify-center cursor-crosshair group touch-none select-none"
+        title="Haz clic o toca para disparar al centro del visor"
       >
         <svg
           ref={targetSvgRef}
           viewBox="-80 -80 160 160"
-          className="w-full h-full drop-shadow-xl transition-transform"
+          className="w-full h-full drop-shadow-xl"
         >
           {/* Target Rings */}
           {/* White 1-2 */}
@@ -150,29 +163,66 @@ export const ArcheryGame: React.FC = () => {
           <line x1="-3" y1="0" x2="3" y2="0" stroke="#713f12" strokeWidth="0.8" />
           <line x1="0" y1="-3" x2="0" y2="3" stroke="#713f12" strokeWidth="0.8" />
 
-          {/* Shot Markers (Punctures) */}
-          {shots.map((shot) => (
-            <g key={shot.id} transform={`translate(${shot.x}, ${shot.y})`}>
-              <circle cx="0" cy="0" r="2.8" fill="#0f172a" stroke="#ffffff" strokeWidth="1" />
-              <circle cx="0" cy="0" r="1.2" fill="#38bdf8" />
-            </g>
-          ))}
-        </svg>
+          {/* Shot Markers (Punctures): rendered at exact shot coordinates */}
+          {shots.map((shot, idx) => {
+            const isLatest = idx === shots.length - 1;
+            return (
+              <g key={shot.id} transform={`translate(${shot.x}, ${shot.y})`}>
+                {isLatest && (
+                  <circle cx="0" cy="0" r="4.5" fill="none" stroke="#38bdf8" strokeWidth="0.8" opacity="0.8" />
+                )}
+                <circle cx="0" cy="0" r="2.8" fill="#0f172a" stroke="#ffffff" strokeWidth="1" />
+                <circle cx="0" cy="0" r="1.2" fill={isLatest ? "#38bdf8" : "#94a3b8"} />
+              </g>
+            );
+          })}
 
-        {/* Dynamic Sight Reticle */}
-        <div
-          className="absolute pointer-events-none transition-transform duration-75"
-          style={{
-            transform: `translate(${aimPos.x * 1.7}px, ${aimPos.y * 1.7}px)`,
-          }}
-        >
-          <div className="relative -top-4 -left-4 w-8 h-8 rounded-full border-2 border-primary/80 flex items-center justify-center animate-pulse">
-            <span className="w-1.5 h-1.5 rounded-full bg-red-500 shadow-sm shadow-red-500" />
-            <div className="absolute top-1/2 left-0 right-0 h-[1px] bg-primary/40 -translate-y-1/2" />
-            <div className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-primary/40 -translate-x-1/2" />
-          </div>
-        </div>
+          {/* Dynamic Olympic Sight Reticle: Rendered DIRECTLY inside the SVG in exact coordinates */}
+          <g
+            transform={`translate(${visorPos.x}, ${visorPos.y})`}
+            className="pointer-events-none select-none"
+            aria-hidden="true"
+          >
+            {/* Outer sight aperture ring */}
+            <circle
+              cx="0"
+              cy="0"
+              r="8"
+              fill="none"
+              stroke="#ef4444"
+              strokeWidth="1.2"
+              opacity="0.9"
+            />
+            {/* Inner pin clearance ring */}
+            <circle
+              cx="0"
+              cy="0"
+              r="3"
+              fill="rgba(239, 68, 68, 0.15)"
+              stroke="#ef4444"
+              strokeWidth="0.6"
+              opacity="0.8"
+            />
+            {/* Crosshairs */}
+            <line x1="-11" y1="0" x2="-3" y2="0" stroke="#ef4444" strokeWidth="1" />
+            <line x1="3" y1="0" x2="11" y2="0" stroke="#ef4444" strokeWidth="1" />
+            <line x1="0" y1="-11" x2="0" y2="-3" stroke="#ef4444" strokeWidth="1" />
+            <line x1="0" y1="3" x2="0" y2="11" stroke="#ef4444" strokeWidth="1" />
+            {/* Center Fiber Optic Red Pin - THIS is (0, 0) of the visor */}
+            <circle cx="0" cy="0" r="1.4" fill="#ef4444" stroke="#ffffff" strokeWidth="0.5" />
+          </g>
+        </svg>
       </div>
+
+      {/* Touch & Click Shoot Action Button */}
+      <button
+        type="button"
+        onClick={handleShoot}
+        className="mt-3 px-4 py-2 rounded-xl bg-primary/15 hover:bg-primary/25 active:scale-95 text-primary border border-primary/30 font-mono text-xs font-semibold flex items-center gap-2 transition-all cursor-pointer shadow-sm"
+      >
+        <Crosshair className="w-3.5 h-3.5 text-primary" />
+        <span>Soltar flecha (Disparar)</span>
+      </button>
 
       {/* Result feedback ticker */}
       <div className="mt-2 text-center h-7 flex items-center justify-center">
@@ -182,7 +232,7 @@ export const ArcheryGame: React.FC = () => {
           </div>
         ) : (
           <span className="text-[11px] font-mono text-muted-foreground">
-            Apunta compensando el temblor muscular y haz clic para disparar
+            Apunta compensando el temblor muscular y dispara al centro del visor
           </span>
         )}
       </div>

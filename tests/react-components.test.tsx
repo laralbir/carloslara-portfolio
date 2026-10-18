@@ -90,7 +90,7 @@ describe("React Portfolio Components", () => {
 
     const target = container.querySelector("svg");
     expect(target).not.toBeNull();
-    expect(container.textContent).toContain("Diana WA 18m");
+    expect(container.textContent).toContain("Diana WA 50m");
     expect(container.textContent).toContain("Total: 0");
   });
 
@@ -149,7 +149,7 @@ describe("React Portfolio Components", () => {
     expect(completed).toBe(true);
   });
 
-  it("OffTopicSection displays authentic photo by default and unlocks easter egg minigame on click", async () => {
+  it("OffTopicSection displays authentic photo by default and unlocks easter egg minigame on click as a surprise", async () => {
     const { OffTopicSection } = await import("../src/components/offtopic/OffTopicSection");
     const root = createRoot(container);
     await act(async () => {
@@ -162,9 +162,10 @@ describe("React Portfolio Components", () => {
       );
     });
 
-    // Initially shows photo and hint
-    expect(container.textContent).toContain("Easter Egg oculto");
-    expect(container.textContent).toContain("Diana WA 18m");
+    // Initially shows clean photo without spoiler hints
+    expect(container.textContent).toContain("Tiro con Arco");
+    expect(container.textContent).not.toContain("Easter Egg oculto");
+    expect(container.textContent).not.toContain("Clic para desbloquear");
 
     // Click on photo container to unlock archery game
     const photoCard = container.querySelector(".group\\/photo") as HTMLElement | null;
@@ -174,7 +175,13 @@ describe("React Portfolio Components", () => {
       photoCard?.click();
     });
 
+    // Wait for Framer Motion exit animation to complete and render the minigame
+    await act(async () => {
+      await new Promise((r) => setTimeout(r, 400));
+    });
+
     // Minigame is unlocked
     expect(container.textContent).toContain("Ver foto real");
+    expect(container.textContent).toContain("Diana WA 50m");
   });
 });

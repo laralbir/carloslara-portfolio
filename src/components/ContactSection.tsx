@@ -109,7 +109,7 @@ export const ContactSection: React.FC = () => {
               </div>
               <a
                 href={`mailto:${emailAddress}`}
-                className="text-lg font-bold font-mono text-foreground hover:text-primary transition-colors block"
+                className="text-base font-bold text-foreground hover:text-primary transition-colors block"
               >
                 {emailAddress}
               </a>
@@ -165,7 +165,7 @@ export const ContactSection: React.FC = () => {
                 <div className="text-xs font-mono uppercase text-muted-foreground font-semibold">
                   Ubicación &amp; Disponibilidad
                 </div>
-                <div className="text-sm font-bold text-foreground mt-0.5">
+                <div className="text-base font-bold text-foreground mt-0.5">
                   Valencia, España (Remoto / Híbrido)
                 </div>
               </div>

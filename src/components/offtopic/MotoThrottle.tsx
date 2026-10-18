@@ -56,7 +56,8 @@ export const MotoThrottle: React.FC = () => {
       {/* Main Interactive Road & Motorcycle Scene */}
       <div
         onClick={triggerAcceleration}
-        className={`moto-scene relative w-full h-56 rounded-2xl bg-gradient-to-b from-sky-950 via-slate-900 to-slate-950 border border-border/80 flex items-center justify-center overflow-hidden cursor-pointer shadow-xl ${
+        style={{ height: "220px", minHeight: "220px" }}
+        className={`moto-scene relative w-full h-[220px] rounded-2xl bg-gradient-to-b from-sky-950 via-slate-900 to-slate-950 border border-border/80 flex items-center justify-center overflow-hidden cursor-pointer shadow-xl ${
           isAccelerating ? "is-accelerating" : ""
         }`}
         role="button"
