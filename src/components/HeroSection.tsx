@@ -72,13 +72,13 @@ export const HeroSection: React.FC = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-[92vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-b from-background via-background/95 to-primary/5 py-12 lg:py-20"
+      className="relative min-h-[92vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-b from-transparent via-background/25 to-primary/5 py-12 lg:py-20"
     >
       {/* Background Grid & Ambient Glows */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,187,167,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(0,187,167,0.06)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,black,transparent)]" />
-        <div className="absolute top-20 left-10 w-80 h-80 rounded-full bg-primary/10 blur-[120px]" />
-        <div className="absolute bottom-20 right-10 w-80 h-80 rounded-full bg-cyan-500/10 blur-[120px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,187,167,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(0,187,167,0.08)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(0,187,167,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,187,167,0.05)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,black,transparent)]" />
+        <div className="absolute top-20 left-10 w-80 h-80 rounded-full bg-primary/15 dark:bg-primary/10 blur-[120px]" />
+        <div className="absolute bottom-20 right-10 w-80 h-80 rounded-full bg-cyan-500/15 dark:bg-cyan-500/10 blur-[120px]" />
       </div>
 
       <div className="container max-w-7xl mx-auto w-full">

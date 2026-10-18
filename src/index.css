@@ -202,14 +202,26 @@
 @utility star {
   position: absolute;
   border-radius: 9999px;
-  background-color: white;
-  box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4);
+  background-color: #0d9488;
+  box-shadow: 0 0 8px 2px rgba(13, 148, 136, 0.45);
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.dark .star {
+  background-color: #ffffff;
+  box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.45);
 }
 
 @utility meteor {
   position: absolute;
-  background-image: linear-gradient(to right, white, white, transparent);
+  background-image: linear-gradient(to right, #0d9488, #0284c7, transparent);
   border-radius: 9999px;
+  box-shadow: 0 0 10px 3px rgba(13, 148, 136, 0.35);
+  transition: background-image 0.4s ease, box-shadow 0.4s ease;
+}
+
+.dark .meteor {
+  background-image: linear-gradient(to right, #ffffff, #ffffff, transparent);
   box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
 }
 

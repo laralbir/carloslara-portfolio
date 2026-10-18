@@ -8,6 +8,7 @@ interface Star {
   y: number;
   opacity: number;
   animationDuration: number;
+  variant: "teal" | "cyan" | "indigo";
 }
 
 interface Meteor {
@@ -35,39 +36,48 @@ export const StarBackground: React.FC = () => {
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [a11yContrast]);
 
   const generateStars = () => {
     if (typeof window === "undefined") return;
     const numberOfStars = Math.min(
-      80,
-      Math.floor((window.innerWidth * window.innerHeight) / 14000)
+      85,
+      Math.floor((window.innerWidth * window.innerHeight) / 13000)
     );
+
+    const variants: ("teal" | "cyan" | "indigo")[] = [
+      "teal",
+      "teal",
+      "cyan",
+      "cyan",
+      "indigo",
+    ];
 
     const newStars: Star[] = [];
     for (let i = 0; i < numberOfStars; i++) {
       newStars.push({
         id: i,
-        size: Math.random() * 2.5 + 1,
+        size: Math.random() * 2 + 1.4,
         x: Math.random() * 100,
         y: Math.random() * 100,
-        opacity: Math.random() * 0.5 + 0.3,
-        animationDuration: Math.random() * 4 + 2,
+        opacity: Math.random() * 0.4 + 0.45,
+        animationDuration: Math.random() * 4 + 2.5,
+        variant: variants[i % variants.length],
       });
     }
     setStars(newStars);
   };
 
   const generateMeteors = () => {
-    const numberOfMeteors = 4;
+    const numberOfMeteors = 5;
     const newMeteors: Meteor[] = [];
     for (let i = 0; i < numberOfMeteors; i++) {
       newMeteors.push({
         id: i,
-        size: Math.random() * 2 + 1,
+        size: Math.random() * 2 + 1.2,
         x: Math.random() * 100,
-        y: Math.random() * 25,
-        delay: Math.random() * 15,
+        y: Math.random() * 30,
+        delay: Math.random() * 12,
         animationDuration: Math.random() * 3 + 3,
       });
     }
@@ -80,31 +90,43 @@ export const StarBackground: React.FC = () => {
 
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
-      {/* Subtle cosmic background gradient halos */}
-      <div className="absolute top-1/4 left-1/5 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-1/5 w-80 h-80 bg-cyan-500/5 rounded-full blur-3xl" />
+      {/* Dynamic atmospheric cosmic ambient halos for light & dark themes */}
+      <div className="absolute top-1/4 left-1/5 w-[500px] h-[500px] bg-teal-500/12 dark:bg-primary/5 rounded-full blur-3xl pointer-events-none transition-all duration-700" />
+      <div className="absolute bottom-1/4 right-1/5 w-[450px] h-[450px] bg-cyan-500/14 dark:bg-cyan-500/5 rounded-full blur-3xl pointer-events-none transition-all duration-700" />
+      <div className="absolute top-2/3 left-1/3 w-[400px] h-[400px] bg-indigo-500/10 dark:bg-indigo-500/5 rounded-full blur-3xl pointer-events-none transition-all duration-700" />
 
-      {stars.map((star) => (
-        <div
-          key={star.id}
-          className="star animate-pulse-subtle"
-          style={{
-            width: `${star.size}px`,
-            height: `${star.size}px`,
-            left: `${star.x}%`,
-            top: `${star.y}%`,
-            opacity: star.opacity,
-            animationDuration: `${star.animationDuration}s`,
-          }}
-        />
-      ))}
+      {/* Sparkling Stars with adaptive contrast */}
+      {stars.map((star) => {
+        const variantClass =
+          star.variant === "cyan"
+            ? "bg-cyan-600 shadow-[0_0_8px_rgba(8,145,178,0.55)] dark:bg-cyan-200 dark:shadow-[0_0_10px_rgba(165,243,252,0.6)]"
+            : star.variant === "indigo"
+            ? "bg-indigo-600 shadow-[0_0_8px_rgba(79,70,229,0.5)] dark:bg-indigo-200 dark:shadow-[0_0_10px_rgba(199,210,254,0.5)]"
+            : "bg-teal-600 shadow-[0_0_8px_rgba(13,148,136,0.55)] dark:bg-white dark:shadow-[0_0_10px_rgba(255,255,255,0.55)]";
 
+        return (
+          <div
+            key={star.id}
+            className={`star absolute rounded-full animate-pulse-subtle transition-colors duration-500 ${variantClass}`}
+            style={{
+              width: `${star.size}px`,
+              height: `${star.size}px`,
+              left: `${star.x}%`,
+              top: `${star.y}%`,
+              opacity: star.opacity,
+              animationDuration: `${star.animationDuration}s`,
+            }}
+          />
+        );
+      })}
+
+      {/* Shooting Meteors with adaptive contrast */}
       {meteors.map((meteor) => (
         <div
           key={meteor.id}
-          className="meteor animate-meteor"
+          className="meteor absolute rounded-full animate-meteor bg-gradient-to-r from-teal-600 via-cyan-500 to-transparent shadow-[0_0_10px_rgba(13,148,136,0.45)] dark:from-white dark:via-cyan-100 dark:to-transparent dark:shadow-[0_0_12px_rgba(255,255,255,0.45)] transition-all duration-500"
           style={{
-            width: `${meteor.size * 50}px`,
+            width: `${meteor.size * 60}px`,
             height: `${meteor.size * 2}px`,
             left: `${meteor.x}%`,
             top: `${meteor.y}%`,
@@ -116,3 +138,5 @@ export const StarBackground: React.FC = () => {
     </div>
   );
 };
+
+export default StarBackground;
