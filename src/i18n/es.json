@@ -182,13 +182,6 @@
       "solution": "Diseñé una arquitectura distribuida orientada a eventos (EDA) de alta resiliencia: microservicios en TypeScript/Node.js desacoplados con colas AWS SQS y fan-out con SNS, control estricto de idempotencia, gestión de DLQs y cumplimiento PCI-DSS.",
       "impact": "Overbookings prácticamente a cero y una estabilidad a prueba de bombas bajo picos masivos de tráfico."
     },
-    "case4": {
-      "title": "Ingesta Asíncrona de Alta Concurrencia para E-Commerce",
-      "tag": "Event-Driven & In-Memory Cache",
-      "problem": "Tragar y procesar a tiempo flujos masivos de eventos: compras, clickstream, inventario y datos de marketing a gran escala.",
-      "solution": "Arquitectura desacoplada de mensajería asíncrona con AWS SNS (fan-out) y colas SQS, combinada con capas de caché de alta velocidad en Redis.",
-      "impact": "Ingesta en milisegundos con capacidad para analizarlo todo casi al instante."
-    },
     "personalTag": "Side Projects & Open Source",
     "personalTitle": "Proyectos Personales Orquestados con IA",
     "personalSubtitle": "Hardware, sistemas embebidos, Edge AI local y aplicaciones nativas creadas y aceleradas con agentes de IA autónomos (Claude, Gemma y prompts especializados).",

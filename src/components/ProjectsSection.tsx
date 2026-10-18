@@ -126,16 +126,6 @@ export const ProjectsSection: React.FC = () => {
       githubUrl: "https://github.com/laralbir",
       tags: ["Python / Flask", "PyWebView", "Kodi JSON-RPC", "Spotify API", "VU-Meter"],
     },
-    {
-      id: "case4",
-      category: "enterprise",
-      titleKey: "projects.case4.title",
-      tagKey: "projects.case4.tag",
-      problemKey: "projects.case4.problem",
-      solutionKey: "projects.case4.solution",
-      impactKey: "projects.case4.impact",
-      tags: ["AWS SQS", "AWS SNS Fan-out", "Redis Cache", "High Concurrency"],
-    },
   ];
 
   const filtered =

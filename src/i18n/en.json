@@ -182,13 +182,6 @@
       "solution": "Architected a highly resilient event-driven distributed system (EDA): TypeScript/Node.js microservices, asynchronous decoupling with AWS SQS queues and fan-out via SNS, strict idempotency handling, DLQ management, and PCI-DSS compliance.",
       "impact": "Overbookings dropped close to zero with rock-solid partner API stability under massive traffic spikes."
     },
-    "case4": {
-      "title": "High-Throughput Asynchronous E-Commerce Ingestion",
-      "tag": "Event-Driven & In-Memory Cache",
-      "problem": "Ingesting and processing huge streams of events on the fly: purchases, clickstream, inventory shifts, and marketing data at scale.",
-      "solution": "Decoupled asynchronous messaging topology using AWS SNS (fan-out) and SQS queues, paired with ultra-fast caching layers with Redis.",
-      "impact": "Sub-second event ingestion with instant querying readiness."
-    },
     "personalTag": "Side Projects & Open Source",
     "personalTitle": "Personal Projects Orchestrated with AI",
     "personalSubtitle": "Hardware, embedded systems, local Edge AI, and native applications supercharged by autonomous AI agents (Claude, Gemma, and tailored prompts).",
