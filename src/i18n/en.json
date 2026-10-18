@@ -37,7 +37,8 @@
     "metricPrs": "PRs Merged",
     "metricReverts": "Audited Reverts",
     "metricCompanies": "Companies in 11 Days",
-    "metricUptime": "SLA Uptime"
+    "metricUptime": "SLA Uptime",
+    "metricVelocity": "Development Velocity"
   },
   "aiCallout": {
     "tag": "100% Agentic AI & SDD",

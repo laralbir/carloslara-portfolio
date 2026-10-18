@@ -37,7 +37,8 @@
     "metricPrs": "PRs Merged",
     "metricReverts": "Reverts Auditats",
     "metricCompanies": "Empreses en 11 Dies",
-    "metricUptime": "Disponibilitat SLA"
+    "metricUptime": "Disponibilitat SLA",
+    "metricVelocity": "Velocitat de Desenvolupament"
   },
   "aiCallout": {
     "tag": "100% IA Agèntica & SDD",

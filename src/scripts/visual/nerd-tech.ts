@@ -54,7 +54,7 @@ function printConsoleEasterEgg(): void {
     `%c> [SYS_INIT]: Welcome fellow engineer / recruiter to Carlos Lara Albir's portfolio!
 > [ARCHITECTURE]: Distributed Systems · Event-Driven Architecture (AWS SQS/SNS, EventBridge) · High-Throughput Microservices · Real-time OTA Sync
 > [METHODOLOGY]: 100% Spec-Driven Development (SDD) orchestrated with AI (Claude Code + Antigravity)
-> [METRICS 2026]: 341 PRs merged (0 reverts) · 313 code reviews · 99.99% SLA uptime
+> [METRICS 2026]: 10x development velocity · 0 reverts · 313 code reviews · 99.99% SLA uptime
 > [CONNECT]: info@carloslara.dev | https://www.linkedin.com/in/carlos-lara-albir-687277a4`,
     textStyle
   );

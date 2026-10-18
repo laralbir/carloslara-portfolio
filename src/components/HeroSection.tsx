@@ -30,7 +30,7 @@ export const HeroSection: React.FC = () => {
     "  title: 'Agentic Engineer & Senior Backend Architect',",
     "  experience: '20+ years mission-critical systems',",
     "  pillars: ['Distributed EDA', 'Claude Code & MCP', 'Strict SDD'],",
-    "  metrics: { mergedPRs: 341, auditedReverts: 0 },",
+    "  metrics: { devVelocity: '10x', auditedReverts: 0 },",
     "  status: 'Open to Senior / Staff opportunities'",
     "});",
     "",
@@ -41,7 +41,7 @@ export const HeroSection: React.FC = () => {
 
   const achievements = [
     { number: "20+", label: t("hero.metricYears") || "Años en Producción", icon: <ShieldCheck className="h-4 w-4 text-emerald-400" /> },
-    { number: "341", label: t("hero.metricPrs") || "PRs Merged", icon: <TrendingUp className="h-4 w-4 text-cyan-400" /> },
+    { number: "10x", label: t("hero.metricVelocity") || "Velocidad de Desarrollo", icon: <TrendingUp className="h-4 w-4 text-cyan-400" /> },
     { number: "0", label: t("hero.metricReverts") || "Reverts Auditados", icon: <Award className="h-4 w-4 text-amber-400" /> },
     { number: "99.99%", label: t("hero.metricUptime") || "Disponibilidad SLA", icon: <Zap className="h-4 w-4 text-primary" /> },
   ];
