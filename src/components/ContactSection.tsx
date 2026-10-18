@@ -49,86 +49,101 @@ export const ContactSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Direct Info Cards (Centered with original card dimensions) */}
-        <div className="max-w-lg mx-auto space-y-4 text-left">
+        {/* Direct Info Cards (1 row on desktop, max 2 rows on tablet) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto text-left">
           {/* Email Card with 1-Click Copy */}
-          <div className="p-4 sm:p-6 rounded-2xl bg-card/70 border border-border/80 backdrop-blur-md shadow-lg">
-            <div className="flex items-center justify-between mb-3">
-              <span className="text-xs font-mono uppercase text-muted-foreground font-semibold flex items-center gap-1.5">
-                <Mail className="w-4 h-4 text-primary" />
-                <span>{t("contact.emailCard") || "Correo Electrónico"}</span>
-              </span>
-              <button
-                onClick={handleCopyEmail}
-                className="p-1.5 rounded-lg border border-border/60 hover:border-primary/40 text-muted-foreground hover:text-foreground text-xs flex items-center gap-1 transition-all cursor-pointer"
-                title={t("contact.emailCopy") || "Copiar email"}
+          <div className="p-4 sm:p-5 rounded-2xl bg-card/70 border border-border/80 backdrop-blur-md shadow-lg hover:border-primary/40 transition-all flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between gap-1 mb-2.5">
+                <span className="text-xs font-mono uppercase text-muted-foreground font-semibold flex items-center gap-1.5">
+                  <Mail className="w-3.5 h-3.5 text-primary shrink-0" />
+                  <span>{t("contact.emailCard") || "Email"}</span>
+                </span>
+                <button
+                  id="copy-email-btn"
+                  onClick={handleCopyEmail}
+                  className="px-2 py-0.5 rounded-md border border-border/60 hover:border-primary/40 text-muted-foreground hover:text-foreground text-[11px] font-mono flex items-center gap-1 transition-all cursor-pointer"
+                  title={t("contact.emailCopy") || "Copiar"}
+                  aria-label={t("contact.emailCopy") || "Copiar email"}
+                >
+                  {copied ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
+                  <span>{copied ? (t("contact.emailCopied") || "Copiado") : (t("contact.emailCopy") || "Copiar")}</span>
+                </button>
+              </div>
+              <a
+                href={`mailto:${emailAddress}`}
+                className="text-sm sm:text-base font-bold text-foreground hover:text-primary transition-colors block truncate"
               >
-                {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
-                <span>{copied ? (t("contact.emailCopied") || "Copiado") : (t("contact.emailCopy") || "Copiar")}</span>
-              </button>
+                {emailAddress}
+              </a>
             </div>
-            <a
-              href={`mailto:${emailAddress}`}
-              className="text-sm sm:text-base font-bold text-foreground hover:text-primary transition-colors block truncate"
-            >
-              {emailAddress}
-            </a>
-            <p className="text-xs text-muted-foreground mt-2">
-              {t("contact.emailResponse") || "Respuesta habitual en menos de 24 horas laborables."}
+            <p className="text-[11px] text-muted-foreground mt-3 pt-2.5 border-t border-border/40">
+              {t("contact.emailResponse") || "Respuesta en <24h laborables."}
             </p>
           </div>
 
           {/* LinkedIn Card */}
-          <div className="p-4 sm:p-6 rounded-2xl bg-card/70 border border-border/80 backdrop-blur-md shadow-lg">
-            <div className="flex items-center gap-2 mb-2 text-xs font-mono uppercase text-muted-foreground font-semibold">
-              <LinkedinIcon className="w-4 h-4 text-cyan-400" />
-              <span>{t("contact.linkedinCard") || "Perfil Profesional"}</span>
+          <div className="p-4 sm:p-5 rounded-2xl bg-card/70 border border-border/80 backdrop-blur-md shadow-lg hover:border-primary/40 transition-all flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-1.5 mb-2.5 text-xs font-mono uppercase text-muted-foreground font-semibold">
+                <LinkedinIcon className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                <span>{t("contact.linkedinCard") || "LinkedIn"}</span>
+              </div>
+              <a
+                href="https://www.linkedin.com/in/carlos-lara-albir-687277a4"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm sm:text-base font-bold text-foreground hover:text-cyan-400 transition-colors flex items-center justify-between gap-1 group"
+              >
+                <span className="truncate">carlos-lara-albir</span>
+                <span className="text-xs font-mono text-primary group-hover:translate-x-1 transition-transform shrink-0">
+                  ➔
+                </span>
+              </a>
             </div>
-            <a
-              href="https://www.linkedin.com/in/carlos-lara-albir-687277a4"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm sm:text-base font-bold text-foreground hover:text-cyan-400 transition-colors flex items-center justify-between gap-2 group"
-            >
-              <span className="truncate">linkedin.com/in/carlos-lara-albir</span>
-              <span className="text-xs font-mono text-primary group-hover:translate-x-1 transition-transform shrink-0">
-                ➔
-              </span>
-            </a>
+            <p className="text-[11px] text-muted-foreground mt-3 pt-2.5 border-t border-border/40 truncate">
+              Perfil profesional &amp; red
+            </p>
           </div>
 
           {/* GitHub Card */}
-          <div className="p-4 sm:p-6 rounded-2xl bg-card/70 border border-border/80 backdrop-blur-md shadow-lg">
-            <div className="flex items-center gap-2 mb-2 text-xs font-mono uppercase text-muted-foreground font-semibold">
-              <GithubIcon className="w-4 h-4 text-emerald-400" />
-              <span>{t("contact.githubCard") || "Repositorios & Código Abierto"}</span>
+          <div className="p-4 sm:p-5 rounded-2xl bg-card/70 border border-border/80 backdrop-blur-md shadow-lg hover:border-primary/40 transition-all flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-1.5 mb-2.5 text-xs font-mono uppercase text-muted-foreground font-semibold">
+                <GithubIcon className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                <span>{t("contact.githubCard") || "GitHub"}</span>
+              </div>
+              <a
+                href="https://github.com/laralbir"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm sm:text-base font-bold text-foreground hover:text-emerald-400 transition-colors flex items-center justify-between gap-1 group"
+              >
+                <span className="truncate">laralbir</span>
+                <span className="text-xs font-mono text-primary group-hover:translate-x-1 transition-transform shrink-0">
+                  ➔
+                </span>
+              </a>
             </div>
-            <a
-              href="https://github.com/laralbir"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm sm:text-base font-bold text-foreground hover:text-emerald-400 transition-colors flex items-center justify-between gap-2 group"
-            >
-              <span className="truncate">github.com/laralbir</span>
-              <span className="text-xs font-mono text-primary group-hover:translate-x-1 transition-transform shrink-0">
-                ➔
-              </span>
-            </a>
+            <p className="text-[11px] text-muted-foreground mt-3 pt-2.5 border-t border-border/40 truncate">
+              Repositorios, specs &amp; commits
+            </p>
           </div>
 
           {/* Location Card */}
-          <div className="p-4 sm:p-6 rounded-2xl bg-card/70 border border-border/80 backdrop-blur-md shadow-lg flex items-center gap-3.5">
-            <div className="p-3 rounded-xl bg-primary/10 border border-primary/20 text-primary shrink-0">
-              <MapPin className="w-5 h-5" />
-            </div>
-            <div className="overflow-hidden">
-              <div className="text-xs font-mono uppercase text-muted-foreground font-semibold">
-                {t("contact.locationCard") || "Ubicación & Disponibilidad"}
+          <div className="p-4 sm:p-5 rounded-2xl bg-card/70 border border-border/80 backdrop-blur-md shadow-lg hover:border-primary/40 transition-all flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-1.5 mb-2.5 text-xs font-mono uppercase text-muted-foreground font-semibold">
+                <MapPin className="w-3.5 h-3.5 text-primary shrink-0" />
+                <span>{t("contact.locationCard") || "Ubicación"}</span>
               </div>
-              <div className="text-sm sm:text-base font-bold text-foreground mt-0.5 truncate">
-                {t("contact.locationValue") || "Valencia, España (Remoto / Híbrido)"}
+              <div className="text-sm sm:text-base font-bold text-foreground truncate">
+                {t("contact.locationValue") || "Valencia, España"}
               </div>
             </div>
+            <p className="text-[11px] text-muted-foreground mt-3 pt-2.5 border-t border-border/40 truncate">
+              Remoto / Híbrido · Europa
+            </p>
           </div>
         </div>
       </div>

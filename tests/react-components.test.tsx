@@ -381,5 +381,50 @@ describe("React Portfolio Components", () => {
 
     expect(container.querySelector("#photo-modal-title")).toBeNull();
   });
+
+  it("ContactSection renders 4 contact cards in a responsive grid of 1 row (desktop) and max 2 rows (tablet)", async () => {
+    const { ContactSection } = await import("../src/components/ContactSection");
+    const root = createRoot(container);
+    await act(async () => {
+      root.render(
+        <ThemeProvider>
+          <LanguageProvider>
+            <ContactSection />
+          </LanguageProvider>
+        </ThemeProvider>
+      );
+    });
+
+    // Check grid layout classes: 1 row on desktop (lg:grid-cols-4), max 2 rows on tablet (sm:grid-cols-2)
+    const grid = container.querySelector(".grid") as HTMLElement | null;
+    expect(grid).not.toBeNull();
+    expect(grid?.className).toContain("lg:grid-cols-4");
+    expect(grid?.className).toContain("sm:grid-cols-2");
+
+    // All 4 cards are present
+    expect(container.textContent).toContain("info@carloslara.dev");
+    expect(container.textContent).toContain("carlos-lara-albir");
+    expect(container.textContent).toContain("laralbir");
+    expect(container.textContent).toContain("Valencia, España");
+
+    // Copy email button exists and works
+    const copyBtn = container.querySelector("#copy-email-btn") as HTMLButtonElement | null;
+    expect(copyBtn).not.toBeNull();
+
+    // Mock clipboard API
+    Object.defineProperty(navigator, "clipboard", {
+      value: {
+        writeText: async () => {},
+      },
+      writable: true,
+      configurable: true,
+    });
+
+    await act(async () => {
+      copyBtn?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    });
+
+    expect(copyBtn?.textContent).toMatch(/Copiado|Copied/i);
+  });
 });
 
