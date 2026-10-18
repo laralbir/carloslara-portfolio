@@ -190,6 +190,13 @@
       "problem": "Controlar reproducció d'àudio d'alta fidelitat (FLAC, MP3, streaming) en una pantalla tàctil panoràmica secundària (1920x720) sense fricció d'interfície d'escriptori.",
       "solution": "Kiosk app en Python/Flask integrada amb Kodi (JSON-RPC) i Spotify (local SMTC + Web API) amb interfície retro VFD/àmbar empaquetada nativament amb pywebview.",
       "impact": "Experiència HiFi vintage amb telemetria en temps real, VU-metre digital i control dual sense dependre de la pantalla principal."
+    },
+    "personal4": {
+      "title": "MD GitHub Navigator — eReader de Repositoris GitHub amb IA",
+      "tag": "Agents IA & Android Natiu",
+      "problem": "Llegir i estudiar documentació tècnica extensa, llibres o especificacions en Markdown allotjades en repositoris de GitHub des del mòbil resulta incòmode i fragmentat.",
+      "solution": "App nativa Android (Kotlin, Jetpack Compose, Material 3, Clean Architecture + MVI) desenvolupada al 100% mitjançant desenvolupament agèntic amb Google Antigravity i Claude Code. Suport complet de GFM, renderitzat de diagrames Mermaid, guardat de progrés de lectura i mode offline.",
+      "impact": "Experiència eReader fluida per a desenvolupadors, orquestrada íntegrament amb un equip de subagents d'IA sota metodologia SDD estricta."
     }
   },
   "experience": {

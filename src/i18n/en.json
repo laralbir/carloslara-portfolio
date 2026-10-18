@@ -190,6 +190,13 @@
       "problem": "Controlling audiophile playback (FLAC, MP3, streaming) on an ultra-wide secondary touchscreen (1920x720) without desktop UI friction.",
       "solution": "Python/Flask kiosk app integrating Kodi (JSON-RPC) and Spotify (local SMTC + Web API) wrapped in a vintage VFD/amber UI with pywebview.",
       "impact": "Dedicated vintage HiFi experience featuring real-time playback telemetry, digital VU meter, and dual-source control."
+    },
+    "personal4": {
+      "title": "MD GitHub Navigator — AI-Orchestrated GitHub Markdown eReader",
+      "tag": "AI Agents & Native Android",
+      "problem": "Reading and navigating extensive technical books, architecture specs, and Markdown documentation across GitHub repositories on mobile devices is friction-heavy and fragmented.",
+      "solution": "Native Android app (Kotlin, Jetpack Compose, Material 3, Clean Architecture + MVI) built 100% through AI agentic workflows (Google Antigravity & Claude Code under strict SDD). Features full GFM rendering, Mermaid diagrams, reading progress tracking, and offline support.",
+      "impact": "Polished eReader experience for developers, orchestrated from scratch by autonomous AI multi-agent workflows."
     }
   },
   "experience": {

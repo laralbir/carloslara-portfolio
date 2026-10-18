@@ -124,6 +124,7 @@ Sustituyendo métricas aisladas de una empresa por 4 pilares universales de maes
   1. **AgroAI (`laralbir/agroAi`):** App Android nativa (Kotlin) con LLM Google Gemma en local (Edge AI, 100% offline) para gestión agrícola.
   2. **Hyundai / Kia Gen5W Navigation Firmware RE (`laralbir/hyundai-kia-gen5w-navi-firmware`):** Ingeniería inversa de firmware de automoción, análisis de particiones y extracción asistida por Claude (`CLAUDE.md`).
   3. **Ámbar Kodi Launcher (`laralbir/ambar-kodi-launcher`):** Launcher táctil panorámico (1920x720) para estación HiFi integrando Kodi (JSON-RPC) y Spotify en Python/Flask/pywebview con estética retro VFD.
+  4. **MD GitHub Navigator (`laralbir/md-gh-navigator`):** Lector eReader moderno de Markdown para repositorios de GitHub en Android nativo (Kotlin + Jetpack Compose + Clean Architecture MVI) orquestado íntegramente por agentes de IA (Google Antigravity, Claude Code, SDD y `.ai/`).
 
 ### 4.5. Trayectoria Profesional
 - **Avantio (2018 – Actualidad):** Senior Backend Developer & Connectivity Tech Reference (Dominio de los principales portales de alquiler vacacional: **Booking.com, Airbnb, VRBO, Expedia, Homes & Villas by Marriott, Feratel y Google**; referente técnico en Arquitectura Distribuida y Event-Driven con AWS SQS/SNS, microservicios en TypeScript/Node.js, plataforma OPS, adopción pionera de IA/SDD e imputación de horas con Claude + Jira + Calendar + GitHub).
