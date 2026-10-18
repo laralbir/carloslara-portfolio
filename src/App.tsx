@@ -12,6 +12,7 @@ import { SddSection } from "./components/SddSection";
 import { ProjectsSection } from "./components/ProjectsSection";
 import { SkillsSection } from "./components/SkillsSection";
 import { ExperienceTimeline } from "./components/ExperienceTimeline";
+import { EducationSection } from "./components/EducationSection";
 import { OffTopicSection } from "./components/offtopic/OffTopicSection";
 import { ContactSection } from "./components/ContactSection";
 import { Footer } from "./components/Footer";
@@ -51,6 +52,7 @@ export const AppContent: React.FC = () => {
             <ProjectsSection />
             <SkillsSection />
             <ExperienceTimeline />
+            <EducationSection />
             <OffTopicSection />
             <ContactSection />
           </main>

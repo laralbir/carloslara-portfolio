@@ -13,6 +13,7 @@ import {
   Mail,
   Gamepad2,
   Cpu,
+  GraduationCap,
 } from "lucide-react";
 import { useLanguage, Language } from "@/context/LanguageContext";
 import { useTheme } from "@/context/ThemeContext";
@@ -37,6 +38,7 @@ export const Navbar: React.FC = () => {
     { href: "#projects", label: t("nav.projects") || "Proyectos", icon: Briefcase },
     { href: "#skills", label: t("nav.skills") || "Stack", icon: Code },
     { href: "#experience", label: t("nav.experience") || "Trayectoria", icon: Layers },
+    { href: "#education", label: t("nav.education") || "Estudios", icon: GraduationCap },
     { href: "#offtopic", label: t("nav.offtopic") || "Aficiones", icon: Gamepad2 },
     { href: "#contact", label: t("nav.contact") || "Contacto", icon: Mail },
   ];

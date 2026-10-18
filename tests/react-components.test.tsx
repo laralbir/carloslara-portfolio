@@ -94,6 +94,26 @@ describe("React Portfolio Components", () => {
     expect(container.textContent).toContain("Total: 0");
   });
 
+  it("EducationSection renders official academic degrees and leadership background", async () => {
+    const { EducationSection } = await import("../src/components/EducationSection");
+    const root = createRoot(container);
+    await act(async () => {
+      root.render(
+        <ThemeProvider>
+          <LanguageProvider>
+            <EducationSection />
+          </LanguageProvider>
+        </ThemeProvider>
+      );
+    });
+
+    expect(container.textContent).toContain("Especialización en IA y Big Data");
+    expect(container.textContent).toContain("Ingeniería Informática");
+    expect(container.textContent).toContain("Desarrollo de Aplicaciones Informáticas");
+    expect(container.textContent).toContain("Tiro con Arco");
+    expect(container.textContent).toContain("Campeones Universitarios de España");
+  });
+
   it("ProjectsSection renders projects and supports category filtering", async () => {
     const root = createRoot(container);
     await act(async () => {
