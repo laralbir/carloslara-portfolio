@@ -153,10 +153,10 @@ export const ProjectsSection: React.FC = () => {
         </div>
 
         {/* Filter Buttons */}
-        <div className="flex justify-center gap-3 mb-12">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 max-w-full px-1">
           <button
             onClick={() => setFilter("all")}
-            className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
+            className={`px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
               filter === "all"
                 ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
                 : "bg-card/60 border border-border/60 text-muted-foreground hover:text-foreground"
@@ -166,24 +166,24 @@ export const ProjectsSection: React.FC = () => {
           </button>
           <button
             onClick={() => setFilter("enterprise")}
-            className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer flex items-center gap-1.5 ${
+            className={`px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer flex items-center gap-1.5 ${
               filter === "enterprise"
                 ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
                 : "bg-card/60 border border-border/60 text-muted-foreground hover:text-foreground"
             }`}
           >
-            <Server className="w-4 h-4" />
+            <Server className="w-4 h-4 shrink-0" />
             <span>{t("projects.filterEnterprise") || "Backend de Empresa & EDA"}</span>
           </button>
           <button
             onClick={() => setFilter("personal")}
-            className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer flex items-center gap-1.5 ${
+            className={`px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer flex items-center gap-1.5 ${
               filter === "personal"
                 ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
                 : "bg-card/60 border border-border/60 text-muted-foreground hover:text-foreground"
             }`}
           >
-            <Bot className="w-4 h-4" />
+            <Bot className="w-4 h-4 shrink-0" />
             <span>{t("projects.filterPersonal") || "Proyectos IA & Hardware"}</span>
           </button>
         </div>

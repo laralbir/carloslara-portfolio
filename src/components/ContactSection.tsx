@@ -52,7 +52,7 @@ export const ContactSection: React.FC = () => {
         {/* Direct Info Cards (Centered with original card dimensions) */}
         <div className="max-w-lg mx-auto space-y-4 text-left">
           {/* Email Card with 1-Click Copy */}
-          <div className="p-6 rounded-2xl bg-card/70 border border-border/80 backdrop-blur-md shadow-lg">
+          <div className="p-4 sm:p-6 rounded-2xl bg-card/70 border border-border/80 backdrop-blur-md shadow-lg">
             <div className="flex items-center justify-between mb-3">
               <span className="text-xs font-mono uppercase text-muted-foreground font-semibold flex items-center gap-1.5">
                 <Mail className="w-4 h-4 text-primary" />
@@ -69,7 +69,7 @@ export const ContactSection: React.FC = () => {
             </div>
             <a
               href={`mailto:${emailAddress}`}
-              className="text-base font-bold text-foreground hover:text-primary transition-colors block"
+              className="text-sm sm:text-base font-bold text-foreground hover:text-primary transition-colors block truncate"
             >
               {emailAddress}
             </a>
@@ -79,7 +79,7 @@ export const ContactSection: React.FC = () => {
           </div>
 
           {/* LinkedIn Card */}
-          <div className="p-6 rounded-2xl bg-card/70 border border-border/80 backdrop-blur-md shadow-lg">
+          <div className="p-4 sm:p-6 rounded-2xl bg-card/70 border border-border/80 backdrop-blur-md shadow-lg">
             <div className="flex items-center gap-2 mb-2 text-xs font-mono uppercase text-muted-foreground font-semibold">
               <LinkedinIcon className="w-4 h-4 text-cyan-400" />
               <span>{t("contact.linkedinCard") || "Perfil Profesional"}</span>
@@ -88,17 +88,17 @@ export const ContactSection: React.FC = () => {
               href="https://www.linkedin.com/in/carlos-lara-albir-687277a4"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-base font-bold text-foreground hover:text-cyan-400 transition-colors flex items-center justify-between group"
+              className="text-sm sm:text-base font-bold text-foreground hover:text-cyan-400 transition-colors flex items-center justify-between gap-2 group"
             >
-              <span>linkedin.com/in/carlos-lara-albir</span>
-              <span className="text-xs font-mono text-primary group-hover:translate-x-1 transition-transform">
+              <span className="truncate">linkedin.com/in/carlos-lara-albir</span>
+              <span className="text-xs font-mono text-primary group-hover:translate-x-1 transition-transform shrink-0">
                 ➔
               </span>
             </a>
           </div>
 
           {/* GitHub Card */}
-          <div className="p-6 rounded-2xl bg-card/70 border border-border/80 backdrop-blur-md shadow-lg">
+          <div className="p-4 sm:p-6 rounded-2xl bg-card/70 border border-border/80 backdrop-blur-md shadow-lg">
             <div className="flex items-center gap-2 mb-2 text-xs font-mono uppercase text-muted-foreground font-semibold">
               <GithubIcon className="w-4 h-4 text-emerald-400" />
               <span>{t("contact.githubCard") || "Repositorios & Código Abierto"}</span>
@@ -107,25 +107,25 @@ export const ContactSection: React.FC = () => {
               href="https://github.com/laralbir"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-base font-bold text-foreground hover:text-emerald-400 transition-colors flex items-center justify-between group"
+              className="text-sm sm:text-base font-bold text-foreground hover:text-emerald-400 transition-colors flex items-center justify-between gap-2 group"
             >
-              <span>github.com/laralbir</span>
-              <span className="text-xs font-mono text-primary group-hover:translate-x-1 transition-transform">
+              <span className="truncate">github.com/laralbir</span>
+              <span className="text-xs font-mono text-primary group-hover:translate-x-1 transition-transform shrink-0">
                 ➔
               </span>
             </a>
           </div>
 
           {/* Location Card */}
-          <div className="p-6 rounded-2xl bg-card/70 border border-border/80 backdrop-blur-md shadow-lg flex items-center gap-3.5">
-            <div className="p-3 rounded-xl bg-primary/10 border border-primary/20 text-primary">
+          <div className="p-4 sm:p-6 rounded-2xl bg-card/70 border border-border/80 backdrop-blur-md shadow-lg flex items-center gap-3.5">
+            <div className="p-3 rounded-xl bg-primary/10 border border-primary/20 text-primary shrink-0">
               <MapPin className="w-5 h-5" />
             </div>
-            <div>
+            <div className="overflow-hidden">
               <div className="text-xs font-mono uppercase text-muted-foreground font-semibold">
                 {t("contact.locationCard") || "Ubicación & Disponibilidad"}
               </div>
-              <div className="text-base font-bold text-foreground mt-0.5">
+              <div className="text-sm sm:text-base font-bold text-foreground mt-0.5 truncate">
                 {t("contact.locationValue") || "Valencia, España (Remoto / Híbrido)"}
               </div>
             </div>

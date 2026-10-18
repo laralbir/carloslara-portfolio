@@ -128,11 +128,11 @@ export const AboutSection: React.FC = () => {
         </div>
 
         {/* Deep Dive Interactive Tabs */}
-        <div className="bg-card/70 border border-border/80 rounded-2xl p-6 sm:p-8 backdrop-blur-md shadow-xl">
-          <div className="flex flex-wrap gap-2 border-b border-border/40 pb-4 mb-6">
+        <div className="bg-card/70 border border-border/80 rounded-2xl p-4 sm:p-6 md:p-8 backdrop-blur-md shadow-xl">
+          <div className="flex flex-wrap gap-1.5 sm:gap-2 border-b border-border/40 pb-4 mb-6">
             <button
               onClick={() => setActiveTab("vision")}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
+              className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
                 activeTab === "vision"
                   ? "bg-primary text-primary-foreground shadow-md"
                   : "text-muted-foreground hover:text-foreground hover:bg-card"
@@ -142,7 +142,7 @@ export const AboutSection: React.FC = () => {
             </button>
             <button
               onClick={() => setActiveTab("architecture")}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
+              className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
                 activeTab === "architecture"
                   ? "bg-primary text-primary-foreground shadow-md"
                   : "text-muted-foreground hover:text-foreground hover:bg-card"
@@ -152,7 +152,7 @@ export const AboutSection: React.FC = () => {
             </button>
             <button
               onClick={() => setActiveTab("methodology")}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
+              className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
                 activeTab === "methodology"
                   ? "bg-primary text-primary-foreground shadow-md"
                   : "text-muted-foreground hover:text-foreground hover:bg-card"

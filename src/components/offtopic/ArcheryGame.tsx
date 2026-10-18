@@ -139,7 +139,7 @@ export const ArcheryGame: React.FC = () => {
         onPointerDown={(e) => updateAimFromPointer(e.clientX, e.clientY)}
         onPointerMove={(e) => updateAimFromPointer(e.clientX, e.clientY)}
         onClick={handleShoot}
-        className="relative w-64 h-64 sm:w-72 sm:h-72 flex items-center justify-center cursor-crosshair group touch-none select-none"
+        className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 flex items-center justify-center cursor-crosshair group touch-none select-none max-w-full"
         title={t("offtopic.archeryGame.aimHint") || "Haz clic o toca para disparar al centro del visor"}
       >
         <svg

@@ -51,12 +51,12 @@ export const AiCalloutBanner: React.FC = () => {
   return (
     <section
       aria-label="Agentic AI Development Disclosure"
-      className="relative z-20 px-4 sm:px-6 lg:px-8 py-6 -mt-6 sm:-mt-8 mb-4 max-w-7xl mx-auto w-full"
+      className="relative z-20 px-4 sm:px-6 lg:px-8 py-6 mt-2 sm:-mt-6 mb-4 max-w-7xl mx-auto w-full"
     >
       <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-card/95 via-primary/[0.07] to-cyan-500/[0.08] dark:from-card/90 dark:via-primary/[0.12] dark:to-cyan-950/40 border border-primary/30 shadow-xl backdrop-blur-xl p-5 sm:p-7 transition-all hover:border-primary/50">
-        {/* Subtle decorative glow accents */}
-        <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 rounded-full bg-primary/10 blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 rounded-full bg-cyan-400/10 blur-3xl pointer-events-none" />
+        {/* Subtle decorative glow accents without negative overflow margins */}
+        <div className="absolute top-0 right-0 w-48 h-48 sm:w-64 sm:h-64 rounded-full bg-primary/10 blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-48 h-48 sm:w-64 sm:h-64 rounded-full bg-cyan-400/10 blur-3xl pointer-events-none" />
 
         <div className="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
           {/* Main Info Box */}

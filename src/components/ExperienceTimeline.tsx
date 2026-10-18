@@ -65,7 +65,7 @@ export const ExperienceTimeline: React.FC = () => {
         </div>
 
         {/* Timeline Items */}
-        <div className="relative border-l-2 border-primary/30 ml-4 md:ml-32 space-y-12">
+        <div className="relative border-l-2 border-primary/30 ml-6 sm:ml-10 md:ml-32 space-y-12">
           {experiences.map((exp, idx) => {
             const company = t(`experience.${exp.id}.company`);
             const role = t(`experience.${exp.id}.role`);
@@ -75,23 +75,23 @@ export const ExperienceTimeline: React.FC = () => {
             return (
               <motion.div
                 key={exp.id}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="relative pl-8 sm:pl-10 text-left"
+                transition={{ duration: 0.4, delay: idx * 0.08 }}
+                className="relative pl-6 sm:pl-8 md:pl-10 text-left"
               >
                 {/* Timeline Dot Marker */}
-                <div className="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-background border-2 border-primary flex items-center justify-center text-primary shadow-lg shadow-primary/20">
+                <div className="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-background border-2 border-primary flex items-center justify-center text-primary shadow-lg shadow-primary/20 shrink-0">
                   <Briefcase className="w-3.5 h-3.5" />
                 </div>
 
                 {/* Card Container */}
-                <div className="p-6 sm:p-8 rounded-2xl bg-card/60 border border-border/70 backdrop-blur-md hover:border-primary/40 transition-all shadow-xl">
+                <div className="p-4 sm:p-6 md:p-8 rounded-2xl bg-card/60 border border-border/70 backdrop-blur-md hover:border-primary/40 transition-all shadow-xl">
                   {/* Meta row */}
                   <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
                     <div className="flex items-center gap-2">
-                      <span className="text-xl font-bold text-foreground">
+                      <span className="text-lg sm:text-xl font-bold text-foreground">
                         {company}
                       </span>
                     </div>
@@ -110,12 +110,28 @@ export const ExperienceTimeline: React.FC = () => {
 
                   {/* Highlights List */}
                   <ul className="space-y-2 mb-6">
-                    {points.map((h, i) => (
-                      <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-muted-foreground">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
-                        <span>{h}</span>
-                      </li>
-                    ))}
+                    {points.map((h, i) => {
+                      const hasStrong = h.includes("<strong>");
+                      const content = hasStrong
+                        ? h.split(/(<strong>.*?<\/strong>)/g).map((part, pIdx) => {
+                            if (part.startsWith("<strong>") && part.endsWith("</strong>")) {
+                              return (
+                                <strong key={pIdx} className="font-semibold text-foreground">
+                                  {part.replace(/<\/?strong>/g, "")}
+                                </strong>
+                              );
+                            }
+                            return part;
+                          })
+                        : h;
+
+                      return (
+                        <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                          <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                          <span>{content}</span>
+                        </li>
+                      );
+                    })}
                   </ul>
 
                   {/* Tech Chips */}

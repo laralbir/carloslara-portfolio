@@ -28,7 +28,7 @@ export const AppContent: React.FC = () => {
   });
 
   return (
-    <div className="min-h-screen bg-background text-foreground relative selection:bg-primary/30 selection:text-primary">
+    <div className="min-h-screen bg-background text-foreground relative selection:bg-primary/30 selection:text-primary overflow-x-clip w-full max-w-full">
       {/* Dynamic Star & Meteor Cosmic Background */}
       <StarBackground />
 

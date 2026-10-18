@@ -113,7 +113,7 @@ export const OffTopicSection: React.FC = () => {
             return (
               <div
                 key={card.id}
-                className="p-6 rounded-2xl bg-card/60 border border-border/70 backdrop-blur-md shadow-xl flex flex-col justify-between text-left relative overflow-hidden group hover:border-primary/40 transition-all"
+                className="p-4 sm:p-6 rounded-2xl bg-card/60 border border-border/70 backdrop-blur-md shadow-xl flex flex-col justify-between text-left relative overflow-hidden group hover:border-primary/40 transition-all"
               >
                 <div>
                   {/* Category Header & View Switcher */}

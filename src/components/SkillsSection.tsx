@@ -108,7 +108,7 @@ export const SkillsSection: React.FC = () => {
           {coreCategories.map((cat) => (
             <div
               key={cat.id}
-              className="p-6 sm:p-8 rounded-2xl bg-card/70 border border-border/80 backdrop-blur-md hover:border-primary/50 transition-all card-hover flex flex-col justify-between text-left shadow-lg group"
+              className="p-4 sm:p-6 md:p-8 rounded-2xl bg-card/70 border border-border/80 backdrop-blur-md hover:border-primary/50 transition-all card-hover flex flex-col justify-between text-left shadow-lg group"
             >
               <div>
                 {/* Header Tag with Icon */}

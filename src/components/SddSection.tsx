@@ -136,19 +136,19 @@ export const SddSection: React.FC = () => {
         </div>
 
         {/* Active Phase Deep Dive Banner */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-card/80 border border-primary/30 backdrop-blur-md shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-start gap-4 text-left">
-            <div className="p-3 rounded-xl bg-primary/10 border border-primary/20 text-primary">
-              <FileCode2 className="w-6 h-6" />
+        <div className="p-4 sm:p-6 md:p-8 rounded-2xl bg-card/80 border border-primary/30 backdrop-blur-md shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex items-start gap-3 sm:gap-4 text-left w-full">
+            <div className="p-2.5 sm:p-3 rounded-xl bg-primary/10 border border-primary/20 text-primary shrink-0">
+              <FileCode2 className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
-            <div>
+            <div className="overflow-hidden">
               <div className="text-xs font-mono text-primary font-semibold">
                 {t("sdd.banner.tag") || "ARTEFACTO DE REFERENCIA"} · {steps[activeStep].phase}
               </div>
-              <h4 className="text-lg font-bold text-foreground mt-0.5">
-                {steps[activeStep].gate} — {steps[activeStep].artifact}
+              <h4 className="text-base sm:text-lg font-bold text-foreground mt-0.5 break-words">
+                {steps[activeStep].gate} — <span className="break-all font-mono text-xs sm:text-sm text-primary">{steps[activeStep].artifact}</span>
               </h4>
-              <p className="text-sm text-muted-foreground mt-1 max-w-2xl">
+              <p className="text-xs sm:text-sm text-muted-foreground mt-1 max-w-2xl">
                 {t("sdd.banner.desc") ||
                   "Todos los documentos de especificación viven en el repositorio para garantizar trazabilidad y reproducibilidad total."}
               </p>
@@ -159,7 +159,7 @@ export const SddSection: React.FC = () => {
             href="https://github.com/laralbir/carloslara-portfolio/tree/main/specs"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-2.5 rounded-xl text-xs font-semibold font-mono bg-primary text-primary-foreground hover:bg-primary/90 transition-all flex items-center gap-2 whitespace-nowrap shadow-md"
+            className="w-full sm:w-auto px-5 py-2.5 rounded-xl text-xs font-semibold font-mono bg-primary text-primary-foreground hover:bg-primary/90 transition-all flex items-center justify-center gap-2 whitespace-nowrap shadow-md cursor-pointer shrink-0"
           >
             <span>{t("sdd.banner.btn") || "Ver Specs en GitHub"}</span>
             <ExternalLink className="w-3.5 h-3.5" />

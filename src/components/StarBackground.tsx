@@ -89,7 +89,7 @@ export const StarBackground: React.FC = () => {
   }
 
   return (
-    <div className="fixed inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
+    <div className="fixed inset-0 overflow-hidden pointer-events-none z-0 max-w-full [contain:strict]" aria-hidden="true">
       {/* Dynamic atmospheric cosmic ambient halos for light & dark themes */}
       <div className="absolute top-1/4 left-1/5 w-[500px] h-[500px] bg-teal-500/12 dark:bg-primary/5 rounded-full blur-3xl pointer-events-none transition-all duration-700" />
       <div className="absolute bottom-1/4 right-1/5 w-[450px] h-[450px] bg-cyan-500/14 dark:bg-cyan-500/5 rounded-full blur-3xl pointer-events-none transition-all duration-700" />

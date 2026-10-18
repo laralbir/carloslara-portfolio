@@ -68,7 +68,7 @@ export const EducationSection: React.FC = () => {
   ];
 
   return (
-    <section id="education" className="py-20 px-4 relative z-10 scroll-mt-20">
+    <section id="education" className="py-20 px-4 sm:px-6 lg:px-8 relative z-10 scroll-mt-20">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
@@ -97,7 +97,7 @@ export const EducationSection: React.FC = () => {
             return (
               <div
                 key={item.id}
-                className="p-6 sm:p-8 rounded-2xl bg-card/70 border border-border/80 backdrop-blur-md shadow-lg hover:border-primary/40 transition-all card-hover flex flex-col justify-between text-left group"
+                className="p-4 sm:p-6 md:p-8 rounded-2xl bg-card/70 border border-border/80 backdrop-blur-md shadow-lg hover:border-primary/40 transition-all card-hover flex flex-col justify-between text-left group"
               >
                 <div>
                   {/* Header Tag & Institution Badge */}
