@@ -83,6 +83,31 @@
     --border: 217 33% 20%;
   }
 
+  /* High Contrast Dark Mode */
+  :root[data-a11y="high-contrast"].dark,
+  :root.a11y-contrast.dark,
+  :root[data-a11y="high-contrast"]:not(.light),
+  :root.a11y-contrast:not(.light) {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 5%;
+    --primary: 48 100% 50%; /* High visibility pure gold #FFD700 */
+    --primary-foreground: 0 0% 0%;
+    --border: 0 0% 85%;
+  }
+
+  /* High Contrast Light Mode */
+  :root[data-a11y="high-contrast"].light,
+  :root.a11y-contrast.light,
+  :root[data-theme="light"][data-a11y="high-contrast"] {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 100%;
+    --primary: 220 100% 35%; /* High-contrast royal blue #0044cc */
+    --primary-foreground: 0 0% 100%;
+    --border: 0 0% 15%;
+  }
+
   * {
     border-color: hsl(var(--border) / 0.5);
   }
@@ -96,6 +121,52 @@
     color: hsl(var(--foreground));
     transition: background-color 0.3s ease, color 0.3s ease;
     font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* High Contrast Mode Global Accessibility Enhancements */
+.a11y-contrast,
+[data-a11y="high-contrast"] {
+  /* Hide animated stars and meteors for zero visual distraction */
+  .star,
+  .meteor {
+    display: none !important;
+  }
+
+  /* Distinct high contrast borders */
+  * {
+    border-color: hsl(var(--border)) !important;
+  }
+
+  /* Elevated cards get solid borders */
+  .bg-card,
+  [class*="bg-card"] {
+    border-width: 2px !important;
+  }
+
+  /* Links get accessible underlines */
+  a:not([class*="btn"]):not([role="button"]):not(.no-underline) {
+    text-decoration: underline !important;
+    text-underline-offset: 3px !important;
+  }
+
+  /* Text muted becomes high contrast */
+  .text-muted-foreground {
+    color: hsl(var(--foreground) / 0.95) !important;
+    font-weight: 500;
+  }
+
+  /* Glowing text and gradients become high-contrast solid primary */
+  .bg-clip-text {
+    background-image: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    color: hsl(var(--primary)) !important;
+  }
+
+  button,
+  a[role="button"] {
+    font-weight: 700 !important;
   }
 }
 

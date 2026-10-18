@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useTheme } from "@/context/ThemeContext";
 
 interface Star {
   id: number;
@@ -19,10 +20,12 @@ interface Meteor {
 }
 
 export const StarBackground: React.FC = () => {
+  const { a11yContrast } = useTheme();
   const [stars, setStars] = useState<Star[]>([]);
   const [meteors, setMeteors] = useState<Meteor[]>([]);
 
   useEffect(() => {
+    if (a11yContrast) return;
     generateStars();
     generateMeteors();
 
@@ -70,6 +73,10 @@ export const StarBackground: React.FC = () => {
     }
     setMeteors(newMeteors);
   };
+
+  if (a11yContrast) {
+    return null;
+  }
 
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">

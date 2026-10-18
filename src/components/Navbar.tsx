@@ -116,15 +116,15 @@ export const Navbar: React.FC = () => {
               type="button"
               onClick={toggleA11yContrast}
               aria-pressed={a11yContrast}
-              title={t("a11y.toggleContrast") || "Alto Contraste"}
+              title={a11yContrast ? "Desactivar alto contraste (Accesibilidad)" : "Activar alto contraste (Accesibilidad WCAG AAA)"}
               className={`p-2 rounded-full border transition-all cursor-pointer ${
                 a11yContrast
-                  ? "border-amber-400 bg-amber-400/20 text-amber-300 shadow-md"
+                  ? "border-amber-400 bg-amber-400/20 text-amber-300 shadow-md ring-2 ring-amber-400/50"
                   : "border-border/60 hover:bg-card/70 text-muted-foreground hover:text-foreground"
               }`}
             >
               <Eye className="w-4 h-4" />
-              <span className="sr-only">Alto Contraste</span>
+              <span className="sr-only">{a11yContrast ? "Desactivar alto contraste" : "Activar alto contraste"}</span>
             </button>
 
             {/* Theme Toggle */}
@@ -145,6 +145,21 @@ export const Navbar: React.FC = () => {
 
           {/* Mobile Menu Button */}
           <div className="flex sm:hidden items-center gap-2">
+            {/* Contrast quick switch on mobile */}
+            <button
+              type="button"
+              onClick={toggleA11yContrast}
+              className={`p-1.5 rounded-lg border transition-all ${
+                a11yContrast
+                  ? "border-amber-400 bg-amber-400/20 text-amber-300 ring-1 ring-amber-400/60"
+                  : "border-border/60 text-muted-foreground"
+              }`}
+              title={a11yContrast ? "Alto contraste activo" : "Activar alto contraste"}
+              aria-label="Alto contraste"
+            >
+              <Eye className="w-4 h-4" />
+            </button>
+
             {/* Theme quick switch on mobile */}
             <button
               type="button"
