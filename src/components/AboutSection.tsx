@@ -21,27 +21,27 @@ export const AboutSection: React.FC = () => {
   const pillars = [
     {
       icon: <Layers className="h-6 w-6 text-primary" />,
-      title: "Sistemas Distribuidos & Alta Concurrencia",
-      subtitle: "Event-Driven EDA · AWS SQS / SNS / EventBridge · Microservicios",
-      desc: "Más de dos décadas proyectando infraestructuras tolerantes a fallos, colas asíncronas desacopladas y pipelines de ingesta intensiva con cero degradación de latencia.",
+      title: t("strengths.pillar1.title") || "Arquitectura Distribuida & Event-Driven",
+      subtitle: `${t("strengths.pillar1.level")} · ${t("strengths.pillar1.years")}`,
+      desc: t("strengths.pillar1.desc"),
     },
     {
       icon: <Cpu className="h-6 w-6 text-cyan-400" />,
-      title: "Ingeniería Agéntica & Flujos IA Reales",
-      subtitle: "Claude Code CLI · MCP Servers · Cero Código al Azar",
-      desc: "Pionero en desarrollo aumentado con agentes autónomos. No uso la IA como un simple chatbot, sino como un equipo de especialistas orquestados bajo especificaciones formales.",
+      title: t("strengths.pillar2.title") || "Backend de Misión Crítica & Microservicios",
+      subtitle: `${t("strengths.pillar2.level")} · ${t("strengths.pillar2.years")}`,
+      desc: t("strengths.pillar2.desc"),
     },
     {
       icon: <ShieldCheck className="h-6 w-6 text-emerald-400" />,
-      title: "Fiabilidad Auditada & 0 Reverts",
-      subtitle: "341 PRs Merged · TDD Estricto · Arquitectura Hexagonal",
-      desc: "Diseño con principios Domain-Driven Design (DDD) y tipado estricto. La calidad no es negociable cuando el software procesa transacciones críticas de clientes reales.",
+      title: t("strengths.pillar3.title") || "Ingeniería Agéntica & Tooling con IA",
+      subtitle: `${t("strengths.pillar3.level")} · ${t("strengths.pillar3.years")}`,
+      desc: t("strengths.pillar3.desc"),
     },
     {
       icon: <Zap className="h-6 w-6 text-amber-400" />,
-      title: "Sincronización en Tiempo Real & Motores OTA",
-      subtitle: "211 Instancias en 11 Días · Conectividad Crítica",
-      desc: "Especialista en resolver el problema más difícil del backend: sincronizar inventario, precios y reservas bidireccionales en tiempo real sin desincronizaciones.",
+      title: t("strengths.pillar4.title") || "Modelado de Datos, Rendimiento & BI",
+      subtitle: `${t("strengths.pillar4.level")} · ${t("strengths.pillar4.years")}`,
+      desc: t("strengths.pillar4.desc"),
     },
   ];
 
@@ -70,16 +70,14 @@ export const AboutSection: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-mono mb-4">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>PILICHI &amp; PILARES DE EXPERIENCIA</span>
+            <span>{t("strengths.tag") || "PILARES TÉCNICOS"}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
-            Ingeniería de Backend Robusta,{" "}
-            <span className="bg-gradient-to-r from-primary via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
-              Potenciada por Agentes Autónomos
-            </span>
+            {t("strengths.title") || "Áreas de Fuerza & Especialización"}
           </h2>
           <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Más de dos décadas resolviendo problemas complejos de escala, concurrencia y datos en producción.
+            {t("strengths.subtitle") ||
+              "Lo que de verdad domino tras más de 20 años en la trinchera: arquitecturas que no se caen, código limpio y productividad exponencial con IA."}
           </p>
         </div>
 
