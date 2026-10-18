@@ -148,4 +148,33 @@ describe("React Portfolio Components", () => {
     await new Promise((r) => setTimeout(r, 450));
     expect(completed).toBe(true);
   });
+
+  it("OffTopicSection displays authentic photo by default and unlocks easter egg minigame on click", async () => {
+    const { OffTopicSection } = await import("../src/components/offtopic/OffTopicSection");
+    const root = createRoot(container);
+    await act(async () => {
+      root.render(
+        <ThemeProvider>
+          <LanguageProvider>
+            <OffTopicSection />
+          </LanguageProvider>
+        </ThemeProvider>
+      );
+    });
+
+    // Initially shows photo and hint
+    expect(container.textContent).toContain("Easter Egg oculto");
+    expect(container.textContent).toContain("Diana WA 18m");
+
+    // Click on photo container to unlock archery game
+    const photoCard = container.querySelector(".group\\/photo") as HTMLElement | null;
+    expect(photoCard).not.toBeNull();
+
+    await act(async () => {
+      photoCard?.click();
+    });
+
+    // Minigame is unlocked
+    expect(container.textContent).toContain("Ver foto real");
+  });
 });

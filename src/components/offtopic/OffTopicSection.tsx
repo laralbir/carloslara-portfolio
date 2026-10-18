@@ -5,10 +5,9 @@ import {
   Camera,
   Maximize2,
   X,
-  Target,
-  Disc,
-  Gauge,
   Sparkles,
+  ArrowLeft,
+  RotateCcw,
 } from "lucide-react";
 import { ArcheryGame } from "./ArcheryGame";
 import { HifiPlayer } from "./HifiPlayer";
@@ -22,13 +21,16 @@ interface OffTopicCardData {
   photoUrl: string;
   photoFallback: string;
   photoCaption: string;
+  easterEggHint: string;
+  easterEggTag: string;
 }
 
 export const OffTopicSection: React.FC = () => {
-  const [activeViews, setActiveViews] = useState<Record<string, "interactive" | "photo">>({
-    archery: "interactive",
-    hifi: "interactive",
-    moto: "interactive",
+  // By default, show the real authentic photograph first
+  const [activeViews, setActiveViews] = useState<Record<string, "photo" | "interactive">>({
+    archery: "photo",
+    hifi: "photo",
+    moto: "photo",
   });
 
   const [lightboxImg, setLightboxImg] = useState<{ src: string; alt: string; caption: string } | null>(null);
@@ -42,6 +44,8 @@ export const OffTopicSection: React.FC = () => {
       photoUrl: "/assets/offtopic/archery-real.webp",
       photoFallback: "/assets/offtopic/archery-real.jpg",
       photoCaption: "Carlos compitiendo en línea de tiro a 18m con arco recurvo olímpico.",
+      easterEggHint: "🎯 Clic para desbloquear: Diana WA 18m",
+      easterEggTag: "Minijuego Balístico",
     },
     {
       id: "hifi",
@@ -50,7 +54,9 @@ export const OffTopicSection: React.FC = () => {
       desc: "Audición pura en vinilo y 24-bit FLAC. Creador de la estación de control 'Ámbar' con pantallas táctiles, microcontroladores y sincronización con Kodi y Spotify.",
       photoUrl: "/assets/offtopic/hifi-real.webp",
       photoFallback: "/assets/offtopic/hifi-real.jpg",
-      photoCaption: "Setup de sonido HiFi analógico y digital con launcher táctil personalizado.",
+      photoCaption: "Setup de sonido HiFi analógico y digital con calibración en banco de trabajo.",
+      easterEggHint: "🎵 Clic para girar el vinilo analógico",
+      easterEggTag: "Giradiscos & VU-Meters",
     },
     {
       id: "moto",
@@ -60,11 +66,17 @@ export const OffTopicSection: React.FC = () => {
       photoUrl: "/assets/offtopic/moto-real.webp",
       photoFallback: "/assets/offtopic/moto-real.jpg",
       photoCaption: "Ruta de montaña por puertos y curvas de la Comunidad Valenciana.",
+      easterEggHint: "🏍️ Clic para acelerar la moto y tirar humo",
+      easterEggTag: "Carretera & Escape",
     },
   ];
 
-  const toggleView = (id: string, view: "interactive" | "photo") => {
-    setActiveViews((prev) => ({ ...prev, [id]: view }));
+  const unlockEasterEgg = (id: string) => {
+    setActiveViews((prev) => ({ ...prev, [id]: "interactive" }));
+  };
+
+  const returnToPhoto = (id: string) => {
+    setActiveViews((prev) => ({ ...prev, [id]: "photo" }));
   };
 
   return (
@@ -83,7 +95,7 @@ export const OffTopicSection: React.FC = () => {
             </span>
           </h2>
           <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Concentración quirúrgica, oído clínico para los detalles y velocidad controlada. Interactúa con los minijuegos o mira las fotos reales.
+            Fotografía real de mis tres grandes aficiones. Haz clic en cualquiera de ellas para desbloquear el minijuego interactivo oculto.
           </p>
         </div>
 
@@ -98,39 +110,28 @@ export const OffTopicSection: React.FC = () => {
                 className="p-6 rounded-2xl bg-card/60 border border-border/70 backdrop-blur-md shadow-xl flex flex-col justify-between text-left relative overflow-hidden group hover:border-primary/40 transition-all"
               >
                 <div>
-                  {/* Card Title & Category */}
-                  <div className="flex items-center justify-between mb-2">
+                  {/* Category Header & View Switcher */}
+                  <div className="flex items-center justify-between mb-3">
                     <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-primary/10 border border-primary/20 text-primary font-medium">
                       {card.category}
                     </span>
 
-                    {/* Dual Mode Switcher */}
-                    <div className="flex items-center gap-1 bg-background/80 p-0.5 rounded-lg border border-border/60 text-xs font-mono">
+                    {/* Return to photo button when in interactive mode */}
+                    {isInteractive ? (
                       <button
-                        onClick={() => toggleView(card.id, "interactive")}
-                        className={`px-2 py-0.5 rounded flex items-center gap-1 transition-all cursor-pointer ${
-                          isInteractive
-                            ? "bg-primary text-primary-foreground font-semibold"
-                            : "text-muted-foreground hover:text-foreground"
-                        }`}
-                        title="Modo interactivo"
+                        onClick={() => returnToPhoto(card.id)}
+                        className="flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-mono bg-background/80 border border-border/80 text-muted-foreground hover:text-foreground hover:border-primary/50 transition-all cursor-pointer"
+                        title="Volver a la fotografía real"
                       >
-                        <Gamepad2 className="w-3 h-3" />
-                        <span className="text-[10px]">Play</span>
+                        <Camera className="w-3 h-3 text-cyan-400" />
+                        <span>Ver foto real</span>
                       </button>
-                      <button
-                        onClick={() => toggleView(card.id, "photo")}
-                        className={`px-2 py-0.5 rounded flex items-center gap-1 transition-all cursor-pointer ${
-                          !isInteractive
-                            ? "bg-primary text-primary-foreground font-semibold"
-                            : "text-muted-foreground hover:text-foreground"
-                        }`}
-                        title="Ver fotografía real"
-                      >
-                        <Camera className="w-3 h-3" />
-                        <span className="text-[10px]">Foto</span>
-                      </button>
-                    </div>
+                    ) : (
+                      <span className="text-[10px] font-mono text-muted-foreground flex items-center gap-1">
+                        <Sparkles className="w-3 h-3 text-amber-400" />
+                        <span>Easter Egg oculto</span>
+                      </span>
+                    )}
                   </div>
 
                   <h3 className="text-lg font-bold text-foreground mb-2">
@@ -141,39 +142,83 @@ export const OffTopicSection: React.FC = () => {
                   </p>
                 </div>
 
-                {/* Display Area: Interactive Minigame vs Real Photography */}
+                {/* Display Area: Real Photo (Default) vs Interactive Easter Egg */}
                 <div className="w-full">
-                  {isInteractive ? (
-                    <div>
-                      {card.id === "archery" && <ArcheryGame />}
-                      {card.id === "hifi" && <HifiPlayer />}
-                      {card.id === "moto" && <MotoThrottle />}
-                    </div>
-                  ) : (
-                    <div
-                      onClick={() =>
-                        setLightboxImg({
-                          src: card.photoUrl,
-                          alt: card.title,
-                          caption: card.photoCaption,
-                        })
-                      }
-                      className="relative rounded-2xl overflow-hidden cursor-pointer group/photo aspect-4/3 border border-border/80 shadow-md"
-                    >
-                      <img
-                        src={card.photoUrl}
-                        alt={card.title}
-                        className="w-full h-full object-cover group-hover/photo:scale-105 transition-transform duration-500"
-                        onError={(e) => {
-                          (e.currentTarget as HTMLImageElement).src = card.photoFallback;
-                        }}
-                      />
-                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/photo:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white text-xs font-mono">
-                        <Maximize2 className="w-4 h-4" />
-                        <span>Clic para ampliar</span>
-                      </div>
-                    </div>
-                  )}
+                  <AnimatePresence mode="wait">
+                    {!isInteractive ? (
+                      /* LAYER 1: Authentic Photography with Easter Egg Invitation */
+                      <motion.div
+                        key="photo"
+                        initial={{ opacity: 0, scale: 0.98 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.98 }}
+                        transition={{ duration: 0.3 }}
+                        onClick={() => unlockEasterEgg(card.id)}
+                        className="relative rounded-2xl overflow-hidden cursor-pointer group/photo aspect-4/3 border border-border/80 shadow-md bg-neutral-950"
+                      >
+                        <img
+                          src={card.photoUrl}
+                          alt={card.title}
+                          className="w-full h-full object-cover group-hover/photo:scale-105 transition-transform duration-700"
+                          onError={(e) => {
+                            (e.currentTarget as HTMLImageElement).src = card.photoFallback;
+                          }}
+                        />
+
+                        {/* Top-Right Lightbox Button */}
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setLightboxImg({
+                              src: card.photoUrl,
+                              alt: card.title,
+                              caption: card.photoCaption,
+                            });
+                          }}
+                          className="absolute top-3 right-3 p-1.5 rounded-full bg-black/60 text-white hover:bg-black/80 transition-colors z-20 cursor-pointer"
+                          title="Ampliar fotografía a pantalla completa"
+                        >
+                          <Maximize2 className="w-3.5 h-3.5" />
+                        </button>
+
+                        {/* Bottom Overlay Pill: Click to Unlock Easter Egg */}
+                        <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end justify-center">
+                          <div className="px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-primary/50 text-foreground font-mono text-xs flex items-center gap-2 shadow-lg backdrop-blur-md group-hover/photo:border-primary group-hover/photo:scale-105 transition-all">
+                            <Gamepad2 className="w-4 h-4 text-primary animate-pulse" />
+                            <span className="text-primary font-semibold">
+                              {card.easterEggHint}
+                            </span>
+                          </div>
+                        </div>
+                      </motion.div>
+                    ) : (
+                      /* LAYER 2: Interactive Easter Egg Minigame */
+                      <motion.div
+                        key="game"
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.95 }}
+                        transition={{ duration: 0.35 }}
+                        className="relative"
+                      >
+                        {card.id === "archery" && <ArcheryGame />}
+                        {card.id === "hifi" && <HifiPlayer />}
+                        {card.id === "moto" && <MotoThrottle />}
+
+                        {/* Return to Photo Bar */}
+                        <div className="mt-2 text-center">
+                          <button
+                            onClick={() => returnToPhoto(card.id)}
+                            className="inline-flex items-center gap-1.5 text-[11px] font-mono text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+                          >
+                            <ArrowLeft className="w-3 h-3" />
+                            <span>Volver a la fotografía real</span>
+                          </button>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               </div>
             );
