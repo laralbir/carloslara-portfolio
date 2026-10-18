@@ -78,7 +78,7 @@ export const ContactSection: React.FC = () => {
               </a>
             </div>
             <p className="text-[11px] text-muted-foreground mt-3 pt-2.5 border-t border-border/40">
-              {t("contact.emailResponse") || "Respuesta en <24h laborables."}
+              {t("contact.emailResponse") || "Bandeja personal directa"}
             </p>
           </div>
 
