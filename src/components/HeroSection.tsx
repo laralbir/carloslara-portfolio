@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   ShieldCheck,
   TrendingUp,
@@ -14,6 +14,11 @@ import {
   Sparkles,
   Layers,
   Cpu,
+  X,
+  Maximize2,
+  ChevronRight,
+  RotateCcw,
+  MapPin,
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -21,6 +26,33 @@ export const HeroSection: React.FC = () => {
   const { t } = useLanguage();
   const [currentCodeLine, setCurrentCodeLine] = useState(0);
   const [displayedCode, setDisplayedCode] = useState("");
+  const [isPhotoModalOpen, setIsPhotoModalOpen] = useState(false);
+  const [currentFactIndex, setCurrentFactIndex] = useState(0);
+
+  const factKeys = ["archery", "moto", "hifi", "ai", "origins"] as const;
+
+  // Keyboard accessibility: Close modal with Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && isPhotoModalOpen) {
+        setIsPhotoModalOpen(false);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isPhotoModalOpen]);
+
+  // Prevent background scroll jitter when modal is open
+  useEffect(() => {
+    if (isPhotoModalOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isPhotoModalOpen]);
 
   const codeSnippets = [
     "import { AgenticArchitect } from '@carlos/core';",
@@ -224,25 +256,37 @@ export const HeroSection: React.FC = () => {
 
                 {/* Photo Avatar Badge anchored on edge */}
                 <div className="mt-4 pt-4 border-t border-border/40 flex flex-wrap sm:flex-nowrap items-center justify-between gap-3">
-                  <div className="flex items-center gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setIsPhotoModalOpen(true)}
+                    className="flex items-center gap-3 text-left group/avatar cursor-pointer rounded-xl p-1 -m-1 hover:bg-primary/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-all"
+                    aria-label={t("hero.photoModal.openAria") || "Ampliar foto de perfil y ver datos curiosos de Carlos Lara Albir"}
+                    title={t("hero.photoModal.openTooltip") || "Clic para ampliar foto y ver datos curiosos"}
+                  >
                     <div className="relative shrink-0">
                       <img
                         src="/assets/carlos-lara.webp"
                         alt="Carlos Lara Albir"
-                        className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl object-cover border-2 border-primary/50 shadow-md"
+                        className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl object-cover object-top border-2 border-primary/50 shadow-md group-hover/avatar:border-primary group-hover/avatar:scale-105 transition-all duration-200"
                         onError={(e) => {
                           (e.currentTarget as HTMLImageElement).src = "/assets/carlos-lara.jpg";
                         }}
                       />
                       <span className="absolute -bottom-1 -right-1 w-3 h-3 bg-emerald-500 rounded-full border-2 border-card" />
+                      <span className="absolute inset-0 rounded-xl bg-primary/20 opacity-0 group-hover/avatar:opacity-100 transition-opacity flex items-center justify-center">
+                        <Maximize2 className="w-3.5 h-3.5 text-white drop-shadow" />
+                      </span>
                     </div>
-                    <div className="text-left">
-                      <div className="text-xs font-bold text-foreground">Carlos Lara Albir</div>
+                    <div>
+                      <div className="text-xs font-bold text-foreground group-hover/avatar:text-primary transition-colors flex items-center gap-1.5">
+                        <span>Carlos Lara Albir</span>
+                        <Maximize2 className="w-3 h-3 text-muted-foreground opacity-60 group-hover/avatar:opacity-100 group-hover/avatar:text-primary transition-all" />
+                      </div>
                       <div className="text-[10px] sm:text-[11px] font-mono text-muted-foreground">
                         20+ YOE · Valencia, Spain
                       </div>
                     </div>
-                  </div>
+                  </button>
                   <div className="text-right flex flex-col items-end gap-0.5 shrink-0">
                     <span className="px-2 py-0.5 rounded bg-primary/10 border border-primary/30 text-[10px] font-mono text-primary font-bold">
                       100% IA Agéntica
@@ -268,6 +312,151 @@ export const HeroSection: React.FC = () => {
           />
         </div>
       </div>
+
+      {/* Photo Enlarge & Fun Facts Modal */}
+      <AnimatePresence>
+        {isPhotoModalOpen && (
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="photo-modal-title"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/80 backdrop-blur-md overflow-y-auto"
+            onClick={() => setIsPhotoModalOpen(false)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 12 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 12 }}
+              transition={{ duration: 0.2 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-lg bg-card/95 border border-border/80 rounded-2xl shadow-2xl p-5 sm:p-7 backdrop-blur-xl my-auto text-left"
+            >
+              {/* Close Button */}
+              <button
+                id="photo-modal-close-btn"
+                type="button"
+                onClick={() => setIsPhotoModalOpen(false)}
+                className="absolute top-4 right-4 p-2 rounded-xl text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-colors cursor-pointer"
+                aria-label={t("hero.photoModal.close") || "Cerrar modal"}
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              {/* Tag / Badge */}
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 border border-primary/20 text-[11px] font-mono text-primary mb-4">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>{t("hero.photoModal.badge") || "DETRÁS DEL CÓDIGO"}</span>
+              </div>
+
+              {/* Profile Card Header with High-Res Image */}
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-5 mb-6">
+                <div className="relative shrink-0">
+                  <img
+                    src="/assets/carlos-lara.webp"
+                    alt="Carlos Lara Albir"
+                    className="w-32 h-44 sm:w-40 sm:h-52 rounded-2xl object-cover object-top border-2 border-primary/50 shadow-xl"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).src = "/assets/carlos-lara.jpg";
+                    }}
+                  />
+                  <div className="absolute -bottom-2 -right-2 px-2.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/40 backdrop-blur-md flex items-center gap-1.5 text-[10px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold shadow">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span>20+ YOE</span>
+                  </div>
+                </div>
+
+                <div className="flex-1 text-center sm:text-left">
+                  <h3 id="photo-modal-title" className="text-xl sm:text-2xl font-bold text-foreground">
+                    {t("hero.photoModal.title") || "Carlos Lara Albir"}
+                  </h3>
+                  <div className="text-xs sm:text-sm font-semibold text-primary mt-1">
+                    {t("hero.photoModal.role") || "Agentic Engineer & Senior Backend Architect"}
+                  </div>
+                  <div className="flex items-center justify-center sm:justify-start gap-1.5 text-xs font-mono text-muted-foreground mt-2">
+                    <MapPin className="w-3.5 h-3.5 text-primary" />
+                    <span>{t("hero.photoModal.location") || "Valencia, España · 20+ Años en Producción"}</span>
+                  </div>
+                  <p className="text-xs text-muted-foreground mt-3 leading-relaxed">
+                    {t("hero.photoModal.tagline") || "Sistemas distribuidos de alta concurrencia + desarrollo agéntico con IA (Claude Code, MCP y SDD)."}
+                  </p>
+                </div>
+              </div>
+
+              {/* Interactive Fun Facts Section */}
+              <div className="border-t border-border/40 pt-5">
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  <div className="text-xs font-mono font-bold text-primary flex items-center gap-1.5">
+                    <span>💡</span>
+                    <span>{t("hero.photoModal.curiositiesTitle") || "¿SABÍAS QUÉ...? · DATOS CURIOSOS"}</span>
+                  </div>
+                  <span className="text-[10px] font-mono text-muted-foreground">
+                    {currentFactIndex + 1} / {factKeys.length}
+                  </span>
+                </div>
+
+                {/* Fact Selector Pills */}
+                <div className="flex flex-wrap gap-1.5 mb-3">
+                  {factKeys.map((key, idx) => {
+                    const isActive = idx === currentFactIndex;
+                    const tag = t(`hero.photoModal.facts.${key}.tag`);
+                    return (
+                      <button
+                        key={key}
+                        type="button"
+                        onClick={() => setCurrentFactIndex(idx)}
+                        className={`px-2.5 py-1 rounded-lg text-xs font-mono transition-all cursor-pointer ${
+                          isActive
+                            ? "bg-primary text-primary-foreground font-semibold shadow-sm"
+                            : "bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground"
+                        }`}
+                      >
+                        {tag}
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {/* Active Fact Card */}
+                {(() => {
+                  const activeKey = factKeys[currentFactIndex];
+                  const title = t(`hero.photoModal.facts.${activeKey}.title`);
+                  const desc = t(`hero.photoModal.facts.${activeKey}.desc`);
+                  return (
+                    <div className="p-3.5 sm:p-4 rounded-xl bg-muted/30 border border-border/60">
+                      <div className="text-xs sm:text-sm font-bold text-foreground mb-1">
+                        {title}
+                      </div>
+                      <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                        {desc}
+                      </p>
+                    </div>
+                  );
+                })()}
+
+                {/* Footer Buttons */}
+                <div className="mt-4 flex items-center justify-between gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setCurrentFactIndex((prev) => (prev + 1) % factKeys.length)}
+                    className="px-3.5 py-2 rounded-xl text-xs font-semibold bg-primary/10 border border-primary/20 text-primary hover:bg-primary/20 transition-all flex items-center gap-1.5 cursor-pointer"
+                  >
+                    <RotateCcw className="w-3.5 h-3.5" />
+                    <span>{t("hero.photoModal.nextButton") || "Ver otra curiosidad"}</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setIsPhotoModalOpen(false)}
+                    className="px-4 py-2 rounded-xl text-xs font-semibold bg-muted hover:bg-muted/80 text-foreground transition-all cursor-pointer"
+                  >
+                    {t("hero.photoModal.close") || "Cerrar"}
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

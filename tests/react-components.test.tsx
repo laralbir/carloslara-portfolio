@@ -317,5 +317,69 @@ describe("React Portfolio Components", () => {
     expect(seroloStrong).toBeDefined();
     expect(seroloStrong?.textContent).toContain("Servicios Taurinos Serolo (2006–2009):");
   });
+
+  it("HeroSection renders avatar with object-top framing and opens enlarged modal with interactive fun facts on click", async () => {
+    const { MotionConfig } = await import("framer-motion");
+    const { HeroSection } = await import("../src/components/HeroSection");
+    const root = createRoot(container);
+    await act(async () => {
+      root.render(
+        <MotionConfig reducedMotion="always">
+          <ThemeProvider>
+            <LanguageProvider>
+              <HeroSection />
+            </LanguageProvider>
+          </ThemeProvider>
+        </MotionConfig>
+      );
+    });
+
+    // Check avatar image has object-top framing
+    const avatarImg = container.querySelector("img[alt='Carlos Lara Albir']") as HTMLImageElement | null;
+    expect(avatarImg).not.toBeNull();
+    expect(avatarImg?.className).toContain("object-top");
+
+    // Modal is initially not in DOM
+    expect(document.querySelector("#photo-modal-title")).toBeNull();
+
+    // Click on avatar button
+    const avatarBtn = container.querySelector("button[aria-label*='Carlos Lara Albir']") as HTMLButtonElement | null;
+    expect(avatarBtn).not.toBeNull();
+
+    await act(async () => {
+      avatarBtn?.click();
+    });
+
+    // Modal is now open
+    const modalTitle = document.querySelector("#photo-modal-title");
+    expect(modalTitle).not.toBeNull();
+    expect(modalTitle?.textContent).toContain("Carlos Lara Albir");
+    expect(document.body.textContent).toContain("DETRÁS DEL CÓDIGO");
+    expect(document.body.textContent).toContain("Tiro con Arco");
+
+    // Click "Ver otra curiosidad" or next fact button
+    const nextBtn = Array.from(document.querySelectorAll("button")).find((b) =>
+      b.textContent?.includes("Ver otra curiosidad") || b.textContent?.includes("Next fun fact")
+    );
+    expect(nextBtn).toBeDefined();
+
+    await act(async () => {
+      nextBtn?.click();
+    });
+
+    // Fact changed to motorcycle trips
+    expect(document.body.textContent).toMatch(/Rutas en Moto|Motorcycle Trips|Rutes en Moto/);
+
+    // Close modal
+    const closeBtn = container.querySelector("#photo-modal-close-btn") as HTMLButtonElement | null;
+    expect(closeBtn).not.toBeNull();
+
+    await act(async () => {
+      closeBtn?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+      await new Promise((r) => setTimeout(r, 400));
+    });
+
+    expect(container.querySelector("#photo-modal-title")).toBeNull();
+  });
 });
 

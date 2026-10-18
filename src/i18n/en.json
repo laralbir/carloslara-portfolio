@@ -38,7 +38,46 @@
     "metricReverts": "Audited Reverts",
     "metricCompanies": "Companies in 11 Days",
     "metricUptime": "SLA Uptime",
-    "metricVelocity": "Development Velocity"
+    "metricVelocity": "Development Velocity",
+    "photoModal": {
+      "openAria": "Enlarge profile photo and view Carlos Lara Albir fun facts",
+      "openTooltip": "Click to enlarge photo and view fun facts",
+      "badge": "BEHIND THE CODE",
+      "title": "Carlos Lara Albir",
+      "role": "Agentic Engineer & Senior Backend Architect",
+      "location": "Valencia, Spain · 20+ Years in Production",
+      "tagline": "High-concurrency distributed systems + agentic AI engineering.",
+      "curiositiesTitle": "DID YOU KNOW? · FUN FACTS",
+      "nextButton": "Next fun fact",
+      "close": "Close",
+      "facts": {
+        "archery": {
+          "tag": "🎯 Archery",
+          "title": "National Coach & Judge (CSD)",
+          "desc": "Certified by the Spanish High Council for Sports (CSD). Coached his university archery squad to the Spanish National Championship. Laser-like focus, calm pulse, and precision under pressure are his greatest assets in mission-critical production systems."
+        },
+        "moto": {
+          "tag": "🏍️ Motorcycle Trips",
+          "title": "Long-Distance & Mountain Touring",
+          "desc": "Medium and long-distance motorcycle touring through scenic mountain passes. Meticulous technical route planning, offline maps, and the same resilience applied in engineering: anticipation, steady concentration, and enjoying the journey."
+        },
+        "hifi": {
+          "tag": "🎧 Hi-Fi Audio",
+          "title": "Custom 'Ámbar' Sound Console",
+          "desc": "Hand-crafted his own sound control station combining microcontrollers, touchscreens, and bit-perfect streaming for vinyl records and 24-bit lossless FLAC."
+        },
+        "ai": {
+          "tag": "🤖 AI Tooling & MCP",
+          "title": "Terminal-Native Agentic Engineering",
+          "desc": "Built custom MCP servers to automate daily workflows by correlating Jira, Google Calendar, and GitHub commits, achieving an audited 0-revert track record."
+        },
+        "origins": {
+          "tag": "💾 Roots in 2006",
+          "title": "20 Years in Real Production",
+          "desc": "Started his journey in 2006 orchestrating real-time online ticketing and physical stadium turnstiles on bare-metal SQL Server before cloud providers existed."
+        }
+      }
+    }
   },
   "aiCallout": {
     "tag": "100% Agentic AI & SDD",

@@ -38,7 +38,46 @@
     "metricReverts": "Reverts Auditados",
     "metricCompanies": "Empresas en 11 Días",
     "metricUptime": "Disponibilidad SLA",
-    "metricVelocity": "Velocidad de Desarrollo"
+    "metricVelocity": "Velocidad de Desarrollo",
+    "photoModal": {
+      "openAria": "Ampliar foto de perfil y ver datos curiosos de Carlos Lara Albir",
+      "openTooltip": "Clic para ampliar foto y ver datos curiosos",
+      "badge": "DETRÁS DEL CÓDIGO",
+      "title": "Carlos Lara Albir",
+      "role": "Agentic Engineer & Senior Backend Architect",
+      "location": "Valencia, España · 20+ Años en Producción",
+      "tagline": "Sistemas distribuidos de alta concurrencia + desarrollo agéntico con IA.",
+      "curiositiesTitle": "¿SABÍAS QUÉ...? · DATOS CURIOSOS",
+      "nextButton": "Ver otra curiosidad",
+      "close": "Cerrar",
+      "facts": {
+        "archery": {
+          "tag": "🎯 Tiro con Arco",
+          "title": "Entrenador & Juez Nacional CSD",
+          "desc": "Certificado por el Consejo Superior de Deportes. Dirigió a su equipo universitario a proclamarse Campeón de España. El foco milimétrico, el pulso y la biomecánica en la línea de tiro son su mejor entrenamiento para mantener la templanza en arquitecturas críticas."
+        },
+        "moto": {
+          "tag": "🏍️ Rutas en Moto",
+          "title": "Viajes de Larga Distancia & Montaña",
+          "desc": "Rutas y viajes en moto de media y larga distancia por carretera y montaña. Planificación meticulosa de itinerarios técnicos, mapas offline, orientación y la misma resiliencia que en producción: anticipación, foco constante y disfrute del camino."
+        },
+        "hifi": {
+          "tag": "🎧 Audio Hi-Fi",
+          "title": "Hardware Artesanal 'Ámbar'",
+          "desc": "Diseñó y ensambló su propia consola de sonido con microcontroladores, pantallas táctiles y reproducción bit-perfect de vinilos y audio de alta resolución a 24-bit."
+        },
+        "ai": {
+          "tag": "🤖 Tooling IA & MCP",
+          "title": "Pionero Agéntico en la Terminal",
+          "desc": "Diseñó servidores MCP propios para imputación de tiempos correlacionando Jira, Calendar y GitHub, manteniendo un récord de 0 reverts en producción."
+        },
+        "origins": {
+          "tag": "💾 Inicios en 2006",
+          "title": "20 Años en Producción Real",
+          "desc": "Arrancó en 2006 programando venta online y tornos de acceso en tiempo real sobre SQL Server en plazas de toros emblemáticas de España, respondiendo con latencia crítica bajo picos masivos de taquilla."
+        }
+      }
+    }
   },
   "aiCallout": {
     "tag": "100% IA Agéntica & SDD",
