@@ -289,5 +289,33 @@ describe("React Portfolio Components", () => {
 
     expect(container.querySelector("#sdd-modal-title")).toBeNull();
   });
+
+  it("ExperienceTimeline renders real <strong> DOM elements and never exposes literal <strong> tags as text", async () => {
+    const { ExperienceTimeline } = await import("../src/components/ExperienceTimeline");
+    const root = createRoot(container);
+    await act(async () => {
+      root.render(
+        <ThemeProvider>
+          <LanguageProvider>
+            <ExperienceTimeline />
+          </LanguageProvider>
+        </ThemeProvider>
+      );
+    });
+
+    // Verify no literal HTML tags leak into visible text
+    expect(container.textContent).not.toContain("<strong>");
+    expect(container.textContent).not.toContain("</strong>");
+    expect(container.textContent).toContain("Servicios Taurinos Serolo");
+
+    // Verify that <strong> is rendered as a proper HTML element
+    const strongElements = container.querySelectorAll("strong");
+    expect(strongElements.length).toBeGreaterThan(0);
+    const seroloStrong = Array.from(strongElements).find((s) =>
+      s.textContent?.includes("Servicios Taurinos Serolo")
+    );
+    expect(seroloStrong).toBeDefined();
+    expect(seroloStrong?.textContent).toContain("Servicios Taurinos Serolo (2006–2009):");
+  });
 });
 

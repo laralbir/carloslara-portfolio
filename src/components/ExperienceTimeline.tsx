@@ -17,6 +17,40 @@ interface ExperienceItemConfig {
   technologies: string[];
 }
 
+function renderFormattedPoint(text: string): React.ReactNode {
+  if (!text || typeof text !== "string") return text;
+
+  // If text contains HTML tags like <strong>, <b>, or <em>, parse them safely into React elements
+  const tagRegex = /(<(?:strong|b|em)>.*?<\/(?:strong|b|em)>)/gi;
+  if (tagRegex.test(text)) {
+    const parts = text.split(/(<(?:strong|b|em)>.*?<\/(?:strong|b|em)>)/gi);
+    return parts.map((part, idx) => {
+      const match = part.match(/^<(strong|b|em)>(.*?)<\/\1>$/i);
+      if (match) {
+        const [, tag, innerText] = match;
+        if (tag.toLowerCase() === "strong" || tag.toLowerCase() === "b") {
+          return (
+            <strong key={idx} className="font-semibold text-foreground">
+              {innerText}
+            </strong>
+          );
+        }
+        if (tag.toLowerCase() === "em") {
+          return (
+            <em key={idx} className="italic text-foreground">
+              {innerText}
+            </em>
+          );
+        }
+      }
+      return part.replace(/<\/?[a-zA-Z0-9]+[^>]*>/g, "");
+    });
+  }
+
+  // Strip any accidental unclosed or unrecognized HTML tags so raw markup never leaks
+  return text.replace(/<\/?[a-zA-Z0-9]+[^>]*>/g, "");
+}
+
 export const ExperienceTimeline: React.FC = () => {
   const { t, tArray } = useLanguage();
 
@@ -110,28 +144,12 @@ export const ExperienceTimeline: React.FC = () => {
 
                   {/* Highlights List */}
                   <ul className="space-y-2 mb-6">
-                    {points.map((h, i) => {
-                      const hasStrong = h.includes("<strong>");
-                      const content = hasStrong
-                        ? h.split(/(<strong>.*?<\/strong>)/g).map((part, pIdx) => {
-                            if (part.startsWith("<strong>") && part.endsWith("</strong>")) {
-                              return (
-                                <strong key={pIdx} className="font-semibold text-foreground">
-                                  {part.replace(/<\/?strong>/g, "")}
-                                </strong>
-                              );
-                            }
-                            return part;
-                          })
-                        : h;
-
-                      return (
-                        <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                          <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
-                          <span>{content}</span>
-                        </li>
-                      );
-                    })}
+                    {points.map((h, i) => (
+                      <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                        <span>{renderFormattedPoint(h)}</span>
+                      </li>
+                    ))}
                   </ul>
 
                   {/* Tech Chips */}
