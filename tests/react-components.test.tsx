@@ -237,4 +237,57 @@ describe("React Portfolio Components", () => {
     expect(container.textContent).toMatch(/Ver foto real|View real photo|Veure foto real/i);
     expect(container.textContent).toContain("Diana WA 50m");
   });
+
+  it("AiCalloutBanner prominently discloses 100% Agentic AI and opens SDD modal", async () => {
+    const { MotionConfig } = await import("framer-motion");
+    const { AiCalloutBanner } = await import("../src/components/AiCalloutBanner");
+    const root = createRoot(container);
+    await act(async () => {
+      root.render(
+        <MotionConfig reducedMotion="always">
+          <ThemeProvider>
+            <LanguageProvider>
+              <AiCalloutBanner />
+            </LanguageProvider>
+          </ThemeProvider>
+        </MotionConfig>
+      );
+    });
+
+    // Contains 100% agentic disclosure and zero hallucinations badge
+    expect(container.textContent).toContain("100% IA Agéntica & SDD");
+    expect(container.textContent).toContain("0 Alucinaciones");
+    expect(container.textContent).toContain("100% Verificado");
+    expect(container.textContent).toContain("Claude Code + Antigravity");
+
+    // Modal is initially not in DOM
+    expect(document.querySelector("#sdd-modal-title")).toBeNull();
+
+    // Click "Cómo se hizo (SDD)"
+    const infoBtn = container.querySelector("button[aria-haspopup='dialog']") as HTMLButtonElement | null;
+    expect(infoBtn).not.toBeNull();
+
+    await act(async () => {
+      infoBtn?.click();
+    });
+
+    // Modal is opened with SDD title and 4 gates
+    const modalTitle = document.querySelector("#sdd-modal-title");
+    expect(modalTitle).not.toBeNull();
+    expect(document.body.textContent).toContain("FASE 01");
+    expect(document.body.textContent).toContain("FASE 02");
+    expect(document.body.textContent).toContain("FASE 03");
+    expect(document.body.textContent).toContain("FASE 04");
+
+    // Click close button
+    const closeBtn = container.querySelector("button[aria-label='Cerrar modal']") as HTMLButtonElement | null;
+    expect(closeBtn).not.toBeNull();
+
+    await act(async () => {
+      closeBtn?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    });
+
+    expect(container.querySelector("#sdd-modal-title")).toBeNull();
+  });
 });
+

@@ -7,6 +7,7 @@ import { WelcomeScreen } from "./components/WelcomeScreen";
 import { TelemetryTicker } from "./components/TelemetryTicker";
 import { Navbar } from "./components/Navbar";
 import { HeroSection } from "./components/HeroSection";
+import { AiCalloutBanner } from "./components/AiCalloutBanner";
 import { AboutSection } from "./components/AboutSection";
 import { SddSection } from "./components/SddSection";
 import { ProjectsSection } from "./components/ProjectsSection";
@@ -47,6 +48,7 @@ export const AppContent: React.FC = () => {
           {/* Main Sections */}
           <main id="main-content">
             <HeroSection />
+            <AiCalloutBanner />
             <AboutSection />
             <SddSection />
             <ProjectsSection />

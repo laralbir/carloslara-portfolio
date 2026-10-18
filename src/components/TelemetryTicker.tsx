@@ -1,5 +1,5 @@
 import React from "react";
-import { Terminal, ShieldCheck, Zap, Globe, Cpu } from "lucide-react";
+import { Terminal, ShieldCheck, Zap, Globe, Cpu, Bot } from "lucide-react";
 
 export const TelemetryTicker: React.FC = () => {
   return (
@@ -12,6 +12,10 @@ export const TelemetryTicker: React.FC = () => {
           <span className="inline-flex items-center gap-1.5 text-primary font-semibold">
             <Terminal className="w-3.5 h-3.5" />
             <span>carlos@edge:~$</span>
+          </span>
+          <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-primary/10 border border-primary/20 text-primary font-semibold">
+            <Bot className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
+            <span>100% AI AGENTS (SDD)</span>
           </span>
           <span className="inline-flex items-center gap-1">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />

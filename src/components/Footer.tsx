@@ -135,10 +135,14 @@ export const Footer: React.FC = () => {
                   <span>/cv.md (Markdown CV)</span>
                 </a>
               </li>
-              <li className="pt-2">
+              <li className="pt-2 flex flex-col gap-1.5">
                 <div className="inline-flex items-center gap-1 text-[11px] text-muted-foreground/80 bg-background/50 px-2 py-1 rounded border border-border/40">
                   <ShieldCheck className="w-3 h-3 text-emerald-400" />
                   <span>0 LLM Hallucinations</span>
+                </div>
+                <div className="inline-flex items-center gap-1 text-[11px] text-primary bg-primary/10 px-2 py-1 rounded border border-primary/20 font-mono">
+                  <Bot className="w-3 h-3 text-cyan-400" />
+                  <span>100% Autonomous AI Agents</span>
                 </div>
               </li>
             </ul>
@@ -146,9 +150,14 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-border/40 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
-          <div>
-            &copy; {currentYear} Carlos Lara Albir. {t("footer.rights") || "Todos los derechos reservados."}
+        <div className="pt-8 border-t border-border/40 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">
+            <span>&copy; {currentYear} Carlos Lara Albir. {t("footer.rights") || "Todos los derechos reservados."}</span>
+            <span className="hidden sm:inline text-border">·</span>
+            <span className="inline-flex items-center gap-1.5 text-primary font-mono font-medium">
+              <Bot className="w-3.5 h-3.5 text-cyan-400" />
+              <span>{t("footer.builtWith") || "Diseñado y desarrollado al 100% con IA agéntica y Spec-Driven Development."}</span>
+            </span>
           </div>
           <div className="flex items-center gap-4">
             <span className="inline-flex items-center gap-1.5 text-emerald-400 font-mono">

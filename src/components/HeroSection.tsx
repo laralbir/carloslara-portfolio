@@ -241,8 +241,11 @@ export const HeroSection: React.FC = () => {
                       20+ YOE · Valencia, Spain
                     </div>
                   </div>
-                  <div className="text-right">
-                    <span className="px-2 py-1 rounded bg-primary/10 border border-primary/30 text-[10px] font-mono text-primary">
+                  <div className="text-right flex flex-col items-end gap-0.5">
+                    <span className="px-2 py-0.5 rounded bg-primary/10 border border-primary/30 text-[10px] font-mono text-primary font-bold">
+                      100% IA Agéntica
+                    </span>
+                    <span className="text-[9px] font-mono text-muted-foreground">
                       SDD Verified
                     </span>
                   </div>
