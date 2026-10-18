@@ -74,16 +74,15 @@ export const MotoThrottle: React.FC = () => {
       >
         {/* Alpine Mountain Silhouette */}
         <svg
-          width="240"
-          height="80"
           viewBox="0 0 220 70"
           fill="none"
-          className="moto-mountains absolute top-3 opacity-40 pointer-events-none"
+          className="moto-mountains pointer-events-none"
           aria-hidden="true"
         >
-          <polygon points="10,70 60,25 90,50 140,15 190,60 215,70" fill="#38bdf8" />
+          <polygon points="0,70 10,70 60,25 90,50 140,15 190,60 215,70 220,70" fill="#38bdf8" />
           <polygon points="140,15 160,32 170,28" fill="#ffffff" opacity="0.8" />
           <polygon points="60,25 75,38 85,32" fill="#ffffff" opacity="0.8" />
+          <line x1="0" y1="70" x2="220" y2="70" stroke="#38bdf8" strokeWidth="1" opacity="0.6" />
         </svg>
 
         {/* Moving Perspective Road */}
