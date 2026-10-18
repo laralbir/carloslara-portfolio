@@ -36,7 +36,8 @@
     "metricYears": "Años en Producción",
     "metricPrs": "PRs Merged",
     "metricReverts": "Reverts Auditados",
-    "metricCompanies": "Empresas en 11 Días"
+    "metricCompanies": "Empresas en 11 Días",
+    "metricUptime": "Disponibilidad SLA"
   },
   "aiCallout": {
     "tag": "100% IA Agéntica & SDD",
