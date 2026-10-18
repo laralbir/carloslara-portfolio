@@ -59,7 +59,9 @@ export function setA11yContrast(active: boolean): void {
   const toggleBtn = document.getElementById('a11y-toggle');
   if (active) {
     document.documentElement.setAttribute('data-a11y', 'high-contrast');
+    document.documentElement.classList.add('a11y-contrast');
     localStorage.setItem(A11Y_STORAGE_KEY, 'high-contrast');
+    localStorage.setItem('user_contrast', 'high');
     if (toggleBtn) {
       toggleBtn.setAttribute('aria-checked', 'true');
       toggleBtn.setAttribute('aria-pressed', 'true');
@@ -67,7 +69,9 @@ export function setA11yContrast(active: boolean): void {
     }
   } else {
     document.documentElement.removeAttribute('data-a11y');
+    document.documentElement.classList.remove('a11y-contrast');
     localStorage.removeItem(A11Y_STORAGE_KEY);
+    localStorage.setItem('user_contrast', 'standard');
     if (toggleBtn) {
       toggleBtn.setAttribute('aria-checked', 'false');
       toggleBtn.setAttribute('aria-pressed', 'false');
@@ -89,8 +93,8 @@ export function toggleA11yContrast(): boolean {
 }
 
 export function initA11yContrast(): void {
-  const saved = localStorage.getItem(A11Y_STORAGE_KEY);
-  if (saved === 'high-contrast') {
+  const saved = localStorage.getItem(A11Y_STORAGE_KEY) || localStorage.getItem('user_contrast');
+  if (saved === 'high-contrast' || saved === 'high') {
     setA11yContrast(true);
   } else {
     setA11yContrast(false);

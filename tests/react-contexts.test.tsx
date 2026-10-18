@@ -89,6 +89,7 @@ describe("React Contexts: Language & Theme", () => {
     expect(document.documentElement.classList.contains("dark")).toBe(true);
     expect(document.documentElement.classList.contains("light")).toBe(false);
     expect(document.documentElement.getAttribute("data-theme")).toBe("dark");
+    expect(localStorage.getItem("user_theme")).toBe("dark");
 
     // Toggle high-contrast
     expect(contextValue.a11yContrast).toBe(false);
@@ -100,5 +101,33 @@ describe("React Contexts: Language & Theme", () => {
     expect(document.documentElement.getAttribute("data-a11y")).toBe("high-contrast");
     expect(document.documentElement.classList.contains("a11y-contrast")).toBe(true);
     expect(localStorage.getItem("user_contrast")).toBe("high");
+
+    // Simulate page reload / revisit on another day:
+    // Unmount current root and mount a completely fresh ThemeProvider
+    root.unmount();
+    container.innerHTML = "";
+
+    let reloadedContext: any = null;
+    const ReloadedTestComponent = () => {
+      reloadedContext = useTheme();
+      return <div>Reloaded Theme: {reloadedContext.resolvedTheme}</div>;
+    };
+
+    const newRoot = createRoot(container);
+    await act(async () => {
+      newRoot.render(
+        <ThemeProvider>
+          <ReloadedTestComponent />
+        </ThemeProvider>
+      );
+    });
+
+    // Both dark theme and high contrast MUST be remembered from localStorage
+    expect(reloadedContext.resolvedTheme).toBe("dark");
+    expect(document.documentElement.classList.contains("dark")).toBe(true);
+    expect(document.documentElement.getAttribute("data-theme")).toBe("dark");
+    expect(reloadedContext.a11yContrast).toBe(true);
+    expect(document.documentElement.getAttribute("data-a11y")).toBe("high-contrast");
+    expect(document.documentElement.classList.contains("a11y-contrast")).toBe(true);
   });
 });

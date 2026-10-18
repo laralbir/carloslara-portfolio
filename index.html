@@ -158,8 +158,8 @@
   <script>
     (function() {
       try {
-        var setting = localStorage.getItem('user_theme') || 'light';
-        var isDark = setting === 'dark';
+        var setting = localStorage.getItem('user_theme') || localStorage.getItem('theme') || 'light';
+        var isDark = setting === 'dark' || (setting === 'system' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
         if (isDark) {
           document.documentElement.classList.add('dark');
           document.documentElement.classList.remove('light');
@@ -169,10 +169,13 @@
         }
         document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
 
-        var a11y = localStorage.getItem('user_contrast');
-        if (a11y === 'high') {
+        var a11y = localStorage.getItem('user_contrast') || localStorage.getItem('a11y_contrast');
+        if (a11y === 'high' || a11y === 'high-contrast') {
           document.documentElement.setAttribute('data-a11y', 'high-contrast');
           document.documentElement.classList.add('a11y-contrast');
+        } else {
+          document.documentElement.removeAttribute('data-a11y');
+          document.documentElement.classList.remove('a11y-contrast');
         }
         
         var lang = localStorage.getItem('user_lang');

@@ -33,7 +33,8 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
   const [a11yContrast, setA11yContrastState] = useState<boolean>(() => {
     if (typeof window !== "undefined") {
-      return localStorage.getItem("user_contrast") === "high";
+      const saved = localStorage.getItem("user_contrast") || localStorage.getItem("a11y_contrast");
+      return saved === "high" || saved === "high-contrast";
     }
     return false;
   });
@@ -83,14 +84,28 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   }, []);
 
   const toggleTheme = useCallback(() => {
-    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
-  }, [setTheme]);
+    setThemeState((currentTheme) => {
+      const active = currentTheme === "system" ? getSystemTheme() : currentTheme;
+      const nextTheme: Theme = active === "dark" ? "light" : "dark";
+      if (typeof window !== "undefined") {
+        localStorage.setItem("user_theme", nextTheme);
+        localStorage.setItem("theme", nextTheme);
+      }
+      return nextTheme;
+    });
+  }, []);
 
   const toggleA11yContrast = useCallback(() => {
     setA11yContrastState((prev) => {
       const next = !prev;
       if (typeof window !== "undefined") {
-        localStorage.setItem("user_contrast", next ? "high" : "standard");
+        if (next) {
+          localStorage.setItem("user_contrast", "high");
+          localStorage.setItem("a11y_contrast", "high-contrast");
+        } else {
+          localStorage.setItem("user_contrast", "standard");
+          localStorage.removeItem("a11y_contrast");
+        }
       }
       return next;
     });
