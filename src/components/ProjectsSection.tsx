@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Code,
@@ -8,6 +8,7 @@ import {
   Layers,
   Sparkles,
   ArrowRight,
+  ArrowUpRight,
   ShieldAlert,
   Lightbulb,
   CheckCircle,
@@ -34,6 +35,17 @@ export const ProjectsSection: React.FC = () => {
   const { t } = useLanguage();
   const [filter, setFilter] = useState<"all" | "enterprise" | "personal">("all");
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
+
+  // Close modal on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSelectedProject(null);
+    };
+    if (selectedProject) {
+      window.addEventListener("keydown", handleKeyDown);
+    }
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selectedProject]);
 
   const projects: ProjectItem[] = [
     // Personal / AI First (highlights latest work)
@@ -185,69 +197,73 @@ export const ProjectsSection: React.FC = () => {
           </button>
         </div>
 
-        {/* Projects Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Projects Cards Grid: Compact 3-Column on Large Screens */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence>
             {filtered.map((proj) => (
               <motion.article
                 key={proj.id}
                 layout
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.4 }}
-                className="p-6 rounded-2xl bg-card/60 border border-border/70 backdrop-blur-md hover:border-primary/50 transition-all flex flex-col justify-between text-left group relative overflow-hidden"
+                transition={{ duration: 0.3 }}
+                onClick={() => setSelectedProject(proj)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    setSelectedProject(proj);
+                  }
+                }}
+                aria-label={`Ver ficha detallada de ${t(proj.titleKey)}`}
+                className="p-6 rounded-2xl bg-card/70 border border-border/80 backdrop-blur-md hover:border-primary/60 transition-all card-hover flex flex-col justify-between text-left group relative overflow-hidden cursor-pointer select-none shadow-md hover:shadow-xl"
               >
                 <div>
-                  {/* Category & Tags Header */}
+                  {/* Category Pill & Expand Hint */}
                   <div className="flex items-center justify-between gap-2 mb-3">
                     <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-primary/10 border border-primary/20 text-primary font-medium">
                       {t(proj.tagKey)}
                     </span>
-                    {proj.featured && (
-                      <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 font-semibold">
-                        ★ Destacado
+                    <div className="flex items-center gap-1.5">
+                      {proj.featured && (
+                        <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-500 dark:text-amber-400 font-semibold">
+                          ★ Destacado
+                        </span>
+                      )}
+                      <span className="p-1 rounded-full text-muted-foreground group-hover:text-primary transition-colors">
+                        <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                       </span>
-                    )}
+                    </div>
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors mb-4">
+                  <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors mb-3 line-clamp-2">
                     {t(proj.titleKey)}
                   </h3>
 
-                  {/* Problem / Solution / Impact Structured Snippets */}
-                  <div className="space-y-3 mb-6 text-xs sm:text-sm leading-relaxed">
-                    <div className="p-3 rounded-xl bg-background/50 border border-border/40">
-                      <div className="text-[11px] font-mono uppercase tracking-wider text-amber-700 dark:text-amber-400 font-semibold mb-1 flex items-center gap-1">
-                        <ShieldAlert className="w-3.5 h-3.5" />
-                        <span>Problema / Reto:</span>
-                      </div>
-                      <p className="text-muted-foreground">{t(proj.problemKey)}</p>
-                    </div>
+                  {/* Concise Summary (Problem & Scope) */}
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed line-clamp-3 mb-4">
+                    {t(proj.problemKey)}
+                  </p>
 
-                    <div className="p-3 rounded-xl bg-background/50 border border-border/40">
-                      <div className="text-[11px] font-mono uppercase tracking-wider text-cyan-700 dark:text-cyan-400 font-semibold mb-1 flex items-center gap-1">
-                        <Lightbulb className="w-3.5 h-3.5" />
-                        <span>Solución Arquitectónica:</span>
-                      </div>
-                      <p className="text-muted-foreground">{t(proj.solutionKey)}</p>
+                  {/* Audited Impact Callout */}
+                  <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200 dark:bg-emerald-950/30 dark:border-emerald-500/30 mb-4">
+                    <div className="text-[10px] font-mono uppercase tracking-wider text-emerald-800 dark:text-emerald-400 font-bold mb-1 flex items-center gap-1">
+                      <CheckCircle className="w-3.5 h-3.5 shrink-0" />
+                      <span>Impacto Auditado:</span>
                     </div>
-
-                    <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200 dark:bg-emerald-950/30 dark:border-emerald-500/30">
-                      <div className="text-[11px] font-mono uppercase tracking-wider text-emerald-800 dark:text-emerald-400 font-bold mb-1 flex items-center gap-1">
-                        <CheckCircle className="w-3.5 h-3.5" />
-                        <span>Impacto Auditado:</span>
-                      </div>
-                      <p className="text-emerald-950 dark:text-emerald-200 font-medium">{t(proj.impactKey)}</p>
-                    </div>
+                    <p className="text-xs text-emerald-950 dark:text-emerald-200 font-medium line-clamp-2">
+                      {t(proj.impactKey)}
+                    </p>
                   </div>
                 </div>
 
                 {/* Footer with Tags and Buttons */}
                 <div>
-                  <div className="flex flex-wrap gap-1.5 pt-4 border-t border-border/40 mb-4">
-                    {proj.tags.map((tag) => (
+                  <div className="flex flex-wrap gap-1.5 pt-3 border-t border-border/40 mb-4">
+                    {proj.tags.slice(0, 3).map((tag) => (
                       <span
                         key={tag}
                         className="px-2 py-0.5 rounded-md text-[10px] font-mono bg-background/80 border border-border/50 text-muted-foreground"
@@ -255,24 +271,28 @@ export const ProjectsSection: React.FC = () => {
                         {tag}
                       </span>
                     ))}
+                    {proj.tags.length > 3 && (
+                      <span className="px-1.5 py-0.5 rounded-md text-[10px] font-mono text-muted-foreground bg-muted/40">
+                        +{proj.tags.length - 3}
+                      </span>
+                    )}
                   </div>
 
-                  <div className="flex items-center justify-between gap-3">
-                    <button
-                      onClick={() => setSelectedProject(proj)}
-                      className="text-xs font-semibold text-primary hover:text-cyan-400 flex items-center gap-1 transition-colors cursor-pointer"
-                    >
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-xs font-semibold text-primary group-hover:text-cyan-400 flex items-center gap-1 transition-colors">
                       <span>Ver ficha detallada</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </button>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                    </span>
 
                     {proj.githubUrl && (
                       <a
                         href={proj.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 rounded-lg bg-card border border-border/60 hover:border-primary/50 text-muted-foreground hover:text-foreground transition-all flex items-center gap-1.5 text-xs font-mono"
+                        onClick={(e) => e.stopPropagation()}
+                        className="p-1.5 rounded-lg bg-card border border-border/60 hover:border-primary/50 text-muted-foreground hover:text-foreground transition-all flex items-center gap-1 text-[11px] font-mono"
                         aria-label={`Ver código de ${t(proj.titleKey)} en GitHub`}
+                        title="Ver repositorio en GitHub"
                       >
                         <GithubIcon className="w-3.5 h-3.5" />
                         <span>GitHub</span>
@@ -288,12 +308,17 @@ export const ProjectsSection: React.FC = () => {
         {/* Project Detail Modal */}
         <AnimatePresence>
           {selectedProject && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+            <div
+              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md cursor-pointer"
+              onClick={() => setSelectedProject(null)}
+            >
               <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                className="bg-card border border-border rounded-2xl p-6 sm:p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative text-left"
+                initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: 10 }}
+                transition={{ duration: 0.25 }}
+                onClick={(e) => e.stopPropagation()}
+                className="bg-card border border-border rounded-2xl p-6 sm:p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative text-left cursor-default"
               >
                 <button
                   onClick={() => setSelectedProject(null)}

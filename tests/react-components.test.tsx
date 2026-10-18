@@ -141,6 +141,18 @@ describe("React Portfolio Components", () => {
       // Should show personal projects
       expect(container.textContent).toContain("MD GitHub Navigator");
     }
+
+    // Clicking on a project article opens the expanded modal
+    const projectCard = container.querySelector("article");
+    expect(projectCard).not.toBeNull();
+
+    await act(async () => {
+      projectCard?.click();
+    });
+
+    expect(container.textContent).toContain("EL PROBLEMA DE NEGOCIO");
+    expect(container.textContent).toContain("LA SOLUCIÓN TÉCNICA");
+    expect(container.textContent).toContain("EL RESULTADO / MÉTRICA");
   });
 
   it("WelcomeScreen triggers onWelcomeComplete on skip button click", async () => {
