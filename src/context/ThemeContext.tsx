@@ -65,11 +65,12 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       root.classList.add("light");
       root.setAttribute("data-theme", "light");
     }
-    root.style.colorScheme = resolvedTheme;
+    const targetScheme = resolvedTheme === "dark" ? "only dark" : "only light";
+    root.style.colorScheme = targetScheme;
 
     const metaColorScheme = document.querySelector('meta[name="color-scheme"]');
     if (metaColorScheme) {
-      metaColorScheme.setAttribute("content", resolvedTheme);
+      metaColorScheme.setAttribute("content", targetScheme);
     }
 
     const metaThemeColor = document.querySelector('meta[name="theme-color"]');

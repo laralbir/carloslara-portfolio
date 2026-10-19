@@ -73,7 +73,7 @@
 
 @layer base {
   :root {
-    color-scheme: light;
+    color-scheme: only light;
     --background: 210 40% 98%;
     --foreground: 222 47% 11%;
     --card: 0 0% 100%;
@@ -81,22 +81,32 @@
     --primary-foreground: 210 40% 98%;
     --border: 214 32% 91%;
 
-    &:has(> head > meta[name="color-scheme"][content="dark"]) {
-      color-scheme: dark;
+    &:has(> head > meta[name="color-scheme"][content*="dark"]) {
+      color-scheme: only dark;
     }
-    &:has(> head > meta[name="color-scheme"][content="light"]) {
-      color-scheme: light;
+    &:has(> head > meta[name="color-scheme"][content*="light"]) {
+      color-scheme: only light;
     }
   }
 
   .dark {
-    color-scheme: dark;
+    color-scheme: only dark;
     --background: 222 47% 4%;
     --foreground: 213 31% 91%;
     --card: 222 47% 8%;
     --primary: 172 100% 40%;
     --primary-foreground: 213 31% 91%;
     --border: 217 33% 20%;
+  }
+
+  :root:not(.dark) .project-impact-box,
+  :root[data-theme="light"] .project-impact-box {
+    color-scheme: only light;
+  }
+
+  .dark .project-impact-box,
+  :root[data-theme="dark"] .project-impact-box {
+    color-scheme: only dark;
   }
 
   /* High Contrast Dark Mode */

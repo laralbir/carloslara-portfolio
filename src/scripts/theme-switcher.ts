@@ -29,15 +29,14 @@ export function applyTheme(setting: ThemeSetting): void {
 
   const effectiveTheme = resolveEffectiveTheme(setting);
   document.documentElement.setAttribute('data-theme', effectiveTheme);
-  document.documentElement.setAttribute('data-theme-setting', setting);
-  document.documentElement.style.colorScheme = effectiveTheme;
+  const isDark = effectiveTheme === 'dark';
+  const targetScheme = isDark ? 'only dark' : 'only light';
+  document.documentElement.style.colorScheme = targetScheme;
 
   const metaColorScheme = document.querySelector('meta[name="color-scheme"]');
   if (metaColorScheme) {
-    metaColorScheme.setAttribute('content', effectiveTheme);
+    metaColorScheme.setAttribute('content', targetScheme);
   }
-
-  const isDark = effectiveTheme === 'dark';
   const metaThemeColor = document.querySelector('meta[name="theme-color"]');
   if (metaThemeColor) {
     metaThemeColor.setAttribute('content', isDark ? '#111113' : '#ffffff');
