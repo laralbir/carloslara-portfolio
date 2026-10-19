@@ -74,11 +74,11 @@ export const StarBackground: React.FC = () => {
     for (let i = 0; i < numberOfMeteors; i++) {
       newMeteors.push({
         id: i,
-        size: Math.random() * 2 + 1.2,
-        x: Math.random() * 100,
+        size: Math.random() * 1.5 + 1.2,
+        x: Math.random() * 85 + 5,
         y: Math.random() * 30,
-        delay: Math.random() * 12,
-        animationDuration: Math.random() * 3 + 3,
+        delay: i * 2.2 + Math.random() * 1.2,
+        animationDuration: Math.random() * 2 + 4,
       });
     }
     setMeteors(newMeteors);
@@ -128,7 +128,7 @@ export const StarBackground: React.FC = () => {
       {meteors.map((meteor) => (
         <div
           key={meteor.id}
-          className="meteor absolute rounded-full animate-meteor bg-gradient-to-r from-teal-400 via-cyan-300 to-transparent shadow-[0_0_8px_rgba(45,212,191,0.35)] dark:from-white dark:via-cyan-100 dark:to-transparent dark:shadow-[0_0_12px_rgba(255,255,255,0.45)] transition-all duration-500"
+          className="meteor absolute rounded-full opacity-0 [transform:rotate(215deg)] pointer-events-none animate-meteor bg-gradient-to-r from-teal-400 via-cyan-300 to-transparent shadow-[0_0_8px_rgba(45,212,191,0.35)] dark:from-white dark:via-cyan-100 dark:to-transparent dark:shadow-[0_0_12px_rgba(255,255,255,0.45)]"
           style={{
             width: `${meteor.size * 60}px`,
             height: `${meteor.size * 2}px`,
@@ -136,6 +136,7 @@ export const StarBackground: React.FC = () => {
             top: `${meteor.y}%`,
             animationDelay: `${meteor.delay}s`,
             animationDuration: `${meteor.animationDuration}s`,
+            animationFillMode: "both",
           }}
         />
       ))}

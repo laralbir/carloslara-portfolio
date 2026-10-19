@@ -456,6 +456,15 @@ describe("React Portfolio Components", () => {
     expect(starClasses).not.toContain("bg-teal-600");
     expect(starClasses).not.toContain("bg-cyan-600");
     expect(starClasses).not.toContain("bg-indigo-600");
+
+    // Check meteors have initial opacity-0, 215deg angle and animation-fill-mode both to prevent horizontal frozen bars on load
+    const meteors = container.querySelectorAll(".meteor");
+    expect(meteors.length).toBeGreaterThan(0);
+    meteors.forEach((meteor) => {
+      expect(meteor.className).toContain("opacity-0");
+      expect(meteor.className).toContain("[transform:rotate(215deg)]");
+      expect((meteor as HTMLElement).style.animationFillMode).toBe("both");
+    });
   });
 });
 

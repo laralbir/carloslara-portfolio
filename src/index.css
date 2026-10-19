@@ -52,13 +52,20 @@
   @keyframes meteor {
     0% {
       transform: rotate(215deg) translateX(0);
+      opacity: 0;
+    }
+    10% {
       opacity: 1;
     }
-    70% {
+    55% {
       opacity: 1;
+    }
+    75% {
+      transform: rotate(215deg) translateX(-600px);
+      opacity: 0;
     }
     100% {
-      transform: rotate(215deg) translateX(-500px);
+      transform: rotate(215deg) translateX(-600px);
       opacity: 0;
     }
   }
@@ -214,15 +221,11 @@
 
 @utility meteor {
   position: absolute;
-  background-image: linear-gradient(to right, #0d9488, #0284c7, transparent);
+  opacity: 0;
+  transform: rotate(215deg);
+  pointer-events: none;
   border-radius: 9999px;
-  box-shadow: 0 0 10px 3px rgba(13, 148, 136, 0.35);
-  transition: background-image 0.4s ease, box-shadow 0.4s ease;
-}
-
-.dark .meteor {
-  background-image: linear-gradient(to right, #ffffff, #ffffff, transparent);
-  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
+  animation-fill-mode: both;
 }
 
 #root {
