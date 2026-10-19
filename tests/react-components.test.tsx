@@ -426,5 +426,37 @@ describe("React Portfolio Components", () => {
 
     expect(copyBtn?.textContent).toMatch(/Copiado|Copied/i);
   });
+
+  it("StarBackground renders light celestial pastel stars, meteors and atmospheric halos in light theme", async () => {
+    const { StarBackground } = await import("../src/components/StarBackground");
+    const root = createRoot(container);
+    await act(async () => {
+      root.render(
+        <ThemeProvider>
+          <StarBackground />
+        </ThemeProvider>
+      );
+    });
+
+    const bgContainer = container.querySelector("[data-testid='star-background']");
+    expect(bgContainer).not.toBeNull();
+
+    // Check light ambient halos have lighter tones (teal-300 / cyan-300 / indigo-300) instead of dark 500 tones
+    const halos = container.querySelectorAll(".blur-3xl");
+    expect(halos.length).toBe(3);
+    expect(halos[0].className).toContain("bg-teal-300");
+    expect(halos[1].className).toContain("bg-cyan-300");
+    expect(halos[2].className).toContain("bg-indigo-300");
+
+    // Check stars have lighter pastel classes
+    const stars = container.querySelectorAll(".star");
+    expect(stars.length).toBeGreaterThan(0);
+    const starClasses = Array.from(stars).map((s) => s.className).join(" ");
+    expect(starClasses).toMatch(/bg-teal-400|bg-cyan-400|bg-indigo-300/);
+    expect(starClasses).not.toContain("bg-teal-600");
+    expect(starClasses).not.toContain("bg-cyan-600");
+    expect(starClasses).not.toContain("bg-indigo-600");
+  });
 });
+
 

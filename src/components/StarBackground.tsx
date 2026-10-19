@@ -57,10 +57,10 @@ export const StarBackground: React.FC = () => {
     for (let i = 0; i < numberOfStars; i++) {
       newStars.push({
         id: i,
-        size: Math.random() * 2 + 1.4,
+        size: Math.random() * 1.6 + 1.2,
         x: Math.random() * 100,
         y: Math.random() * 100,
-        opacity: Math.random() * 0.4 + 0.45,
+        opacity: Math.random() * 0.3 + 0.35,
         animationDuration: Math.random() * 4 + 2.5,
         variant: variants[i % variants.length],
       });
@@ -89,20 +89,24 @@ export const StarBackground: React.FC = () => {
   }
 
   return (
-    <div className="fixed inset-0 overflow-hidden pointer-events-none z-0 max-w-full [contain:strict]" aria-hidden="true">
+    <div
+      className="fixed inset-0 overflow-hidden pointer-events-none z-0 max-w-full [contain:strict]"
+      aria-hidden="true"
+      data-testid="star-background"
+    >
       {/* Dynamic atmospheric cosmic ambient halos for light & dark themes */}
-      <div className="absolute top-1/4 left-1/5 w-[500px] h-[500px] bg-teal-500/12 dark:bg-primary/5 rounded-full blur-3xl pointer-events-none transition-all duration-700" />
-      <div className="absolute bottom-1/4 right-1/5 w-[450px] h-[450px] bg-cyan-500/14 dark:bg-cyan-500/5 rounded-full blur-3xl pointer-events-none transition-all duration-700" />
-      <div className="absolute top-2/3 left-1/3 w-[400px] h-[400px] bg-indigo-500/10 dark:bg-indigo-500/5 rounded-full blur-3xl pointer-events-none transition-all duration-700" />
+      <div className="absolute top-1/4 left-1/5 w-[500px] h-[500px] bg-teal-300/12 dark:bg-primary/5 rounded-full blur-3xl pointer-events-none transition-all duration-700" />
+      <div className="absolute bottom-1/4 right-1/5 w-[450px] h-[450px] bg-cyan-300/14 dark:bg-cyan-500/5 rounded-full blur-3xl pointer-events-none transition-all duration-700" />
+      <div className="absolute top-2/3 left-1/3 w-[400px] h-[400px] bg-indigo-300/10 dark:bg-indigo-500/5 rounded-full blur-3xl pointer-events-none transition-all duration-700" />
 
       {/* Sparkling Stars with adaptive contrast */}
       {stars.map((star) => {
         const variantClass =
           star.variant === "cyan"
-            ? "bg-cyan-600 shadow-[0_0_8px_rgba(8,145,178,0.55)] dark:bg-cyan-200 dark:shadow-[0_0_10px_rgba(165,243,252,0.6)]"
+            ? "bg-cyan-400 shadow-[0_0_6px_rgba(34,211,238,0.45)] dark:bg-cyan-200 dark:shadow-[0_0_10px_rgba(165,243,252,0.6)]"
             : star.variant === "indigo"
-            ? "bg-indigo-600 shadow-[0_0_8px_rgba(79,70,229,0.5)] dark:bg-indigo-200 dark:shadow-[0_0_10px_rgba(199,210,254,0.5)]"
-            : "bg-teal-600 shadow-[0_0_8px_rgba(13,148,136,0.55)] dark:bg-white dark:shadow-[0_0_10px_rgba(255,255,255,0.55)]";
+            ? "bg-indigo-300 shadow-[0_0_6px_rgba(165,180,252,0.4)] dark:bg-indigo-200 dark:shadow-[0_0_10px_rgba(199,210,254,0.5)]"
+            : "bg-teal-400 shadow-[0_0_6px_rgba(45,212,191,0.45)] dark:bg-white dark:shadow-[0_0_10px_rgba(255,255,255,0.55)]";
 
         return (
           <div
@@ -124,7 +128,7 @@ export const StarBackground: React.FC = () => {
       {meteors.map((meteor) => (
         <div
           key={meteor.id}
-          className="meteor absolute rounded-full animate-meteor bg-gradient-to-r from-teal-600 via-cyan-500 to-transparent shadow-[0_0_10px_rgba(13,148,136,0.45)] dark:from-white dark:via-cyan-100 dark:to-transparent dark:shadow-[0_0_12px_rgba(255,255,255,0.45)] transition-all duration-500"
+          className="meteor absolute rounded-full animate-meteor bg-gradient-to-r from-teal-400 via-cyan-300 to-transparent shadow-[0_0_8px_rgba(45,212,191,0.35)] dark:from-white dark:via-cyan-100 dark:to-transparent dark:shadow-[0_0_12px_rgba(255,255,255,0.45)] transition-all duration-500"
           style={{
             width: `${meteor.size * 60}px`,
             height: `${meteor.size * 2}px`,
