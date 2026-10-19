@@ -79,6 +79,7 @@ describe("React Contexts: Language & Theme", () => {
     expect(document.documentElement.classList.contains("light")).toBe(true);
     expect(document.documentElement.classList.contains("dark")).toBe(false);
     expect(document.documentElement.getAttribute("data-theme")).toBe("light");
+    expect(document.documentElement.style.colorScheme).toBe("light");
 
     // Toggle theme to dark
     await act(async () => {
@@ -89,6 +90,7 @@ describe("React Contexts: Language & Theme", () => {
     expect(document.documentElement.classList.contains("dark")).toBe(true);
     expect(document.documentElement.classList.contains("light")).toBe(false);
     expect(document.documentElement.getAttribute("data-theme")).toBe("dark");
+    expect(document.documentElement.style.colorScheme).toBe("dark");
     expect(localStorage.getItem("user_theme")).toBe("dark");
 
     // Toggle high-contrast

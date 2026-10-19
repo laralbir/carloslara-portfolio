@@ -35,6 +35,7 @@ describe('Theme Switcher & Accessibility Contrast Controls', () => {
     expect(getSavedThemeSetting()).toBe('light');
     initThemeSwitcher();
     expect(document.documentElement.getAttribute('data-theme')).toBe('light');
+    expect(document.documentElement.style.colorScheme).toBe('light');
     const themeBtn = document.getElementById('theme-toggle');
     expect(themeBtn?.getAttribute('aria-checked')).toBe('false');
     expect(themeBtn?.classList.contains('dark')).toBe(false);
@@ -45,6 +46,7 @@ describe('Theme Switcher & Accessibility Contrast Controls', () => {
     const next = toggleTheme();
     expect(next).toBe('dark');
     expect(document.documentElement.getAttribute('data-theme')).toBe('dark');
+    expect(document.documentElement.style.colorScheme).toBe('dark');
     const themeBtn = document.getElementById('theme-toggle');
     expect(themeBtn?.getAttribute('aria-checked')).toBe('true');
     expect(themeBtn?.classList.contains('dark')).toBe(true);

@@ -36,6 +36,7 @@
 :root,
 :root[data-theme="light"],
 :root:not([data-theme]) {
+  color-scheme: light;
   --color-scheme: light;
   --bg-primary: #ffffff;
   --bg-secondary: #f8fafc;
@@ -68,6 +69,7 @@
 
 /* Dark Theme Variables (Radix Dark Signature) */
 :root[data-theme="dark"] {
+  color-scheme: dark;
   --color-scheme: dark;
   --bg-primary: #111113;
   --bg-secondary: #18181b;

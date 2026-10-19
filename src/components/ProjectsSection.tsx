@@ -240,12 +240,12 @@ export const ProjectsSection: React.FC = () => {
                   </p>
 
                   {/* Audited Impact Callout */}
-                  <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200 dark:bg-emerald-950/30 dark:border-emerald-500/30 mb-4">
-                    <div className="text-[10px] font-mono uppercase tracking-wider text-emerald-800 dark:text-emerald-400 font-bold mb-1 flex items-center gap-1">
+                  <div className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/25 dark:bg-emerald-950/40 dark:border-emerald-500/30 mb-4">
+                    <div className="text-[10px] font-mono uppercase tracking-wider text-emerald-700 dark:text-emerald-400 font-bold mb-1 flex items-center gap-1">
                       <CheckCircle className="w-3.5 h-3.5 shrink-0" />
                       <span>{t("projects.auditedImpact") || "Impacto Auditado:"}</span>
                     </div>
-                    <p className="text-xs text-emerald-950 dark:text-emerald-200 font-medium line-clamp-2">
+                    <p className="text-xs text-emerald-900 dark:text-emerald-200 font-medium line-clamp-2">
                       {t(proj.impactKey)}
                     </p>
                   </div>
@@ -339,11 +339,11 @@ export const ProjectsSection: React.FC = () => {
                     </h4>
                     <p className="text-muted-foreground">{t(selectedProject.solutionKey)}</p>
                   </div>
-                  <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 dark:bg-emerald-950/30 dark:border-emerald-500/30">
-                    <h4 className="font-mono text-xs text-emerald-800 dark:text-emerald-400 font-bold mb-1">
+                  <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/25 dark:bg-emerald-950/40 dark:border-emerald-500/30">
+                    <h4 className="font-mono text-xs text-emerald-700 dark:text-emerald-400 font-bold mb-1">
                       {t("projects.modalImpact") || "EL RESULTADO / MÉTRICA:"}
                     </h4>
-                    <p className="text-emerald-950 dark:text-emerald-200 font-medium">{t(selectedProject.impactKey)}</p>
+                    <p className="text-emerald-900 dark:text-emerald-200 font-medium">{t(selectedProject.impactKey)}</p>
                   </div>
                 </div>
 

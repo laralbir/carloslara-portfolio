@@ -65,6 +65,17 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       root.classList.add("light");
       root.setAttribute("data-theme", "light");
     }
+    root.style.colorScheme = resolvedTheme;
+
+    const metaColorScheme = document.querySelector('meta[name="color-scheme"]');
+    if (metaColorScheme) {
+      metaColorScheme.setAttribute("content", resolvedTheme);
+    }
+
+    const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+    if (metaThemeColor) {
+      metaThemeColor.setAttribute("content", resolvedTheme === "dark" ? "#111113" : "#ffffff");
+    }
 
     if (a11yContrast) {
       root.setAttribute("data-a11y", "high-contrast");

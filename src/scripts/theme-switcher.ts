@@ -30,8 +30,19 @@ export function applyTheme(setting: ThemeSetting): void {
   const effectiveTheme = resolveEffectiveTheme(setting);
   document.documentElement.setAttribute('data-theme', effectiveTheme);
   document.documentElement.setAttribute('data-theme-setting', setting);
+  document.documentElement.style.colorScheme = effectiveTheme;
+
+  const metaColorScheme = document.querySelector('meta[name="color-scheme"]');
+  if (metaColorScheme) {
+    metaColorScheme.setAttribute('content', effectiveTheme);
+  }
 
   const isDark = effectiveTheme === 'dark';
+  const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+  if (metaThemeColor) {
+    metaThemeColor.setAttribute('content', isDark ? '#111113' : '#ffffff');
+  }
+
   const themeToggle = document.getElementById('theme-toggle');
   if (themeToggle) {
     themeToggle.setAttribute('aria-checked', String(isDark));
