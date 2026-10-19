@@ -489,6 +489,33 @@ describe("React Portfolio Components", () => {
       expect((meteor as HTMLElement).style.animationFillMode).toBe("both");
     });
   });
+
+  it("MotoThrottle renders grand solid alpine mountains with green slopes and pine trees without transparencies", async () => {
+    const { MotoThrottle } = await import("../src/components/offtopic/MotoThrottle");
+    const root = createRoot(container);
+    await act(async () => {
+      root.render(
+        <LanguageProvider>
+          <MotoThrottle />
+        </LanguageProvider>
+      );
+    });
+
+    const mountainsSvg = container.querySelector(".moto-mountains");
+    expect(mountainsSvg).not.toBeNull();
+
+    // Check SVG contains green slopes and conifer pine trees
+    const svgHtml = mountainsSvg?.innerHTML || "";
+    expect(svgHtml).toMatch(/#15803d|#166534/);
+    expect(svgHtml).toMatch(/#064e3b|#065f46|#022c22/);
+
+    // Verify mountain polygons do NOT have opacity attributes causing transparency
+    const polygons = mountainsSvg?.querySelectorAll("polygon");
+    expect(polygons && polygons.length > 0).toBe(true);
+    polygons?.forEach((poly) => {
+      expect(poly.getAttribute("opacity")).toBeNull();
+    });
+  });
 });
 
 
