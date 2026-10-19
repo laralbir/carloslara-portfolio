@@ -37,11 +37,8 @@ export const ContactSection: React.FC = () => {
             <Coffee className="w-3.5 h-3.5" />
             <span>{t("contact.tag") || "CONTACTO DIRECTO"}</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
-            {t("contact.titlePrefix") || "¿Nos"}{" "}
-            <span className="bg-gradient-to-r from-primary via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
-              {t("contact.titleHighlight") || "conocemos?"}
-            </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-black dark:text-white">
+            {t("contact.title") || `${t("contact.titlePrefix") || "¿Nos"} ${t("contact.titleHighlight") || "conocemos?"}`}
           </h2>
           <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
             {t("contact.subtitle") ||

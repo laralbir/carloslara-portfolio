@@ -429,6 +429,13 @@ describe("React Portfolio Components", () => {
     expect(grid?.className).toContain("lg:grid-cols-4");
     expect(grid?.className).toContain("sm:grid-cols-2");
 
+    // Heading title is rendered in black without text-transparent gradient
+    const heading = container.querySelector("#contact h2") as HTMLHeadingElement | null;
+    expect(heading).not.toBeNull();
+    expect(heading?.className).toContain("text-black");
+    expect(heading?.textContent).toMatch(/¿Nos conocemos\?|Let's get in touch|Ens coneixem\?/);
+    expect(heading?.querySelector(".bg-clip-text")).toBeNull();
+
     // All 4 cards are present
     expect(container.textContent).toContain("info@carloslara.dev");
     expect(container.textContent).toContain("carlos-lara-albir");
