@@ -220,6 +220,11 @@ describe("React Portfolio Components", () => {
     expect(container.textContent).not.toContain("Easter Egg oculto");
     expect(container.textContent).not.toContain("Clic para desbloquear");
 
+    // Archery photo has scale zoom to hide corner stand
+    const archeryImg = container.querySelector("img[src*='archery-real']") as HTMLImageElement | null;
+    expect(archeryImg).not.toBeNull();
+    expect(archeryImg?.className).toContain("scale-[1.16]");
+
     // Click on photo container to unlock archery game
     const photoCard = container.querySelector(".group\\/photo") as HTMLElement | null;
     expect(photoCard).not.toBeNull();

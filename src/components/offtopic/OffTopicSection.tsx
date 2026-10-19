@@ -23,6 +23,7 @@ interface OffTopicCardData {
   photoFallback: string;
   photoCaption: string;
   photoPosition?: string;
+  photoScale?: string;
   easterEggHint: string;
   easterEggTag: string;
 }
@@ -48,7 +49,8 @@ export const OffTopicSection: React.FC = () => {
       photoUrl: "/assets/offtopic/archery-real.webp",
       photoFallback: "/assets/offtopic/archery-real.jpg",
       photoCaption: t("offtopic.archery.photoCaption") || "Carlos compitiendo en línea de tiro a 50m con arco.",
-      photoPosition: "center center",
+      photoPosition: "52% 50%",
+      photoScale: "scale-[1.16] group-hover/photo:scale-[1.22]",
       easterEggHint: "🎯 Clic para desbloquear: Diana WA 18m",
       easterEggTag: "Minijuego Balístico",
     },
@@ -61,6 +63,7 @@ export const OffTopicSection: React.FC = () => {
       photoFallback: "/assets/offtopic/hifi-real.jpg",
       photoCaption: t("offtopic.hifi.photoCaption") || "Setup de sonido HiFi analógico y digital con calibración en banco de trabajo.",
       photoPosition: "50% 68%",
+      photoScale: "scale-100 group-hover/photo:scale-105",
       easterEggHint: "🎵 Clic para girar el vinilo analógico",
       easterEggTag: "Giradiscos & VU-Meters",
     },
@@ -72,6 +75,8 @@ export const OffTopicSection: React.FC = () => {
       photoUrl: "/assets/offtopic/moto-real.webp",
       photoFallback: "/assets/offtopic/moto-real.jpg",
       photoCaption: t("offtopic.moto.photoCaption") || "Ruta de montaña por puertos y curvas de la Comunidad Valenciana.",
+      photoPosition: "center center",
+      photoScale: "scale-100 group-hover/photo:scale-105",
       easterEggHint: "🏍️ Clic para acelerar la moto y tirar humo",
       easterEggTag: "Carretera & Escape",
     },
@@ -162,7 +167,7 @@ export const OffTopicSection: React.FC = () => {
                           src={card.photoUrl}
                           alt={card.title}
                           style={{ objectPosition: card.photoPosition || "center" }}
-                          className="w-full h-full object-cover group-hover/photo:scale-105 transition-transform duration-700"
+                          className={`w-full h-full object-cover transition-transform duration-700 ${card.photoScale || "scale-100 group-hover/photo:scale-105"}`}
                           onError={(e) => {
                             (e.currentTarget as HTMLImageElement).src = card.photoFallback;
                           }}
