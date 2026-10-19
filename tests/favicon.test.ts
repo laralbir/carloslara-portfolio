@@ -34,3 +34,4 @@ describe("Adaptive Dynamic SVG Favicon", () => {
     expect(html).toContain('name="theme-color"');
   });
 });
+

@@ -359,8 +359,8 @@ export const HeroSection: React.FC = () => {
                       (e.currentTarget as HTMLImageElement).src = "/assets/carlos-lara.jpg";
                     }}
                   />
-                  <div className="absolute -bottom-2 -right-2 px-2.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/40 backdrop-blur-md flex items-center gap-1.5 text-[10px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold shadow">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <div className="absolute -bottom-2 -right-2 px-2.5 py-1 rounded-full bg-slate-900 dark:bg-black border border-emerald-500/70 shadow-lg flex items-center gap-1.5 text-[10px] sm:text-[11px] font-mono text-white font-bold">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                     <span>20+ YOE</span>
                   </div>
                 </div>

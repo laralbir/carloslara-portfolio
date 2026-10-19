@@ -385,6 +385,13 @@ describe("React Portfolio Components", () => {
     expect(document.body.textContent).toContain("DETRÁS DEL CÓDIGO");
     expect(document.body.textContent).toContain("Tiro con Arco");
 
+    // 20+ YOE badge has high-contrast styling with white text on dark surface
+    const yoeBadge = document.querySelector(".relative .absolute.-bottom-2.-right-2");
+    expect(yoeBadge).not.toBeNull();
+    expect(yoeBadge?.textContent).toContain("20+ YOE");
+    expect(yoeBadge?.className).toContain("text-white");
+    expect(yoeBadge?.className).not.toContain("text-emerald-600");
+
     // Click "Ver otra curiosidad" or next fact button
     const nextBtn = Array.from(document.querySelectorAll("button")).find((b) =>
       b.textContent?.includes("Ver otra curiosidad") || b.textContent?.includes("Next fun fact")
