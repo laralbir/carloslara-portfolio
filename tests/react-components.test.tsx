@@ -339,6 +339,29 @@ describe("React Portfolio Components", () => {
     expect(avatarImg).not.toBeNull();
     expect(avatarImg?.className).toContain("object-top");
 
+    // Check Hero CTA buttons have consistent styling, solid surfaces, and defined borders
+    const projectsBtn = container.querySelector("a[href='#projects']") as HTMLAnchorElement | null;
+    const contactBtn = container.querySelector("a[href='#contact']") as HTMLAnchorElement | null;
+    const cvBtn = container.querySelector("a[href='/cv.md']") as HTMLAnchorElement | null;
+
+    expect(projectsBtn).not.toBeNull();
+    expect(contactBtn).not.toBeNull();
+    expect(cvBtn).not.toBeNull();
+
+    // Verify all 3 have consistent text-sm and font-semibold
+    expect(projectsBtn?.className).toContain("text-sm");
+    expect(projectsBtn?.className).toContain("font-semibold");
+    expect(contactBtn?.className).toContain("text-sm");
+    expect(contactBtn?.className).toContain("font-semibold");
+    expect(cvBtn?.className).toContain("text-sm");
+    expect(cvBtn?.className).toContain("font-semibold");
+
+    // Verify contact and CV buttons have solid/card surface and clear borders
+    expect(contactBtn?.className).toContain("bg-card");
+    expect(contactBtn?.className).toContain("border-primary");
+    expect(cvBtn?.className).toContain("bg-card");
+    expect(cvBtn?.className).toContain("border-slate-300");
+
     // Modal is initially not in DOM
     expect(document.querySelector("#photo-modal-title")).toBeNull();
 

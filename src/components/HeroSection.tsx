@@ -177,7 +177,7 @@ export const HeroSection: React.FC = () => {
 
               <a
                 href="#contact"
-                className="px-6 py-3.5 rounded-xl font-semibold border border-primary/40 text-foreground hover:border-primary hover:bg-primary/5 transition-all text-sm flex items-center justify-center gap-2 cursor-pointer"
+                className="px-6 py-3.5 rounded-xl font-semibold bg-card/90 dark:bg-card/70 backdrop-blur-md border border-primary/50 text-foreground hover:border-primary hover:text-primary hover:bg-primary/5 hover:scale-[1.02] active:scale-[0.98] shadow-sm transition-all text-sm flex items-center justify-center gap-2 cursor-pointer"
               >
                 <Mail className="h-4 w-4 text-primary" />
                 <span>{t("hero.ctaContact") || "¿Hablamos?"}</span>
@@ -187,9 +187,9 @@ export const HeroSection: React.FC = () => {
                 href="/cv.md"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-3.5 rounded-xl font-mono text-xs font-semibold border border-border text-muted-foreground hover:text-foreground hover:border-primary/40 transition-all flex items-center justify-center gap-2"
+                className="px-6 py-3.5 rounded-xl font-semibold bg-card/90 dark:bg-card/70 backdrop-blur-md border border-slate-300 dark:border-border text-foreground hover:border-primary/60 hover:text-primary hover:scale-[1.02] active:scale-[0.98] shadow-sm transition-all text-sm flex items-center justify-center gap-2 cursor-pointer group"
               >
-                <Download className="h-4 w-4" />
+                <Download className="h-4 w-4 text-primary" />
                 <span>{t("hero.ctaCv") || "CV (Markdown)"}</span>
               </a>
             </div>
