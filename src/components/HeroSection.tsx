@@ -28,6 +28,23 @@ export const HeroSection: React.FC = () => {
   const [displayedCode, setDisplayedCode] = useState("");
   const [isPhotoModalOpen, setIsPhotoModalOpen] = useState(false);
   const [currentFactIndex, setCurrentFactIndex] = useState(0);
+  const [portraitTilt, setPortraitTilt] = useState({ rotateX: 0, rotateY: 0, glareX: 50, glareY: 30 });
+
+  const handlePortraitMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width;
+    const y = (e.clientY - rect.top) / rect.height;
+    setPortraitTilt({
+      rotateX: (0.5 - y) * 14,
+      rotateY: (x - 0.5) * 14,
+      glareX: x * 100,
+      glareY: y * 100,
+    });
+  };
+
+  const resetPortraitTilt = () => {
+    setPortraitTilt({ rotateX: 0, rotateY: 0, glareX: 50, glareY: 30 });
+  };
 
   const factKeys = ["archery", "moto", "hifi", "ai", "origins"] as const;
 
@@ -195,21 +212,99 @@ export const HeroSection: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Right Column: Code Window & Floating Avatar */}
+          {/* Right Column: Avant-Garde Holographic Monolith Portrait + Overlapping Dark Terminal */}
           <motion.div
-            className="flex-1 w-full max-w-lg lg:max-w-none flex justify-center lg:justify-end"
+            className="flex-1 w-full max-w-xl lg:max-w-none flex justify-center lg:justify-end"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="relative w-full max-w-md">
-              {/* Terminal Code Card */}
+            <div className="relative w-full max-w-xl flex flex-col sm:block">
+              {/* Avant-Garde Large Interactive Portrait Monolith */}
+              <div
+                data-testid="hero-portrait-card"
+                onMouseMove={handlePortraitMouseMove}
+                onMouseLeave={resetPortraitTilt}
+                style={{
+                  transform: `perspective(1100px) rotateX(${portraitTilt.rotateX}deg) rotateY(${portraitTilt.rotateY}deg)`,
+                  transition: "transform 220ms cubic-bezier(0.16, 1, 0.3, 1)",
+                }}
+                className="relative z-10 w-64 sm:w-72 md:w-80 mx-auto sm:mx-0 sm:ml-auto sm:mr-4 mb-5 sm:mb-0 group/avatar"
+              >
+                {/* Ambient Chromatic Aura */}
+                <div className="absolute -inset-2.5 rounded-[2rem] bg-gradient-to-tr from-primary/40 via-cyan-400/30 to-emerald-400/40 blur-2xl opacity-75 group-hover/avatar:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+                <button
+                  type="button"
+                  onClick={() => setIsPhotoModalOpen(true)}
+                  className="relative w-full block text-left rounded-[1.75rem] p-[2px] bg-gradient-to-br from-primary via-cyan-400 to-emerald-500 shadow-[0_20px_50px_rgba(0,187,167,0.28)] cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary overflow-hidden transition-transform duration-300"
+                  aria-label={t("hero.photoModal.openAria") || "Ampliar foto de perfil y ver datos curiosos de Carlos Lara Albir"}
+                  title={t("hero.photoModal.openTooltip") || "Clic para ampliar foto y ver datos curiosos"}
+                >
+                  <div className="relative rounded-[calc(1.75rem-2px)] overflow-hidden bg-slate-950 aspect-[4/5]">
+                    {/* High-Impact Portrait with Soft Bottom Fade Mask */}
+                    <img
+                      src="/assets/carlos-lara.webp"
+                      alt="Carlos Lara Albir"
+                      className="w-full h-full object-cover object-top scale-[1.03] group-hover/avatar:scale-110 transition-transform duration-700 ease-out [-webkit-mask-image:linear-gradient(to_bottom,black_76%,transparent_100%)] [mask-image:linear-gradient(to_bottom,black_76%,transparent_100%)]"
+                      onError={(e) => {
+                        (e.currentTarget as HTMLImageElement).src = "/assets/carlos-lara.jpg";
+                      }}
+                    />
+
+                    {/* Subtle Cyberpunk Scanline & Specular Glare Overlay */}
+                    <div
+                      className="absolute inset-0 pointer-events-none opacity-0 group-hover/avatar:opacity-100 transition-opacity duration-300 mix-blend-overlay"
+                      style={{
+                        background: `radial-gradient(circle at ${portraitTilt.glareX}% ${portraitTilt.glareY}%, rgba(255,255,255,0.45), transparent 60%)`,
+                      }}
+                    />
+                    <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(transparent_50%,rgba(0,187,167,0.06)_50%)] bg-[size:100%_4px] opacity-60" />
+
+                    {/* Corner Architectural Reticles (Viewfinder HUD) */}
+                    <span className="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-primary/80 rounded-tl-sm pointer-events-none" />
+                    <span className="absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 border-cyan-400/80 rounded-tr-sm pointer-events-none" />
+                    <span className="absolute bottom-16 left-3 w-4 h-4 border-b-2 border-l-2 border-cyan-400/60 rounded-bl-sm pointer-events-none" />
+                    <span className="absolute bottom-16 right-3 w-4 h-4 border-b-2 border-r-2 border-primary/60 rounded-br-sm pointer-events-none" />
+
+                    {/* Top Telemetry Pill */}
+                    <div className="absolute top-3.5 left-4 right-4 flex items-center justify-between pointer-events-none">
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-slate-950/80 backdrop-blur-md border border-primary/40 text-[10px] font-mono text-primary font-bold tracking-wider uppercase shadow-md">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                        ID // ARCHITECT
+                      </span>
+                      <span className="p-1.5 rounded-full bg-slate-950/75 backdrop-blur-md border border-white/15 text-white/90 group-hover/avatar:bg-primary group-hover/avatar:text-slate-950 transition-colors shadow-md">
+                        <Maximize2 className="w-3.5 h-3.5" />
+                      </span>
+                    </div>
+
+                    {/* Bottom HUD Identity Bar */}
+                    <div className="absolute inset-x-0 bottom-0 p-3.5 sm:p-4 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent flex items-end justify-between gap-2">
+                      <div>
+                        <div className="text-sm sm:text-base font-extrabold text-white tracking-tight flex items-center gap-1.5 group-hover/avatar:text-primary transition-colors">
+                          <span>Carlos Lara Albir</span>
+                        </div>
+                        <div className="text-[10px] sm:text-[11px] font-mono text-cyan-300/90">
+                          20+ YOE · Valencia, ES
+                        </div>
+                      </div>
+                      <div className="flex flex-col items-end shrink-0">
+                        <span className="px-2 py-0.5 rounded-md bg-primary/20 border border-primary/50 text-[10px] font-mono text-primary font-bold">
+                          + INFO
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </button>
+              </div>
+
+              {/* Terminal Code Card (Overlapping Docked Console on Desktop) */}
               <div
                 data-testid="hero-terminal-card"
-                className="dark bg-card/95 text-foreground border border-border/80 rounded-2xl p-4 sm:p-6 backdrop-blur-xl shadow-2xl"
+                className="dark relative z-20 sm:-mt-28 sm:mr-20 bg-card/95 text-foreground border border-border/80 rounded-2xl p-4 sm:p-5 backdrop-blur-xl shadow-[0_25px_60px_rgba(0,0,0,0.55)]"
               >
                 {/* Window header */}
-                <div className="flex items-center justify-between pb-3 sm:pb-4 mb-3 sm:mb-4 border-b border-border/40 font-mono text-xs text-slate-400">
+                <div className="flex items-center justify-between pb-2.5 sm:pb-3 mb-2.5 sm:mb-3 border-b border-border/40 font-mono text-xs text-slate-400">
                   <div className="flex items-center gap-2">
                     <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block" />
                     <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block" />
@@ -223,7 +318,7 @@ export const HeroSection: React.FC = () => {
                 </div>
 
                 {/* Code Terminal Output */}
-                <div className="font-mono text-[11px] sm:text-xs bg-background/80 rounded-xl p-3 sm:p-4 border border-border/40 min-h-[260px] sm:min-h-[300px] flex flex-col justify-start overflow-x-auto text-left leading-relaxed">
+                <div className="font-mono text-[11px] sm:text-xs bg-background/85 rounded-xl p-3 sm:p-3.5 border border-border/40 min-h-[220px] sm:min-h-[245px] flex flex-col justify-start overflow-x-auto text-left leading-relaxed">
                   {codeSnippets.map((line, idx) => {
                     const isPassed = idx < currentCodeLine;
                     const isCurrent = idx === currentCodeLine;
@@ -233,7 +328,7 @@ export const HeroSection: React.FC = () => {
                     return (
                       <div
                         key={idx}
-                        className={`min-h-[1.25rem] transition-opacity duration-150 ${
+                        className={`min-h-[1.2rem] transition-opacity duration-150 ${
                           line.startsWith("import")
                             ? "text-cyan-400 font-semibold"
                             : line.startsWith("const") || line.startsWith("await")
@@ -257,46 +352,17 @@ export const HeroSection: React.FC = () => {
                   })}
                 </div>
 
-                {/* Photo Avatar Badge anchored on edge */}
-                <div className="mt-4 pt-4 border-t border-border/40 flex flex-wrap sm:flex-nowrap items-center justify-between gap-3">
-                  <button
-                    type="button"
-                    onClick={() => setIsPhotoModalOpen(true)}
-                    className="flex items-center gap-3 text-left group/avatar cursor-pointer rounded-xl p-1 -m-1 hover:bg-primary/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-all"
-                    aria-label={t("hero.photoModal.openAria") || "Ampliar foto de perfil y ver datos curiosos de Carlos Lara Albir"}
-                    title={t("hero.photoModal.openTooltip") || "Clic para ampliar foto y ver datos curiosos"}
-                  >
-                    <div className="relative shrink-0">
-                      <img
-                        src="/assets/carlos-lara.webp"
-                        alt="Carlos Lara Albir"
-                        className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl object-cover object-top border-2 border-primary/50 shadow-md group-hover/avatar:border-primary group-hover/avatar:scale-105 transition-all duration-200"
-                        onError={(e) => {
-                          (e.currentTarget as HTMLImageElement).src = "/assets/carlos-lara.jpg";
-                        }}
-                      />
-                      <span className="absolute -bottom-1 -right-1 w-3 h-3 bg-emerald-500 rounded-full border-2 border-card" />
-                      <span className="absolute inset-0 rounded-xl bg-primary/20 opacity-0 group-hover/avatar:opacity-100 transition-opacity flex items-center justify-center">
-                        <Maximize2 className="w-3.5 h-3.5 text-white drop-shadow" />
-                      </span>
-                    </div>
-                    <div>
-                      <div className="text-xs font-bold text-foreground group-hover/avatar:text-primary transition-colors flex items-center gap-1.5">
-                        <span>Carlos Lara Albir</span>
-                        <Maximize2 className="w-3 h-3 text-slate-400 opacity-60 group-hover/avatar:opacity-100 group-hover/avatar:text-primary transition-all" />
-                      </div>
-                      <div className="text-[10px] sm:text-[11px] font-mono text-slate-400">
-                        20+ YOE · Valencia, Spain
-                      </div>
-                    </div>
-                  </button>
-                  <div className="text-right flex flex-col items-end gap-0.5 shrink-0">
-                    <span className="px-2 py-0.5 rounded bg-primary/10 border border-primary/30 text-[10px] font-mono text-primary font-bold">
+                {/* Terminal Footer Status Bar */}
+                <div className="mt-3 pt-2.5 border-t border-border/40 flex items-center justify-between gap-2 text-[10px] font-mono">
+                  <div className="flex items-center gap-2 text-slate-400">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                    <span>MCP &amp; Claude Code Ready</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="px-2 py-0.5 rounded bg-primary/10 border border-primary/30 text-primary font-bold">
                       100% IA Agéntica
                     </span>
-                    <span className="text-[9px] font-mono text-slate-400">
-                      SDD Verified
-                    </span>
+                    <span className="text-slate-400 hidden sm:inline">· SDD Verified</span>
                   </div>
                 </div>
               </div>

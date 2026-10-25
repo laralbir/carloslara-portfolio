@@ -342,10 +342,13 @@ describe("React Portfolio Components", () => {
       );
     });
 
-    // Check avatar image has object-top framing
+    // Check avatar image has object-top framing and large avant-garde portrait card
     const avatarImg = container.querySelector("img[alt='Carlos Lara Albir']") as HTMLImageElement | null;
     expect(avatarImg).not.toBeNull();
     expect(avatarImg?.className).toContain("object-top");
+
+    const portraitCard = container.querySelector("[data-testid='hero-portrait-card']") as HTMLElement | null;
+    expect(portraitCard).not.toBeNull();
 
     // Verify terminal card always has .dark class so it renders in dark mode even when the page is in light mode
     const terminalCard = container.querySelector("[data-testid='hero-terminal-card']") as HTMLElement | null;
