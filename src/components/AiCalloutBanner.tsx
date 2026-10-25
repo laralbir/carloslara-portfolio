@@ -95,9 +95,9 @@ export const AiCalloutBanner: React.FC = () => {
                   {t("aiCallout.badgeVerified") || "100% Verificado"}
                 </span>
 
-                {/* Cloudflare Edge Badge */}
+                {/* GitHub Pages Badge */}
                 <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 font-mono text-[11px] font-semibold">
-                  Cloudflare Edge ⚡
+                  GitHub Pages ⚡
                 </span>
               </div>
 
@@ -193,7 +193,7 @@ export const AiCalloutBanner: React.FC = () => {
                 <div className="p-3.5 rounded-xl bg-background/70 border-l-4 border-l-cyan-400 border border-border/40 text-foreground">
                   <span className="font-bold text-cyan-400 mr-1.5">[FASE 02]</span>
                   {t("aiCallout.modalStep2") ||
-                    "02. Plan: Arquitectura técnica, i18n, estilos sin librerías pesadas y despliegue continuo en Cloudflare Pages."}
+                    "02. Plan: Arquitectura técnica, i18n, estilos sin librerías pesadas y despliegue continuo en GitHub Pages."}
                 </div>
                 <div className="p-3.5 rounded-xl bg-background/70 border-l-4 border-l-amber-400 border border-border/40 text-foreground">
                   <span className="font-bold text-amber-400 mr-1.5">[FASE 03]</span>

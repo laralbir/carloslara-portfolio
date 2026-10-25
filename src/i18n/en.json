@@ -89,7 +89,7 @@
     "modalTitle": "How this website was built with AI & SDD",
     "modalDesc": "Under Spec-Driven Development (SDD), code isn't where work begins: it's the verified final output of crystal-clear thinking and specs. No 'let's try this and see if it compiles'—every single commit maps to an atomic task with clear acceptance criteria.",
     "modalStep1": "01. Analysis: Who I am, real numbers (no fluff), target goals, and functional specs.",
-    "modalStep2": "02. Plan: Technical architecture, i18n, zero-runtime CSS theme system, and continuous deployment on Cloudflare Pages.",
+    "modalStep2": "02. Plan: Technical architecture, i18n, zero-runtime CSS theme system, and continuous deployment on GitHub Pages.",
     "modalStep3": "03. Task: Atomic task breakdown with strict Definition of Done (DoD).",
     "modalStep4": "04. Implement: Clean code, automated tests, 100/100 Lighthouse score, and continuous push.",
     "step1Phase": "PHASE 01",
@@ -97,13 +97,13 @@
     "step1Desc": "Who I am, audited metrics with zero fluff, skills catalog, and crystal-clear specs before touching a single line of code.",
     "step2Phase": "PHASE 02",
     "step2Title": "Technical Architecture & Plan",
-    "step2Desc": "Documented ADRs, decoupled architecture, reactive i18n, zero-runtime CSS, and deployment on Cloudflare Pages.",
+    "step2Desc": "Documented ADRs, decoupled architecture, reactive i18n, zero-runtime CSS, and deployment on GitHub Pages.",
     "step3Phase": "PHASE 03",
     "step3Title": "Atomic Task Breakdown",
     "step3Desc": "Surgical breakdown into isolated work packages with strict Acceptance Criteria (AC) and Definition of Done (DoD).",
     "step4Phase": "PHASE 04",
     "step4Title": "Implementation & Production",
-    "step4Desc": "AI-assisted TDD, full unit test suite, Opengrep static analysis, 100/100 Lighthouse, and immutable deployment on Cloudflare Pages with 0 reverts.",
+    "step4Desc": "AI-assisted TDD, full unit test suite, Opengrep static analysis, 100/100 Lighthouse, and immutable deployment on GitHub Pages with 0 reverts.",
     "modalLink": "View specs directory on GitHub ➔"
   },
   "strengths": {
@@ -526,7 +526,7 @@
   "footer": {
     "rights": "All rights reserved.",
     "builtWith": "Crafted 100% with agentic AI and Spec-Driven Development.",
-    "edgePowered": "Cloudflare Pages",
+    "edgePowered": "GitHub Pages",
     "desc": "Agentic Engineer & Senior Backend Architect. Engineering resilient distributed systems, real-time synchronization, and agentic workflows guided by Spec-Driven Development (SDD).",
     "navTitle": "Navigation",
     "aiTitle": "Machine-Readable (AI)",

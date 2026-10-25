@@ -72,7 +72,7 @@ export const SkillsSection: React.FC = () => {
       summaryKey: "skills.summaryCloud",
       primaryPills: [
         "AWS Cloud (EC2, S3, IAM, SQS)",
-        "Cloudflare Workers & Pages",
+        "GitHub Actions & Pages",
         "Docker & Contenedores",
         "CI/CD Automatizado & Vitest",
       ],

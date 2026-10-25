@@ -21,7 +21,7 @@
 ## Core Tech Stack
 - **Languages:** TypeScript, Node.js, Modern PHP, SQL
 - **Architecture:** Distributed Systems, Event-Driven Architecture (EDA), Microservices, Hexagonal Architecture, Domain-Driven Design (DDD), Idempotency, DLQ Handling
-- **Cloud & Messaging:** AWS (SQS, SNS, EventBridge, EC2, S3, RDS), Cloudflare Workers & Pages, Docker, REST/JSON APIs, Webhooks, Pub/Sub
+- **Cloud & Messaging:** AWS (SQS, SNS, EventBridge, EC2, S3, RDS), GitHub Actions & Pages, Docker, REST/JSON APIs, Webhooks, Pub/Sub
 - **Databases:** MongoDB (Aggregations & Index Optimization), Microsoft SQL Server, MySQL, PostgreSQL, Redis
 - **AI & Developer Tooling:** Claude Code (CLI), Model Context Protocol (MCP), Spec-Driven Development (SDD), Test-Driven Development (TDD), Vitest, Opengrep
 

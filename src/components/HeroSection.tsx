@@ -67,7 +67,7 @@ export const HeroSection: React.FC = () => {
     "});",
     "",
     "await architect.orchestrateProduction();",
-    "// Cloudflare Edge & AWS Event-Driven verified.",
+    "// GitHub Pages & AWS Event-Driven verified.",
     "console.log('⚡ Spec-Driven Development: 0 Hallucinations');",
   ];
 
@@ -204,9 +204,12 @@ export const HeroSection: React.FC = () => {
           >
             <div className="relative w-full max-w-md">
               {/* Terminal Code Card */}
-              <div className="bg-card/90 border border-border/80 rounded-2xl p-4 sm:p-6 backdrop-blur-xl shadow-2xl">
+              <div
+                data-testid="hero-terminal-card"
+                className="dark bg-card/95 text-foreground border border-border/80 rounded-2xl p-4 sm:p-6 backdrop-blur-xl shadow-2xl"
+              >
                 {/* Window header */}
-                <div className="flex items-center justify-between pb-3 sm:pb-4 mb-3 sm:mb-4 border-b border-border/40 font-mono text-xs text-muted-foreground">
+                <div className="flex items-center justify-between pb-3 sm:pb-4 mb-3 sm:mb-4 border-b border-border/40 font-mono text-xs text-slate-400">
                   <div className="flex items-center gap-2">
                     <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block" />
                     <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block" />
@@ -236,7 +239,7 @@ export const HeroSection: React.FC = () => {
                             : line.startsWith("const") || line.startsWith("await")
                             ? "text-primary font-semibold"
                             : line.includes("//")
-                            ? "text-muted-foreground italic"
+                            ? "text-slate-400 italic"
                             : line.includes("console.log")
                             ? "text-emerald-400"
                             : line.includes("'")
@@ -280,9 +283,9 @@ export const HeroSection: React.FC = () => {
                     <div>
                       <div className="text-xs font-bold text-foreground group-hover/avatar:text-primary transition-colors flex items-center gap-1.5">
                         <span>Carlos Lara Albir</span>
-                        <Maximize2 className="w-3 h-3 text-muted-foreground opacity-60 group-hover/avatar:opacity-100 group-hover/avatar:text-primary transition-all" />
+                        <Maximize2 className="w-3 h-3 text-slate-400 opacity-60 group-hover/avatar:opacity-100 group-hover/avatar:text-primary transition-all" />
                       </div>
-                      <div className="text-[10px] sm:text-[11px] font-mono text-muted-foreground">
+                      <div className="text-[10px] sm:text-[11px] font-mono text-slate-400">
                         20+ YOE · Valencia, Spain
                       </div>
                     </div>
@@ -291,7 +294,7 @@ export const HeroSection: React.FC = () => {
                     <span className="px-2 py-0.5 rounded bg-primary/10 border border-primary/30 text-[10px] font-mono text-primary font-bold">
                       100% IA Agéntica
                     </span>
-                    <span className="text-[9px] font-mono text-muted-foreground">
+                    <span className="text-[9px] font-mono text-slate-400">
                       SDD Verified
                     </span>
                   </div>

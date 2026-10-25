@@ -2,16 +2,14 @@
   "name": "carloslara-portfolio",
   "version": "0.1.0",
   "private": true,
-  "description": "Personal portfolio website of Carlos Lara Albir, built with SDD methodology and deployed on Cloudflare.",
+  "description": "Personal portfolio website of Carlos Lara Albir, built with SDD methodology and deployed on GitHub Pages.",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "test": "vitest run",
     "test:watch": "vitest",
-    "preview": "wrangler dev",
-    "deploy": "wrangler deploy",
-    "deploy:preview": "npm run build && wrangler deploy"
+    "preview": "vite preview"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",

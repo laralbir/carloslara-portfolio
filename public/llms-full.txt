@@ -43,7 +43,7 @@ Pioneering practitioner of Agentic AI Engineering: integrating Claude Code in th
 | :--- | :--- |
 | **Languages & Runtimes** | TypeScript (Expert), Node.js (Expert), Modern PHP (Expert), ESNext JavaScript, SQL, Stored Procedures |
 | **Distributed Architecture** | Event-Driven Architecture (EDA), Microservices, Hexagonal Architecture, Domain-Driven Design (DDD), Idempotency, Dead Letter Queues (DLQ), Eventual Consistency, Circuit Breaking, Fault Tolerance, PCI-DSS Security |
-| **Cloud & Event Messaging** | AWS (SQS, SNS, EventBridge, EC2, S3, RDS), Cloudflare (Workers, Pages, Edge Caching), Docker, Linux / Ubuntu / LAMP, REST APIs, JSON APIs, Webhooks, Message Brokers, Pub/Sub |
+| **Cloud & Event Messaging** | AWS (SQS, SNS, EventBridge, EC2, S3, RDS), GitHub Actions & Pages, Docker, Linux / Ubuntu / LAMP, REST APIs, JSON APIs, Webhooks, Message Brokers, Pub/Sub |
 | **Databases & Storage** | MongoDB (Aggregation Pipelines, Compound Index Tuning, High-Volume Data Modeling), Microsoft SQL Server, MySQL, PostgreSQL, Redis (Caching, In-Memory) |
 | **AI & Developer Tooling** | Claude Code (CLI), Model Context Protocol (MCP), Spec-Driven Development (SDD), Test-Driven Development (TDD), Vitest, Opengrep Static Analysis, Grafana Telemetry, Prometheus, Jira/Tempo APIs, GitHub Actions, CI/CD |
 
@@ -122,4 +122,4 @@ Pioneering practitioner of Agentic AI Engineering: integrating Claude Code in th
 
 - **Spec-Driven Development (SDD):** Code is the verified output of explicit, unambiguous specifications, not the starting point. All feature work follows 4 phase gates: Analysis (`SPEC-01`) → Architecture & Plan (`PLAN-01`) → Atomic Task Breakdown (`TASK-01`) → Implementation with automated test verification (`TDD`).
 - **Test-Driven Development (TDD):** Red → Green → Refactor with Vitest and unit/integration coverage before shipping.
-- **Edge Deployment:** Static assets and lightweight microservices deployed with Cloudflare Workers/Pages, immutable asset caching, and strict CSP headers.
+- **Continuous Deployment:** Static assets and automated builds deployed on GitHub Pages via GitHub Actions with zero production reverts.

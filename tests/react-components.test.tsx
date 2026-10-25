@@ -132,7 +132,8 @@ describe("React Portfolio Components", () => {
     expect(container.textContent).toContain("Node.js & TypeScript");
     expect(container.textContent).toContain("AWS SQS & SNS");
     expect(container.textContent).toContain("PostgreSQL");
-    expect(container.textContent).toContain("Cloudflare Workers");
+    expect(container.textContent).toContain("GitHub Actions & Pages");
+    expect(container.textContent).not.toContain("Cloudflare");
   });
 
   it("ProjectsSection renders projects and supports category filtering", async () => {
@@ -263,6 +264,8 @@ describe("React Portfolio Components", () => {
     expect(container.textContent).toContain("100% IA Agéntica & SDD");
     expect(container.textContent).toContain("0 Alucinaciones");
     expect(container.textContent).toContain("100% Verificado");
+    expect(container.textContent).toContain("GitHub Pages");
+    expect(container.textContent).not.toContain("Cloudflare");
     expect(container.textContent).toContain("Claude Code + Antigravity");
 
     // Modal is initially not in DOM
@@ -343,6 +346,12 @@ describe("React Portfolio Components", () => {
     const avatarImg = container.querySelector("img[alt='Carlos Lara Albir']") as HTMLImageElement | null;
     expect(avatarImg).not.toBeNull();
     expect(avatarImg?.className).toContain("object-top");
+
+    // Verify terminal card always has .dark class so it renders in dark mode even when the page is in light mode
+    const terminalCard = container.querySelector("[data-testid='hero-terminal-card']") as HTMLElement | null;
+    expect(terminalCard).not.toBeNull();
+    expect(terminalCard?.className).toContain("dark");
+    expect(terminalCard?.className).toContain("bg-card");
 
     // Check Hero CTA buttons have consistent styling, solid surfaces, and defined borders
     const projectsBtn = container.querySelector("a[href='#projects']") as HTMLAnchorElement | null;

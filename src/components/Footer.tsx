@@ -162,7 +162,7 @@ export const Footer: React.FC = () => {
           <div className="flex items-center gap-4">
             <span className="inline-flex items-center gap-1.5 text-emerald-400 font-mono">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-              <span>{t("footer.edgePowered") || "Cloudflare Pages"}</span>
+              <span>{t("footer.edgePowered") || "GitHub Pages"}</span>
             </span>
             <button
               onClick={scrollToTop}
