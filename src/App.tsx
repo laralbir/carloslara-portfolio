@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { LanguageProvider } from "./context/LanguageContext";
 import { ThemeProvider } from "./context/ThemeContext";
 import { Toaster } from "./components/ui/toaster";
@@ -17,8 +17,13 @@ import { EducationSection } from "./components/EducationSection";
 import { OffTopicSection } from "./components/offtopic/OffTopicSection";
 import { ContactSection } from "./components/ContactSection";
 import { Footer } from "./components/Footer";
+import { printConsoleEasterEgg } from "./scripts/visual/nerd-tech";
 
 export const AppContent: React.FC = () => {
+  useEffect(() => {
+    printConsoleEasterEgg();
+  }, []);
+
   const [welcomeComplete, setWelcomeComplete] = useState<boolean>(() => {
     if (typeof window !== "undefined") {
       // If URL has a hash or query param (e.g. #projects or ?skipIntro=true), skip intro

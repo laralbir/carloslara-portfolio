@@ -547,6 +547,67 @@ describe("React Portfolio Components", () => {
       expect(poly.getAttribute("opacity")).toBeNull();
     });
   });
+
+  it("printConsoleEasterEgg prints ASCII banner and ZX Spectrum hints, and HeroSection terminal unlocks ZX Spectrum ASCII Space Invaders & Arkanoid easter egg", async () => {
+    const { printConsoleEasterEgg } = await import("../src/scripts/visual/nerd-tech");
+    const logMessages: string[] = [];
+    const origLog = console.log;
+    console.log = (...args: any[]) => {
+      logMessages.push(args.join(" "));
+    };
+    try {
+      printConsoleEasterEgg();
+    } finally {
+      console.log = origLog;
+    }
+
+    const combinedLogs = logMessages.join("\n");
+    expect(combinedLogs).toContain("[SYS_INIT]: Welcome fellow engineer");
+    expect(combinedLogs).toMatch(/ZX SPECTRUM|SINClAIR|1982|Space Invaders|Arkanoid/i);
+
+    const { MotionConfig } = await import("framer-motion");
+    const { HeroSection } = await import("../src/components/HeroSection");
+    const root = createRoot(container);
+    await act(async () => {
+      root.render(
+        <MotionConfig reducedMotion="always">
+          <ThemeProvider>
+            <LanguageProvider>
+              <HeroSection />
+            </LanguageProvider>
+          </ThemeProvider>
+        </MotionConfig>
+      );
+    });
+
+    // Terminal starts in code mode with CSS vertical scroll container and has a subtle retro/ZX Spectrum easter egg trigger
+    const terminalScrollBody = container.querySelector("[data-testid='terminal-scroll-body']") as HTMLElement | null;
+    expect(terminalScrollBody).not.toBeNull();
+    expect(terminalScrollBody?.className).toContain("overflow-y-auto");
+    expect(terminalScrollBody?.className).toContain("terminal-scroll-container");
+
+    const arcadeToggle = container.querySelector("[data-testid='terminal-arcade-toggle']") as HTMLButtonElement | null;
+    expect(arcadeToggle).not.toBeNull();
+
+    await act(async () => {
+      arcadeToggle?.click();
+    });
+
+    // ZX Spectrum ASCII Arcade is now rendered inside the terminal
+    const spectrumScreen = container.querySelector("[data-testid='zx-spectrum-arcade']");
+    expect(spectrumScreen).not.toBeNull();
+    expect(spectrumScreen?.textContent).toMatch(/1982 Sinclair Research|ZX SPECTRUM|INVADERS|ARKANOID/i);
+
+    // Can switch between Space Invaders and Arkanoid
+    const arkanoidBtn = container.querySelector("[data-testid='arcade-mode-arkanoid']") as HTMLButtonElement | null;
+    expect(arkanoidBtn).not.toBeNull();
+
+    await act(async () => {
+      arkanoidBtn?.click();
+    });
+
+    expect(spectrumScreen?.textContent).toMatch(/ARKANOID/i);
+  });
 });
 
 

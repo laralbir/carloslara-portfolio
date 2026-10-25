@@ -18,7 +18,7 @@ export function initNerdTech(): void {
   initSkillsFilter();
 }
 
-function printConsoleEasterEgg(): void {
+export function printConsoleEasterEgg(): void {
   const asciiArt = `
    ____           _               _                           _    _ _     _      
   / ___|__ _ _ __| | ___  ___    | |    __ _ _ __ __ _       / \\  | | |__ (_)_ __ 
@@ -28,11 +28,11 @@ function printConsoleEasterEgg(): void {
   `;
 
   const bannerStyle = `
-    color: #3b82f6;
+    color: #00bba7;
     font-weight: bold;
     font-size: 11px;
     font-family: monospace;
-    text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+    text-shadow: 0 0 10px rgba(0, 187, 167, 0.5);
   `;
 
   const textStyle = `
@@ -40,6 +40,16 @@ function printConsoleEasterEgg(): void {
     font-family: monospace;
     font-size: 12px;
     line-height: 1.6;
+  `;
+
+  const spectrumStyle = `
+    color: #f5d90a;
+    background: #111113;
+    padding: 4px 8px;
+    border-left: 4px solid #e5484d;
+    font-family: monospace;
+    font-size: 12px;
+    font-weight: bold;
   `;
 
   const linkStyle = `
@@ -58,7 +68,18 @@ function printConsoleEasterEgg(): void {
 > [CONNECT]: info@carloslara.dev | https://www.linkedin.com/in/carlos-lara-albir-687277a4`,
     textStyle
   );
+  console.log(
+    `%c🕹️ [ZX SPECTRUM 48K EASTER EGG]: Click "🕹️ ZX 48K" in the Hero Terminal or run window.zxSpectrum("invaders") / window.zxSpectrum("arkanoid") to play ASCII Space Invaders & Arkanoid (© 1982 Sinclair Research Ltd)!`,
+    spectrumStyle
+  );
   console.log('%c> Inspect the raw SDD specs on GitHub: https://github.com/laralbir/carloslara-portfolio', linkStyle);
+
+  if (typeof window !== 'undefined') {
+    (window as any).zxSpectrum = (game: 'invaders' | 'arkanoid' = 'invaders') => {
+      window.dispatchEvent(new CustomEvent('launch-zx-spectrum', { detail: { game } }));
+      return `⚡ Loading ${game.toUpperCase()} on Sinclair ZX Spectrum 48K... Check the Hero Terminal!`;
+    };
+  }
 }
 
 function initLatencyTelemetry(): void {

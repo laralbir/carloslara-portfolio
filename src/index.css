@@ -265,3 +265,28 @@
   margin: 0 auto;
   padding: 0;
 }
+
+.terminal-scroll-container {
+  --scrollbar-thumb: rgba(0, 187, 167, 0.5);
+  --scrollbar-track: rgba(15, 23, 42, 0.6);
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
+}
+
+@supports not (scrollbar-color: auto) {
+  .terminal-scroll-container::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .terminal-scroll-container::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 9999px;
+  }
+
+  .terminal-scroll-container::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+  }
+}

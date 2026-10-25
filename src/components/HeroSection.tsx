@@ -19,8 +19,10 @@ import {
   ChevronRight,
   RotateCcw,
   MapPin,
+  Gamepad2,
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { ZxSpectrumArcade } from "./ZxSpectrumArcade";
 
 export const HeroSection: React.FC = () => {
   const { t } = useLanguage();
@@ -28,6 +30,8 @@ export const HeroSection: React.FC = () => {
   const [displayedCode, setDisplayedCode] = useState("");
   const [isPhotoModalOpen, setIsPhotoModalOpen] = useState(false);
   const [currentFactIndex, setCurrentFactIndex] = useState(0);
+  const [isArcadeMode, setIsArcadeMode] = useState(false);
+  const [arcadeInitialGame, setArcadeInitialGame] = useState<"invaders" | "arkanoid">("invaders");
   const [portraitTilt, setPortraitTilt] = useState({ rotateX: 0, rotateY: 0, glareX: 50, glareY: 30 });
 
   const handlePortraitMouseMove = (e: React.MouseEvent<HTMLElement>) => {
@@ -59,6 +63,21 @@ export const HeroSection: React.FC = () => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isPhotoModalOpen]);
 
+  // Listen for DevTools console easter egg command: window.zxSpectrum('invaders' | 'arkanoid')
+  useEffect(() => {
+    const handleLaunchZx = (e: Event) => {
+      const customEvent = e as CustomEvent<{ game?: "invaders" | "arkanoid" }>;
+      if (customEvent.detail?.game === "arkanoid") {
+        setArcadeInitialGame("arkanoid");
+      } else {
+        setArcadeInitialGame("invaders");
+      }
+      setIsArcadeMode(true);
+    };
+    window.addEventListener("launch-zx-spectrum", handleLaunchZx);
+    return () => window.removeEventListener("launch-zx-spectrum", handleLaunchZx);
+  }, []);
+
   // Prevent background scroll jitter when modal is open
   useEffect(() => {
     if (isPhotoModalOpen) {
@@ -86,6 +105,9 @@ export const HeroSection: React.FC = () => {
     "await architect.orchestrateProduction();",
     "// GitHub Pages & AWS Event-Driven verified.",
     "console.log('⚡ Spec-Driven Development: 0 Hallucinations');",
+    "await mcpServer.connect('diagnostics-25-tools');",
+    "await sqsFifo.publish({ channel: 'OTA_SYNC', sla: '99.99%' });",
+    "// 🕹️ Easter Egg: Click [ZX 48K] to play ASCII Invaders / Arkanoid!",
   ];
 
   const achievements = [
@@ -312,56 +334,89 @@ export const HeroSection: React.FC = () => {
                   </div>
                   <div className="flex items-center gap-1.5 text-primary">
                     <Terminal className="w-3.5 h-3.5" />
-                    <span>agentic-architect.ts</span>
+                    <span>{isArcadeMode ? "zx-spectrum-48k.rom" : "agentic-architect.ts"}</span>
                   </div>
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <button
+                    type="button"
+                    data-testid="terminal-arcade-toggle"
+                    onClick={() => setIsArcadeMode((prev) => !prev)}
+                    className={`px-2 py-0.5 rounded-md border text-[10px] font-mono font-bold flex items-center gap-1 transition-all cursor-pointer ${
+                      isArcadeMode
+                        ? "bg-amber-400 text-black border-amber-300 shadow-[0_0_12px_rgba(245,217,10,0.45)]"
+                        : "bg-slate-900/90 hover:bg-primary/20 text-amber-300 border-amber-400/40 hover:border-amber-400"
+                    }`}
+                    title="Easter Egg: Jugar a Space Invaders / Arkanoid en ASCII (ZX Spectrum 48K)"
+                  >
+                    <Gamepad2 className="w-3 h-3" />
+                    <span>{isArcadeMode ? "EXIT ROM" : "ZX 48K"}</span>
+                  </button>
                 </div>
 
-                {/* Code Terminal Output */}
-                <div className="font-mono text-[11px] sm:text-xs bg-background/85 rounded-xl p-3 sm:p-3.5 border border-border/40 min-h-[220px] sm:min-h-[245px] flex flex-col justify-start overflow-x-auto text-left leading-relaxed">
-                  {codeSnippets.map((line, idx) => {
-                    const isPassed = idx < currentCodeLine;
-                    const isCurrent = idx === currentCodeLine;
+                {/* Code Terminal Output OR ZX Spectrum 48K ASCII Arcade */}
+                {isArcadeMode ? (
+                  <ZxSpectrumArcade
+                    initialMode={arcadeInitialGame}
+                    onExit={() => setIsArcadeMode(false)}
+                  />
+                ) : (
+                  <div
+                    data-testid="terminal-scroll-body"
+                    className="terminal-scroll-container font-mono text-[11px] sm:text-xs bg-background/85 rounded-xl p-3 sm:p-3.5 border border-border/40 h-[220px] sm:h-[245px] max-h-[220px] sm:max-h-[245px] overflow-y-auto overflow-x-auto flex flex-col-reverse text-left leading-relaxed"
+                  >
+                    <div className="flex flex-col justify-start">
+                      {codeSnippets.map((line, idx) => {
+                        const isPassed = idx < currentCodeLine;
+                        const isCurrent = idx === currentCodeLine;
 
-                    if (!isPassed && !isCurrent) return null;
+                        if (!isPassed && !isCurrent) return null;
 
-                    return (
-                      <div
-                        key={idx}
-                        className={`min-h-[1.2rem] transition-opacity duration-150 ${
-                          line.startsWith("import")
-                            ? "text-cyan-400 font-semibold"
-                            : line.startsWith("const") || line.startsWith("await")
-                            ? "text-primary font-semibold"
-                            : line.includes("//")
-                            ? "text-slate-400 italic"
-                            : line.includes("console.log")
-                            ? "text-emerald-400"
-                            : line.includes("'")
-                            ? "text-amber-300"
-                            : "text-foreground"
-                        }`}
-                      >
-                        {isPassed ? line : displayedCode}
-                        {isCurrent && (
-                          <span className="ml-0.5 inline-block w-2 h-3.5 bg-primary animate-pulse" />
-                        )}
-                        {line === "" && "\u00A0"}
-                      </div>
-                    );
-                  })}
-                </div>
+                        return (
+                          <div
+                            key={idx}
+                            className={`min-h-[1.2rem] transition-opacity duration-150 ${
+                              line.startsWith("import")
+                                ? "text-cyan-400 font-semibold"
+                                : line.startsWith("const") || line.startsWith("await")
+                                ? "text-primary font-semibold"
+                                : line.includes("//")
+                                ? "text-slate-400 italic"
+                                : line.includes("console.log")
+                                ? "text-emerald-400"
+                                : line.includes("'")
+                                ? "text-amber-300"
+                                : "text-foreground"
+                            }`}
+                          >
+                            {isPassed ? line : displayedCode}
+                            {isCurrent && (
+                              <span className="ml-0.5 inline-block w-2 h-3.5 bg-primary animate-pulse" />
+                            )}
+                            {line === "" && "\u00A0"}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
 
                 {/* Terminal Footer Status Bar */}
                 <div className="mt-3 pt-2.5 border-t border-border/40 flex items-center justify-between gap-2 text-[10px] font-mono">
                   <div className="flex items-center gap-2 text-slate-400">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                    <span>MCP &amp; Claude Code Ready</span>
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    <span>
+                      {isArcadeMode
+                        ? "Sinclair ZX Spectrum 48K · ASCII CRT"
+                        : "MCP & Claude Code Ready"}
+                    </span>
                   </div>
                   <div className="flex items-center gap-1.5">
-                    <span className="px-2 py-0.5 rounded bg-primary/10 border border-primary/30 text-primary font-bold">
-                      100% IA Agéntica
-                    </span>
+                    <button
+                      type="button"
+                      onClick={() => setIsArcadeMode((prev) => !prev)}
+                      className="px-2 py-0.5 rounded bg-primary/10 hover:bg-primary/20 border border-primary/30 text-primary font-bold cursor-pointer transition-colors"
+                    >
+                      {isArcadeMode ? "← Volver a TS" : "🕹️ Easter Egg"}
+                    </button>
                     <span className="text-slate-400 hidden sm:inline">· SDD Verified</span>
                   </div>
                 </div>
