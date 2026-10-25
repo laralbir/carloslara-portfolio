@@ -31,7 +31,7 @@ export const HeroSection: React.FC = () => {
   const [isPhotoModalOpen, setIsPhotoModalOpen] = useState(false);
   const [currentFactIndex, setCurrentFactIndex] = useState(0);
   const [isArcadeMode, setIsArcadeMode] = useState(false);
-  const [arcadeInitialGame, setArcadeInitialGame] = useState<"invaders" | "arkanoid">("invaders");
+  const [arcadeInitialGame, setArcadeInitialGame] = useState<"invaders" | "arkanoid" | "enduro">("invaders");
   const [portraitTilt, setPortraitTilt] = useState({ rotateX: 0, rotateY: 0, glareX: 50, glareY: 30 });
 
   const handlePortraitMouseMove = (e: React.MouseEvent<HTMLElement>) => {
@@ -66,9 +66,11 @@ export const HeroSection: React.FC = () => {
   // Listen for DevTools console easter egg command: window.zxSpectrum('invaders' | 'arkanoid')
   useEffect(() => {
     const handleLaunchZx = (e: Event) => {
-      const customEvent = e as CustomEvent<{ game?: "invaders" | "arkanoid" }>;
+      const customEvent = e as CustomEvent<{ game?: "invaders" | "arkanoid" | "enduro" }>;
       if (customEvent.detail?.game === "arkanoid") {
         setArcadeInitialGame("arkanoid");
+      } else if (customEvent.detail?.game === "enduro") {
+        setArcadeInitialGame("enduro");
       } else {
         setArcadeInitialGame("invaders");
       }
@@ -345,7 +347,7 @@ export const HeroSection: React.FC = () => {
                         ? "bg-amber-400 text-black border-amber-300 shadow-[0_0_12px_rgba(245,217,10,0.45)]"
                         : "bg-slate-900/90 hover:bg-primary/20 text-amber-300 border-amber-400/40 hover:border-amber-400"
                     }`}
-                    title="Easter Egg: Jugar a Space Invaders / Arkanoid en ASCII (ZX Spectrum 48K)"
+                    title="Easter Egg: Jugar a Space Invaders / Arkanoid / Enduro en ASCII (ZX Spectrum 48K)"
                   >
                     <Gamepad2 className="w-3 h-3" />
                     <span>{isArcadeMode ? "EXIT ROM" : "ZX 48K"}</span>
@@ -361,7 +363,7 @@ export const HeroSection: React.FC = () => {
                 ) : (
                   <div
                     data-testid="terminal-scroll-body"
-                    className="terminal-scroll-container font-mono text-[11px] sm:text-xs bg-background/85 rounded-xl p-3 sm:p-3.5 border border-border/40 h-[220px] sm:h-[245px] max-h-[220px] sm:max-h-[245px] overflow-y-auto overflow-x-auto flex flex-col-reverse text-left leading-relaxed"
+                    className="terminal-scroll-container font-mono text-[11px] sm:text-xs bg-background/85 rounded-xl p-3 sm:p-3.5 border border-border/40 h-[305px] sm:h-[310px] max-h-[305px] sm:max-h-[310px] overflow-y-auto overflow-x-auto flex flex-col-reverse text-left leading-relaxed"
                   >
                     <div className="flex flex-col justify-start">
                       {codeSnippets.map((line, idx) => {
@@ -410,14 +412,7 @@ export const HeroSection: React.FC = () => {
                     </span>
                   </div>
                   <div className="flex items-center gap-1.5">
-                    <button
-                      type="button"
-                      onClick={() => setIsArcadeMode((prev) => !prev)}
-                      className="px-2 py-0.5 rounded bg-primary/10 hover:bg-primary/20 border border-primary/30 text-primary font-bold cursor-pointer transition-colors"
-                    >
-                      {isArcadeMode ? "← Volver a TS" : "🕹️ Easter Egg"}
-                    </button>
-                    <span className="text-slate-400 hidden sm:inline">· SDD Verified</span>
+                    <span className="text-slate-400 font-medium">SDD Verified</span>
                   </div>
                 </div>
               </div>

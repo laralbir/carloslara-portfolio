@@ -603,7 +603,7 @@ describe("React Portfolio Components", () => {
     expect(spectrumScreen).not.toBeNull();
     expect(spectrumScreen?.textContent).toMatch(/1982 Sinclair Research|ZX SPECTRUM|INVADERS|ARKANOID/i);
 
-    // Can switch between Space Invaders and Arkanoid
+    // Can switch between Space Invaders, Arkanoid, and Enduro Motocross
     const arkanoidBtn = container.querySelector("[data-testid='arcade-mode-arkanoid']") as HTMLButtonElement | null;
     expect(arkanoidBtn).not.toBeNull();
 
@@ -612,6 +612,15 @@ describe("React Portfolio Components", () => {
     });
 
     expect(spectrumScreen?.textContent).toMatch(/ARKANOID/i);
+
+    const enduroBtn = container.querySelector("[data-testid='arcade-mode-enduro']") as HTMLButtonElement | null;
+    expect(enduroBtn).not.toBeNull();
+
+    await act(async () => {
+      enduroBtn?.click();
+    });
+
+    expect(spectrumScreen?.textContent).toMatch(/ENDURO/i);
   });
 });
 

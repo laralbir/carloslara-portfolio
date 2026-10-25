@@ -83,13 +83,13 @@ export function printConsoleEasterEgg(force = false): void {
     textStyle
   );
   console.log(
-    `%c🕹️ [ZX SPECTRUM 48K EASTER EGG]: Click "🕹️ ZX 48K" in the Hero Terminal or run window.zxSpectrum("invaders") / window.zxSpectrum("arkanoid") to play ASCII Space Invaders & Arkanoid (© 1982 Sinclair Research Ltd)!`,
+    `%c🕹️ [ZX SPECTRUM 48K EASTER EGG]: Click "🕹️ ZX 48K" in the Hero Terminal or run window.zxSpectrum("invaders") / window.zxSpectrum("arkanoid") / window.zxSpectrum("enduro") to play ASCII Space Invaders, Arkanoid & Enduro (© 1982 Sinclair Research Ltd)!`,
     spectrumStyle
   );
   console.log('%c> Inspect the raw SDD specs on GitHub: https://github.com/laralbir/carloslara-portfolio', linkStyle);
 
   if (typeof window !== 'undefined') {
-    (window as any).zxSpectrum = (game: 'invaders' | 'arkanoid' = 'invaders') => {
+    (window as any).zxSpectrum = (game: 'invaders' | 'arkanoid' | 'enduro' = 'invaders') => {
       window.dispatchEvent(new CustomEvent('launch-zx-spectrum', { detail: { game } }));
       return `⚡ Loading ${game.toUpperCase()} on Sinclair ZX Spectrum 48K... Check the Hero Terminal!`;
     };

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { RotateCcw, ArrowLeft, ArrowRight, Crosshair, Volume2, VolumeX, Terminal } from "lucide-react";
+import { RotateCcw, ArrowLeft, ArrowRight, ArrowUp, Crosshair, Volume2, VolumeX, Terminal } from "lucide-react";
 
-type GameMode = "invaders" | "arkanoid";
+type GameMode = "invaders" | "arkanoid" | "enduro";
 
 interface ZxSpectrumArcadeProps {
   initialMode?: GameMode;
@@ -30,6 +30,11 @@ interface Brick {
   width: number;
   alive: boolean;
   colorIndex: number;
+}
+
+interface EnduroObstacle {
+  x: number;
+  type: "ramp" | "rock" | "barrel" | "mud";
 }
 
 export const ZxSpectrumArcade: React.FC<ZxSpectrumArcadeProps> = ({
@@ -64,6 +69,14 @@ export const ZxSpectrumArcade: React.FC<ZxSpectrumArcadeProps> = ({
     dy: -1,
   });
   const bricksRef = useRef<Brick[]>([]);
+
+  // Enduro (Side-view Trial Motocross) state refs
+  const bikeYRef = useRef<number>(0); // 0 = on ground, >0 = jumping
+  const bikeVyRef = useRef<number>(0);
+  const bikeWheelieRef = useRef<boolean>(false);
+  const obstaclesRef = useRef<EnduroObstacle[]>([]);
+  const distanceRef = useRef<number>(0);
+  const speedRef = useRef<number>(70);
 
   // 8-bit ZX Spectrum Beeper synthesizer (Web Audio API)
   const playBeep = useCallback(
@@ -143,13 +156,36 @@ export const ZxSpectrumArcade: React.FC<ZxSpectrumArcadeProps> = ({
     setTick((t) => t + 1);
   }, []);
 
+  const initEnduro = useCallback(() => {
+    bikeYRef.current = 0;
+    bikeVyRef.current = 0;
+    bikeWheelieRef.current = false;
+    distanceRef.current = 0;
+    speedRef.current = 70;
+    obstaclesRef.current = [
+      { x: 18, type: "ramp" },
+      { x: 30, type: "rock" },
+      { x: 44, type: "mud" },
+      { x: 58, type: "ramp" },
+      { x: 72, type: "barrel" },
+      { x: 88, type: "ramp" },
+    ];
+    setScore(0);
+    setLives(3);
+    setGameOver(false);
+    setVictory(false);
+    setTick((t) => t + 1);
+  }, []);
+
   const resetCurrentGame = useCallback(() => {
     if (mode === "invaders") {
       initInvaders();
-    } else {
+    } else if (mode === "arkanoid") {
       initArkanoid();
+    } else {
+      initEnduro();
     }
-  }, [mode, initInvaders, initArkanoid]);
+  }, [mode, initInvaders, initArkanoid, initEnduro]);
 
   // Brief ZX Spectrum ROM boot flash
   useEffect(() => {
@@ -167,21 +203,28 @@ export const ZxSpectrumArcade: React.FC<ZxSpectrumArcadeProps> = ({
     if (gameOver || victory) return;
     if (mode === "invaders") {
       playerXRef.current = Math.max(1, playerXRef.current - 1);
-    } else {
+    } else if (mode === "arkanoid") {
       paddleXRef.current = Math.max(1, paddleXRef.current - 2);
+    } else {
+      bikeWheelieRef.current = true;
+      playBeep(240, 45);
     }
     setTick((t) => t + 1);
-  }, [mode, gameOver, victory]);
+  }, [mode, gameOver, victory, playBeep]);
 
   const moveRight = useCallback(() => {
     if (gameOver || victory) return;
     if (mode === "invaders") {
       playerXRef.current = Math.min(GRID_WIDTH - 2, playerXRef.current + 1);
-    } else {
+    } else if (mode === "arkanoid") {
       paddleXRef.current = Math.min(GRID_WIDTH - 6, paddleXRef.current + 2);
+    } else {
+      bikeWheelieRef.current = false;
+      speedRef.current = Math.min(140, speedRef.current + 10);
+      playBeep(320, 40);
     }
     setTick((t) => t + 1);
-  }, [mode, gameOver, victory]);
+  }, [mode, gameOver, victory, playBeep]);
 
   const fireAction = useCallback(() => {
     if (gameOver || victory) {
@@ -197,6 +240,13 @@ export const ZxSpectrumArcade: React.FC<ZxSpectrumArcadeProps> = ({
           dy: -1,
         });
         playBeep(880, 45);
+        setTick((t) => t + 1);
+      }
+    } else if (mode === "enduro") {
+      if (bikeYRef.current <= 0.2) {
+        bikeVyRef.current = -1.5;
+        bikeYRef.current = 0.5;
+        playBeep(480, 80);
         setTick((t) => t + 1);
       }
     }
@@ -322,7 +372,7 @@ export const ZxSpectrumArcade: React.FC<ZxSpectrumArcadeProps> = ({
             });
           }
         }
-      } else {
+      } else if (mode === "arkanoid") {
         // Arkanoid step
         const ball = ballRef.current;
         let nx = ball.x + ball.dx;
@@ -403,6 +453,101 @@ export const ZxSpectrumArcade: React.FC<ZxSpectrumArcadeProps> = ({
         } else {
           ballRef.current = { x: nx, y: ny, dx: ndx, dy: ndy };
         }
+      } else if (mode === "enduro") {
+        // Distance progress based on speed
+        const deltaDist = Math.max(1, Math.floor(speedRef.current / 25));
+        distanceRef.current += deltaDist;
+        setScore((prev) => {
+          const next = prev + deltaDist;
+          if (next > hiScore) setHiScore(next);
+          return next;
+        });
+
+        // Check victory at 500 meters
+        if (distanceRef.current >= 500) {
+          setVictory(true);
+          playBeep(1046, 300);
+          return;
+        }
+
+        // Jump physics & gravity
+        if (bikeYRef.current > 0 || bikeVyRef.current < 0) {
+          bikeYRef.current = Math.max(0, bikeYRef.current - bikeVyRef.current);
+          bikeVyRef.current += 0.45;
+          if (bikeYRef.current <= 0) {
+            bikeYRef.current = 0;
+            bikeVyRef.current = 0;
+            bikeWheelieRef.current = false;
+            playBeep(160, 45); // Landing thump
+          }
+        }
+
+        // Natural speed decay if not accelerating
+        if (speedRef.current > 60 && Math.random() < 0.25) {
+          speedRef.current = Math.max(60, speedRef.current - 5);
+        }
+
+        // Scroll track obstacles left
+        const nextObstacles: EnduroObstacle[] = [];
+        let playerCrashed = false;
+
+        for (const obs of obstaclesRef.current) {
+          const nx = obs.x - 1;
+
+          // Collision detection with bike (bike covers X=4..8)
+          if (nx >= 4 && nx <= 8) {
+            if (obs.type === "ramp") {
+              // Hitting ramp on ground launches into high air!
+              if (bikeYRef.current <= 0.6) {
+                bikeVyRef.current = -1.6;
+                bikeYRef.current = 1;
+                playBeep(580, 80);
+                setScore((prev) => prev + 50);
+              }
+            } else if (obs.type === "rock" || obs.type === "barrel") {
+              // Obstacle must be cleared by jumping or wheelie
+              if (bikeYRef.current < 1.2 && !bikeWheelieRef.current) {
+                playerCrashed = true;
+              } else {
+                setScore((prev) => prev + 25);
+              }
+            } else if (obs.type === "mud") {
+              if (bikeYRef.current < 0.5) {
+                speedRef.current = Math.max(40, speedRef.current - 15);
+                playBeep(95, 45);
+              }
+            }
+          }
+
+          if (nx > -6) {
+            nextObstacles.push({ ...obs, x: nx });
+          }
+        }
+
+        // Spawn new track obstacles ahead
+        const lastX = nextObstacles.reduce((max, o) => Math.max(max, o.x), 0);
+        if (lastX < GRID_WIDTH + 14) {
+          const spawnTypes: EnduroObstacle["type"][] = ["ramp", "rock", "mud", "ramp", "barrel"];
+          const nextType = spawnTypes[Math.floor(Math.random() * spawnTypes.length)];
+          nextObstacles.push({
+            x: Math.max(GRID_WIDTH + 4, lastX + 10 + Math.floor(Math.random() * 8)),
+            type: nextType,
+          });
+        }
+        obstaclesRef.current = nextObstacles;
+
+        if (playerCrashed) {
+          playBeep(120, 250);
+          speedRef.current = 60;
+          bikeWheelieRef.current = false;
+          setLives((prev) => {
+            if (prev <= 1) {
+              setGameOver(true);
+              return 0;
+            }
+            return prev - 1;
+          });
+        }
       }
 
       setTick((t) => t + 1);
@@ -447,7 +592,7 @@ export const ZxSpectrumArcade: React.FC<ZxSpectrumArcadeProps> = ({
       grid[GRID_HEIGHT - 1][Math.max(0, px - 1)] = "◢";
       grid[GRID_HEIGHT - 1][px] = "▲";
       grid[GRID_HEIGHT - 1][Math.min(GRID_WIDTH - 1, px + 1)] = "◣";
-    } else {
+    } else if (mode === "arkanoid") {
       // Arkanoid Bricks
       for (const brick of bricksRef.current) {
         if (!brick.alive) continue;
@@ -472,6 +617,72 @@ export const ZxSpectrumArcade: React.FC<ZxSpectrumArcadeProps> = ({
           grid[GRID_HEIGHT - 1][px + i] = "═";
         }
       }
+    } else {
+      // Enduro Mode (Side-view Trial Motocross)
+      // Row 0: Telemetry HUD
+      const hud = `SPD:${String(speedRef.current).padStart(3, " ")}KM/H DIST:${String(distanceRef.current).padStart(4, "0")}/500M`;
+      for (let i = 0; i < hud.length && i < GRID_WIDTH; i++) {
+        grid[0][i] = hud[i];
+      }
+
+      // Row 10: Ground track
+      for (let x = 0; x < GRID_WIDTH; x++) {
+        grid[10][x] = "═";
+      }
+
+      // Row 11: Earth/Soil
+      for (let x = 0; x < GRID_WIDTH; x++) {
+        grid[11][x] = "░";
+      }
+
+      // Draw Obstacles on track
+      for (const obs of obstaclesRef.current) {
+        if (obs.x < 0 || obs.x >= GRID_WIDTH) continue;
+        if (obs.type === "ramp") {
+          grid[9][obs.x] = "◢";
+          if (obs.x + 1 < GRID_WIDTH) grid[9][obs.x + 1] = "█";
+        } else if (obs.type === "rock") {
+          grid[9][obs.x] = "▲";
+        } else if (obs.type === "barrel") {
+          grid[9][obs.x] = "■";
+        } else if (obs.type === "mud") {
+          for (let i = 0; i < 3; i++) {
+            if (obs.x + i < GRID_WIDTH) grid[10][obs.x + i] = "~";
+          }
+        }
+      }
+
+      // Draw Motorcycle (Side view with pilot, suspension & wheels)
+      const jumpH = Math.min(5, Math.floor(bikeYRef.current));
+      const baseY = 9 - jumpH;
+      const bx = 4; // Horizontal placement
+
+      let row0 = "   o_  ";
+      let row1 = " _//\\_ ";
+      let row2 = "(O) (O)";
+
+      if (bikeWheelieRef.current) {
+        row0 = "    o/ ";
+        row1 = "  _//  ";
+        row2 = " (O) (O)";
+      } else if (jumpH > 2) {
+        row0 = "  o/\\_ ";
+        row1 = " _//   ";
+        row2 = "(O)(O) ";
+      }
+
+      const bikeRows = [row0, row1, row2];
+      for (let r = 0; r < 3; r++) {
+        const targetY = baseY - (2 - r);
+        if (targetY >= 0 && targetY < GRID_HEIGHT) {
+          const str = bikeRows[r];
+          for (let c = 0; c < str.length; c++) {
+            if (str[c] !== " " && bx + c >= 0 && bx + c < GRID_WIDTH) {
+              grid[targetY][bx + c] = str[c];
+            }
+          }
+        }
+      }
     }
 
     return grid.map((row) => row.join(""));
@@ -484,20 +695,22 @@ export const ZxSpectrumArcade: React.FC<ZxSpectrumArcadeProps> = ({
     <div
       ref={containerRef}
       data-testid="zx-spectrum-arcade"
-      className="relative font-mono text-[11px] sm:text-xs bg-black text-[#eeeeee] rounded-xl p-2.5 sm:p-3 border-2 border-slate-700 shadow-inner select-none overflow-hidden"
+      className="relative font-mono text-[11px] sm:text-xs bg-black text-[#eeeeee] rounded-xl p-2.5 sm:p-3 border-2 border-slate-700 shadow-inner select-none overflow-hidden h-[305px] sm:h-[310px] flex flex-col justify-between"
     >
-      {/* ZX Spectrum Iconic Diagonal Rainbow Stripe Corner */}
-      <div
+      {/* ZX Spectrum Iconic Diagonal Rainbow Stripe Corner (spans edge-to-edge from bottom to right border) */}
+      <svg
         aria-hidden="true"
-        className="absolute -right-6 -bottom-6 w-20 h-20 rotate-45 pointer-events-none opacity-85"
-        style={{
-          background:
-            "linear-gradient(90deg, #e5484d 0% 25%, #f5d90a 25% 50%, #30a46c 50% 75%, #0ea5e9 75% 100%)",
-        }}
-      />
+        className="absolute bottom-0 right-0 w-28 h-28 sm:w-32 sm:h-32 pointer-events-none z-0 opacity-90 overflow-hidden"
+        viewBox="0 0 100 100"
+      >
+        <polygon points="10,100 32.5,100 100,32.5 100,10" fill="#e5484d" />
+        <polygon points="32.5,100 55,100 100,55 100,32.5" fill="#f5d90a" />
+        <polygon points="55,100 77.5,100 100,77.5 100,55" fill="#30a46c" />
+        <polygon points="77.5,100 100,100 100,77.5" fill="#0ea5e9" />
+      </svg>
 
       {/* Top Sinclair ZX Spectrum 48K Header Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-1.5 pb-2 mb-2 border-b border-slate-800">
+      <div className="flex flex-wrap items-center justify-between gap-1.5 pb-2 mb-1.5 border-b border-slate-800 relative z-10">
         <div className="flex items-center gap-1.5">
           <span className="px-1.5 py-0.5 rounded bg-red-600 text-white text-[9px] font-extrabold tracking-wider">
             ZX SPECTRUM 48K
@@ -526,6 +739,18 @@ export const ZxSpectrumArcade: React.FC<ZxSpectrumArcadeProps> = ({
               }`}
             >
               ARKANOID
+            </button>
+            <button
+              type="button"
+              data-testid="arcade-mode-enduro"
+              onClick={() => setMode("enduro")}
+              className={`px-2 py-0.5 rounded text-[10px] font-bold cursor-pointer transition-colors ${
+                mode === "enduro"
+                  ? "bg-emerald-400 text-black"
+                  : "text-slate-400 hover:text-white"
+              }`}
+            >
+              ENDURO
             </button>
           </div>
         </div>
@@ -562,7 +787,7 @@ export const ZxSpectrumArcade: React.FC<ZxSpectrumArcadeProps> = ({
       </div>
 
       {/* Score & Lives Telemetry */}
-      <div className="flex items-center justify-between text-[10px] font-mono mb-1.5 px-1 text-slate-300">
+      <div className="flex items-center justify-between text-[10px] font-mono mb-1 px-1 text-slate-300 relative z-10">
         <div>
           SCORE: <span className="text-amber-300 font-bold">{String(score).padStart(4, "0")}</span>
         </div>
@@ -578,7 +803,7 @@ export const ZxSpectrumArcade: React.FC<ZxSpectrumArcadeProps> = ({
       </div>
 
       {/* ASCII CRT Viewport */}
-      <div className="relative bg-[#050508] border border-slate-800 rounded-lg py-1.5 px-2 flex flex-col items-center justify-center min-h-[175px]">
+      <div className="relative bg-[#050508] border border-slate-800 rounded-lg py-1 px-2 flex-1 flex flex-col items-center justify-center min-h-[165px] relative z-10">
         {booting ? (
           <div className="text-left w-full py-8 px-3 bg-[#d7d7d7] text-black font-bold text-xs rounded">
             <p>10 LOAD "{mode.toUpperCase()}"</p>
@@ -633,40 +858,76 @@ export const ZxSpectrumArcade: React.FC<ZxSpectrumArcadeProps> = ({
       </div>
 
       {/* Controls Bar (Keyboard + Mobile Touch Pad) */}
-      <div className="mt-2 flex items-center justify-between gap-2 relative z-10">
+      <div className="mt-1.5 flex items-center justify-between gap-2 relative z-10">
         <div className="flex items-center gap-1.5">
-          <button
-            type="button"
-            onClick={moveLeft}
-            className="px-2.5 py-1 rounded bg-slate-900 hover:bg-slate-800 active:bg-cyan-500 active:text-black border border-slate-700 text-slate-200 flex items-center gap-1 text-[10px] font-bold cursor-pointer"
-            aria-label="Mover izquierda"
-          >
-            <ArrowLeft className="w-3 h-3" />
-            <span>LEFT</span>
-          </button>
-          <button
-            type="button"
-            onClick={moveRight}
-            className="px-2.5 py-1 rounded bg-slate-900 hover:bg-slate-800 active:bg-cyan-500 active:text-black border border-slate-700 text-slate-200 flex items-center gap-1 text-[10px] font-bold cursor-pointer"
-            aria-label="Mover derecha"
-          >
-            <span>RIGHT</span>
-            <ArrowRight className="w-3 h-3" />
-          </button>
-          {mode === "invaders" && (
-            <button
-              type="button"
-              onClick={fireAction}
-              className="px-2.5 py-1 rounded bg-red-600/90 hover:bg-red-500 active:scale-95 text-white border border-red-400/50 flex items-center gap-1 text-[10px] font-bold cursor-pointer"
-              aria-label="Disparar láser"
-            >
-              <Crosshair className="w-3 h-3" />
-              <span>FIRE</span>
-            </button>
+          {mode === "enduro" ? (
+            <>
+              <button
+                type="button"
+                onClick={moveLeft}
+                className="px-2 py-1 rounded bg-slate-900 hover:bg-slate-800 active:bg-emerald-500 active:text-black border border-slate-700 text-slate-200 flex items-center gap-1 text-[10px] font-bold cursor-pointer"
+                aria-label="Caballito"
+                title="Caballito / Inclinar atrás"
+              >
+                <ArrowLeft className="w-3 h-3" />
+                <span>WHEELIE</span>
+              </button>
+              <button
+                type="button"
+                onClick={moveRight}
+                className="px-2 py-1 rounded bg-slate-900 hover:bg-slate-800 active:bg-emerald-500 active:text-black border border-slate-700 text-slate-200 flex items-center gap-1 text-[10px] font-bold cursor-pointer"
+                aria-label="Acelerar"
+                title="Gas / Acelerar"
+              >
+                <span>GAS</span>
+                <ArrowRight className="w-3 h-3" />
+              </button>
+              <button
+                type="button"
+                onClick={fireAction}
+                className="px-2 py-1 rounded bg-emerald-600/90 hover:bg-emerald-500 active:scale-95 text-white border border-emerald-400/50 flex items-center gap-1 text-[10px] font-bold cursor-pointer"
+                aria-label="Saltar con la moto"
+              >
+                <ArrowUp className="w-3 h-3" />
+                <span>JUMP</span>
+              </button>
+            </>
+          ) : (
+            <>
+              <button
+                type="button"
+                onClick={moveLeft}
+                className="px-2.5 py-1 rounded bg-slate-900 hover:bg-slate-800 active:bg-cyan-500 active:text-black border border-slate-700 text-slate-200 flex items-center gap-1 text-[10px] font-bold cursor-pointer"
+                aria-label="Mover izquierda"
+              >
+                <ArrowLeft className="w-3 h-3" />
+                <span>LEFT</span>
+              </button>
+              <button
+                type="button"
+                onClick={moveRight}
+                className="px-2.5 py-1 rounded bg-slate-900 hover:bg-slate-800 active:bg-cyan-500 active:text-black border border-slate-700 text-slate-200 flex items-center gap-1 text-[10px] font-bold cursor-pointer"
+                aria-label="Mover derecha"
+              >
+                <span>RIGHT</span>
+                <ArrowRight className="w-3 h-3" />
+              </button>
+              {mode === "invaders" && (
+                <button
+                  type="button"
+                  onClick={fireAction}
+                  className="px-2.5 py-1 rounded bg-red-600/90 hover:bg-red-500 active:scale-95 text-white border border-red-400/50 flex items-center gap-1 text-[10px] font-bold cursor-pointer"
+                  aria-label="Disparar láser"
+                >
+                  <Crosshair className="w-3 h-3" />
+                  <span>FIRE</span>
+                </button>
+              )}
+            </>
           )}
         </div>
         <div className="text-[9px] text-slate-400 hidden sm:block pr-4">
-          © 1982 Sinclair · Keys: ←/→ {mode === "invaders" ? "+ Space" : ""}
+          © 1982 Sinclair · Keys: ←/→ {mode === "invaders" ? "+ Space" : mode === "enduro" ? "+ Space (Jump)" : ""}
         </div>
       </div>
     </div>
