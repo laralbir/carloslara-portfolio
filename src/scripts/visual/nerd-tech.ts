@@ -18,7 +18,21 @@ export function initNerdTech(): void {
   initSkillsFilter();
 }
 
-export function printConsoleEasterEgg(): void {
+let hasPrintedConsoleEasterEgg = false;
+
+export function printConsoleEasterEgg(force = false): void {
+  if (!force) {
+    if (hasPrintedConsoleEasterEgg) return;
+    if (typeof window !== 'undefined' && (window as any).__claConsoleEasterEggPrinted) {
+      hasPrintedConsoleEasterEgg = true;
+      return;
+    }
+  }
+  hasPrintedConsoleEasterEgg = true;
+  if (typeof window !== 'undefined') {
+    (window as any).__claConsoleEasterEggPrinted = true;
+  }
+
   const asciiArt = `
    ____           _               _                           _    _ _     _      
   / ___|__ _ _ __| | ___  ___    | |    __ _ _ __ __ _       / \\  | | |__ (_)_ __ 

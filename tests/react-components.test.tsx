@@ -548,7 +548,7 @@ describe("React Portfolio Components", () => {
     });
   });
 
-  it("printConsoleEasterEgg prints ASCII banner and ZX Spectrum hints, and HeroSection terminal unlocks ZX Spectrum ASCII Space Invaders & Arkanoid easter egg", async () => {
+  it("printConsoleEasterEgg prints ASCII banner and ZX Spectrum hints only once by default (guarding React StrictMode double mount), and HeroSection terminal unlocks ZX Spectrum ASCII Space Invaders & Arkanoid easter egg", async () => {
     const { printConsoleEasterEgg } = await import("../src/scripts/visual/nerd-tech");
     const logMessages: string[] = [];
     const origLog = console.log;
@@ -556,10 +556,15 @@ describe("React Portfolio Components", () => {
       logMessages.push(args.join(" "));
     };
     try {
+      printConsoleEasterEgg(true);
+      // Calling a second time without force should be a no-op (prevents StrictMode duplicate logs)
       printConsoleEasterEgg();
     } finally {
       console.log = origLog;
     }
+
+    const sysInitMatches = logMessages.filter((m) => m.includes("[SYS_INIT]: Welcome fellow engineer"));
+    expect(sysInitMatches.length).toBe(1);
 
     const combinedLogs = logMessages.join("\n");
     expect(combinedLogs).toContain("[SYS_INIT]: Welcome fellow engineer");
