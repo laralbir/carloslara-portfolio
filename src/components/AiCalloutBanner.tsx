@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { motion } from "framer-motion";
 import {
   Bot,
@@ -135,26 +136,28 @@ export const AiCalloutBanner: React.FC = () => {
       </div>
 
       {/* SDD Explainer Interactive Modal */}
-      {isModalOpen && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="sdd-modal-title"
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-background/80 backdrop-blur-md"
-        >
-          {/* Modal Backdrop click listener */}
+      {isModalOpen &&
+        typeof document !== "undefined" &&
+        createPortal(
           <div
-            className="fixed inset-0"
-            onClick={() => setIsModalOpen(false)}
-            aria-hidden="true"
-          />
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 15 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.2 }}
-            className="relative w-full max-w-2xl bg-card border border-border/80 rounded-2xl shadow-2xl p-6 sm:p-8 z-10 my-8 overflow-hidden text-left"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="sdd-modal-title"
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-background/80 backdrop-blur-md"
           >
+            {/* Modal Backdrop click listener */}
+            <div
+              className="fixed inset-0"
+              onClick={() => setIsModalOpen(false)}
+              aria-hidden="true"
+            />
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 15 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.2 }}
+              className="relative w-full max-w-2xl bg-card border border-border/80 rounded-2xl shadow-2xl p-6 sm:p-8 z-10 my-8 overflow-hidden text-left"
+            >
               {/* Header */}
               <div className="flex items-center justify-between pb-4 border-b border-border/50">
                 <div className="flex items-center gap-2.5">
@@ -229,8 +232,9 @@ export const AiCalloutBanner: React.FC = () => {
                 </a>
               </div>
             </motion.div>
-        </div>
-      )}
+          </div>,
+          document.body
+        )}
     </section>
   );
 };

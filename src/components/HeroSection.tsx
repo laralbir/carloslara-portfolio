@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ShieldCheck,
@@ -433,15 +434,17 @@ export const HeroSection: React.FC = () => {
       </div>
 
       {/* Photo Enlarge & Fun Facts Modal */}
-      <AnimatePresence>
-        {isPhotoModalOpen && (
-          <div
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="photo-modal-title"
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/80 backdrop-blur-md overflow-y-auto"
-            onClick={() => setIsPhotoModalOpen(false)}
-          >
+      {typeof document !== "undefined" &&
+        createPortal(
+          <AnimatePresence>
+            {isPhotoModalOpen && (
+              <div
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="photo-modal-title"
+                className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-background/80 backdrop-blur-md overflow-y-auto"
+                onClick={() => setIsPhotoModalOpen(false)}
+              >
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 12 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -575,7 +578,9 @@ export const HeroSection: React.FC = () => {
             </motion.div>
           </div>
         )}
-      </AnimatePresence>
+          </AnimatePresence>,
+          document.body
+        )}
     </section>
   );
 };

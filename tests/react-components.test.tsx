@@ -25,6 +25,7 @@ describe("React Portfolio Components", () => {
   });
 
   beforeEach(() => {
+    document.body.innerHTML = "";
     container = document.createElement("div");
     document.body.appendChild(container);
     localStorage.setItem("user_lang", "es");
@@ -169,7 +170,7 @@ describe("React Portfolio Components", () => {
       expect(container.textContent).not.toContain("AgroAI");
     }
 
-    // Clicking on a project article opens the expanded modal
+    // Clicking on a project article opens the expanded modal via Portal in document.body with high z-index
     const projectCard = container.querySelector("article");
     expect(projectCard).not.toBeNull();
 
@@ -177,9 +178,13 @@ describe("React Portfolio Components", () => {
       projectCard?.click();
     });
 
-    expect(container.textContent).toContain("EL PROBLEMA DE NEGOCIO");
-    expect(container.textContent).toContain("LA SOLUCIÓN TÉCNICA");
-    expect(container.textContent).toContain("EL RESULTADO / MÉTRICA");
+    const projectModalOverlay = document.body.querySelector("[data-testid='project-detail-modal']") as HTMLElement | null;
+    expect(projectModalOverlay).not.toBeNull();
+    expect(projectModalOverlay?.parentElement).toBe(document.body);
+    expect(projectModalOverlay?.className).toContain("z-[100]");
+    expect(document.body.textContent).toContain("EL PROBLEMA DE NEGOCIO");
+    expect(document.body.textContent).toContain("LA SOLUCIÓN TÉCNICA");
+    expect(document.body.textContent).toContain("EL RESULTADO / MÉTRICA");
   });
 
   it("WelcomeScreen triggers onWelcomeComplete on skip button click", async () => {
@@ -292,15 +297,15 @@ describe("React Portfolio Components", () => {
     expect(document.body.textContent).toContain("FASE 03");
     expect(document.body.textContent).toContain("FASE 04");
 
-    // Click close button
-    const closeBtn = container.querySelector("button[aria-label='Cerrar modal']") as HTMLButtonElement | null;
+    // Click close button (rendered in document.body portal)
+    const closeBtn = document.querySelector("button[aria-label='Cerrar modal']") as HTMLButtonElement | null;
     expect(closeBtn).not.toBeNull();
 
     await act(async () => {
       closeBtn?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
     });
 
-    expect(container.querySelector("#sdd-modal-title")).toBeNull();
+    expect(document.querySelector("#sdd-modal-title")).toBeNull();
   });
 
   it("ExperienceTimeline renders real <strong> DOM elements and never exposes literal <strong> tags as text", async () => {
@@ -422,8 +427,8 @@ describe("React Portfolio Components", () => {
     // Fact changed to motorcycle trips
     expect(document.body.textContent).toMatch(/Rutas en Moto|Motorcycle Trips|Rutes en Moto/);
 
-    // Close modal
-    const closeBtn = container.querySelector("#photo-modal-close-btn") as HTMLButtonElement | null;
+    // Close modal (rendered in document.body portal)
+    const closeBtn = document.querySelector("#photo-modal-close-btn") as HTMLButtonElement | null;
     expect(closeBtn).not.toBeNull();
 
     await act(async () => {
@@ -431,7 +436,7 @@ describe("React Portfolio Components", () => {
       await new Promise((r) => setTimeout(r, 400));
     });
 
-    expect(container.querySelector("#photo-modal-title")).toBeNull();
+    expect(document.querySelector("#photo-modal-title")).toBeNull();
   });
 
   it("ContactSection renders 4 contact cards in a responsive grid of 1 row (desktop) and max 2 rows (tablet)", async () => {

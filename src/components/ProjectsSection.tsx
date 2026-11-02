@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Code,
@@ -36,15 +37,21 @@ export const ProjectsSection: React.FC = () => {
   const [filter, setFilter] = useState<"all" | "enterprise" | "personal">("all");
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
 
-  // Close modal on Escape key
+  // Close modal on Escape key and lock body scroll
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") setSelectedProject(null);
     };
     if (selectedProject) {
       window.addEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
     }
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
+    };
   }, [selectedProject]);
 
   const projects: ProjectItem[] = [
@@ -287,92 +294,99 @@ export const ProjectsSection: React.FC = () => {
           </AnimatePresence>
         </div>
 
-        {/* Project Detail Modal */}
-        <AnimatePresence>
-          {selectedProject && (
-            <div
-              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md cursor-pointer"
-              onClick={() => setSelectedProject(null)}
-            >
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95, y: 10 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95, y: 10 }}
-                transition={{ duration: 0.25 }}
-                onClick={(e) => e.stopPropagation()}
-                className="bg-card border border-border rounded-2xl p-6 sm:p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative text-left cursor-default"
-              >
-                <button
+        {/* Project Detail Modal rendered in top-level Portal to avoid section z-index stacking context overlap */}
+        {typeof document !== "undefined" &&
+          createPortal(
+            <AnimatePresence>
+              {selectedProject && (
+                <div
+                  data-testid="project-detail-modal"
+                  role="dialog"
+                  aria-modal="true"
+                  className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/75 backdrop-blur-md cursor-pointer"
                   onClick={() => setSelectedProject(null)}
-                  className="absolute top-5 right-5 p-2 rounded-full hover:bg-background/80 text-muted-foreground hover:text-foreground cursor-pointer"
-                  aria-label={t("projects.modalCloseAria") || "Cerrar modal"}
                 >
-                  <X className="w-5 h-5" />
-                </button>
-
-                <div className="text-xs font-mono text-primary font-semibold mb-2">
-                  {t(selectedProject.tagKey)}
-                </div>
-                <h3 className="text-2xl font-bold text-foreground mb-4">
-                  {t(selectedProject.titleKey)}
-                </h3>
-
-                <div className="space-y-4 text-sm leading-relaxed mb-6">
-                  <div>
-                    <h4 className="font-mono text-xs text-amber-700 dark:text-amber-400 font-semibold mb-1">
-                      {t("projects.modalProblem") || "EL PROBLEMA DE NEGOCIO:"}
-                    </h4>
-                    <p className="text-muted-foreground">{t(selectedProject.problemKey)}</p>
-                  </div>
-                  <div>
-                    <h4 className="font-mono text-xs text-cyan-700 dark:text-cyan-400 font-semibold mb-1">
-                      {t("projects.modalSolution") || "LA SOLUCIÓN TÉCNICA:"}
-                    </h4>
-                    <p className="text-muted-foreground">{t(selectedProject.solutionKey)}</p>
-                  </div>
-                  <div className="project-impact-box p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/25 dark:bg-emerald-950/40 dark:border-emerald-500/30">
-                    <h4 className="font-mono text-xs text-emerald-700 dark:text-emerald-400 font-bold mb-1">
-                      {t("projects.modalImpact") || "EL RESULTADO / MÉTRICA:"}
-                    </h4>
-                    <p className="text-emerald-900 dark:text-emerald-200 font-medium">{t(selectedProject.impactKey)}</p>
-                  </div>
-                </div>
-
-                <div className="flex flex-wrap gap-1.5 mb-6">
-                  {selectedProject.tags.map((t) => (
-                    <span
-                      key={t}
-                      className="px-2.5 py-1 rounded-md text-xs font-mono bg-background border border-border text-foreground"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex justify-end gap-3 pt-4 border-t border-border/40">
-                  {selectedProject.githubUrl && (
-                    <a
-                      href={selectedProject.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-4 py-2 rounded-xl text-xs font-semibold font-mono bg-primary text-primary-foreground hover:bg-primary/90 transition-all flex items-center gap-2"
-                    >
-                      <GithubIcon className="w-4 h-4" />
-                      <span>{t("projects.viewRepo") || "Ver Repositorio GitHub"}</span>
-                      <ExternalLink className="w-3 h-3" />
-                    </a>
-                  )}
-                  <button
-                    onClick={() => setSelectedProject(null)}
-                    className="px-4 py-2 rounded-xl text-xs font-semibold border border-border hover:bg-card text-foreground cursor-pointer"
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.95, y: 10 }}
+                    transition={{ duration: 0.25 }}
+                    onClick={(e) => e.stopPropagation()}
+                    className="bg-card border border-border rounded-2xl p-6 sm:p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative text-left cursor-default"
                   >
-                    {t("projects.modalClose") || "Cerrar"}
-                  </button>
+                    <button
+                      onClick={() => setSelectedProject(null)}
+                      className="absolute top-5 right-5 p-2 rounded-full hover:bg-background/80 text-muted-foreground hover:text-foreground cursor-pointer"
+                      aria-label={t("projects.modalCloseAria") || "Cerrar modal"}
+                    >
+                      <X className="w-5 h-5" />
+                    </button>
+
+                    <div className="text-xs font-mono text-primary font-semibold mb-2">
+                      {t(selectedProject.tagKey)}
+                    </div>
+                    <h3 className="text-2xl font-bold text-foreground mb-4">
+                      {t(selectedProject.titleKey)}
+                    </h3>
+
+                    <div className="space-y-4 text-sm leading-relaxed mb-6">
+                      <div>
+                        <h4 className="font-mono text-xs text-amber-700 dark:text-amber-400 font-semibold mb-1">
+                          {t("projects.modalProblem") || "EL PROBLEMA DE NEGOCIO:"}
+                        </h4>
+                        <p className="text-muted-foreground">{t(selectedProject.problemKey)}</p>
+                      </div>
+                      <div>
+                        <h4 className="font-mono text-xs text-cyan-700 dark:text-cyan-400 font-semibold mb-1">
+                          {t("projects.modalSolution") || "LA SOLUCIÓN TÉCNICA:"}
+                        </h4>
+                        <p className="text-muted-foreground">{t(selectedProject.solutionKey)}</p>
+                      </div>
+                      <div className="project-impact-box p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/25 dark:bg-emerald-950/40 dark:border-emerald-500/30">
+                        <h4 className="font-mono text-xs text-emerald-700 dark:text-emerald-400 font-bold mb-1">
+                          {t("projects.modalImpact") || "EL RESULTADO / MÉTRICA:"}
+                        </h4>
+                        <p className="text-emerald-900 dark:text-emerald-200 font-medium">{t(selectedProject.impactKey)}</p>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-wrap gap-1.5 mb-6">
+                      {selectedProject.tags.map((t) => (
+                        <span
+                          key={t}
+                          className="px-2.5 py-1 rounded-md text-xs font-mono bg-background border border-border text-foreground"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="flex justify-end gap-3 pt-4 border-t border-border/40">
+                      {selectedProject.githubUrl && (
+                        <a
+                          href={selectedProject.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-4 py-2 rounded-xl text-xs font-semibold font-mono bg-primary text-primary-foreground hover:bg-primary/90 transition-all flex items-center gap-2"
+                        >
+                          <GithubIcon className="w-4 h-4" />
+                          <span>{t("projects.viewRepo") || "Ver Repositorio GitHub"}</span>
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                      )}
+                      <button
+                        onClick={() => setSelectedProject(null)}
+                        className="px-4 py-2 rounded-xl text-xs font-semibold border border-border hover:bg-card text-foreground cursor-pointer"
+                      >
+                        {t("projects.modalClose") || "Cerrar"}
+                      </button>
+                    </div>
+                  </motion.div>
                 </div>
-              </motion.div>
-            </div>
+              )}
+            </AnimatePresence>,
+            document.body
           )}
-        </AnimatePresence>
       </div>
     </section>
   );

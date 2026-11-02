@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Gamepad2,
@@ -224,38 +225,42 @@ export const OffTopicSection: React.FC = () => {
         </div>
 
         {/* Lightbox Modal */}
-        <AnimatePresence>
-          {lightboxImg && (
-            <div
-              onClick={() => setLightboxImg(null)}
-              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md cursor-pointer"
-            >
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                onClick={(e) => e.stopPropagation()}
-                className="relative max-w-3xl w-full bg-card rounded-2xl overflow-hidden border border-border shadow-2xl p-2 cursor-default text-left"
-              >
-                <button
+        {typeof document !== "undefined" &&
+          createPortal(
+            <AnimatePresence>
+              {lightboxImg && (
+                <div
                   onClick={() => setLightboxImg(null)}
-                  className="absolute top-4 right-4 p-2 rounded-full bg-black/60 text-white hover:bg-black/80 transition-colors z-20 cursor-pointer"
-                  aria-label={t("offtopic.closeZoom") || "Cerrar ampliación"}
+                  className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md cursor-pointer"
                 >
-                  <X className="w-5 h-5" />
-                </button>
-                <img
-                  src={lightboxImg.src}
-                  alt={lightboxImg.alt}
-                  className="w-full max-h-[75vh] object-contain rounded-xl"
-                />
-                <div className="p-4 text-xs font-mono text-muted-foreground">
-                  {lightboxImg.caption}
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    onClick={(e) => e.stopPropagation()}
+                    className="relative max-w-3xl w-full bg-card rounded-2xl overflow-hidden border border-border shadow-2xl p-2 cursor-default text-left"
+                  >
+                    <button
+                      onClick={() => setLightboxImg(null)}
+                      className="absolute top-4 right-4 p-2 rounded-full bg-black/60 text-white hover:bg-black/80 transition-colors z-20 cursor-pointer"
+                      aria-label={t("offtopic.closeZoom") || "Cerrar ampliación"}
+                    >
+                      <X className="w-5 h-5" />
+                    </button>
+                    <img
+                      src={lightboxImg.src}
+                      alt={lightboxImg.alt}
+                      className="w-full max-h-[75vh] object-contain rounded-xl"
+                    />
+                    <div className="p-4 text-xs font-mono text-muted-foreground">
+                      {lightboxImg.caption}
+                    </div>
+                  </motion.div>
                 </div>
-              </motion.div>
-            </div>
+              )}
+            </AnimatePresence>,
+            document.body
           )}
-        </AnimatePresence>
       </div>
     </section>
   );
