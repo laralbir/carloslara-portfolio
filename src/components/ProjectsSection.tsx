@@ -50,6 +50,18 @@ export const ProjectsSection: React.FC = () => {
   const projects: ProjectItem[] = [
     // Personal / AI First (highlights latest work)
     {
+      id: "personal5",
+      category: "personal",
+      titleKey: "projects.personal5.title",
+      tagKey: "projects.personal5.tag",
+      problemKey: "projects.personal5.problem",
+      solutionKey: "projects.personal5.solution",
+      impactKey: "projects.personal5.impact",
+      githubUrl: "https://github.com/laralbir/japan-travel-tools",
+      tags: ["Android Kotlin", "Jetpack Compose", "Offline-First", "Gemini AI & ML Kit OCR", "SDD & TDD"],
+      featured: true,
+    },
+    {
       id: "personal4",
       category: "personal",
       titleKey: "projects.personal4.title",
@@ -82,27 +94,6 @@ export const ProjectsSection: React.FC = () => {
       impactKey: "projects.case3.impact",
       tags: ["AWS SQS", "AWS SNS", "TypeScript", "Event-Driven EDA", "PCI-DSS"],
       featured: true,
-    },
-    {
-      id: "case2",
-      category: "enterprise",
-      titleKey: "projects.case2.title",
-      tagKey: "projects.case2.tag",
-      problemKey: "projects.case2.problem",
-      solutionKey: "projects.case2.solution",
-      impactKey: "projects.case2.impact",
-      tags: ["Timeline Diag", "Calendar Sync", "Conflict Detection", "Algorithm"],
-    },
-    {
-      id: "personal1",
-      category: "personal",
-      titleKey: "projects.personal1.title",
-      tagKey: "projects.personal1.tag",
-      problemKey: "projects.personal1.problem",
-      solutionKey: "projects.personal1.solution",
-      impactKey: "projects.personal1.impact",
-      githubUrl: "https://github.com/laralbir",
-      tags: ["Google Gemma Edge AI", "Android Kotlin", "On-Device LLM", "Offline"],
     },
     {
       id: "personal2",

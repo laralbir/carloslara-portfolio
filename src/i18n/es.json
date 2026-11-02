@@ -199,23 +199,6 @@
       "solution": "Diseñé un servidor MCP en Next.js con arquitectura hexagonal y acceso de solo lectura, capaz de reconstruir toda la cronología en segundos respondiendo en lenguaje natural.",
       "impact": "De 60 minutos de frustración a resolver diagnósticos complejos en menos de 30 segundos."
     },
-    "case2": {
-      "title": "Conciliador de Disponibilidad y Reservas",
-      "tag": "Herramientas de Operaciones & Diagnóstico",
-      "problem": "Cuando surgían incoherencias de calendario, contrastar las temporadas de un alojamiento con sus reservas obligaba a cruzar fechas y restricciones a mano, un proceso lento y expuesto a diagnósticos erróneos.",
-      "solution": "Creé una herramienta interna que cruza temporadas y reservas en un timeline gráfico interactivo, detecta incoherencias y genera una propuesta automática de reparación.",
-      "impact": "Eliminación de fallos de diagnóstico humano y drástico ahorro de tiempo operativo al visualizar cualquier conflicto de calendario de un vistazo.",
-      "tvpTitle": "VISTA DE TIMELINE & DIAGNÓSTICO",
-      "tvpStatus": "⚡ Conflicto Detectado",
-      "tvpSeasons": "Temporadas",
-      "tvpHighSeason": "T. Alta",
-      "tvpGap": "⚠️ Hueco",
-      "tvpMidSeason": "T. Media",
-      "tvpBookings": "Reservas",
-      "tvpBookingOk": "Reserva #1402",
-      "tvpBookingWarn": "Reserva #1589 ⚠️",
-      "tvpProposal": "💡 Propuesta de fix: Extender T. Alta para cubrir Reserva #1589 y sincronizar"
-    },
     "case3": {
       "title": "Motor de Sincronización OTA en Tiempo Real",
       "tag": "Event-Driven & Arquitectura Distribuida",
@@ -227,13 +210,6 @@
     "personalTitle": "Proyectos Personales Orquestados con IA",
     "personalSubtitle": "Hardware, sistemas embebidos, Edge AI local y aplicaciones nativas creadas y aceleradas con agentes de IA autónomos (Claude, Gemma y prompts especializados).",
     "repoBtn": "Ver en GitHub ↗",
-    "personal1": {
-      "title": "AgroAI — Gestión Agrícola con IA On-Device",
-      "tag": "Edge AI & Android Nativo",
-      "problem": "Llevar la IA generativa al campo agrícola donde la cobertura móvil es nula o inestable, sin depender de servidores externos ni comprometer la privacidad.",
-      "solution": "App nativa Android en Kotlin que ejecuta en local el modelo Google Gemma (Edge AI), planificando tratamientos, riegos y salud de plantaciones 100% offline.",
-      "impact": "IA generativa en el bolsillo del agricultor sin suscripciones en la nube ni necesidad de internet."
-    },
     "personal2": {
       "title": "Hyundai / Kia Gen5W — Ingeniería Inversa de Firmware",
       "tag": "Reverse Engineering & Embedded Linux",
@@ -254,6 +230,13 @@
       "problem": "Leer y estudiar documentación técnica extensa, libros o especificaciones en Markdown alojadas en repositorios de GitHub desde el móvil resulta incómodo y fragmentado.",
       "solution": "App nativa Android (Kotlin, Jetpack Compose, Material 3, Clean Architecture + MVI) desarrollada al 100% mediante desarrollo agéntico con Google Antigravity y Claude Code. Soporte completo de GFM, renderizado de diagramas Mermaid, guardado de progreso de lectura y modo offline.",
       "impact": "Experiencia eReader fluida para desarrolladores, orquestada íntegramente con un equipo de subagentes de IA bajo metodología SDD estricta."
+    },
+    "personal5": {
+      "title": "Japan Travel Tools — Suite Android Offline-First & IA para Japón",
+      "tag": "Android Nativo, Offline-First & IA",
+      "problem": "Viajar por Japón requiere coordinar itinerarios, trenes Shinkansen, cambio de divisas, tickets Tax-Free, traducción de carteles/menús y documentos críticos incluso sin cobertura de datos.",
+      "solution": "App nativa Android 100% offline-first en Kotlin y Jetpack Compose desarrollada bajo SDD y TDD estricto. Incluye escaneo híbrido de tickets y Tax-Free (Gemini Cloud + ML Kit OCR trilingüe), bóveda biométrica de documentos, planificador multimodal de transportes, traductor bidireccional de voz y sincronización entre dispositivos.",
+      "impact": "Suite integral de viaje en producción (v1.2.0) sin dependencia de red, con estética Nippon Dentōshoku y 100% verificada con TDD."
     },
     "tag": "CASOS DE ESTUDIO & PROYECTOS",
     "titlePrefix": "Cosas Interesantes ",

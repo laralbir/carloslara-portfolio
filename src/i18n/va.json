@@ -199,23 +199,6 @@
       "solution": "Vaig dissenyar un servidor MCP en Next.js amb arquitectura hexagonal i accés de només lectura, capaç de reconstruir tota la cronologia en segons responent en llenguatge natural.",
       "impact": "De 60 minuts de frustració a resoldre diagnòstics complexos en menys de 30 segons."
     },
-    "case2": {
-      "title": "Conciliador de Disponibilitat i Reserves",
-      "tag": "Eines d'Operacions & Diagnòstic",
-      "problem": "Detectar desajustos entre les temporades de disponibilitat i les reserves reals d'un allotjament requeria creuar dades a mà, provocant lentitud i freqüents errors de diagnòstic.",
-      "solution": "Vaig crear una eina interna que creua temporades i reserves en un timeline gràfic interactiu, detecta incoherències i genera una proposta automàtica de reparació.",
-      "impact": "Eliminació d'errors de diagnòstic humà i dràstic estalvi de temps operatiu en visualitzar qualsevol conflicte de calendari d'una ullada.",
-      "tvpTitle": "VISTA DE TIMELINE & DIAGNÒSTIC",
-      "tvpStatus": "⚡ Conflicte Detectat",
-      "tvpSeasons": "Temporades",
-      "tvpHighSeason": "T. Alta",
-      "tvpGap": "⚠️ Buit",
-      "tvpMidSeason": "T. Mitjana",
-      "tvpBookings": "Reserves",
-      "tvpBookingOk": "Reserva #1402",
-      "tvpBookingWarn": "Reserva #1589 ⚠️",
-      "tvpProposal": "💡 Proposta de fix: Estendre T. Alta per cobrir Reserva #1589 i sincronitzar"
-    },
     "case3": {
       "title": "Motor de Sincronització OTA en Temps Real",
       "tag": "Event-Driven & Arquitectura Distribuïda",
@@ -227,13 +210,6 @@
     "personalTitle": "Projectes Personals Orquestrats amb IA",
     "personalSubtitle": "Hardware, sistemes encastats, Edge AI local i aplicacions natives accelerades amb agents d'IA autònoms (Claude, Gemma i prompts especialitzats).",
     "repoBtn": "Veure en GitHub ↗",
-    "personal1": {
-      "title": "AgroAI — Gestió Agrícola amb IA On-Device",
-      "tag": "Edge AI & Android Natiu",
-      "problem": "Portar la IA generativa al camp agrícola on la cobertura mòbil és nul·la o inestable, sense dependre de servidors externs ni comprometre la privacitat.",
-      "solution": "App nativa Android en Kotlin que executa en local el model Google Gemma (Edge AI), planificant tractaments, regs i salut de plantacions 100% offline.",
-      "impact": "IA generativa a la butxaca de l'agricultor sense subscripcions al núvol ni necessitat d'internet."
-    },
     "personal2": {
       "title": "Hyundai / Kia Gen5W — Enginyeria Inversa de Firmware",
       "tag": "Reverse Engineering & Embedded Linux",
@@ -254,6 +230,13 @@
       "problem": "Llegir i estudiar documentació tècnica extensa, llibres o especificacions en Markdown allotjades en repositoris de GitHub des del mòbil resulta incòmode i fragmentat.",
       "solution": "App nativa Android (Kotlin, Jetpack Compose, Material 3, Clean Architecture + MVI) desenvolupada al 100% mitjançant desenvolupament agèntic amb Google Antigravity i Claude Code. Suport complet de GFM, renderitzat de diagrames Mermaid, guardat de progrés de lectura i mode offline.",
       "impact": "Experiència eReader fluida per a desenvolupadors, orquestrada íntegrament amb un equip de subagents d'IA sota metodologia SDD estricta."
+    },
+    "personal5": {
+      "title": "Japan Travel Tools — Suite Android Offline-First & IA per al Japó",
+      "tag": "Android Natiu, Offline-First & IA",
+      "problem": "Viatjar pel Japó requerix coordinar itineraris, trens Shinkansen, canvi de divises, tiquets Tax-Free, traducció de cartells/menús i documents crítics fins i tot sense cobertura de dades.",
+      "solution": "App nativa Android 100% offline-first en Kotlin i Jetpack Compose desenvolupada sota SDD i TDD estricte. Inclou escaneig híbrid de tiquets i Tax-Free (Gemini Cloud + ML Kit OCR trilingüe), bóveda biomètrica de documents, planificador multimodal de transports, traductor bidireccional de veu i sincronització entre dispositius.",
+      "impact": "Suite integral de viatge en producció (v1.2.0) sense dependència de xarxa, amb estètica Nippon Dentōshoku i 100% verificada amb TDD."
     },
     "tag": "CASOS D'ESTUDI & PROJECTES",
     "titlePrefix": "Coses Interessants ",

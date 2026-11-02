@@ -199,23 +199,6 @@
       "solution": "Built a custom MCP server in Next.js with hexagonal architecture and read-only access, reconstructing the entire timeline in seconds from natural language queries.",
       "impact": "Turned an hour of frustrating log digging into answers in under 30 seconds."
     },
-    "case2": {
-      "title": "Availability Period Fixer",
-      "tag": "Internal Operations & Diagnostic Tooling",
-      "problem": "Detecting discrepancies between configured availability seasons and actual property bookings required manual data cross-referencing, causing slow investigations and diagnostic errors.",
-      "solution": "Built an internal tool that visualizes availability seasons and live bookings on an interactive graphic timeline, detects inconsistencies, and generates an automated repair proposal.",
-      "impact": "Eliminated diagnostic errors and drastically reduced operational investigation time by making calendar conflicts immediately visible and actionable.",
-      "tvpTitle": "TIMELINE DIAGNOSTIC VIEW",
-      "tvpStatus": "⚡ Conflict Detected",
-      "tvpSeasons": "Seasons",
-      "tvpHighSeason": "High Season",
-      "tvpGap": "⚠️ Gap",
-      "tvpMidSeason": "Mid Season",
-      "tvpBookings": "Bookings",
-      "tvpBookingOk": "Booking #1402",
-      "tvpBookingWarn": "Booking #1589 ⚠️",
-      "tvpProposal": "💡 Fix proposal: Extend High Season to cover Booking #1589 & sync rules"
-    },
     "case3": {
       "title": "Real-time OTA Inventory Synchronization Engine",
       "tag": "Event-Driven & Distributed Architecture",
@@ -227,13 +210,6 @@
     "personalTitle": "Personal Projects Orchestrated with AI",
     "personalSubtitle": "Hardware, embedded systems, local Edge AI, and native applications supercharged by autonomous AI agents (Claude, Gemma, and tailored prompts).",
     "repoBtn": "View on GitHub ↗",
-    "personal1": {
-      "title": "AgroAI — On-Device AI Agricultural Assistant",
-      "tag": "Edge AI & Native Android",
-      "problem": "Delivering generative AI directly into the agricultural field where mobile signal is scarce or zero, with complete privacy and zero cloud dependencies.",
-      "solution": "Native Android app in Kotlin running Google's Gemma LLM locally on-device (Edge AI) to plan treatments, irrigation, and crop health 100% offline.",
-      "impact": "Autonomous generative AI in the farmer's pocket without cloud subscriptions or cellular connection."
-    },
     "personal2": {
       "title": "Hyundai / Kia Gen5W — Navigation Firmware RE",
       "tag": "Reverse Engineering & Embedded Linux",
@@ -254,6 +230,13 @@
       "problem": "Reading and navigating extensive technical books, architecture specs, and Markdown documentation across GitHub repositories on mobile devices is friction-heavy and fragmented.",
       "solution": "Native Android app (Kotlin, Jetpack Compose, Material 3, Clean Architecture + MVI) built 100% through AI agentic workflows (Google Antigravity & Claude Code under strict SDD). Features full GFM rendering, Mermaid diagrams, reading progress tracking, and offline support.",
       "impact": "Polished eReader experience for developers, orchestrated from scratch by autonomous AI multi-agent workflows."
+    },
+    "personal5": {
+      "title": "Japan Travel Tools — Offline-First Android & AI Travel Suite",
+      "tag": "Native Android, Offline-First & AI",
+      "problem": "Traveling across Japan requires coordinating itineraries, Shinkansen trains, currency exchange, Tax-Free receipts, sign/menu translation, and critical ID documents even with zero cellular signal.",
+      "solution": "100% offline-first native Android app in Kotlin and Jetpack Compose built under strict SDD and TDD. Features hybrid AI receipt & Tax-Free scanning (Gemini Cloud + trilingual ML Kit OCR), biometric document vault, multimodal transit planner, bidirectional voice translator, and cross-device sync.",
+      "impact": "Production-ready all-in-one travel companion (v1.2.0) with zero network dependency, Nippon Dentōshoku aesthetics, and 100% TDD verification."
     },
     "tag": "CASE STUDIES & PROJECTS",
     "titlePrefix": "Interesting Things ",

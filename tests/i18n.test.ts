@@ -56,10 +56,14 @@ describe('i18n Engine & Language Control', () => {
     expect(li?.querySelector('strong')?.textContent).toBe('Servicios Taurinos Serolo (2006–2009):');
   });
 
-  it('translates projects.personal4 correctly across languages', () => {
+  it('translates projects.personal4 and projects.personal5 correctly across languages', () => {
     expect(t('projects.personal4.title', 'es')).toContain('MD GitHub Navigator');
     expect(t('projects.personal4.title', 'en')).toContain('MD GitHub Navigator');
     expect(t('projects.personal4.title', 'va')).toContain('MD GitHub Navigator');
+
+    expect(t('projects.personal5.title', 'es')).toContain('Japan Travel Tools');
+    expect(t('projects.personal5.title', 'en')).toContain('Japan Travel Tools');
+    expect(t('projects.personal5.title', 'va')).toContain('Japan Travel Tools');
   });
 
   it('guarantees 100% key parity and zero missing translations across es, en, and va', async () => {

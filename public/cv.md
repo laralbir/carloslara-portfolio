@@ -89,10 +89,10 @@ Pioneering practitioner of Agentic AI Engineering: integrating Claude Code in th
 - **Action/Solution:** Architected an in-house Model Context Protocol server using hexagonal architecture in Next.js, equipped with 25+ read-only tools querying MongoDB and SQL Server. Engineers can query and reconstruct complete transaction histories via natural language in seconds.
 - **Quantified Result/Impact:** Reduced diagnostic investigation times by 98% (from 60 minutes down to less than 30 seconds).
 
-### 2. Visual Timeline & Conflict Conciliator
-- **Context/Problem:** Calendar mismatches between property availability, seasonal rules, and multi-OTA bookings required manual date cross-referencing, leading to human error and delayed fixes.
-- **Action/Solution:** Created an internal interactive graphical diagnostic engine that cross-references seasons with reservations, detects coverage gaps, and automatically suggests exact corrective sync payloads.
-- **Quantified Result/Impact:** Eliminated manual diagnosis mistakes and provided immediate visual root-cause identification.
+### 2. Japan Travel Tools — Offline-First Android & AI Travel Suite
+- **Context/Problem:** Traveling across Japan requires coordinating itineraries, Shinkansen trains, currency exchange, Tax-Free receipts, sign/menu translation, and critical ID documents even with zero cellular signal.
+- **Action/Solution:** Engineered a 100% offline-first native Android application in Kotlin and Jetpack Compose under strict SDD and TDD. Features hybrid AI receipt & Tax-Free scanning (Gemini Cloud + trilingual ML Kit OCR), biometric document vault, multimodal transit planner, and bidirectional voice translator.
+- **Quantified Result/Impact:** Shipped production-ready v1.2.0 suite with zero network dependency, Nippon Dentōshoku aesthetics, and 100% TDD test coverage ([github.com/laralbir/japan-travel-tools](https://github.com/laralbir/japan-travel-tools)).
 
 ### 3. High-Throughput Real-Time OTA Synchronization Engine
 - **Context/Problem:** Preventing overbookings and rate mismatches across millions of transactions distributed among Booking.com, Airbnb, Expedia, and VRBO.

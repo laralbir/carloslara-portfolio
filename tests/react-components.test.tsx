@@ -150,6 +150,9 @@ describe("React Portfolio Components", () => {
 
     expect(container.textContent).toContain("Cosas Interesantes");
     expect(container.textContent).toContain("MD GitHub Navigator");
+    expect(container.textContent).toContain("Japan Travel Tools");
+    expect(container.textContent).not.toContain("Conciliador de Disponibilidad");
+    expect(container.textContent).not.toContain("AgroAI");
 
     // Filter buttons exist
     const buttons = Array.from(container.querySelectorAll("button"));
@@ -162,6 +165,8 @@ describe("React Portfolio Components", () => {
       });
       // Should show personal projects
       expect(container.textContent).toContain("MD GitHub Navigator");
+      expect(container.textContent).toContain("Japan Travel Tools");
+      expect(container.textContent).not.toContain("AgroAI");
     }
 
     // Clicking on a project article opens the expanded modal
